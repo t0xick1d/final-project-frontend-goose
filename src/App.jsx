@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 
 import MainPage from './page/MainPage/MainPage';
-import LogIn from 'page/LogIn/LogIn';
-import SingUp from 'page/SingUp/SingUp';
+import LoginPage from 'page/LoginPage/LoginPage';
+import RegisterPage from 'page/RegisterPage/RegisterPage';
 import MainLayout from 'page/MainLayout/MainLayout';
 import AccountPage from 'page/AccountPage/Account';
 import CalendarPage from 'page/CalendarPage/Calendar';
@@ -15,8 +15,8 @@ export const App = () => {
     <div>
       <Routes>
         <Route index element={<MainPage />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/register" element={<SingUp />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/" element={<MainLayout />}>
           <Route
             path="/account"
