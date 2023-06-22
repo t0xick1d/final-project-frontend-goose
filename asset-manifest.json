@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/final-project-frontend-goose/static/css/main.7acaea2f.css",
+    "main.js": "/final-project-frontend-goose/static/js/main.b5aa4281.js",
+    "index.html": "/final-project-frontend-goose/index.html",
+    "main.7acaea2f.css.map": "/final-project-frontend-goose/static/css/main.7acaea2f.css.map",
+    "main.b5aa4281.js.map": "/final-project-frontend-goose/static/js/main.b5aa4281.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.b5aa4281.js"
+  ]
+}
