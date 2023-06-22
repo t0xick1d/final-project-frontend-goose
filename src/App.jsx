@@ -5,6 +5,8 @@ import LogIn from 'page/LogIn/LogIn';
 import SingUp from 'page/SingUp/SingUp';
 import User from 'page/User/User';
 
+// спроба створити gh-pages
+
 export const App = () => {
   return (
     <div>
