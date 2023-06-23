@@ -1,8 +1,10 @@
 import React from 'react';
 import goose from './svg/goose.svg';
+import Reviews from './Footer';
 
 export default function MainPage() {
   return (
+    <>
     <section>
       <img src={goose} alt="goose" />
       <h1>GooseTrack</h1>
@@ -15,5 +17,9 @@ export default function MainPage() {
         </li>
       </nav>
     </section>
+    <footer>
+      <Reviews/>
+    </footer>
+    </>
   );
 }
