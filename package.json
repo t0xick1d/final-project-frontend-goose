@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
     "calendar-dates": "^2.7.2",
     "date-fns": "^2.30.0",
     "formik": "^2.4.2",
