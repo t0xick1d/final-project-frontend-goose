@@ -1,6 +1,6 @@
 import React from 'react';
 import goose from './svg/goose.svg';
-import Reviews from '../../components/Reviews/Reviews';
+import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
 
 export default function MainPage() {
   return (
@@ -18,7 +18,7 @@ export default function MainPage() {
         </nav>
       </section>
       <footer>
-        <Reviews />
+        <ReviewsSlider />
       </footer>
     </>
   );

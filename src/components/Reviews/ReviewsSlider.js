@@ -11,7 +11,7 @@ import {
 } from './ReviewsStyled';
 import ReviewsBox from './ReviewsBox';
 
-export default function Reviews() {
+export default function ReviewsSlider() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
