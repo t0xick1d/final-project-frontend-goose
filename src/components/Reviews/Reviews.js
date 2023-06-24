@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ArrowLeft from '../../images/icons/reviews-arrow-left.svg';
 import ArrowRight from '../../images/icons/reviews-arrow-right.svg';
 import {
@@ -12,14 +12,31 @@ import {
 import ReviewsBox from './ReviewsBox';
 
 export default function Reviews() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+  }, []);
+
   return (
     <ReviewsWrapper>
       <ReviewsHeader>Reviews</ReviewsHeader>
-
       <UserReviewsBlock>
         <ReviewsBoxList>
-          <ReviewsBox />
-          <ReviewsBox />
+          {windowWidth >= 1440 ? (
+            <>
+              {
+                <>
+                  <ReviewsBox />
+                  <ReviewsBox />
+                </>
+              }
+            </>
+          ) : (
+            <>{<ReviewsBox />}</>
+          )}
         </ReviewsBoxList>
         <ButtonList>
           <ButtonArrow>
