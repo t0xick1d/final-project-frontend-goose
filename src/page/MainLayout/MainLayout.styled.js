@@ -31,6 +31,6 @@ export const Wrapper = styled.div`
 
   //поки немає Side-bar
   @media screen and (min-width: 1440px) {
-    margin-left: 289px;
+    // margin-left: 289px;
   }
 `;
