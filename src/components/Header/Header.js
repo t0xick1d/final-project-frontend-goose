@@ -1,5 +1,61 @@
 import React from 'react';
 
 export default function Header() {
-  return <div>Header</div>;
+  const [darkTheme, setDarkTheme] = useState(
+    localStorage.getItem('darkTheme') === 'true' || false
+  );
+
+  useEffect(() => {
+    localStorage.setItem('darkTheme', darkTheme);
+  }, [darkTheme]);
+  const location = useLocation();
+  const isActivePageCalendar = location.pathname.includes('calendar');
+
+  const isTabletOrMobile = useMedia('(max-width: 1439px)');
+
+  const name = 'Name';
+
+  const firstLetter = name.trim().slice(0, 1).toUpperCase();
+
+  return (
+    <Container>
+      {isTabletOrMobile ? (
+        <Burger onClick={() => console.log('click')}>
+          <use href={icon + '#icon-menu'}></use>
+        </Burger>
+      ) : isActivePageCalendar ? (
+        <>
+          <Image src={goose} alt="Goose"></Image>
+          <div>
+            <H2>Calendar</H2>
+            <Motivation>
+              <Accent>Let go </Accent>of the past and focus on the present!
+            </Motivation>
+          </div>
+        </>
+      ) : (
+        <H2>User Profile</H2>
+      )}
+
+      <Wrapper>
+        <Button>Feedback</Button>
+        <label>
+          <Input
+            type="checkbox"
+            onChange={() => {
+              setDarkTheme(!darkTheme);
+            }}
+          />
+
+          <Svg>
+            <use href={icon + (darkTheme ? '#icon-sun' : '#icon-moon')}></use>
+          </Svg>
+        </label>
+        <Name>{name}</Name>
+        <Avatar>
+          <AvatarLetter>{firstLetter}</AvatarLetter>
+        </Avatar>
+      </Wrapper>
+    </Container>
+  );
 }
