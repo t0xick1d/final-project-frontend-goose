@@ -1,8 +1,11 @@
 import React from 'react';
-import { AddTaskButton } from './ButtonAddTask.styled';
+import { AddTaskButton, AddTaskIcon } from './ButtonAddTask.styled';
+import AddTask from '../../images/icons/plus.svg'
 
 export default function ButtonAddTask() {
     return (
-        <AddTaskButton> + Add task</AddTaskButton>
+        <AddTaskButton>
+        <AddTaskIcon src={AddTask} alt="addTask" />
+        Add task</AddTaskButton>
     );
 }
