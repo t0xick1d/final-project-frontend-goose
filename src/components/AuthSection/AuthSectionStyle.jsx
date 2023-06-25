@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AuthSection = styled.section`
+export const Auth = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
