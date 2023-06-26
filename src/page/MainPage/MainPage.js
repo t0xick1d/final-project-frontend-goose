@@ -8,10 +8,10 @@ export default function MainPage() {
       <h1>GooseTrack</h1>
       <nav>
         <li>
-          <a>Sign up</a>
+          <a href=".">Sign up</a>
         </li>
         <li>
-          <a>Log in</a>
+          <a href=".">Log in</a>
         </li>
       </nav>
     </section>

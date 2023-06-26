@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import exampleSlice from './example/exampleSlice';
+import { tasksReducer } from './tasks/tasks.slice';
 // має в подальшому знадобитись
 //import storage from 'redux-persist/lib/storage';
 
@@ -33,6 +34,7 @@ export const store = configureStore({
   reducer: {
     // сюди додаються slice
     // це створена заглушка поки немаэ ще slice
+    tasks: tasksReducer,
     example: exampleSlice,
   },
   middleware,

@@ -9,6 +9,7 @@ import CalendarPage from 'page/CalendarPage/Calendar';
 import StatisticsPage from 'page/StatisticsPage/Statistics';
 
 import PrivatRoute from 'PrivateRute';
+import { ChosenMonth } from 'components/ChosonMonth/ChosonMonth';
 
 export const App = () => {
   return (
@@ -29,7 +30,10 @@ export const App = () => {
             element={
               <PrivatRoute redirectTo="/login" component={<CalendarPage />} />
             }
-          />
+          >
+            <Route path="month/:currentDate" element={<ChosenMonth />} />
+            <Route path="day/:currentDate" element={'<ChosenDay />'} />
+          </Route>
           <Route
             path="/statistics"
             element={
@@ -37,6 +41,7 @@ export const App = () => {
             }
           />
         </Route>
+        <Route path="*" element={'<PageNotFound />'} />
       </Routes>
     </div>
   );
