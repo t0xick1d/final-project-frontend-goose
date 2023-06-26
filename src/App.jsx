@@ -24,33 +24,45 @@ export const App = () => {
     }, [dispatch])
 
     return (
-        <div >
-            <Routes>
-                <Route index element={<MainPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="/register/:token" element={<VerificationPage />} />;
-                <Route path="/" element={<MainLayout />}>
-                    <Route
-                        path="/account"
-                        element={
-                            <PrivateRoute redirectTo="/login" component={<AccountPage />} />
-                        }
-                    />
-                    <Route
-                        path="/calendar"
-                        element={
-                            <PrivateRoute redirectTo="/login" component={<CalendarPage />} />
-                        }
-                    />
-                    <Route
-                        path="/statistics"
-                        element={
-                            <PrivateRoute redirectTo="/login" component={<StatisticsPage />} />
-                        }
-                    />
-                </Route>
-            </Routes>
-        </div>
+      <div>
+        <Routes>
+          <Route index element={<MainPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/register/:token" element={<VerificationPage />} />;
+          <Route path="/" element={<MainLayout />}>
+            <Route
+              path="/account"
+              element={
+                // має бути login але я додав account щоб можна було зайти на сторінку
+                <PrivateRoute
+                  redirectTo="/account"
+                  component={<AccountPage />}
+                />
+              }
+            />
+            <Route
+              path="/calendar"
+              element={
+                // має бути login але я додав calendar щоб можна було зайти на сторінку
+                <PrivateRoute
+                  redirectTo="/calendar"
+                  component={<CalendarPage />}
+                />
+              }
+            />
+            <Route
+              path="/statistics"
+              element={
+                // має бути login але я додав statistics щоб можна було зайти на сторінку
+                <PrivateRoute
+                  redirectTo="/statistics"
+                  component={<StatisticsPage />}
+                />
+              }
+            />
+          </Route>
+        </Routes>
+      </div>
     );
 };

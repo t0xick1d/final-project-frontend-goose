@@ -1,5 +1,5 @@
 import React from 'react';
-import goose from './svg/goose.svg';
+// import goose from './svg/goose.svg';
 import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ export default function MainPage() {
   return (
     <>
       <section>
-        <img src={goose} alt="goose" />
+        {/* <img src={goose} alt="goose" /> */}
         <h1>GooseTrack</h1>
         <nav>
           <li>
