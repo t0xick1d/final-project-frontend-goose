@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Icons from '../../images/sprite.svg'
 import GooseImg from '../../images/icons/goose-min.png'
 import { CgClose } from 'react-icons/cg';
@@ -21,12 +21,13 @@ import {
 } from './SideBar.styled';
 
 
-export default function SideBar() {
+export default function SideBar({ onCloseClick, isOpen }) {
     const [isIconUserHovered, setIconUserHovered] = useState(false);
-    const [isCalendarIconHovered, setCalendarIconHovered] = useState(false);
-  
+  const [isCalendarIconHovered, setCalendarIconHovered] = useState(false);
+
+
   return (
-    <SideBarContainer>
+    <SideBarContainer isOpen={isOpen}>
       <SideBarDiv>
         <LogoConrainer>
           <Logo>
@@ -35,7 +36,7 @@ export default function SideBar() {
               <use href={`${Icons}#icon-GooseTrack`}></use>
             </LogoSvg>
           </Logo>
-          <CloseBtn>
+          <CloseBtn onClick={onCloseClick}>
             <CgClose />
           </CloseBtn>
         </LogoConrainer>
@@ -49,6 +50,7 @@ export default function SideBar() {
                 onMouseLeave={() => setIconUserHovered(false)}
                 onFocus={() => setIconUserHovered(true)}
                 onBlur={() => setIconUserHovered(false)}
+                onClick={onCloseClick}
               >
                 {isIconUserHovered ? (
                   <IconUser>
@@ -69,6 +71,7 @@ export default function SideBar() {
                 onMouseLeave={() => setCalendarIconHovered(false)}
                 onFocus={() => setCalendarIconHovered(true)}
                 onBlur={() => setCalendarIconHovered(false)}
+                onClick={onCloseClick}
               >
                 {isCalendarIconHovered ? (
                   <CalendarIcon>
@@ -83,7 +86,7 @@ export default function SideBar() {
               </StyledNavLink>
             </li>
             <li>
-              <StyledNavLink to="statistics">
+              <StyledNavLink to="statistics" onClick={onCloseClick}>
                 <StatisticsIcon>
                   <use href={`${Icons}#icon-chart`}></use>
                 </StatisticsIcon>
