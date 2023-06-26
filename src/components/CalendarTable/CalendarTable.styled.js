@@ -93,7 +93,7 @@ export const Day = styled.p`
 `;
 
 export const Task = styled.li`
-  font-size: 10px; // нужно проверить
+  font-size: 10px;
   margin-bottom: 1px;
   padding: 4px;
   border-radius: 8px;
@@ -160,11 +160,6 @@ export const Point = styled.p`
   justify-content: center;
   align-items: stretch;
 
-  @media (min-width: 768px) {
-    /* width: 16px;
-    height: 16px; */
-  }
-
   color: ${props => {
     switch (props.priority) {
       case 'low':
@@ -180,6 +175,7 @@ export const Point = styled.p`
         return 'Black;';
     }
   }};
+
   background-color: ${props => {
     switch (props.priority) {
       case 'low':

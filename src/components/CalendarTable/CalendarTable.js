@@ -1,13 +1,20 @@
-import { selectTaskList } from 'redux-store/tasks/tasks.selectors';
+import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { format, isSameMonth, isWeekend, isToday } from 'date-fns';
+import {
+  format,
+  isSameMonth,
+  isWeekend,
+  isToday,
+  getMonth,
+  getDate,
+} from 'date-fns';
 import { Calendar, Cell, Day, Point, Task } from './CalendarTable.styled';
 import { useParams } from 'react-router-dom';
 
 export const CalendarTable = ({ totalDays }) => {
   const navigate = useNavigate();
-  const taskList = useSelector(selectTaskList);
+  const taskList = useSelector(selectArrTasks);
 
   const params = useParams();
 
@@ -34,8 +41,9 @@ export const CalendarTable = ({ totalDays }) => {
         const tasks = taskList.filter(task => {
           const taskDay = new Date(task.date).getDate();
           const taskMonth = new Date(task.date).getMonth();
-          const currentDay = date.getDate();
-          const currentMonth = date.getMonth();
+          const currentDay = getDate(date);
+          const currentMonth = getMonth(date);
+
           return currentDay === taskDay && currentMonth === taskMonth;
         });
 

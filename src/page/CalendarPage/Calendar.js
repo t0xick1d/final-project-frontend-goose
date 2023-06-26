@@ -1,9 +1,14 @@
-import React  from 'react';
+import React from 'react';
 
-import {GridWrapper,CellWrapper, RowInCell, DayWrapper } from '../CalendarPage/CalendarGrid/CalendarGrid.styled'
-import TitleCalendar from './TitleCalendar/TitleCalendar'
-import Header from '../../components/Header/Header'
-import HeaderCalendar from './HeaderCalendar/HeaderCalendar'
+import {
+  GridWrapper,
+  CellWrapper,
+  RowInCell,
+  DayWrapper,
+} from '../CalendarPage/CalendarGrid/CalendarGrid.styled';
+import TitleCalendar from './TitleCalendar/TitleCalendar';
+import Header from '../../components/Header/Header';
+import HeaderCalendar from './HeaderCalendar/HeaderCalendar';
 // import CalendarGrid from './CalendarGrid/CalendarGrid'
 
 import {
@@ -19,16 +24,17 @@ import {
   parse,
   // parseISO,
   startOfToday,
-} from 'date-fns'
+} from 'date-fns';
 
 import {
-  //  Fragment, 
-  useState } from 'react'
+  //  Fragment,
+  useState,
+} from 'react';
+import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
-
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
 
 export default function CalendarPage() {
   const today = startOfToday();
@@ -55,6 +61,7 @@ export default function CalendarPage() {
   return (
     <>
       <Header />
+      <ChosedMonth />
       <HeaderCalendar
         firstDayCurrentMonth={firstDayCurrentMonth}
         previousMonth={previousMonth}
@@ -105,9 +112,6 @@ export default function CalendarPage() {
   );
 }
 
-
-
-
 let colStartClasses = [
   '',
   'col-start-2',
@@ -116,8 +120,4 @@ let colStartClasses = [
   'col-start-5',
   'col-start-6',
   'col-start-7',
-]
-
-
-
-
+];

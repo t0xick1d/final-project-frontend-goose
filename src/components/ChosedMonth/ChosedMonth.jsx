@@ -5,7 +5,8 @@ import {
   lastDayOfMonth,
   startOfWeek,
   lastDayOfWeek,
-  // addMonths,
+  getMonth,
+  getYear,
 } from 'date-fns';
 
 import { useParams } from 'react-router-dom';
@@ -13,9 +14,9 @@ import MonthCalendarHead from 'components/MonthCalendarHead/MonthCalendarHead';
 import { CalendarTable } from 'components/CalendarTable/CalendarTable';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { get } from 'redux-store/tasks/tasks.operations';
+import { fetchTasks } from 'redux-store/tasks/tasksOperations';
 
-export const ChosenMonth = () => {
+export const ChosedMonth = () => {
   const dispatch = useDispatch();
 
   const params = useParams();
@@ -38,13 +39,13 @@ export const ChosenMonth = () => {
 
   const totalDays = eachDayOfInterval({ start: startDate, end: endDate });
 
-  const from = format(startDate, 'yyyy-MM-dd');
-  const to = format(endDate, 'yyyy-MM-dd');
+  const m = getMonth(ValidCurrentDate);
+  const y = getYear(ValidCurrentDate);
 
   useEffect(() => {
-    const data = { from, to };
-    dispatch(get(data));
-  }, [dispatch, from, to]);
+    const data = { m, y };
+    dispatch(fetchTasks(data));
+  }, [dispatch, m, y]);
 
   return (
     <>
