@@ -7,6 +7,8 @@ import {
 
 const initialState = {
   user: { name: null, email: null, avatarUrl: null },
+  // user: { name: 'Some', email: 'some@gmail.com', avatarUrl: null },
+
   token: null,
   isLoggedIn: false,
   isRefresh: false,
@@ -63,3 +65,4 @@ export default authSlice.reducer;
 export const getIsLoggedIn = state => state.auth.isLoggedIn;
 export const getUserName = state => state.auth.user.name;
 export const getUserRefresh = state => state.auth.isRefresh;
+export const getUser = state => state.auth.user;

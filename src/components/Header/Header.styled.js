@@ -5,7 +5,9 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 64px;
-  @media screen and (min-width: 1440px) {
+
+  @media screen and (min-width: 1439px) {
+
     margin-bottom: 32px;
   }
 `;
@@ -26,7 +28,9 @@ export const Burger = styled.svg`
   stroke: #343434;
   fill: none;
   cursor: pointer;
-  @media screen and (min-width: 768px) {
+
+  @media screen and (min-width: 767px) {
+
     width: 34px;
     height: 34px;
   }
@@ -110,7 +114,8 @@ export const AvatarLetter = styled.span`
   }
 `;
 
-//Toggle
+//Theme Toggle
+
 
 export const Input = styled.input`
   position: absolute;
@@ -132,7 +137,9 @@ export const Svg = styled.svg`
   margin-right: 14px;
   fill: #3e85f3;
   cursor: pointer;
-  @media screen and (min-width: 768px) {
+
+  @media screen and (min-width: 767px) {
+
     width: 26px;
     height: 26px;
   }
@@ -142,6 +149,13 @@ export const Svg = styled.svg`
 export const Button = styled.button`
   width: 130px;
   height: 42px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+
   color: #fff;
 
   background: #3e85f3;
@@ -161,3 +175,5 @@ export const Button = styled.button`
     height: 32px;
   }
 `;
+
+

@@ -130,5 +130,6 @@ export const ButtonList = styled.div`
 
 export const ButtonArrow = styled.button`
   border: none;
+  background-color: #ffffff;
   padding: 0;
 `;
