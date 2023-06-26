@@ -1,4 +1,4 @@
-import ButtonAddTask from 'components/ButtonAddTask/ButtonAddTask';
+import ButtonAddTask from 'components/ChoosedDay/ButtonAddTask/ButtonAddTask';
 import React from 'react';
 import { ToDoSection, Container, ContainerStatus, TextToDo } from './ColumnHeadBar.styled';
 import AddComment from '../../images/icons/pluscircle.svg'
