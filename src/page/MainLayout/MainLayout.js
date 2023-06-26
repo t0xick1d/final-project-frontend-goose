@@ -1,13 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import SideBar from '../../components/SideBar/SideBar';
+// import SideBar from '../../components/SideBar/SideBar';
 import { Suspense } from 'react';
 import { Container, Wrapper } from './MainLayout.styled';
+
+
+
 
 const MainLayout = () => {
   return (
     <Container>
-      <SideBar />
+      {/* <SideBar/> */}
       <Wrapper>
         <Header />
 
