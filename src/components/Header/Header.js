@@ -17,7 +17,7 @@ import {
 import goose from 'images/icons/goose.png';
 import icon from 'images/sprite.svg';
 
-export default function Header() {
+export default function Header({ onOpenClick }) {
   const [darkTheme, setDarkTheme] = useState(
     localStorage.getItem('darkTheme') === 'true' || false
   );
@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <Container>
       {isTabletOrMobile ? (
-        <Burger onClick={() => console.log('click')}>
+        <Burger onClick={onOpenClick}>
           <use href={icon + '#icon-menu'}></use>
         </Burger>
       ) : isActivePageCalendar ? (
