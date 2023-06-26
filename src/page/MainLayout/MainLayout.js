@@ -1,19 +1,26 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import SideBar from '../../components/SideBar/SideBar';
+// import SideBar from '../../components/SideBar/SideBar';
 import { Suspense } from 'react';
+import { Container, Wrapper } from './MainLayout.styled';
+
+
+
 
 const MainLayout = () => {
   return (
-    <div>
-      <Header />
-      <SideBar />
-      <main>
-        <Suspense fallback={<div>Loading page...</div>}>
-          <Outlet />
-        </Suspense>
-      </main>
-    </div>
+    <Container>
+      {/* <SideBar/> */}
+      <Wrapper>
+        <Header />
+
+        <main>
+          <Suspense fallback={<div>Loading page...</div>}>
+            <Outlet />
+          </Suspense>
+        </main>
+      </Wrapper>
+    </Container>
   );
 };
 

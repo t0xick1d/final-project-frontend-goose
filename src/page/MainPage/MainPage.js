@@ -1,6 +1,8 @@
 import React from 'react';
 import goose from './svg/goose.svg';
 import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
+import { Link } from 'react-router-dom';
+
 
 export default function MainPage() {
   return (
@@ -10,10 +12,10 @@ export default function MainPage() {
         <h1>GooseTrack</h1>
         <nav>
           <li>
-            <a href="/final-project-frontend-goose">Sign up</a>
+            <Link to="/register">Sign up</Link>
           </li>
           <li>
-            <a href="/final-project-frontend-goose">Log in</a>
+            <Link to="/login">Log in</Link>
           </li>
         </nav>
       </section>

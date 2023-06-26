@@ -1,8 +1,7 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
-  // має в подальшому знадобитись
-  // persistReducer,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -10,32 +9,27 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import exampleSlice from './example/exampleSlice';
-// має в подальшому знадобитись
-//import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage';
+import { authSlice } from './Slices/AuthSlice';
+import { tasksSlice } from './Slices/TasksSlice';
 
-// це налаштування з минулого проект по авторизації
-// const authPersistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
-
-const middleware = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-];
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 
 export const store = configureStore({
   reducer: {
-    // сюди додаються slice
-    // це створена заглушка поки немаэ ще slice
-    example: exampleSlice,
+    auth: persistReducer(authPersistConfig, authSlice.reducer),
+    tasks: tasksSlice.reducer,
   },
-  middleware,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 export const persistor = persistStore(store);
