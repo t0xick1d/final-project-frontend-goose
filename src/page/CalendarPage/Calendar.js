@@ -55,69 +55,56 @@ function nextMonth() {
 
 
   return (
- <>
- <Header/>
-<HeaderCalendar
-firstDayCurrentMonth={firstDayCurrentMonth}
-previousMonth={previousMonth}
-nextMonth={nextMonth}
-/>
+    <>
+      <Header />
+      <HeaderCalendar
+        firstDayCurrentMonth={firstDayCurrentMonth}
+        previousMonth={previousMonth}
+        nextMonth={nextMonth}
+      />
 
+      <TitleCalendar />
 
-  
-  <TitleCalendar/> 
-
-<GridWrapper>
-      {days.map((day, dayIdx)=>(
-        <CellWrapper
-        key={day.toString()}
-        className={classNames(
-          dayIdx === 0 && colStartClasses[getDay(day)],
-          'py-1.5'
-        )}
-        >
-          <RowInCell
-          justifyContent= {'flex-end'} 
+      <GridWrapper>
+        {days.map((day, dayIdx) => (
+          <CellWrapper
+            key={day.toString()}
+            className={classNames(
+              dayIdx === 0 && colStartClasses[getDay(day)],
+              'py-1.5'
+            )}
           >
-           
-<DayWrapper
-  type="button"
-  onClick={() => (day)}
-  className={classNames(
-    isEqual(day, selectedDay) && 'text-white',
-    !isEqual(day, selectedDay) &&
-      isToday(day) &&
-      'text-red-500',
-    !isEqual(day, selectedDay) &&
-      !isToday(day) &&
-      isSameMonth(day, firstDayCurrentMonth) &&
-      'text-gray-900',
-    !isEqual(day, selectedDay) &&
-      !isToday(day) &&
-      !isSameMonth(day, firstDayCurrentMonth) &&
-      'text-gray-400',
-    isEqual(day, selectedDay) && isToday(day) && 'bg-red-500',
-    isEqual(day, selectedDay) &&
-      !isToday(day) &&
-      'bg-gray-900',
-    !isEqual(day, selectedDay) && 'hover:bg-gray-200',
-    (isEqual(day, selectedDay) || isToday(day)) &&
-      'font-semibold',
-    'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
-  )}
-                   >
-{format(day, 'd')}
-</DayWrapper>
-          </RowInCell>
-        </CellWrapper>
-      ))}
-    </GridWrapper> 
-  </>
-
-
- 
-   
-)}
+            <RowInCell justifyContent={'flex-end'}>
+              <DayWrapper
+                type="button"
+                onClick={() => day}
+                className={classNames(
+                  isEqual(day, selectedDay) && 'text-white',
+                  !isEqual(day, selectedDay) && isToday(day) && 'text-red-500',
+                  !isEqual(day, selectedDay) &&
+                    !isToday(day) &&
+                    isSameMonth(day, firstDayCurrentMonth) &&
+                    'text-gray-900',
+                  !isEqual(day, selectedDay) &&
+                    !isToday(day) &&
+                    !isSameMonth(day, firstDayCurrentMonth) &&
+                    'text-gray-400',
+                  isEqual(day, selectedDay) && isToday(day) && 'bg-red-500',
+                  isEqual(day, selectedDay) && !isToday(day) && 'bg-gray-900',
+                  !isEqual(day, selectedDay) && 'hover:bg-gray-200',
+                  (isEqual(day, selectedDay) || isToday(day)) &&
+                    'font-semibold',
+                  'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
+                )}
+              >
+                {format(day, 'd')}
+              </DayWrapper>
+            </RowInCell>
+          </CellWrapper>
+        ))}
+      </GridWrapper>
+    </>
+  );}
 
 
 

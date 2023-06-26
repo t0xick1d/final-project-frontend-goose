@@ -4,24 +4,21 @@ import {DivWrapper, Days,Title, Container } from './TitleCalendar.styled'
 
 
 export default function TitleCalendar() {
-const daysOfWeek =   eachDayOfInterval({
-  start: startOfWeek(new Date()),
-  end: endOfWeek(new Date())
-})
+  const daysOfWeek = eachDayOfInterval({
+    start: startOfWeek(new Date()),
+    end: endOfWeek(new Date()),
+  });
 
-
-  return (  
-  <Container>
-<DivWrapper>
-		<Days>
-      <Title>
-    {daysOfWeek.map((item) =>format(item, '	EEEEE'))}
-    </Title>
-    </Days>
-		{/* <Days>
+  return (
+    <Container>
+      <DivWrapper>
+        <Days>
+          <Title>{daysOfWeek.map(item => format(item, '	EEEEE'))}</Title>
+        </Days>
+        {/* <Days>
     {daysOfWeek.map((item) =>format(item, '	d'))}
     </Days> */}
-	</DivWrapper>
-  </Container>
+      </DivWrapper>
+    </Container>
   );
 }

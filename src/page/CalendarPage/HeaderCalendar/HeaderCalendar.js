@@ -10,27 +10,27 @@ export default function HeaderCalendar({firstDayCurrentMonth,previousMonth,nextM
    
 
     return (
-        <Container>
+      <Container>
         <DivWrapper>
-        <TextWrapper type="button">{format(firstDayCurrentMonth, 'MMMM yyyy')}</TextWrapper>
+          <TextWrapper type="button">
+            {format(firstDayCurrentMonth, 'MMMM yyyy')}
+          </TextWrapper>
 
-       
-        <ButtonsWrapper>
-          <ButtonWrapper 
-           type="button"
-           onClick={previousMonth}
-          > &lt; </ButtonWrapper>
-          
-        <ButtonWrapper 
-        onClick={nextMonth}
-        type="button"
-        > &gt; 
-        </ButtonWrapper>
-        </ButtonsWrapper>
-      </DivWrapper>
-      <button>кнопка</button>
+          <ButtonsWrapper>
+            <ButtonWrapper type="button" onClick={previousMonth}>
+              {' '}
+              &lt;{' '}
+            </ButtonWrapper>
+
+            <ButtonWrapper onClick={nextMonth} type="button">
+              {' '}
+              &gt;
+            </ButtonWrapper>
+          </ButtonsWrapper>
+        </DivWrapper>
+        <button>кнопка</button>
       </Container>
-    )
+    );
 };
 
 

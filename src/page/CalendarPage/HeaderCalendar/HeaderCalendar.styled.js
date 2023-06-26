@@ -4,11 +4,10 @@ export const Container = styled.div`
   display: block;
   align-items: center;
   margin-bottom: 24px;
-  background-color: #F7F6F9;
+  background-color: #f7f6f9;
 
   @media screen and (min-width: 1440px) {
     margin-bottom: 32px;
-   
   }
 `;
 
