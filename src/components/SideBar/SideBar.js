@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Icons from '../../images/sprite.svg'
 import GooseImg from '../../images/icons/goose-min.png'
 import { CgClose } from 'react-icons/cg';
@@ -18,6 +18,7 @@ import {
   CalendarIcon,
   StatisticsIcon,
   LogOutBtn,
+  LogoutIcon,
 } from './SideBar.styled';
 
 
@@ -96,8 +97,12 @@ export default function SideBar({ onCloseClick, isOpen }) {
           </SideBarLink>
         </SideBarNav>
       </SideBarDiv>
-
-      <LogOutBtn>Log out</LogOutBtn>
+      <LogOutBtn>
+        Log out
+        <LogoutIcon>
+          <use href={`${Icons}#icon-log-out`}></use>
+        </LogoutIcon>
+      </LogOutBtn>
     </SideBarContainer>
   );
 }

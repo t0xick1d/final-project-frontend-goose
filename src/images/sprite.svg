@@ -39,5 +39,11 @@ d="M20.256 28v-11.424h-8.864v3.552h4.704c0 2.656-2.272 4.864-5.184 4.864-4.128 0
 <symbol id="user" viewBox="0 0 32 32">
 <path fill="none" stroke="#3e85f3" style="stroke: var(--color1, #3e85f3)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M21.333 24l2.667 2.667 5.333-5.333M16 20.667h-6c-1.861 0-2.791 0-3.548 0.229-1.708 0.529-3.026 1.848-3.546 3.518l-0.010 0.038c-0.229 0.757-0.229 1.687-0.229 3.548v0M13.333 16c3.314 0 6-2.686 6-6s-2.686-6-6-6v0c-3.314 0-6 2.686-6 6s2.686 6 6 6v0z"></path>
 </symbol>
+<symbol id="icon-log-out" viewBox="0 0 32 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M21.333 22.667l6.667-6.667M28 16l-6.667-6.667M28 16h-16M12 4h-1.6c-2.24 0-3.36 0-4.216 0.435-0.756 0.391-1.358 0.992-1.738 1.727l-0.011 0.022c-0.435 0.856-0.435 1.976-0.435 4.216v11.2c0 2.24 0 3.36 0.435 4.216 0.391 0.756 0.992 1.357 1.726 1.737l0.022 0.011c0.856 0.437 1.976 0.437 4.216 0.437h1.6"></path>
+</symbol>
+<symbol id="icon-menu" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.3529" d="M4 16h24M4 8h24M4 24h24"></path>
+</symbol>
 </defs>
 </svg>

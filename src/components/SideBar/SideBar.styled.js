@@ -176,6 +176,18 @@
     }
     `;
 
+        export const LogoutIcon = styled.svg`
+          margin-right: 6px;
+          width: 18px;
+          height: 18px;
+          fill: #34343480;
+          @media ${device.tablet} {
+            margin-right: 11px;
+            width: 20px;
+            height: 20px;
+          }
+        `;
+
 export const StyledNavLink = styled(NavLink)`
     display: flex;
     color: #34343480;
