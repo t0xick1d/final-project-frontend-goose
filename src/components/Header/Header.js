@@ -1,4 +1,21 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { useMedia } from 'react-use';
+import { useLocation } from 'react-router-dom';
+import { UserInfo } from 'components/UserInfo/UserInfo';
+import {
+  Container,
+  Image,
+  H2,
+  Wrapper,
+  Motivation,
+  Accent,
+  Svg,
+  Input,
+  Button,
+  Burger,
+} from './Header.styled';
+import goose from 'images/icons/goose.png';
+import icon from 'images/sprite.svg';
 
 export default function Header() {
   const [darkTheme, setDarkTheme] = useState(
@@ -8,6 +25,7 @@ export default function Header() {
   useEffect(() => {
     localStorage.setItem('darkTheme', darkTheme);
   }, [darkTheme]);
+  
   const location = useLocation();
   const isActivePageCalendar = location.pathname.includes('calendar');
 
@@ -51,10 +69,7 @@ export default function Header() {
             <use href={icon + (darkTheme ? '#icon-sun' : '#icon-moon')}></use>
           </Svg>
         </label>
-        <Name>{name}</Name>
-        <Avatar>
-          <AvatarLetter>{firstLetter}</AvatarLetter>
-        </Avatar>
+        <UserInfo />
       </Wrapper>
     </Container>
   );
