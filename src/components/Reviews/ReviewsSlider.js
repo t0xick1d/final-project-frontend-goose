@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ArrowLeft from '../../images/icons/reviews-arrow-left.svg';
 import ArrowRight from '../../images/icons/reviews-arrow-right.svg';
 import {
@@ -40,10 +40,10 @@ export default function ReviewsSlider() {
         </ReviewsBoxList>
         <ButtonList>
           <ButtonArrow>
-            <img src={ArrowLeft} alt="SVG Icon" />
+            <img src={ArrowLeft} alt="Scroll left to review" />
           </ButtonArrow>
           <ButtonArrow>
-            <img src={ArrowRight} alt="SVG Icon" />
+            <img src={ArrowRight} alt="Scroll right to review" />
           </ButtonArrow>
         </ButtonList>
       </UserReviewsBlock>
