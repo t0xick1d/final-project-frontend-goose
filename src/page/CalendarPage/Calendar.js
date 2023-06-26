@@ -31,28 +31,26 @@ import {
 
 
 export default function CalendarPage() {
- 
-  const today = startOfToday()
-  const [selectedDay, setSelectedDay] = useState(today)
-  const[currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
-  const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
+  const today = startOfToday();
+  const [selectedDay] = useState(today);
+  // setSelectedDay
+  const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
+  const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
 
-const days = eachDayOfInterval({
-  start: firstDayCurrentMonth,
-  end: endOfMonth(firstDayCurrentMonth),
-})
+  const days = eachDayOfInterval({
+    start: firstDayCurrentMonth,
+    end: endOfMonth(firstDayCurrentMonth),
+  });
 
-function previousMonth() {
-  let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 })
-  setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
-}
+  function previousMonth() {
+    let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
+  }
 
-function nextMonth() {
-  let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 })
-  setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
-}
-
-
+  function nextMonth() {
+    let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
+  }
 
   return (
     <>
@@ -104,7 +102,8 @@ function nextMonth() {
         ))}
       </GridWrapper>
     </>
-  );}
+  );
+}
 
 
 
