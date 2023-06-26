@@ -20,7 +20,6 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.isRefresh = false;
   state.error = action.payload;
-  console.log(action.payload);
 };
 
 export const authSlice = createSlice({
@@ -31,7 +30,7 @@ export const authSlice = createSlice({
       .addCase(register.pending, handlePending)
       .addCase(register.rejected, handleRejected)
       .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user = action.payload.newUser;
         state.token = action.payload.token;
       })
       .addCase(logIn.pending, handlePending)
@@ -39,9 +38,9 @@ export const authSlice = createSlice({
       .addCase(logIn.fulfilled, (state, action) => {
         console.log(action);
         state.user = action.payload.user;
-
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.error = null;
       })
 
       //   .addCase(logOut.fulfilled, (state) => {
@@ -49,10 +48,11 @@ export const authSlice = createSlice({
       //     state.token = null;
       //     state.isLoggedIn = false;
       //   })
+
       .addCase(fetchCurrentUser.pending, handlePending)
       .addCase(fetchCurrentUser.rejected, handleRejected)
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = action.payload.user;
         state.isLoggedIn = true;
         state.isRefresh = false;
       }),
@@ -61,5 +61,7 @@ export const authSlice = createSlice({
 export default authSlice.reducer;
 
 export const getIsLoggedIn = state => state.auth.isLoggedIn;
-export const getUserName = state => state.auth.user.name;
+export const getUserEmail = state => state.auth.user.email;
+export const getUserPassword = state => state.auth.user.password;
+export const getVerifyToken = state => state.auth.user.verificationToken;
 export const getUserRefresh = state => state.auth.isRefresh;

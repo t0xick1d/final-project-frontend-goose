@@ -25,8 +25,13 @@ const RegisterForm = () => {
         validationSchema: schema,
         validateOnChange: false,
         onSubmit: (values, { resetForm }) => {
-            console.log(values);
             dispatch(register(values))
+
+            localStorage.setItem(
+                'verify',
+                JSON.stringify({ email: values.email, password: values.password })
+            );
+
             resetForm()
         },
     })
@@ -82,7 +87,7 @@ const RegisterForm = () => {
                         {formik.errors.password ? <ErrorIcon src={ErrorImg} alt="error" /> : null}
                     </ItemWrapp>
 
-                    <SignUpBtn type="submit">Submit
+                    <SignUpBtn type="submit">Sign Up
                         <img style={{ marginLeft: 11 }} src={SignUp} alt="Sign up" />
                     </SignUpBtn>
                 </form>
