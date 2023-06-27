@@ -3,7 +3,6 @@ import React from 'react';
 import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
 import { Link } from 'react-router-dom';
 
-
 export default function MainPage() {
   return (
     <>
@@ -26,7 +25,7 @@ export default function MainPage() {
   );
 }
 
-// Був конфлікт тому я вирішив закоментувати 
+// Був конфлікт тому я вирішив закоментувати
 // import { AuthSection } from 'components/AuthSection/AuthSection';
 // import { DescriptionSection } from 'components/Description/Description';
 // export default function MainPage() {
