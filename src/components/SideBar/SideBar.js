@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import Icons from '../../images/sprite.svg'
-import GooseImg from '../../images/icons/goose-min.png'
+import React, { useState } from 'react';
+import Icons from '../../images/sprite.svg';
+import GooseImg from '../../images/icons/goose-min.png';
 import { CgClose } from 'react-icons/cg';
 import {
   SideBarContainer,
@@ -20,12 +20,13 @@ import {
   LogOutBtn,
   LogoutIcon,
 } from './SideBar.styled';
-
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux-store/AuthOperations/AuthOperations';
 
 export default function SideBar({ onCloseClick, isOpen }) {
-    const [isIconUserHovered, setIconUserHovered] = useState(false);
+  const [isIconUserHovered, setIconUserHovered] = useState(false);
   const [isCalendarIconHovered, setCalendarIconHovered] = useState(false);
-
+  const dispatch = useDispatch();
 
   return (
     <SideBarContainer isOpen={isOpen}>
@@ -97,7 +98,11 @@ export default function SideBar({ onCloseClick, isOpen }) {
           </SideBarLink>
         </SideBarNav>
       </SideBarDiv>
-      <LogOutBtn>
+      <LogOutBtn
+        onClick={() => {
+          dispatch(logOut());
+        }}
+      >
         Log out
         <LogoutIcon>
           <use href={`${Icons}#icon-log-out`}></use>
