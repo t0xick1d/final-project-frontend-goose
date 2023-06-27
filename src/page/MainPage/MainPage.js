@@ -23,6 +23,7 @@ export default function MainPage() {
         <ReviewsSlider />
       </footer>
     </>
+
   );
 }
 

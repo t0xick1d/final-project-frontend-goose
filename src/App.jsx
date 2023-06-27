@@ -14,55 +14,55 @@ import VerificationPage from 'page/VerificationPage/VerificationPage';
 import PrivateRoute from 'PrivateRoute';
 
 import { fetchCurrentUser } from 'redux-store/AuthOperations/AuthOperations';
-
+// import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
 
 export const App = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchCurrentUser())
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
-    return (
-      <div>
-        <Routes>
-          <Route index element={<MainPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/register/:token" element={<VerificationPage />} />;
-          <Route path="/" element={<MainLayout />}>
-            <Route
-              path="/account"
-              element={
-                // має бути login але я додав account щоб можна було зайти на сторінку
-                <PrivateRoute
-                  redirectTo="/account"
-                  component={<AccountPage />}
-                />
-              }
-            />
-            <Route
-              path="/calendar"
-              element={
+  return (
+    <div>
+      <Routes>
+        <Route index element={<MainPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/register/:token" element={<VerificationPage />} />;
+        <Route path="/" element={<MainLayout />}>
+          <Route
+            path="/account"
+            element={
+              // має бути login але я додав account щоб можна було зайти на сторінку
+              <PrivateRoute redirectTo="/account" component={<AccountPage />} />
+            }
+          />
+          <Route
+            path="/calendar"
+            element={
                 // має бути login але я додав calendar щоб можна було зайти на сторінку
                 <PrivateRoute
                   redirectTo="/calendar"
                   component={<CalendarPage />}
                 />
-              }
-            />
-            <Route
-              path="/statistics"
-              element={
-                // має бути login але я додав statistics щоб можна було зайти на сторінку
-                <PrivateRoute
-                  redirectTo="/statistics"
-                  component={<StatisticsPage />}
-                />
-              }
-            />
+            }
+          >
+            {/* <Route path="month/:currentDate" element={<ChosedMonth />} />
+            <Route path="day/:currentDate" element={'<ChosenDay />'} /> */}
           </Route>
-        </Routes>
-      </div>
-    );
+          <Route
+            path="/statistics"
+            element={
+              // має бути login але я додав statistics щоб можна було зайти на сторінку
+              <PrivateRoute
+                redirectTo="/statistics"
+                component={<StatisticsPage />}
+              />
+            }
+          />
+        </Route>
+      </Routes>
+    </div>
+  );
 };
