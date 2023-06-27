@@ -5,8 +5,6 @@ import { Name, Avatar, AvatarLetter, AvatarImg, Link } from './UserInfo.styled';
 export const UserInfo = () => {
   const selector = useSelector(getUser);
 
-  console.log(selector);
-
   const name = selector.user?.name || 'Name';
   const avatar = selector.user?.avatarURL;
   const firstLetter = name.trim().slice(0, 1).toUpperCase();

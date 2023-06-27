@@ -183,6 +183,8 @@ export const ImgBtn = styled.img`
   width: 14px;
   height: 14px;
 
+  cursor: pointer;
+
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
@@ -253,6 +255,8 @@ export const VectorPng = styled.svg`
 
   stroke: #111111;
   fill: none;
+
+  cursor: pointer;
 
   left: 260px;
   bottom: 175px;

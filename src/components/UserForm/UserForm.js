@@ -1,22 +1,12 @@
-// export default function UserForm() {
-//   return <div>UserForm</div>;
-// }
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { Formik, ErrorMessage } from 'formik';
 import { object, string, date } from 'yup';
-
 import { getUser } from '../../redux-store/Slices/AuthSlice';
 import {
   fetchCurrentUser,
   updateUser,
 } from 'redux-store/AuthOperations/AuthOperations';
-
-import plus from '../../images/icons/plus.png';
-// import chevron from '../../images/chevron.png';
-import Icon from '../../images/sprite.svg';
-
 import {
   ContainerImg,
   Wrapper,
@@ -34,6 +24,8 @@ import {
   SvgAvatar,
   VectorPng,
 } from './UserForm.styled';
+import plus from '../../images/icons/plus.png';
+import Icon from '../../images/sprite.svg';
 
 const validationFormikSchema = object({
   name: string().max(16).required(),
@@ -44,7 +36,7 @@ const validationFormikSchema = object({
 
 const UserForm = () => {
   const [avatarURL, setAvatarURL] = useState(null);
-  const [newBirthday, setNewBirthday] = useState(new Date());
+  const [newBirthday, setNewBirthday] = useState(null);
   const [isUpdateForm, setIsUpdateForm] = useState(null);
 
   const { user } = useSelector(getUser);

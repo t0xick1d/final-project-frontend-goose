@@ -10,6 +10,9 @@ const initialState = {
     name: null,
     email: null,
     avatarUrl: null,
+    skype: null,
+    birthday: null,
+    phone: null,
   },
 
   token: null,
