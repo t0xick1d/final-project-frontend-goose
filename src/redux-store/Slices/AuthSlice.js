@@ -6,8 +6,11 @@ import {
 } from '../AuthOperations/AuthOperations';
 
 const initialState = {
-  user: { name: null, email: null, avatarUrl: null },
-  // user: { name: 'Some', email: 'some@gmail.com', avatarUrl: null },
+  user: {
+    name: null,
+    email: null,
+    avatarUrl: null,
+  },
 
   token: null,
   isLoggedIn: false,

@@ -25,15 +25,11 @@ export default function Header() {
   useEffect(() => {
     localStorage.setItem('darkTheme', darkTheme);
   }, [darkTheme]);
-  
+
   const location = useLocation();
   const isActivePageCalendar = location.pathname.includes('calendar');
 
-  const isTabletOrMobile = useMedia('(max-width: 1439px)');
-
-  const name = 'Name';
-
-  const firstLetter = name.trim().slice(0, 1).toUpperCase();
+  const isTabletOrMobile = useMedia('(max-width: 1440px)');
 
   return (
     <Container>
