@@ -28,9 +28,4 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 1440px) {
     padding: 40px 32px;
   }
-
-  //поки немає Side-bar
-  @media screen and (min-width: 1440px) {
-    margin-left: 289px;
-  }
 `;

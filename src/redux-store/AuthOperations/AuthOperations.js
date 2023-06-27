@@ -18,6 +18,8 @@ export const register = createAsyncThunk('auth/register', async userData => {
     const response = await axios.post('auth/signup', userData);
     token.set(response.data.token);
     console.log(response);
+
+    swal('Success!', 'Letter with verification sent on your email', 'success');
     return response.data;
   } catch (e) {
     console.log(e.response.data);
@@ -36,6 +38,7 @@ export const logIn = createAsyncThunk('auth/login', async userData => {
     const response = await axios.post('auth/signin', userData);
     token.set(response.data.token);
     console.log(response);
+
     return response.data;
   } catch (e) {
     console.log(e.response.data);
@@ -48,32 +51,32 @@ export const logIn = createAsyncThunk('auth/login', async userData => {
   }
 });
 
-// export const logOut = createAsyncThunk("auth/logout", async () => {
-//   try {
-//     await axios.post("/users/logout");
-//     token.unset();
-//   } catch (e) {
-//     //   return thunkAPI.rejectWithValue(e.message);
-//   }
-// });
+export const logOut = createAsyncThunk('auth/logout', async () => {
+  try {
+    await axios.post('/auth/logout');
+    token.unset();
+  } catch (e) {
+    console.log(e.message);
+  }
+});
 
 export const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
-    thunkAPI.getState();
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
+      return thunkAPI.rejectWithValue('No valid token');
     }
 
-    token.set(persistedToken);
     try {
-      const { data } = await axios.get(`auth/current`);
-      return data;
+      token.set(persistedToken);
+      const user = await axios.get(`auth/current`);
+
+      return user.data;
     } catch (error) {
-      console.log(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

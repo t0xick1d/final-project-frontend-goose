@@ -1,9 +1,13 @@
-import React  from 'react';
+import React from 'react';
 
-import {GridWrapper,CellWrapper, RowInCell, DayWrapper } from '../CalendarPage/CalendarGrid/CalendarGrid.styled'
-import TitleCalendar from './TitleCalendar/TitleCalendar'
-import Header from '../../components/Header/Header'
-import HeaderCalendar from './HeaderCalendar/HeaderCalendar'
+import {
+  GridWrapper,
+  CellWrapper,
+  RowInCell,
+  DayWrapper,
+} from '../CalendarPage/CalendarGrid/CalendarGrid.styled';
+import TitleCalendar from './TitleCalendar/TitleCalendar';
+import HeaderCalendar from './HeaderCalendar/HeaderCalendar';
 // import CalendarGrid from './CalendarGrid/CalendarGrid'
 
 import {
@@ -19,44 +23,43 @@ import {
   parse,
   // parseISO,
   startOfToday,
-} from 'date-fns'
+} from 'date-fns';
 
 import {
-  //  Fragment, 
-  useState } from 'react'
+  //  Fragment,
+  useState,
+} from 'react';
+import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
-
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
 
 export default function CalendarPage() {
- 
-  const today = startOfToday()
-  const [selectedDay, setSelectedDay] = useState(today)
-  const[currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
-  const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
+  const today = startOfToday();
+  const [selectedDay] = useState(today);
+  // setSelectedDay
+  const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
+  const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
 
-const days = eachDayOfInterval({
-  start: firstDayCurrentMonth,
-  end: endOfMonth(firstDayCurrentMonth),
-})
+  const days = eachDayOfInterval({
+    start: firstDayCurrentMonth,
+    end: endOfMonth(firstDayCurrentMonth),
+  });
 
-function previousMonth() {
-  let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 })
-  setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
-}
+  function previousMonth() {
+    let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
+  }
 
-function nextMonth() {
-  let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 })
-  setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
-}
-
-
+  function nextMonth() {
+    let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
+  }
 
   return (
     <>
-      <Header />
+      <ChosedMonth />
       <HeaderCalendar
         firstDayCurrentMonth={firstDayCurrentMonth}
         previousMonth={previousMonth}
@@ -104,10 +107,8 @@ function nextMonth() {
         ))}
       </GridWrapper>
     </>
-  );}
-
-
-
+  );
+}
 
 let colStartClasses = [
   '',
@@ -117,8 +118,4 @@ let colStartClasses = [
   'col-start-5',
   'col-start-6',
   'col-start-7',
-]
-
-
-
-
+];
