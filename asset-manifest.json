@@ -1,18 +1,23 @@
 {
   "files": {
     "main.css": "/final-project-frontend-goose/static/css/main.cd2e038f.css",
-    "main.js": "/final-project-frontend-goose/static/js/main.7cde0e35.js",
+    "main.js": "/final-project-frontend-goose/static/js/main.42628c34.js",
+    "static/media/goose.svg": "/final-project-frontend-goose/static/media/goose.c6a7b737f606941aca78d31d3dfc5946.svg",
+    "static/media/image1-mb.jpg": "/final-project-frontend-goose/static/media/image1-mb.9e778d44e16555e64ef2.jpg",
+    "static/media/image2-mb.jpg": "/final-project-frontend-goose/static/media/image2-mb.83dac6c87380496e973d.jpg",
+    "static/media/image3-mb.jpg": "/final-project-frontend-goose/static/media/image3-mb.bf7cc0cf6d7963ae323b.jpg",
     "static/media/sugnUpImg.png": "/final-project-frontend-goose/static/media/sugnUpImg.5d5569b579467bf92252.png",
     "static/media/logInImg.png": "/final-project-frontend-goose/static/media/logInImg.f177ca1f2ab9bb8fa9c4.png",
     "static/media/sprite.svg": "/final-project-frontend-goose/static/media/sprite.2a2790c60139964edf61aacb0c61fc1f.svg",
     "index.html": "/final-project-frontend-goose/index.html",
+    "static/media/login-icon.svg": "/final-project-frontend-goose/static/media/login-icon.89b72c4c3399de373085c8003fa56216.svg",
     "static/media/reviews-arrow-right.svg": "/final-project-frontend-goose/static/media/reviews-arrow-right.a22cdf87a7132e781406da0f90b2321e.svg",
     "static/media/reviews-arrow-left.svg": "/final-project-frontend-goose/static/media/reviews-arrow-left.419843934514a4ec72e12d89da762d2a.svg",
     "main.cd2e038f.css.map": "/final-project-frontend-goose/static/css/main.cd2e038f.css.map",
-    "main.7cde0e35.js.map": "/final-project-frontend-goose/static/js/main.7cde0e35.js.map"
+    "main.42628c34.js.map": "/final-project-frontend-goose/static/js/main.42628c34.js.map"
   },
   "entrypoints": [
     "static/css/main.cd2e038f.css",
-    "static/js/main.7cde0e35.js"
+    "static/js/main.42628c34.js"
   ]
 }
