@@ -21,6 +21,7 @@
     "modern-normalize": "^2.0.0",
     "moment": "^2.29.4",
     "react": "^18.1.0",
+    "react-datepicker": "^4.14.1",
     "react-dom": "^18.1.0",
     "react-media": "^1.10.0",
     "react-i18next": "^13.0.1",
