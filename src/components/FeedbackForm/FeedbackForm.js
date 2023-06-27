@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 import {
   FeedbackFormWrapper,
   RatingStar,
@@ -8,10 +9,18 @@ import {
   ButtonReviewDelte,
   FieldInput,
   ButtonBox,
+  ActionButton,
 } from './FeedbackFormStyled';
 import ModalCloseSvg from '../../images/icons/modal-x-close.svg';
 import ReviewEditSvg from '../../images/icons/review-edit.svg';
 import ReviewDelteSvg from '../../images/icons/review-delete.svg';
+
+const ReviewSchema = Yup.object().shape({
+  reviewText: Yup.string()
+    .min(10, 'Minimum 10 characters')
+    .max(300, 'Maximum 300 characters')
+    .required('Required field'),
+});
 
 export default function FeedbackForm() {
   return (
@@ -28,7 +37,13 @@ export default function FeedbackForm() {
       <ButtonWindowClose type="button">
         <img src={ModalCloseSvg} alt="Close review Window" />
       </ButtonWindowClose>
-      <Formik>
+      <Formik
+        initialValues={{ reviewText: '' }}
+        validationSchema={ReviewSchema}
+        onSubmit={values => {
+          console.log(values);
+        }}
+      >
         <form>
           <ReviewOptionsBox>
             <label>Review</label>
@@ -41,10 +56,14 @@ export default function FeedbackForm() {
               </ButtonReviewDelte>
             </ButtonBox>
           </ReviewOptionsBox>
-          <FieldInput component="textarea"></FieldInput>
+          <FieldInput
+            name="reviewText"
+            component="textarea"
+            placeholder="Enter text"
+          ></FieldInput>
           <ButtonBox>
-            <button type="button">Save</button>
-            <button type="button">Cancel</button>
+            <ActionButton type="submit">Save</ActionButton>
+            <ActionButton type="button">Cancel</ActionButton>
           </ButtonBox>
         </form>
       </Formik>
