@@ -80,3 +80,16 @@ export const fetchCurrentUser = createAsyncThunk(
     }
   }
 );
+
+export const updateUser = createAsyncThunk(
+  'auth/update',
+  async (user, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('auth/updateUser', user);
+
+      return data.user;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
