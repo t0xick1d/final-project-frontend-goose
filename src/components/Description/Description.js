@@ -21,7 +21,7 @@ export const DescriptionSection = () => {
               your schedule, displaying all your tasks, events, and appointments
               in a visually appealing and intuitive layout.
             </p>
-            <img src={image1}></img>
+            <img src={image1} alt="project desine"></img>
           </ul>
         </li>
 
@@ -39,7 +39,7 @@ export const DescriptionSection = () => {
               profile information and preferences, while the calendar provides a
               quick and convenient way to view your upcoming events and tasks.
             </p>
-            <img src={image2}></img>
+            <img src={image2} alt="project desine"></img>
           </ul>
         </li>
 
@@ -61,7 +61,7 @@ export const DescriptionSection = () => {
                 scattered to-do lists and hello to streamlined productivity with
                 GooseTrack.
               </p>
-              <img src={image3}></img>
+              <img src={image3} alt="project desine"></img>
             </li>
           </ul>
         </li>

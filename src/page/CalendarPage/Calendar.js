@@ -7,7 +7,6 @@ import {
   DayWrapper,
 } from '../CalendarPage/CalendarGrid/CalendarGrid.styled';
 import TitleCalendar from './TitleCalendar/TitleCalendar';
-import Header from '../../components/Header/Header';
 import HeaderCalendar from './HeaderCalendar/HeaderCalendar';
 // import CalendarGrid from './CalendarGrid/CalendarGrid'
 
@@ -60,7 +59,6 @@ export default function CalendarPage() {
 
   return (
     <>
-      <Header />
       <ChosedMonth />
       <HeaderCalendar
         firstDayCurrentMonth={firstDayCurrentMonth}

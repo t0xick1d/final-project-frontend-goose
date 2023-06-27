@@ -1,6 +1,7 @@
 import React from 'react';
 import goose from './svg/goose.svg';
 import loginIcon from './svg/login-icon.svg';
+import { Link } from 'react-router-dom';
 import {
   Auth,
   Title,
@@ -18,13 +19,17 @@ export const AuthSection = () => {
       <Title>GooseTrack</Title>
       <Navigation>
         <NavElement>
-          <LogIn>
-            Log in <img src={loginIcon} alt="loginIcon" />
-          </LogIn>
+          <Link to="/register">
+            <LogIn>
+              Log in <img src={loginIcon} alt="loginIcon" />
+            </LogIn>
+          </Link>
         </NavElement>
 
         <NavElement>
-          <SignUp>Sign up</SignUp>
+          <Link to="/login">
+            <SignUp>Sign up</SignUp>
+          </Link>
         </NavElement>
       </Navigation>
     </Auth>
