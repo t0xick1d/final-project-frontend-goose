@@ -149,7 +149,7 @@ export const AdvantagesItem = styled.li`
     gap: 64px;
     margin-bottom: 64px;
 
-    &.second-infoblock {
+    .second-infoblock {
       margin-left: auto;
       justify-content: flex-end;
     }
@@ -207,5 +207,9 @@ export const InfoBlock = styled.div`
     display: flex;
     flex-direction: column;
     width: 275px;
+    &.second-infoblock {
+      margin-left: auto;
+      justify-content: flex-end;
+    }
   }
 `;
