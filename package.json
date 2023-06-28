@@ -26,6 +26,7 @@
     "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
     "react-simple-star-rating": "^5.1.7",
+    "react-time-picker": "^6.2.0",
     "react-use": "^17.4.0",
     "redux-persist": "^6.0.0",
     "styled-components": "^4.4.1",

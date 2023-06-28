@@ -63,5 +63,5 @@ svg{
   padding: 0;
 }
 ul{
-  list-style: none;
+    list-style: none
 `;
