@@ -1,4 +1,6 @@
 import React from 'react';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import {
   GridWrapper,
@@ -29,7 +31,7 @@ import {
   //  Fragment,
   useState,
 } from 'react';
-import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
+//import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -59,7 +61,10 @@ export default function CalendarPage() {
 
   return (
     <>
-      <ChosedMonth />
+      {/* Suspense і outlet я додав ці компоненти мають відмальоувати chosemonth і choseday */}
+      <Suspense fallback={<div>Loading page...</div>}>
+        <Outlet />
+      </Suspense>
       <HeaderCalendar
         firstDayCurrentMonth={firstDayCurrentMonth}
         previousMonth={previousMonth}
