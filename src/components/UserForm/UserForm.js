@@ -36,7 +36,7 @@ const validationFormikSchema = object({
 
 const UserForm = () => {
   const [avatarURL, setAvatarURL] = useState(null);
-  const [newBirthday, setNewBirthday] = useState(new Date());
+  const [newBirthday, setNewBirthday] = useState('');
   const [isUpdateForm, setIsUpdateForm] = useState(null);
 
   const { user } = useSelector(getUser);
@@ -61,7 +61,7 @@ const UserForm = () => {
           skype: user ? user.skype : '',
           birthday: newBirthday
             ? newBirthday
-            : user
+            : user.birthday
             ? new Date(user.birthday)
             : new Date(),
         }}
