@@ -1,13 +1,24 @@
 import React from 'react';
-import {Container,DivWrapper, TextWrapper, ButtonsWrapper, ButtonWrapper} from './HeaderCalendar.styled'
-import { format 
-  // formatDistance,
-  //  formatRelative, 
-  //  subDays 
-  } from 'date-fns'
-export default function HeaderCalendar({firstDayCurrentMonth,previousMonth,nextMonth})
-{
-   
+import {Container,DivWrapper, TextWrapper,} from './HeaderCalendar.styled'
+import BtnPrevNex from 'components/CalendarBtnPrevNext/BtnPrevNext'
+import PeriodType from 'components/CalendarPeriodSelect/PeriodTypeSelect'
+import {
+  format,
+  parse,
+  startOfToday,
+} from 'date-fns';
+
+
+import {
+  useState,
+} from 'react';
+
+export default function HeaderCalendar(){
+  const today = startOfToday();
+  
+  const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
+  const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
+
 
     return (
       <Container>
@@ -15,20 +26,9 @@ export default function HeaderCalendar({firstDayCurrentMonth,previousMonth,nextM
           <TextWrapper type="button">
             {format(firstDayCurrentMonth, 'MMMM yyyy')}
           </TextWrapper>
-
-          <ButtonsWrapper>
-            <ButtonWrapper type="button" onClick={previousMonth}>
-              {' '}
-              &lt;{' '}
-            </ButtonWrapper>
-
-            <ButtonWrapper onClick={nextMonth} type="button">
-              {' '}
-              &gt;
-            </ButtonWrapper>
-          </ButtonsWrapper>
+        <BtnPrevNex/>
         </DivWrapper>
-        <button>кнопка</button>
+        <PeriodType/>      
       </Container>
     );
 };
