@@ -15,7 +15,9 @@ import PrivateRoute from 'PrivateRoute';
 import RestrictedRoute from 'RestrictedRoute';
 
 import { fetchCurrentUser } from 'redux-store/AuthOperations/AuthOperations';
-// import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
+import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
+// Залишив в такому вигляді бо не знав звідки брати
+// import { ChosenDay } from 'components/ChoosedDay/ButtonAddTask/ButtonAddTask';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -45,32 +47,26 @@ export const App = () => {
           }
         />
         <Route path="/register/:token" element={<VerificationPage />} />;
-        <Route path="/" element={<MainLayout />}>
-          <Route
-            path="/account"
-            element={
-              // має бути login але я додав account щоб можна було зайти на сторінку
-              <PrivateRoute redirectTo="/login" component={<AccountPage />} />
-            }
-          />
-          <Route
-            path="/calendar"
-            element={
-              <PrivateRoute redirectTo="/login" component={<CalendarPage />} />
-            }
-          />
-          <Route
-            path="/statistics"
-            element={
-              <PrivateRoute
-                redirectTo="/login"
-                component={<StatisticsPage />}
-              />
-            }
-          />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute redirectTo="/login" component={<MainLayout />} />
+          }
+          // <PrivateRoute redirectTo="/login" component={} />
+        >
+          <Route path="/account" element={<AccountPage />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/calendar" element={<CalendarPage />}>
+            <Route path="month/:currentDate" element={<ChosedMonth />} />
+            <Route path="day/:currentDate" element={<div>ChoseDay</div>} />
+          </Route>
         </Route>
-        {/* <Route path="month/:currentDate" element={<ChosedMonth />} />
-        <Route path="day/:currentDate" element={<ChosenDay />} /> */}
+        <Route
+          path="/statistics"
+          element={
+            <PrivateRoute redirectTo="/login" component={<StatisticsPage />} />
+          }
+        />
       </Routes>
     </div>
   );
