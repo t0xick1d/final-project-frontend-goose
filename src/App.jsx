@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserRefresh } from 'redux-store/Slices/AuthSlice';
 
 import MainPage from './page/MainPage/MainPage';
 import LoginPage from 'page/LoginPage/LoginPage';
@@ -21,12 +22,15 @@ import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
 
 export const App = () => {
   const dispatch = useDispatch();
+  const isRefresh = useSelector(getUserRefresh);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  return (
+  return isRefresh ? (
+    <div>Loading...</div>
+  ) : (
     <div>
       <Routes>
         <Route index element={<MainPage />} />
@@ -52,7 +56,6 @@ export const App = () => {
           element={
             <PrivateRoute redirectTo="/login" component={<MainLayout />} />
           }
-          // <PrivateRoute redirectTo="/login" component={} />
         >
           <Route path="/account" element={<AccountPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
@@ -60,13 +63,8 @@ export const App = () => {
             <Route path="month/:currentDate" element={<ChosedMonth />} />
             <Route path="day/:currentDate" element={<div>ChoseDay</div>} />
           </Route>
+          <Route path="/statistics" element={<StatisticsPage />} />
         </Route>
-        <Route
-          path="/statistics"
-          element={
-            <PrivateRoute redirectTo="/login" component={<StatisticsPage />} />
-          }
-        />
       </Routes>
     </div>
   );

@@ -15,18 +15,17 @@ const LoginForm = () => {
     const dispatch = useDispatch()
 
     const formik = useFormik({
-        initialValues: {
-            email: '',
-            password: '',
-        },
-        validationSchema: schema,
-        validateOnChange: false,
-        onSubmit: (values, { resetForm }) => {
-            console.log(values);
-            dispatch(logIn(values))
-            resetForm()
-        },
-    })
+      initialValues: {
+        email: '',
+        password: '',
+      },
+      validationSchema: schema,
+      validateOnChange: false,
+      onSubmit: (values, { resetForm }) => {
+        dispatch(logIn(values));
+        resetForm();
+      },
+    });
 
     return (
         <form onSubmit={formik.handleSubmit} autoComplete='off'>

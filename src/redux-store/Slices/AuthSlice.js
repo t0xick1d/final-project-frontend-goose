@@ -18,7 +18,7 @@ const initialState = {
   },
 
   isLoggedIn: false,
-  isRefresh: false,
+  isRefresh: true,
   error: null,
 };
 
