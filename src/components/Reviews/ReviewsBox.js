@@ -7,18 +7,15 @@ import {
   UserReviews,
 } from './ReviewsStyled';
 
-export default function ReviewsBox() {
+export default function ReviewsBox({ avatarUrl, name, rating, comment }) {
   return (
     <ReviewsBoxStyle>
       <UserBox>
-        <UserAvatar
-          src="https://photoshablon.com/_ph/44/2/193521795.jpg?1687495594"
-          alt="User avatar"
-        />
+        <UserAvatar src={avatarUrl} alt="User avatar" />
         <div>
-          <UserName>Olena Doe </UserName>
+          <UserName>{name}</UserName>
           <RatingStar
-            initialValue={2}
+            initialValue={rating}
             readonly={true}
             size={14}
             fillColor={'#FFAC33'}
@@ -27,10 +24,7 @@ export default function ReviewsBox() {
           />
         </div>
       </UserBox>
-      <UserReviews>
-        GooseTrack is impressive, the calendar view and filter options make it
-        easy to stay organized and focused. Highly recommended.
-      </UserReviews>
+      <UserReviews>{comment}</UserReviews>
     </ReviewsBoxStyle>
   );
 }

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Rating } from 'react-simple-star-rating';
+import Slider from 'react-slick';
 
 const size = {
   mobile: '375px',
@@ -24,21 +25,11 @@ export const RatingStar = styled(Rating)`
 `;
 
 export const ReviewsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 335px;
 
-  @media ${device.tablet} {
-    max-width: 580px;
-  }
-
-  @media ${device.desktop} {
-    max-width: 1184px;
-  }
 `;
 
 export const ReviewsHeader = styled.h2`
+  text-align: center;
   color: #3e85f3;
   font-size: 28px;
   font-family: Inter;
@@ -56,28 +47,25 @@ export const ReviewsBoxStyle = styled.div`
   padding: 24px;
   border-radius: 8px;
   border: 1px solid rgba(17, 17, 17, 0.1);
+  height: 187px;
 
   @media ${device.tablet} {
     padding: 32px;
   }
 `;
 
+export const SliderStyled = styled(Slider)`
+  .slick-track {
+    display: flex;
+    gap: 24px;
+  }
+`;
+
 export const UserReviewsBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 40px;
 
   @media ${device.tablet} {
     margin-top: 50px;
-  }
-`;
-
-export const ReviewsBoxList = styled.div`
-  @media ${device.desktop} {
-    display: flex;
-    align-items: center;
-    gap: 24px;
   }
 `;
 
@@ -115,6 +103,9 @@ export const UserReviews = styled.p`
 `;
 
 export const ButtonList = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
   display: flex;
   gap: 25px;
   margin-top: 8px;
