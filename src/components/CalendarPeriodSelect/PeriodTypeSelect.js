@@ -16,12 +16,12 @@ const PeriodType = () => {
   return (
     <BtnContainer>
       <TypesContainerMonth type="button" isActive={activeTab === 'Month'}>
-        <TypesTabs to="/calendar" onClick={() => handleTabClick('Month')}>
+        <TypesTabs to="/month/:currentDate" onClick={() => handleTabClick('Month')}>
           Month
         </TypesTabs>
       </TypesContainerMonth>
       <TypesContainerDay type="button" isActive={activeTab === 'Day'}>
-        <TypesTabs to="/calendar" onClick={() => handleTabClick('Day')}>
+        <TypesTabs to="/day/:currentDate" onClick={() => handleTabClick('Day')}>
           Day
         </TypesTabs>
       </TypesContainerDay>
