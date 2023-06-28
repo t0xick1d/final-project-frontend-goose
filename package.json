@@ -32,6 +32,7 @@
     "react-simple-star-rating": "^5.1.7",
     "react-time-picker": "^6.2.0",
     "react-use": "^17.4.0",
+    "recharts": "^2.7.2",
     "redux-persist": "^6.0.0",
     "styled-components": "^4.4.1",
     "sweetalert": "^2.1.2",
