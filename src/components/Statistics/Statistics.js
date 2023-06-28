@@ -29,22 +29,29 @@ import axios from 'axios';
 
 const Statistics = () => {
       const today = startOfToday();
-      const [currentMonth, setCurrentMonth] = useState(
-        format(today, 'MMM-yyyy')
-      );
+      const [currentMonth, setCurrentMonth] = useState(format(today, 'dd MMMM yyyy'));
+
     
-      const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
+  
+    const firstDayCurrentMonth = parse(currentMonth, 'dd MMMM yyyy', new Date());
+
 
       useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('statistics?date=2023-06-26');
-              setData(response.data);
-              console.log(response.data);
+            const response = await axios.get(
+              `statistics?date=${format(firstDayCurrentMonth, 'yyyy-MM-dd')}`
+            );
+            setData(response.data);
+            console.log(response.data);
+            console.log(today);
+
           } catch (error) {
             console.log(error);
           }
         };
+
 
         fetchData();
       }, []);
@@ -53,15 +60,14 @@ const Statistics = () => {
         return <div>Loading...</div>;
       }
     
-    
-      const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
+  
 
   return (
     <StatisticsContainer>
       <OptionsContainer>
         <BtnContainer>
           <ButtonWrapper type="button">
-            {format(firstDayCurrentMonth, 'MMMM yyyy')}
+            {format(firstDayCurrentMonth, 'dd MMMM yyyy')}
           </ButtonWrapper>
           <BtnPrevNext />
         </BtnContainer>
@@ -79,8 +85,8 @@ const Statistics = () => {
             By Month
           </Item>
         </List>
-          </OptionsContainer>
-          
+      </OptionsContainer>
+
       <BarChart
         width={730}
         height={250}
