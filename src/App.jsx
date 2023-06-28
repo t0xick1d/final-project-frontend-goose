@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserRefresh } from 'redux-store/Slices/AuthSlice';
 
 import MainPage from './page/MainPage/MainPage';
 import LoginPage from 'page/LoginPage/LoginPage';
@@ -12,57 +13,59 @@ import StatisticsPage from 'page/StatisticsPage/Statistics';
 import VerificationPage from 'page/VerificationPage/VerificationPage';
 
 import PrivateRoute from 'PrivateRoute';
+import RestrictedRoute from 'RestrictedRoute';
 
 import { fetchCurrentUser } from 'redux-store/AuthOperations/AuthOperations';
-
+import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
+// Залишив в такому вигляді бо не знав звідки брати
+// import { ChosenDay } from 'components/ChoosedDay/ButtonAddTask/ButtonAddTask';
 
 export const App = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const isRefresh = useSelector(getUserRefresh);
 
-    useEffect(() => {
-        dispatch(fetchCurrentUser())
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
-    return (
-      <div>
-        <Routes>
-          <Route index element={<MainPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/register/:token" element={<VerificationPage />} />;
-          <Route path="/" element={<MainLayout />}>
-            <Route
-              path="/account"
-              element={
-                // має бути login але я додав account щоб можна було зайти на сторінку
-                <PrivateRoute
-                  redirectTo="/account"
-                  component={<AccountPage />}
-                />
-              }
+  return isRefresh ? (
+    <div>Loading...</div>
+  ) : (
+    <div>
+      <Routes>
+        <Route index element={<MainPage />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/account" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo="/account"
+              component={<RegisterPage />}
             />
-            <Route
-              path="/calendar"
-              element={
-                // має бути login але я додав calendar щоб можна було зайти на сторінку
-                <PrivateRoute
-                  redirectTo="/calendar"
-                  component={<CalendarPage />}
-                />
-              }
-            />
-            <Route
-              path="/statistics"
-              element={
-                // має бути login але я додав statistics щоб можна було зайти на сторінку
-                <PrivateRoute
-                  redirectTo="/statistics"
-                  component={<StatisticsPage />}
-                />
-              }
-            />
+          }
+        />
+        <Route path="/register/:token" element={<VerificationPage />} />;
+        <Route
+          path="/"
+          element={
+            <PrivateRoute redirectTo="/login" component={<MainLayout />} />
+          }
+        >
+          <Route path="/account" element={<AccountPage />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/calendar" element={<CalendarPage />}>
+            <Route path="month/:currentDate" element={<ChosedMonth />} />
+            <Route path="day/:currentDate" element={<div>ChoseDay</div>} />
           </Route>
-        </Routes>
-      </div>
-    );
+          <Route path="/statistics" element={<StatisticsPage />} />
+        </Route>
+      </Routes>
+    </div>
+  );
 };

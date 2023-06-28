@@ -1,9 +1,8 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { Background, Container, Title, ItemWrapp, StyledLabel, Error, ErrorIcon, StyledInput, SignUpBtn, LogInBtn, MainImg } from './RegisterFormStyled';
+import { ItemWrapp, StyledLabel, Error, ErrorIcon, StyledInput, SignUpBtn } from './RegisterFormStyled';
 import SignUp from '../../images/icons/logIn.png';
 import ErrorImg from '../../images/icons/error.png';
-import SignUpImg from '../../images/icons/sugnUpImg.png';
 import { register } from 'redux-store/AuthOperations/AuthOperations';
 import { useDispatch } from 'react-redux';
 
@@ -37,65 +36,58 @@ const RegisterForm = () => {
     })
 
     return (
-        <Background>
-            <Container>
-                <Title>Sign Up</Title>
-                <form onSubmit={formik.handleSubmit} autoComplete='off'>
-                    <ItemWrapp>
-                        <StyledLabel color={formik.errors.name} htmlFor="Name">Name</StyledLabel>
-                        <StyledInput
-                            id="name"
-                            name="name"
-                            type="text"
-                            onChange={formik.handleChange}
-                            value={formik.values.name}
-                            placeholder='Enter your name'
-                            color={formik.errors.name}
-                        />
-                        {formik.errors.name ? <Error>{formik.errors.name}</Error> : null}
-                        {formik.errors.name ? <ErrorIcon src={ErrorImg} alt="error" /> : null}
-                    </ItemWrapp>
+        <form onSubmit={formik.handleSubmit} autoComplete='off'>
+            <ItemWrapp>
+                <StyledLabel color={formik.errors.name} htmlFor="Name">Name</StyledLabel>
+                <StyledInput
+                    id="name"
+                    name="name"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
+                    placeholder='Enter your name'
+                    color={formik.errors.name}
+                />
+                {formik.errors.name ? <Error>{formik.errors.name}</Error> : null}
+                {formik.errors.name ? <ErrorIcon src={ErrorImg} alt="error" /> : null}
+            </ItemWrapp>
 
-                    <ItemWrapp>
-                        <StyledLabel color={formik.errors.email} htmlFor="email">Email</StyledLabel>
-                        <StyledInput
-                            id="email"
-                            name="email"
-                            type="email"
-                            onChange={formik.handleChange}
-                            value={formik.values.email}
-                            placeholder='Enter email'
-                            color={formik.errors.email}
-                        />
-                        {formik.errors.email ? <Error>{formik.errors.email}</Error> : null}
-                        {formik.errors.email ? <ErrorIcon src={ErrorImg} alt="error" /> : null}
-                    </ItemWrapp>
+            <ItemWrapp>
+                <StyledLabel color={formik.errors.email} htmlFor="email">Email</StyledLabel>
+                <StyledInput
+                    id="email"
+                    name="email"
+                    type="email"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                    placeholder='Enter email'
+                    color={formik.errors.email}
+                />
+                {formik.errors.email ? <Error>{formik.errors.email}</Error> : null}
+                {formik.errors.email ? <ErrorIcon src={ErrorImg} alt="error" /> : null}
+            </ItemWrapp>
 
-                    <ItemWrapp>
-                        <StyledLabel color={formik.errors.password} htmlFor="password">Password</StyledLabel>
-                        <StyledInput
-                            id="password"
-                            name="password"
-                            type="password"
-                            onChange={formik.handleChange}
-                            value={formik.values.password}
-                            placeholder='Enter password'
-                            color={formik.errors.password}
-                            style={{ marginBottom: 32 }}
-                        />
-                        {formik.errors.password ? <Error>{formik.errors.password}</Error> : null}
-                        {formik.errors.password ? <ErrorIcon src={ErrorImg} alt="error" /> : null}
-                    </ItemWrapp>
+            <ItemWrapp>
+                <StyledLabel color={formik.errors.password} htmlFor="password">Password</StyledLabel>
+                <StyledInput
+                    id="password"
+                    name="password"
+                    type="password"
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                    placeholder='Enter password'
+                    color={formik.errors.password}
+                    style={{ marginBottom: 32 }}
+                />
+                {formik.errors.password ? <Error>{formik.errors.password}</Error> : null}
+                {formik.errors.password ? <ErrorIcon src={ErrorImg} alt="error" /> : null}
+            </ItemWrapp>
 
-                    <SignUpBtn type="submit">Sign Up
-                        <img style={{ marginLeft: 11 }} src={SignUp} alt="Sign up" />
-                    </SignUpBtn>
-                </form>
-
-            </Container>
-            <MainImg src={SignUpImg} alt="Goose" />
-            <LogInBtn to='/login'>Log In</LogInBtn>
-        </Background>
+            <SignUpBtn type="submit">Sign Up
+                <img style={{ marginLeft: 11 }} src={SignUp} alt="Sign up" />
+            </SignUpBtn>
+        </form>
     )
 }
+
 export default RegisterForm
