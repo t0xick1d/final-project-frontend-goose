@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserRefresh } from 'redux-store/Slices/AuthSlice';
 
@@ -22,50 +22,53 @@ import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isRefresh = useSelector(getUserRefresh);
+  // const isRefresh = useSelector(getUserRefresh);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  return isRefresh ? (
-    <div>Loading...</div>
-  ) : (
-    <div>
-      <Routes>
-        <Route index element={<MainPage />} />
-        <Route path="/" element={<LoginPage />} />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute redirectTo="/account" component={<LoginPage />} />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute
-              redirectTo="/account"
-              component={<RegisterPage />}
-            />
-          }
-        />
-        <Route path="/register/:token" element={<VerificationPage />} />;
-        <Route
-          path="/"
-          element={
-            <PrivateRoute redirectTo="/login" component={<MainLayout />} />
-          }
-        >
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/calendar" element={<CalendarPage />} />
-          <Route path="/calendar" element={<CalendarPage />}>
-            <Route path="month/:currentDate" element={<ChosedMonth />} />
-            <Route path="day/:currentDate" element={<div>ChoseDay</div>} />
+  return (
+    <>
+      <Suspense fallback={'Loading...'}>
+        <Routes>
+          <Route index element={<MainPage />} />
+          <Route path="/" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/account"
+                component={<LoginPage />}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/account"
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route path="/register/:token" element={<VerificationPage />} />;
+          <Route
+            path="/"
+            element={
+              <PrivateRoute redirectTo="/login" component={<MainLayout />} />
+            }
+          >
+            <Route path="/account" element={<AccountPage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/calendar" element={<CalendarPage />}>
+              <Route path="month/:currentDate" element={<ChosedMonth />} />
+              <Route path="day/:currentDate" element={<div>ChoseDay</div>} />
+            </Route>
+            <Route path="/statistics" element={<StatisticsPage />} />
           </Route>
-          <Route path="/statistics" element={<StatisticsPage />} />
-        </Route>
-      </Routes>
-    </div>
+        </Routes>
+      </Suspense>
+    </>
   );
 };
