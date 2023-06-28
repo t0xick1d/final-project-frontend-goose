@@ -7,7 +7,12 @@ import {
   UserReviews,
 } from './ReviewsStyled';
 
-export default function ReviewsBox({ avatarUrl, name, rating, comment }) {
+export default function ReviewsBox({
+  avatarUrl = 'https://photoshablon.com/_ph/44/2/193521795.jpg?1687495594',
+  name,
+  rating = 0,
+  comment,
+}) {
   return (
     <ReviewsBoxStyle>
       <UserBox>
