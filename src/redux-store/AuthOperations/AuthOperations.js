@@ -51,14 +51,14 @@ export const logIn = createAsyncThunk('auth/login', async userData => {
   }
 });
 
-// export const logOut = createAsyncThunk("auth/logout", async () => {
-//   try {
-//     await axios.post("/users/logout");
-//     token.unset();
-//   } catch (e) {
-//     //   return thunkAPI.rejectWithValue(e.message);
-//   }
-// });
+export const logOut = createAsyncThunk('auth/logout', async () => {
+  try {
+    await axios.post('/auth/logout');
+    token.unset();
+  } catch (e) {
+    console.log(e.message);
+  }
+});
 
 export const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
@@ -75,6 +75,19 @@ export const fetchCurrentUser = createAsyncThunk(
       const user = await axios.get(`auth/current`);
 
       return user.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  'auth/update',
+  async (user, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('auth/updateUser', user);
+
+      return data.user;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -2,16 +2,23 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   register,
   logIn,
+  logOut,
   fetchCurrentUser,
 } from '../AuthOperations/AuthOperations';
 
 const initialState = {
-  user: { name: null, email: null, avatarUrl: null },
-  // user: { name: 'Some', email: 'some@gmail.com', avatarUrl: null },
-
   token: null,
+  user: {
+    name: '',
+    email: '',
+    avatarUrl: '',
+    skype: '',
+    birthday: '',
+    phone: '',
+  },
+
   isLoggedIn: false,
-  isRefresh: false,
+  isRefresh: true,
   error: null,
 };
 
@@ -35,6 +42,7 @@ export const authSlice = createSlice({
         state.user = action.payload.newUser;
         state.token = action.payload.token;
       })
+
       .addCase(logIn.pending, handlePending)
       .addCase(logIn.rejected, handleRejected)
       .addCase(logIn.fulfilled, (state, action) => {
@@ -45,11 +53,14 @@ export const authSlice = createSlice({
         state.error = null;
       })
 
-      //   .addCase(logOut.fulfilled, (state) => {
-      //     state.user = { name: null, email: null };
-      //     state.token = null;
-      //     state.isLoggedIn = false;
-      //   })
+      .addCase(logOut.pending, handlePending)
+      .addCase(logOut.rejected, handleRejected)
+      .addCase(logOut.fulfilled, state => {
+        state.user = { name: null, email: null };
+        state.token = null;
+        state.isLoggedIn = false;
+        state.isRefresh = false;
+      })
 
       .addCase(fetchCurrentUser.pending, handlePending)
       .addCase(fetchCurrentUser.rejected, handleRejected)
@@ -67,4 +78,4 @@ export const getUserEmail = state => state.auth.user.email;
 export const getUserPassword = state => state.auth.user.password;
 export const getVerifyToken = state => state.auth.user.verificationToken;
 export const getUserRefresh = state => state.auth.isRefresh;
-export const getUser = state => state.auth.user;
+export const getUser = state => state.auth;
