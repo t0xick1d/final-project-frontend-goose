@@ -36,10 +36,11 @@ const validationFormikSchema = object({
 
 const UserForm = () => {
   const [avatarURL, setAvatarURL] = useState(null);
-  const [newBirthday, setNewBirthday] = useState(null);
+  const [newBirthday, setNewBirthday] = useState(new Date());
   const [isUpdateForm, setIsUpdateForm] = useState(null);
 
   const { user } = useSelector(getUser);
+
   const dispatch = useDispatch();
 
   useEffect(() => {

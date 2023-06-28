@@ -33,7 +33,7 @@ export default function Header({ onOpenClick }) {
 
   // const name = 'Name';
 
-  //const firstLetter = name.trim().slice(0, 1).toUpperCase();
+  // const firstLetter = name.trim().slice(0, 1).toUpperCase();
 
   return (
     <Container>
