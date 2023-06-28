@@ -2,7 +2,6 @@ import React from 'react';
 // import goose from './svg/goose.svg';
 import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
 import { Link } from 'react-router-dom';
-import Day from 'components/ChoosedDay/Day/Day';
 
 export default function MainPage() {
   return (
@@ -22,7 +21,6 @@ export default function MainPage() {
       <footer>
         <ReviewsSlider />
       </footer>
-      <Day />
     </>
   );
 }
