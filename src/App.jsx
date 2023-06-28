@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserRefresh } from 'redux-store/Slices/AuthSlice';
+import { useDispatch } from 'react-redux';
 
 import MainPage from './page/MainPage/MainPage';
 import LoginPage from 'page/LoginPage/LoginPage';
