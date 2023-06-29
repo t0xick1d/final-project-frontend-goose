@@ -35,7 +35,6 @@ const BtnPrevNext = ({ onDateChange }) => {
     onDateChange(format(firstDayNextMonth, 'dd MMMM yyyy'));
   }
 
-
   return (
     <BtnPrevNextContainer>
       <BtnPrevContainer type="button" onClick={previousMonth}>

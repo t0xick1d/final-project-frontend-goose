@@ -7,7 +7,7 @@ import {
   List,
   Item,
 } from './Statistics.styled';
-import { format, parseISO, startOfToday } from 'date-fns';
+import { format, parseISO, startOfToday, parse } from 'date-fns';
 import BtnPrevNext from 'components/CalendarBtnPrevNext/BtnPrevNext';
 import Icons from '../../images/sprite.svg';
 import {
@@ -28,7 +28,9 @@ const Statistics = () => {
     format(today, 'dd MMMM yyyy')
   );
   const [data, setData] = useState(null);
-  const firstDayCurrentMonth = parseISO(format(today, 'yyyy-MM-dd'));
+  const [firstDayCurrentMonth, setFirstDayCurrentMonth] = useState(
+    parseISO(format(today, 'yyyy-MM-dd'))
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,7 +62,9 @@ const Statistics = () => {
   const doneByMonth = (done.forMonth.quantity / totalForMonth) * 100;
 
   const handleDateChange = newDate => {
-    setCurrentMonth(newDate);
+    const parsedDate = parse(newDate, 'dd MMMM yyyy', new Date());
+    setFirstDayCurrentMonth(parsedDate);
+    setCurrentMonth(format(parsedDate, 'dd MMMM yyyy'));
   };
 
   return (
