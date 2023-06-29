@@ -153,6 +153,14 @@ export const AdvantagesItem = styled.li`
       margin-left: auto;
       justify-content: flex-end;
     }
+
+    &:nth-child(2n + 1) {
+      padding-left: 205px;
+    }
+
+    &:nth-child(2n) {
+      padding-right: 205px;
+    }
   }
 `;
 
@@ -161,6 +169,10 @@ export const Number = styled.p`
   font-weight: 700;
   color: #3e85f3;
   font-size: 80px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 104px;
+  }
 `;
 
 export const Advantages = styled.p`
@@ -170,6 +182,10 @@ export const Advantages = styled.p`
   color: #171820;
   text-transform: uppercase;
   margin-bottom: 14px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
 export const Info = styled.p`
@@ -187,6 +203,7 @@ export const Info = styled.p`
 export const AdditionalInfo = styled.p`
   font-family: 'Inter';
   font-weight: 700;
+  font-size: 32px;
   text-transform: uppercase;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -195,8 +212,11 @@ export const AdditionalInfo = styled.p`
   background-color: #dcebf7;
   color: #3e85f3;
   border-radius: 44px;
-  font-size: 32px;
   margin-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
 `;
 export const InfoBlock = styled.div`
   width: 335px;
