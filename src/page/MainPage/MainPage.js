@@ -47,9 +47,9 @@ import {
   NavLink,
   Arrow,
 } from './MainPageStyle';
-import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
-import { AuthSection } from 'components/AuthSection/AuthSection';
-import { DescriptionSection } from 'components/Description/Description';
+// import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
+// import { AuthSection } from 'components/AuthSection/AuthSection';
+// import { DescriptionSection } from 'components/Description/Description';
 
 export default function MainPage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -90,13 +90,13 @@ export default function MainPage() {
         <Title>GooseTrack</Title>
         <Navigation>
           <NavElement>
-            <LogIn>
+            <LogIn to="/login">
               Log in <img src={loginIcon} alt="loginIcon" />
             </LogIn>
           </NavElement>
 
           <NavElement>
-            <SignUp>Sign up</SignUp>
+            <SignUp to="register">Sign up</SignUp>
           </NavElement>
         </Navigation>
       </Auth>
@@ -153,7 +153,7 @@ export default function MainPage() {
         <ReviewsTitle>reviews</ReviewsTitle>
         <UserInfo>
           <Container>
-            <img src={User}></img>
+            <img src={User} alt="avatar"></img>
             <ImportantInfo>
               <Name>Olena Doe </Name>
               <Rating>

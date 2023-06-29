@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 /* ------------------------------- AuthSection ------------------------------ */
 
@@ -53,40 +54,40 @@ export const Navigation = styled.nav`
   }
 `;
 
-export const LogIn = styled.a`
-  background-color: #ffffff;
-  color: #3e85f3;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  border-radius: 16px;
-  cursor: pointer;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 33px;
-  padding-right: 33px;
-  &:hover {
-    box-shadow: 4px 2px 16px 0px #88a5bf7a;
-  }
+export const LogIn = styled(Link)({
+  backgroundColor: '#ffffff',
+  color: '#3e85f3',
+  fontSize: '14px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '6px',
+  borderRadius: '16px',
+  cursor: 'pointer',
+  paddingTop: '14px',
+  paddingBottom: '14px',
+  paddingLeft: '33px',
+  paddingRight: '33px',
+  '&:hover': {
+    boxShadow: '4px 2px 16px 0px #88a5bf7a',
+  },
 
-  @media screen and (min-width: 768px) {
-    padding-left: 22px;
-    padding-right: 22px;
-  }
-`;
+  '@media screen and (min-width: 768px)': {
+    paddingLeft: '22px',
+    paddingRight: '22px',
+  },
+});
 
-export const SignUp = styled.a`
-  color: #ffffff;
-  border-bottom: solid 1px;
-  font-size: 12px;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0px 9.399999618530273px 57.6875px 0px #00000009;
-    box-shadow: 0px 47px 355px 0px #00000012;
-  }
-`;
+export const SignUp = styled(Link)({
+  color: '#ffffff',
+  borderBottom: 'solid 1px',
+  fontSize: ' 12px',
+  cursor: 'pointer',
+  '&:hover': {
+    // boxShadow: '0px 9.399999618530273px 57.6875px 0px #00000009',
+    boxShadow: '0px 47px 355px 0px #00000012',
+  },
+});
 
 export const NavElement = styled.li`
   &:nth-child(2) {
