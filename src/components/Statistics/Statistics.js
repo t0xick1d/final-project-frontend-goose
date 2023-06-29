@@ -7,12 +7,7 @@ import {
   List,
   Item,
 } from './Statistics.styled';
-// import { useState } from 'react';
-import {
-  format,
-  parse,
-  startOfToday,
-} from 'date-fns';
+import { format, parseISO, startOfToday } from 'date-fns';
 import BtnPrevNext from 'components/CalendarBtnPrevNext/BtnPrevNext';
 import Icons from '../../images/sprite.svg';
 import {
@@ -28,39 +23,45 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Statistics = () => {
-      const today = startOfToday();
-      const [currentMonth, setCurrentMonth] = useState(format(today, 'dd MMMM yyyy'));
-
-    
+  const today = startOfToday();
+  const [currentMonth, setCurrentMonth] = useState(
+    format(today, 'dd MMMM yyyy')
+  );
   const [data, setData] = useState(null);
-  
-    const firstDayCurrentMonth = parse(currentMonth, 'dd MMMM yyyy', new Date());
+  const firstDayCurrentMonth = parseISO(format(today, 'yyyy-MM-dd'));
 
-
-      useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await axios.get(
-              `statistics?date=${format(firstDayCurrentMonth, 'yyyy-MM-dd')}`
-            );
-            setData(response.data);
-            console.log(response.data);
-            console.log(today);
-
-          } catch (error) {
-            console.log(error);
-          }
-        };
-
-
-        fetchData();
-      }, []);
-
-      if (!data) {
-        return <div>Loading...</div>;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `statistics?date=${format(firstDayCurrentMonth, 'yyyy-MM-dd')}`
+        );
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
       }
-    
-  
+    };
+
+    fetchData();
+  }, [firstDayCurrentMonth]);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
+  const { todo, inProgres, done, totalForDay, totalForMonth } = data;
+
+  const todoByDay = (todo.forDay.quantity / totalForDay) * 100;
+  const inProgressByDay = (inProgres.forDay.quantity / totalForDay) * 100;
+  const doneByDay = (done.forDay.quantity / totalForDay) * 100;
+
+  const todoByMonth = (todo.forMonth.quantity / totalForMonth) * 100;
+  const inProgressByMonth = (inProgres.forMonth.quantity / totalForMonth) * 100;
+  const doneByMonth = (done.forMonth.quantity / totalForMonth) * 100;
+
+  const handleDateChange = newDate => {
+    setCurrentMonth(newDate);
+  };
 
   return (
     <StatisticsContainer>
@@ -69,7 +70,7 @@ const Statistics = () => {
           <ButtonWrapper type="button">
             {format(firstDayCurrentMonth, 'dd MMMM yyyy')}
           </ButtonWrapper>
-          <BtnPrevNext />
+          <BtnPrevNext onDateChange={handleDateChange} />
         </BtnContainer>
         <List>
           <Item>
@@ -90,7 +91,11 @@ const Statistics = () => {
       <BarChart
         width={730}
         height={250}
-        data={data}
+        data={[
+          { name: 'todo', pv: todoByDay, uv: todoByMonth },
+          { name: 'inprogress', pv: inProgressByDay, uv: inProgressByMonth },
+          { name: 'done', pv: doneByDay, uv: doneByMonth },
+        ]}
         margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
@@ -119,4 +124,5 @@ const Statistics = () => {
     </StatisticsContainer>
   );
 };
+
 export default Statistics;
