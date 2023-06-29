@@ -16,6 +16,7 @@ import RestrictedRoute from 'RestrictedRoute';
 
 import { fetchCurrentUser } from 'redux-store/AuthOperations/AuthOperations';
 import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
+import Day from 'components/ChoosedDay/Day/Day';
 // Залишив в такому вигляді бо не знав звідки брати
 // import { ChosenDay } from 'components/ChoosedDay/ButtonAddTask/ButtonAddTask';
 
@@ -62,7 +63,7 @@ export const App = () => {
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/calendar" element={<CalendarPage />}>
               <Route path="month/:currentDate" element={<ChosedMonth />} />
-              <Route path="day/:currentDate" element={<div>ChoseDay</div>} />
+              <Route path="day/:currentDate" element={<Day />} />
             </Route>
             <Route path="/statistics" element={<StatisticsPage />} />
           </Route>
