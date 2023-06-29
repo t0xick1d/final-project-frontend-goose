@@ -16,7 +16,7 @@ import {
 export default function HeaderCalendar(){
   const today = startOfToday();
   
-  const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
+  const [currentMonth] = useState(format(today, 'MMM-yyyy'));
   const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
 
 

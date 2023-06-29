@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import goose from './svg/goose.svg';
 import loginIcon from './svg/login-icon.svg';
-import User from './image/avatar.jpg';
+// import User from './image/avatar.jpg';
 
-import Arrow_left from './svg/arrow-left.svg';
-import Arrow_right from './svg/arrow-right.svg';
+// import Arrow_left from './svg/arrow-left.svg';
+// import Arrow_right from './svg/arrow-right.svg';
 
 import image1_mb from './image/image1-mb.jpg';
 import image2_mb from './image/image2-mb.jpg';
@@ -34,19 +34,19 @@ import {
   Info,
   AdditionalInfo,
   InfoBlock,
-  Reviews,
-  ReviewsTitle,
-  SliderInfo,
-  UserInfo,
-  Rating,
-  Star,
-  Name,
-  Container,
-  ImportantInfo,
-  Nav,
-  NavLink,
-  Arrow,
-  Users,
+  // Reviews,
+  // ReviewsTitle,
+  // SliderInfo,
+  // UserInfo,
+  // Rating,
+  // Star,
+  // Name,
+  // Container,
+  // ImportantInfo,
+  // Nav,
+  // NavLink,
+  // Arrow,
+  // Users,
 } from './MainPageStyle';
 import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
 // import { AuthSection } from 'components/AuthSection/AuthSection';
@@ -150,8 +150,7 @@ export default function MainPage() {
         </AdvantagesList>
       </Description>
 
-
-      <Reviews>
+      {/* <Reviews>
         <ReviewsTitle>reviews</ReviewsTitle>
         <Users>
           <UserInfo>
@@ -204,12 +203,11 @@ export default function MainPage() {
             <Arrow src={Arrow_right}></Arrow>
           </NavLink>
         </Nav>
-      </Reviews>
+      </Reviews> */}
 
       <footer>
         <ReviewsSlider />
       </footer>
-
     </>
   );
 }
