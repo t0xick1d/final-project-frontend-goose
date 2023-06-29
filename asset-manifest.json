@@ -1,23 +1,33 @@
 {
   "files": {
-    "main.css": "/final-project-frontend-goose/static/css/main.fcaaa8ea.css",
-    "main.js": "/final-project-frontend-goose/static/js/main.f0801a15.js",
+    "main.css": "/final-project-frontend-goose/static/css/main.2d79507f.css",
+    "main.js": "/final-project-frontend-goose/static/js/main.f5b94cff.js",
+    "static/media/image1-tb.jpg": "/final-project-frontend-goose/static/media/image1-tb.6e17e525410a7809e681.jpg",
+    "static/media/image1-dt.jpg": "/final-project-frontend-goose/static/media/image1-dt.c4d999902f2aedc17632.jpg",
+    "static/media/image3-tb.jpg": "/final-project-frontend-goose/static/media/image3-tb.8d264fe598b9f7f1d8a5.jpg",
+    "static/media/image3-dt.jpg": "/final-project-frontend-goose/static/media/image3-dt.6ce85bd933afad454849.jpg",
+    "static/media/image2-tb.jpg": "/final-project-frontend-goose/static/media/image2-tb.6d8084c4edd50e483ad3.jpg",
+    "static/media/image2-dt.jpg": "/final-project-frontend-goose/static/media/image2-dt.0bd0d4e5cc9b2a32d402.jpg",
     "static/media/goose.svg": "/final-project-frontend-goose/static/media/goose.c6a7b737f606941aca78d31d3dfc5946.svg",
     "static/media/image1-mb.jpg": "/final-project-frontend-goose/static/media/image1-mb.9e778d44e16555e64ef2.jpg",
     "static/media/image2-mb.jpg": "/final-project-frontend-goose/static/media/image2-mb.83dac6c87380496e973d.jpg",
     "static/media/image3-mb.jpg": "/final-project-frontend-goose/static/media/image3-mb.bf7cc0cf6d7963ae323b.jpg",
     "static/media/sugnUpImg.png": "/final-project-frontend-goose/static/media/sugnUpImg.5d5569b579467bf92252.png",
     "static/media/logInImg.png": "/final-project-frontend-goose/static/media/logInImg.f177ca1f2ab9bb8fa9c4.png",
-    "static/media/sprite.svg": "/final-project-frontend-goose/static/media/sprite.1f7f4a337f5f2ba952b1317afa4cd952.svg",
+    "static/media/sprite.svg": "/final-project-frontend-goose/static/media/sprite.cdd3af86ad0a77f6660a0ef3638364da.svg",
+    "static/media/slick.svg": "/final-project-frontend-goose/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/final-project-frontend-goose/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/final-project-frontend-goose/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/final-project-frontend-goose/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/final-project-frontend-goose/index.html",
     "static/media/login-icon.svg": "/final-project-frontend-goose/static/media/login-icon.89b72c4c3399de373085c8003fa56216.svg",
     "static/media/reviews-arrow-right.svg": "/final-project-frontend-goose/static/media/reviews-arrow-right.a22cdf87a7132e781406da0f90b2321e.svg",
     "static/media/reviews-arrow-left.svg": "/final-project-frontend-goose/static/media/reviews-arrow-left.419843934514a4ec72e12d89da762d2a.svg",
-    "main.fcaaa8ea.css.map": "/final-project-frontend-goose/static/css/main.fcaaa8ea.css.map",
-    "main.f0801a15.js.map": "/final-project-frontend-goose/static/js/main.f0801a15.js.map"
+    "main.2d79507f.css.map": "/final-project-frontend-goose/static/css/main.2d79507f.css.map",
+    "main.f5b94cff.js.map": "/final-project-frontend-goose/static/js/main.f5b94cff.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcaaa8ea.css",
-    "static/js/main.f0801a15.js"
+    "static/css/main.2d79507f.css",
+    "static/js/main.f5b94cff.js"
   ]
 }
