@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useMedia } from 'react-use';
 import { useLocation } from 'react-router-dom';
 import { UserInfo } from 'components/UserInfo/UserInfo';
@@ -9,31 +8,18 @@ import {
   Wrapper,
   Motivation,
   Accent,
-  Svg,
-  Input,
   Button,
   Burger,
 } from './Header.styled';
 import goose from 'images/icons/goose.png';
 import icon from 'images/sprite.svg';
+import { ThemeToggler } from 'components/ThemeToggle/ThemeToggle';
 
 export default function Header({ onOpenClick }) {
-  const [darkTheme, setDarkTheme] = useState(
-    localStorage.getItem('darkTheme') === 'true' || false
-  );
-
-  useEffect(() => {
-    localStorage.setItem('darkTheme', darkTheme);
-  }, [darkTheme]);
-
   const location = useLocation();
   const isActivePageCalendar = location.pathname.includes('calendar');
 
   const isTabletOrMobile = useMedia('(max-width: 1439px)');
-
-  // const name = 'Name';
-
-  // const firstLetter = name.trim().slice(0, 1).toUpperCase();
 
   return (
     <Container>
@@ -57,18 +43,8 @@ export default function Header({ onOpenClick }) {
 
       <Wrapper>
         <Button>Feedback</Button>
-        <label>
-          <Input
-            type="checkbox"
-            onChange={() => {
-              setDarkTheme(!darkTheme);
-            }}
-          />
+        <ThemeToggler />
 
-          <Svg>
-            <use href={icon + (darkTheme ? '#icon-sun' : '#icon-moon')}></use>
-          </Svg>
-        </label>
         <UserInfo />
       </Wrapper>
     </Container>
