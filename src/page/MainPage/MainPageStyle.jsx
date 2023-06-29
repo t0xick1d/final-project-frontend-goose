@@ -233,3 +233,101 @@ export const InfoBlock = styled.div`
     }
   }
 `;
+/* ------------------------------ ReviewsSlider ----------------------------- */
+export const Reviews = styled.section`
+  padding-bottom: 64px;
+  padding-right: 20px;
+  padding-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 100px;
+    padding-right: 94px;
+    padding-left: 94px;
+  }
+`;
+
+export const ReviewsTitle = styled.h2`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  color: #3e85f3;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
+`;
+
+export const UserInfo = styled.div`
+  border: 1px solid #1111111a;
+  padding: 24px;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 50px;
+    padding-right: 32px;
+    padding-left: 32px;
+    padding-top: 32px;
+  }
+`;
+
+export const Name = styled.p`
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 18px;
+  color: #343434;
+`;
+
+export const Rating = styled.ul`
+  display: flex;
+  gap: 10px;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  gap: 18px;
+  margin-bottom: 24px;
+`;
+
+export const Star = styled.li`
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #ffac33;
+`;
+
+export const SliderInfo = styled.p`
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 500;
+  color: #111111b2;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 68px;
+  }
+`;
+
+export const ImportantInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  gap: 25px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 18px;
+  }
+`;
+
+export const NavLink = styled.a``;
+
+export const Arrow = styled.img``;

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import goose from './svg/goose.svg';
 import loginIcon from './svg/login-icon.svg';
+import User from './image/avatar.jpg';
+
+import Arrow_left from './svg/arrow-left.svg';
+import Arrow_right from './svg/arrow-right.svg';
 
 import image1_mb from './image/image1-mb.jpg';
 import image2_mb from './image/image2-mb.jpg';
@@ -30,6 +34,18 @@ import {
   Info,
   AdditionalInfo,
   InfoBlock,
+  Reviews,
+  ReviewsTitle,
+  SliderInfo,
+  UserInfo,
+  Rating,
+  Star,
+  Name,
+  Container,
+  ImportantInfo,
+  Nav,
+  NavLink,
+  Arrow,
 } from './MainPageStyle';
 export default function MainPage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -128,6 +144,38 @@ export default function MainPage() {
           </AdvantagesItem>
         </AdvantagesList>
       </Description>
+
+      <Reviews>
+        <ReviewsTitle>reviews</ReviewsTitle>
+        <UserInfo>
+          <Container>
+            <img src={User}></img>
+            <ImportantInfo>
+              <Name>Olena Doe </Name>
+              <Rating>
+                <Star></Star>
+                <Star></Star>
+                <Star></Star>
+                <Star></Star>
+                <Star></Star>
+              </Rating>
+            </ImportantInfo>
+          </Container>
+          <SliderInfo>
+            GooseTrack is impressive, the calendar view and filter options make
+            it easy to stay organized and focused. Highly recommended.
+          </SliderInfo>
+        </UserInfo>
+
+        <Nav>
+          <NavLink>
+            <Arrow src={Arrow_left}></Arrow>
+          </NavLink>
+          <NavLink>
+            <Arrow src={Arrow_right}></Arrow>
+          </NavLink>
+        </Nav>
+      </Reviews>
     </>
   );
 }
