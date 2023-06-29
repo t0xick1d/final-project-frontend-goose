@@ -1,18 +1,17 @@
 import ArrowLeft from '../../images/icons/reviews-arrow-left.svg';
 import ArrowRight from '../../images/icons/reviews-arrow-right.svg';
 import {
-  ReviewsWrapper,
   ReviewsHeader,
   ButtonArrow,
   ButtonList,
   UserReviewsBlock,
-  SliderStyled,
 } from './ReviewsStyled';
 import ReviewsBox from './ReviewsBox';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
 import getReviewsApi from 'services/getReviewsApi';
+import Slider from 'react-slick';
 
 export default function ReviewsSlider() {
   const [reviews, setReviews] = useState([]);
@@ -53,10 +52,10 @@ export default function ReviewsSlider() {
   };
 
   return (
-    <ReviewsWrapper>
+    <>
       <ReviewsHeader>Reviews</ReviewsHeader>
       <UserReviewsBlock>
-        <SliderStyled {...sliderSettings} ref={c => (slider = c)}>
+        <Slider {...sliderSettings} ref={c => (slider = c)}>
           {reviews.map(item => {
             return (
               <ReviewsBox
@@ -68,7 +67,7 @@ export default function ReviewsSlider() {
               />
             );
           })}
-        </SliderStyled>
+        </Slider>
       </UserReviewsBlock>
       <ButtonList>
         <ButtonArrow onClick={handlePrevious}>
@@ -78,6 +77,6 @@ export default function ReviewsSlider() {
           <img src={ArrowRight} alt="Scroll right to review" />
         </ButtonArrow>
       </ButtonList>
-    </ReviewsWrapper>
+    </>
   );
 }

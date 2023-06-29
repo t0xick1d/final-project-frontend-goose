@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Rating } from 'react-simple-star-rating';
-import Slider from 'react-slick';
 
 const size = {
   mobile: '375px',
@@ -22,10 +21,6 @@ export const RatingStar = styled(Rating)`
   .empty-icons :not(:first-child) {
     margin-left: 10px;
   }
-`;
-
-export const ReviewsWrapper = styled.div`
-
 `;
 
 export const ReviewsHeader = styled.h2`
@@ -52,12 +47,9 @@ export const ReviewsBoxStyle = styled.div`
   @media ${device.tablet} {
     padding: 32px;
   }
-`;
 
-export const SliderStyled = styled(Slider)`
-  .slick-track {
-    display: flex;
-    gap: 24px;
+  @media ${device.desktop} {
+    margin: 12px;
   }
 `;
 

@@ -17,7 +17,7 @@ export default function ReviewsBox({
     <ReviewsBoxStyle>
       <UserBox>
         <UserAvatar src={avatarUrl} alt="User avatar" />
-        <div>
+        <>
           <UserName>{name}</UserName>
           <RatingStar
             initialValue={rating}
@@ -27,7 +27,7 @@ export default function ReviewsBox({
             emptyColor={'#CEC9C1'}
             SVGstorkeWidth={2}
           />
-        </div>
+        </>
       </UserBox>
       <UserReviews>{comment}</UserReviews>
     </ReviewsBoxStyle>
