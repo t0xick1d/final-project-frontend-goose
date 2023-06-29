@@ -1,0 +1,100 @@
+:root {
+  /* fonts */
+  --main-font: 'Inter', sans-serif;
+  --secondary-font: 'Coolvetica', sans-serif;
+
+  /* text */
+  --title-text-main-color: #111111;
+  --secondary-text-color: #616161;
+  --accent-color: #3e85f3;
+  --active-selection: #e3f3ff;
+  --btn-text-color: #ffffff;
+  --inactive-btn-text-color: #84828a;
+  --calendar-date-color: #343434;
+  --accent: #3e85f3;
+  --input-border-color: #11111126;
+  --label-text-color: #111111;
+  --text-priority-high-color: #f7f6f9;
+  --text-priority-other-color: #f7f6f9;
+
+  /* backgroung */
+  --main-background-color: #ffffff;
+  --auth-background-color: #dcebf7;
+  --outlet-background-color: #f7f6f9;
+  --accent-background-color: #3e85f3;
+  --sidebar-background-color: #ffffff;
+
+  /* tasks */
+  --task-high-color: #ea3d65;
+  --task-med-color: #f3b249;
+  --task-low-color: #72c2f8;
+  --task-card-color: #dce3e5cc;
+  --task-field-color: #f6f6f6;
+  --task-cancel-color: #efefef;
+  --task-field-text-color: #616161;
+  --task-border-color: rgba(220, 227, 229, 0.8);
+
+  /* calendar */
+  --priority-high-color: #ffd2dd;
+  --priority-med-color: #fcf0d4;
+  --priority-low-color: #ceeefd;
+
+  /* other */
+  --scroll-color: #e7e5e5;
+  --scroll-background-color: #f2f2f2;
+  --frame-border-color: #e1e7e9;
+
+  /* form */
+  --input-bcg-color: #f7f7f7;
+  --border-input: #ffffff2f;
+  --modal-background-color: #ffffff;
+  --modal-input-text-color: #616161;
+  --modal-input-lable-color: #343434c5;
+  --modal-border-color: 'none';
+
+  /* animation */
+  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* backgroung button */
+  --background-button-month: #cae8ff;
+  --background-button-day: #e3f3ff;
+}
+
+[dark] {
+  /* text */
+  --title-text-main-color: #ffffff;
+  --accent-color: #ffffff;
+  --inactive-btn-text-color: #ffffff;
+  --active-selection: #3e85f3;
+  --calendar-date-color: #ffffff;
+  --task-field-text-color: #ffffff;
+  --input-border-color: #ffffff26;
+  --label-text-color: rgba(250, 250, 250, 0.3);
+  --text-priority-high-color: #ffffff;
+  --text-priority-other-color: #171820;
+
+  /* backgroung */
+  --outlet-background-color: #171820;
+  --main-background-color: #21222c;
+  --sidebar-background-color: #13151a;
+
+  /* form */
+  --input-bcg-color: #171820;
+  --border-input: #ffffff2f;
+  --modal-background-color: #171820;
+  --modal-input-text-color: #ffffff;
+  --modal-input-lable-color: #fafafa52;
+  --modal-border-color: rgba(255, 255, 255, 0.15);
+
+  /* tasks */
+  --task-border-color: rgba(255, 255, 255, 0.15);
+
+  /* other */
+  --scroll-color: #2d3037;
+  --scroll-background-color: #21222c;
+  --frame-border-color: #42434c;
+
+  /* backgroung button */
+  --background-button-month: #3e85f3;
+  --background-button-day: #21222c;
+}

@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { store, persistor } from './redux-store/store';
 import { GlobalStyles } from 'GlobalStyles';
 import { PersistGate } from 'redux-persist/integration/react';
+import 'stylesheet/vars.css';
 
 import 'modern-normalize';
 // в store має бути ще persist

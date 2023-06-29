@@ -160,7 +160,7 @@ const UserForm = () => {
                 />
 
                 <VectorPng>
-                  <use href={Icon + '#icon-chevron-right-new'}></use>
+                  <use href={Icon + '#icon-chevron-right'}></use>
                 </VectorPng>
 
                 <ErrorMessage name="birthday" />

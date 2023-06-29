@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  background: #ffffff;
+  background: var(--main-background-color);
   border-radius: 16px;
 
   @media screen and (min-width: 768px) {
@@ -29,13 +29,13 @@ export const Wrapper = styled.div`
 
     height: 18px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: calc(18 / 14);
 
-    color: #111111;
+    color: var(--title-text-main-color);
 
     @media screen and (min-width: 768px) {
       margin-bottom: 8px;
@@ -49,13 +49,13 @@ export const Wrapper = styled.div`
 export const User = styled.p`
   margin-bottom: 40px;
 
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: calc(14 / 12);
 
-  color: #616161;
+  color: var(--modal-input-text-color);
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -91,7 +91,7 @@ export const BlockInput = styled.div`
   p {
     margin-bottom: 8px;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -117,17 +117,17 @@ export const Input = styled(Field)`
 
   padding-left: 18px;
 
-  border: 1px solid #11111126;
+  border: 1px solid var(--input-border-color);
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--main-background-color);
 
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: calc(18 / 16);
 
-  color: #111111;
+  color: var(--title-text-main-color);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
@@ -147,16 +147,16 @@ export const DatePick = styled(DatePicker)`
   margin-bottom: 18px;
   padding-left: 18px;
 
-  border: 1px solid #11111126;
+  border: 1px solid var(--input-border-color);
   border-radius: 8px;
-  background: #fff;
+  background: var(--main-background-color);
 
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: calc(18 / 14);
-  color: #111111;
+  color: var(--title-text-main-color);
 
   @media screen and (min-width: 768px) {
     width: 354px;
@@ -213,9 +213,9 @@ export const ContainerImg = styled.div`
   width: 72px;
   height: 72px;
 
-  border: 2px solid #3e85f3;
+  border: 2px solid var(--accent-background-color);
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--main-background-color);
 
   @media screen and (min-width: 768px) {
     position: relative;
@@ -253,7 +253,7 @@ export const VectorPng = styled.svg`
 
   transform: rotate(270deg);
 
-  stroke: #111111;
+  stroke: var(--title-text-main-color);
   fill: none;
 
   cursor: pointer;
@@ -274,13 +274,13 @@ export const VectorPng = styled.svg`
 `;
 
 export const LabelBtn = styled.label`
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: calc(18 / 14);
 
-  color: #111111;
+  color: var(--label-text-color);
 
   @media screen and (min-width: 768px) {
   }
@@ -304,14 +304,14 @@ export const Btn = styled.button`
 
   cursor: pointer;
 
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: calc(18 / 14);
 
-  background: #3e85f3;
-  color: #ffffff;
+  background: var(--accent-background-color);
+  color: var(--btn-text-color);
 
   @media screen and (min-width: 768px) {
     width: 262px;
@@ -323,8 +323,10 @@ export const Btn = styled.button`
   @media screen and (min-width: 1440px) {
   }
 
-  &:hover {
-    border: 1px solid #42b8cc;
+  &:hover,
+  :focus {
+    cursor: pointer;
+    background-color: #2b78ef;
   }
   &:active {
     filter: blur(0.1rem);
