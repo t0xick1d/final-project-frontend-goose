@@ -17,7 +17,7 @@ import {
 import goose from 'images/icons/goose.png';
 import icon from 'images/sprite.svg';
 
-export default function Header() {
+export default function Header({ onOpenClick }) {
   const [darkTheme, setDarkTheme] = useState(
     localStorage.getItem('darkTheme') === 'true' || false
   );
@@ -25,20 +25,20 @@ export default function Header() {
   useEffect(() => {
     localStorage.setItem('darkTheme', darkTheme);
   }, [darkTheme]);
-  
+
   const location = useLocation();
   const isActivePageCalendar = location.pathname.includes('calendar');
 
   const isTabletOrMobile = useMedia('(max-width: 1439px)');
 
-  const name = 'Name';
+  // const name = 'Name';
 
-  const firstLetter = name.trim().slice(0, 1).toUpperCase();
+  // const firstLetter = name.trim().slice(0, 1).toUpperCase();
 
   return (
     <Container>
       {isTabletOrMobile ? (
-        <Burger onClick={() => console.log('click')}>
+        <Burger onClick={onOpenClick}>
           <use href={icon + '#icon-menu'}></use>
         </Burger>
       ) : isActivePageCalendar ? (

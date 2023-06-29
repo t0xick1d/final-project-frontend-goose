@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authSlice } from './Slices/AuthSlice';
-import { tasksSlice } from './Slices/TasksSlice';
+import { tasksSlice } from './tasks/tasksSlice';
 
 const authPersistConfig = {
   key: 'auth',
