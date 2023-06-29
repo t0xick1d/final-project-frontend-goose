@@ -46,6 +46,7 @@ import {
   Nav,
   NavLink,
   Arrow,
+  Users,
 } from './MainPageStyle';
 export default function MainPage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -147,25 +148,48 @@ export default function MainPage() {
 
       <Reviews>
         <ReviewsTitle>reviews</ReviewsTitle>
-        <UserInfo>
-          <Container>
-            <img src={User}></img>
-            <ImportantInfo>
-              <Name>Olena Doe </Name>
-              <Rating>
-                <Star></Star>
-                <Star></Star>
-                <Star></Star>
-                <Star></Star>
-                <Star></Star>
-              </Rating>
-            </ImportantInfo>
-          </Container>
-          <SliderInfo>
-            GooseTrack is impressive, the calendar view and filter options make
-            it easy to stay organized and focused. Highly recommended.
-          </SliderInfo>
-        </UserInfo>
+        <Users>
+          <UserInfo>
+            <Container>
+              <img src={User} alt="Avatar"></img>
+              <ImportantInfo>
+                <Name>Olena Doe </Name>
+                <Rating>
+                  <Star></Star>
+                  <Star></Star>
+                  <Star></Star>
+                  <Star></Star>
+                  <Star></Star>
+                </Rating>
+              </ImportantInfo>
+            </Container>
+            <SliderInfo>
+              GooseTrack is impressive, the calendar view and filter options
+              make it easy to stay organized and focused. Highly recommended.
+            </SliderInfo>
+          </UserInfo>
+          {windowWidth >= 1200 && (
+            <UserInfo>
+              <Container>
+                <img src={User} alt="Avatar"></img>
+                <ImportantInfo>
+                  <Name>Olena Doe </Name>
+                  <Rating>
+                    <Star></Star>
+                    <Star></Star>
+                    <Star></Star>
+                    <Star></Star>
+                    <Star></Star>
+                  </Rating>
+                </ImportantInfo>
+              </Container>
+              <SliderInfo>
+                GooseTrack is impressive, the calendar view and filter options
+                make it easy to stay organized and focused. Highly recommended.
+              </SliderInfo>
+            </UserInfo>
+          )}
+        </Users>
 
         <Nav>
           <NavLink>

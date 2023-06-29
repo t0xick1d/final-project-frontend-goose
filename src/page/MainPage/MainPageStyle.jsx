@@ -26,7 +26,7 @@ export const Auth = styled.section`
 `;
 
 export const Title = styled.h1`
-  font-family: 'Coolvetica';
+  font-family: 'Coolvetica', sans-serif;
   font-size: 44px;
   color: #ffffff;
   margin-bottom: 32px;
@@ -37,7 +37,7 @@ export const Title = styled.h1`
   }
 `;
 export const Navigation = styled.nav`
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   display: flex;
   flex-direction: column;
@@ -165,7 +165,7 @@ export const AdvantagesItem = styled.li`
 `;
 
 export const Number = styled.p`
-  font-family: 'Inter';
+  font-family: 'Inter' sans-serif;
   font-weight: 700;
   color: #3e85f3;
   font-size: 80px;
@@ -176,7 +176,7 @@ export const Number = styled.p`
 `;
 
 export const Advantages = styled.p`
-  font-family: 'Inter';
+  font-family: 'Inter' sans-serif;
   font-weight: 700;
   font-size: 32px;
   color: #171820;
@@ -191,7 +191,7 @@ export const Advantages = styled.p`
 export const Info = styled.p`
   color: #111111e5;
   width: auto;
-  font-family: 'Inter';
+  font-family: 'Inter' sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -201,7 +201,7 @@ export const Info = styled.p`
 `;
 
 export const AdditionalInfo = styled.p`
-  font-family: 'Inter';
+  font-family: 'Inter' sans-serif;
   font-weight: 700;
   font-size: 32px;
   text-transform: uppercase;
@@ -250,7 +250,7 @@ export const ReviewsTitle = styled.h2`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter';
+  font-family: 'Inter' sans-serif;
   font-weight: 700;
   font-size: 28px;
   text-transform: uppercase;
@@ -275,7 +275,7 @@ export const UserInfo = styled.div`
 `;
 
 export const Name = styled.p`
-  font-family: 'Inter';
+  font-family: 'Inter' sans-serif;
   font-weight: 700;
   font-size: 18px;
   color: #343434;
@@ -292,6 +292,11 @@ export const Container = styled.div`
   margin-bottom: 24px;
 `;
 
+export const Users = styled.div`
+  display: flex;
+  gap: 24px;
+`;
+
 export const Star = styled.li`
   display: inline-block;
   width: 14px;
@@ -300,7 +305,7 @@ export const Star = styled.li`
 `;
 
 export const SliderInfo = styled.p`
-  font-family: 'Inter';
+  font-family: 'Inter' sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #111111b2;
@@ -328,6 +333,8 @@ export const Nav = styled.nav`
   }
 `;
 
-export const NavLink = styled.a``;
+export const NavLink = styled.a`
+  cursor: pointer;
+`;
 
 export const Arrow = styled.img``;
