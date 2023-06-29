@@ -48,6 +48,10 @@ import {
   Arrow,
   Users,
 } from './MainPageStyle';
+import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
+// import { AuthSection } from 'components/AuthSection/AuthSection';
+// import { DescriptionSection } from 'components/Description/Description';
+
 export default function MainPage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -87,13 +91,13 @@ export default function MainPage() {
         <Title>GooseTrack</Title>
         <Navigation>
           <NavElement>
-            <LogIn>
+            <LogIn to="/login">
               Log in <img src={loginIcon} alt="loginIcon" />
             </LogIn>
           </NavElement>
 
           <NavElement>
-            <SignUp>Sign up</SignUp>
+            <SignUp to="register">Sign up</SignUp>
           </NavElement>
         </Navigation>
       </Auth>
@@ -145,6 +149,7 @@ export default function MainPage() {
           </AdvantagesItem>
         </AdvantagesList>
       </Description>
+
 
       <Reviews>
         <ReviewsTitle>reviews</ReviewsTitle>
@@ -200,6 +205,30 @@ export default function MainPage() {
           </NavLink>
         </Nav>
       </Reviews>
+
+      <footer>
+        <ReviewsSlider />
+      </footer>
+
     </>
   );
 }
+
+// Був конфлікт тому я вирішив закоментувати
+// import { AuthSection } from 'components/AuthSection/AuthSection';
+// import { DescriptionSection } from 'components/Description/Description';
+// export default function MainPage() {
+//   return (
+//     <>
+//       <AuthSection />
+//       <DescriptionSection />
+// {/* <img src={goose} alt="goose" /> */}
+//         <h1>GooseTrack</h1>
+//         <nav>
+//           <li>
+//             <Link to="/register">Sign up</Link>
+//           </li>
+//           <li>
+//             <Link to="/login">Log in</Link>
+//           </li>
+//         </nav>
