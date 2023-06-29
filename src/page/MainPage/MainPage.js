@@ -46,6 +46,7 @@ import {
   Nav,
   NavLink,
   Arrow,
+  Users,
 } from './MainPageStyle';
 import ReviewsSlider from '../../components/Reviews/ReviewsSlider';
 // import { AuthSection } from 'components/AuthSection/AuthSection';
@@ -149,9 +150,66 @@ export default function MainPage() {
         </AdvantagesList>
       </Description>
 
+
+      <Reviews>
+        <ReviewsTitle>reviews</ReviewsTitle>
+        <Users>
+          <UserInfo>
+            <Container>
+              <img src={User} alt="Avatar"></img>
+              <ImportantInfo>
+                <Name>Olena Doe </Name>
+                <Rating>
+                  <Star></Star>
+                  <Star></Star>
+                  <Star></Star>
+                  <Star></Star>
+                  <Star></Star>
+                </Rating>
+              </ImportantInfo>
+            </Container>
+            <SliderInfo>
+              GooseTrack is impressive, the calendar view and filter options
+              make it easy to stay organized and focused. Highly recommended.
+            </SliderInfo>
+          </UserInfo>
+          {windowWidth >= 1200 && (
+            <UserInfo>
+              <Container>
+                <img src={User} alt="Avatar"></img>
+                <ImportantInfo>
+                  <Name>Olena Doe </Name>
+                  <Rating>
+                    <Star></Star>
+                    <Star></Star>
+                    <Star></Star>
+                    <Star></Star>
+                    <Star></Star>
+                  </Rating>
+                </ImportantInfo>
+              </Container>
+              <SliderInfo>
+                GooseTrack is impressive, the calendar view and filter options
+                make it easy to stay organized and focused. Highly recommended.
+              </SliderInfo>
+            </UserInfo>
+          )}
+        </Users>
+
+        <Nav>
+          <NavLink>
+            <Arrow src={Arrow_left}></Arrow>
+          </NavLink>
+          <NavLink>
+            <Arrow src={Arrow_right}></Arrow>
+          </NavLink>
+        </Nav>
+      </Reviews>
+
       <footer>
         <ReviewsSlider />
       </footer>
+
     </>
   );
 }
