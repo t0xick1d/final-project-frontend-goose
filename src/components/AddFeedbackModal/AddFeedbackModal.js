@@ -4,7 +4,7 @@ import Modal from 'components/Modal/Modal';
 const AddFeedbackModal = ({ open, handleClose }) => {
   return (
     <Modal open={open} handleClose={handleClose}>
-      <FeedbackForm />
+      <FeedbackForm handleClose={handleClose} />
     </Modal>
   );
 };

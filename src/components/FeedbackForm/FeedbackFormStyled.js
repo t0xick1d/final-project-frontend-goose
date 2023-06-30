@@ -41,6 +41,7 @@ export const ButtonWindowClose = styled.button`
   border: none;
   background-color: #ffffff;
   padding: 0;
+  cursor: pointer;
 `;
 
 export const RatingStar = styled(Rating)`
@@ -80,6 +81,7 @@ export const ButtonReviewEdit = styled.button`
   border: none;
   border-radius: 50px;
   background: #e3f3ff;
+  cursor: pointer;
 `;
 
 export const ButtonReviewDelte = styled.button`
@@ -95,6 +97,7 @@ export const ButtonReviewDelte = styled.button`
   border: none;
   border-radius: 50px;
   background: rgba(234, 61, 101, 0.2);
+  cursor: pointer;
 `;
 
 export const FieldInput = styled(Field)`
@@ -133,6 +136,7 @@ export const ActionButton = styled.button`
   :hover,
   :focus {
     background: #3e85f3;
+    cursor: pointer;
   }
 
   @media ${device.tablet} {

@@ -22,7 +22,7 @@ const ReviewSchema = Yup.object().shape({
     .required('Required field'),
 });
 
-export default function FeedbackForm() {
+export default function FeedbackForm({ handleClose }) {
   return (
     <FeedbackFormWrapper>
       <p>Rating</p>
@@ -34,7 +34,7 @@ export default function FeedbackForm() {
         emptyColor={'#CEC9C1'}
         SVGstorkeWidth={2}
       />
-      <ButtonWindowClose type="button">
+      <ButtonWindowClose type="button" onClick={handleClose}>
         <img src={ModalCloseSvg} alt="Close review Window" />
       </ButtonWindowClose>
       <Formik
@@ -63,7 +63,7 @@ export default function FeedbackForm() {
           ></FieldInput>
           <ButtonBox>
             <ActionButton type="submit">Save</ActionButton>
-            <ActionButton type="button">Cancel</ActionButton>
+            <ActionButton type="button" onClick={handleClose}>Cancel</ActionButton>
           </ButtonBox>
         </form>
       </Formik>
