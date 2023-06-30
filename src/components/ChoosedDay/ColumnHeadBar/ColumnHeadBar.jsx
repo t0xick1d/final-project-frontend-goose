@@ -1,7 +1,7 @@
-import ButtonAddTask from 'components/ChoosedDay/ButtonAddTask/ButtonAddTask';
+import ButtonAddTask from 'components/ChoosedDay/Tasks/ButtonAddTask/ButtonAddTask';
 import React, { useState } from 'react';
 import Modal from 'components/Modal/Modal';
-import TasksForm from 'components/TasksForm/TasksForm';
+import TasksForm from 'components/ChoosedDay/Tasks/TasksForm/TasksForm';
 import { ToDoSection, Container, ContainerStatus, TextToDo, AddIcon } from './ColumnHeadBar.styled';
 
 import { AddTaskButton } from './ColumnHeadBar.styled';

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 
-import Icons from '../../images/sprite.svg'
+
+import Icons from '../../../../images/sprite.svg'
 
 import {
+  ButtonAdd,
   ButtonBox,
-  ButtonEdit,
+  ButtonCancel,
   ContainerForm,
   FieldText,
   FormField,
@@ -19,20 +21,23 @@ import {
   RadioLow,
   RadioMedium,
   RadioHigh,
-  PencilIcon,
-} from '../TasksForm/TasksForm.styled';
+  PlusIcon,
+} from './TasksForm.styled';
 import { useDispatch } from 'react-redux';
 //import { selectTasks } from 'redux-store/tasks/tasksSelectors';
 import { addTask } from 'redux-store/tasks/tasksOperations';
 
-export default function TaskEditForm({ onClose }) {
+export default function TasksForm({ onClose }) {
   // const tasks = useSelector(selectTasks);
+  
   const dispatch = useDispatch();
 
   const handleSubmit = values => {
     console.log(values);
+    
     dispatch(addTask(values));
     onClose();
+    ;
   };
   return (
     <ContainerForm>
@@ -44,56 +49,68 @@ export default function TaskEditForm({ onClose }) {
       <Formik
         initialValues={{
           title: '',
-          timeStart: '09:00',
-          timeEnd: '14:00',
+          start: '09:00',
+          end: '14:00',
+          priority: 'low',
+          date: '',
+          category: "todo",
         }}
         onSubmit={handleSubmit}
       >
+
+        {({values, setFieldValue}) =>(
         <Form>
           <FormField htmlFor="title">Title</FormField>
           <FieldText id="title" name="title" placeholder="Enter text" />
 
           <TimeBox>
             <li>
-              <FormField htmlFor="timeStart">Start</FormField>
-              <FieldTime name="timeStart" type="time" />
+              <FormField htmlFor="start">Start</FormField>
+              <FieldTime name="start" type="time" />
             </li>
             <li>
-              <FormField htmlFor="timeEnd">End</FormField>
-              <FieldTime name="timeEnd" type="time" id="myTimeInput" />
+              <FormField htmlFor="end">End</FormField>
+              <FieldTime name="end" type="time" id="myTimeInput" />
             </li>
           </TimeBox>
-          <PriorityBox role="group" aria-labelledby="my-radio-group">
+          <PriorityBox role="group" aria-labelledby="my-radio-group" name="priority"
+                value={values.priority}
+                onChange={e => setFieldValue('priority', e.target.value)}>
             <label>
               <FieldRadioButton
                 type="radio"
-                name="picked"
-                value="Low"
+                name="priority"
+                value="low"
                 checked
               />
               <RadioLow></RadioLow>
               <RadioLabel>Low</RadioLabel>
             </label>
             <label>
-              <FieldRadioButton type="radio" name="picked" value="Medium" />
+              <FieldRadioButton type="radio" name="priority" value="medium" />
               <RadioMedium></RadioMedium>
               <RadioLabel>Medium</RadioLabel>
             </label>
             <label>
-              <FieldRadioButton type="radio" name="picked" value="High" />
+              <FieldRadioButton type="radio" name="priority" value="high" />
               <RadioHigh></RadioHigh>
               <RadioLabel>High</RadioLabel>
             </label>
           </PriorityBox>
           <ButtonBox>
-            <ButtonEdit type="submit">
-              <PencilIcon>
-                <use href={`${Icons}#icon-pencil-white`}></use>
-              </PencilIcon>
-            Edit
-            </ButtonEdit>
-          </ButtonBox>
-        </Form>
+            <ButtonAdd type="submit">
+              <PlusIcon>
+                <use href={`${Icons}#icon-plus-white`}></use>
+              </PlusIcon>
+              Add
+            </ButtonAdd>
+            <ButtonCancel type="button" onClick={() => onClose()}>
+              Cancel
+            </ButtonCancel>
+            </ButtonBox>
+          
+          </Form>
+        )}
       </Formik>
     </ContainerForm>
   );

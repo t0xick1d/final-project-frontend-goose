@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import { AddTaskButton, AddTaskIcon } from './ButtonAddTask.styled';
 import  Icons  from 'images/sprite.svg';
-import TasksForm from 'components/TasksForm/TasksForm';
+import TasksForm from 'components/ChoosedDay/Tasks/TasksForm/TasksForm';
 
 export default function ButtonAddTask() {
   const [showModal, setShowModal] = useState(false);

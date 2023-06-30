@@ -9,6 +9,14 @@ import {
 
 const initialState = {
   items: [],
+  // items: {
+  //   title: '',
+  //   start: '',
+  //   end: '',
+  //   priority: '',
+  //   date: '',
+  //   category: '',
+  // },
   isLoading: false,
   error: null,
 };

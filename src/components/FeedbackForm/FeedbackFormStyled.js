@@ -24,11 +24,12 @@ export const FeedbackFormWrapper = styled.div`
   font-weight: 500;
   line-height: 14px;
 
-  /* @media ${device.tablet} {
-    max-width: 580px;
+  @media ${device.tablet} {
+    width: 468px;
+    padding: 32px;
   }
 
-  @media ${device.desktop} {
+  /* @media ${device.desktop} {
     max-width: 1184px;
   } */
 `;
@@ -114,4 +115,27 @@ export const FieldInput = styled(Field)`
   border-radius: 8px;
   border: none;
   background: #f6f6f6;
+`;
+
+export const ActionButton = styled.button`
+  width: 143px;
+  height: 42px;
+
+  border: none;
+  border-radius: 8px;
+  background: #e5edfa;
+
+  color: #343434;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 18px;
+  :hover,
+  :focus {
+    background: #3e85f3;
+  }
+
+  @media ${device.tablet} {
+    width: 198px;
+  }
 `;

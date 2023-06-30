@@ -38,8 +38,6 @@ export default function CalendarPage() {
         <HeaderCalendar />
         <Outlet />
       </Suspense>
-
-      {/* <ChosedMonth /> */}
     </>
   );
 }

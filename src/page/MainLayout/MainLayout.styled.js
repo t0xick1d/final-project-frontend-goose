@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   padding: 24px 20px;
-  background-color: #eaeaea;
+  background-color: var(--outlet-background-color);
   flex-grow: 1;
 
   @media screen and (min-width: 768px) {
