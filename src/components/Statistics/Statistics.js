@@ -21,6 +21,7 @@ import {
 } from 'recharts';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Calendar from 'components/Calendar/Calendar';
 
 const Statistics = () => {
   const today = startOfToday();
@@ -31,6 +32,7 @@ const Statistics = () => {
   const [firstDayCurrentMonth, setFirstDayCurrentMonth] = useState(
     parseISO(format(today, 'yyyy-MM-dd'))
   );
+  const [showCalendar, setShowCalendar] = useState(false); // Доданий стан для показу/приховування календаря
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,11 +69,17 @@ const Statistics = () => {
     setCurrentMonth(format(parsedDate, 'dd MMMM yyyy'));
   };
 
+  const toggleCalendar = () => {
+    setShowCalendar(prevState => !prevState);
+  };
+
   return (
     <StatisticsContainer>
       <OptionsContainer>
         <BtnContainer>
-          <ButtonWrapper type="button">
+          <ButtonWrapper type="button" onClick={toggleCalendar}>
+            {' '}
+            {/* Доданий обробник події onClick */}
             {format(firstDayCurrentMonth, 'dd MMMM yyyy')}
           </ButtonWrapper>
           <BtnPrevNext onDateChange={handleDateChange} />
@@ -91,7 +99,8 @@ const Statistics = () => {
           </Item>
         </List>
       </OptionsContainer>
-
+      {showCalendar && <Calendar />}{' '}
+      {/* Показується компонент Calendar, якщо showCalendar === true */}
       <BarChart
         width={730}
         height={250}
