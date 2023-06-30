@@ -20,7 +20,7 @@ export const Week = styled.div`
 `;
 
 export const Day = styled.p`
-  font-family: 'Inter';
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

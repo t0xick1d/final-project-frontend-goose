@@ -2,20 +2,16 @@ import styled from 'styled-components';
 
 export const Calendar = styled.div`
   display: grid;
+
   grid-template-columns: repeat(7, calc(100% / 7));
   box-sizing: border-box;
   border: 1px solid var(--calendar-border-color);
   border-radius: 8px;
   background-color: var(--calendar-bg-color);
   grid-auto-rows: minmax(102px, auto);
-
   @media screen and (min-width: 768px) {
     grid-auto-rows: minmax(144px, auto);
   }
-
-  /* @media screen and (min-width: 1440px) {
-    grid-auto-rows: minmax(125px, auto);
-  } */
 `;
 
 export const Cell = styled.div`
@@ -36,12 +32,13 @@ export const Cell = styled.div`
     transform: scale(1.15);
     background-color: inherit;
     border: 1px solid var(--button-bgd-color);
+    z-index: 999;
   }
 `;
 
 export const Day = styled.p`
   color: var(--user-name-color);
-  font-family: 'Inter';
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
@@ -93,6 +90,9 @@ export const Day = styled.p`
 `;
 
 export const Task = styled.li`
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 700;
   font-size: 10px;
   margin-bottom: 1px;
   padding: 4px;
@@ -102,6 +102,7 @@ export const Task = styled.li`
   overflow: hidden;
   white-space: nowrap;
   margin-block-start: 0;
+  position: relative;
 
   @media (min-width: 768px) {
     font-size: 14px;
@@ -149,18 +150,15 @@ export const Task = styled.li`
 `;
 
 export const Point = styled.p`
-  margin-right: 2px;
-  padding: 0 4px;
-  display: inline-block;
-  border-radius: 8px;
-  margin-block: 0;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: stretch;
-
-  color: ${props => {
+  font-size: 0.8em;
+  font-weight: 600;
+  min-width: 10px;
+  height: 12px;
+  line-height: 12px;
+  border-radius: 4px;
+  padding: 1px 3px 1px;
+  color: white;
+  background-color: ${props => {
     switch (props.priority) {
       case 'low':
         return 'var(--color-task-low-priority);';
@@ -172,23 +170,14 @@ export const Point = styled.p`
         return 'var(--color-task-high-priority);';
 
       default:
-        return 'Black;';
+        return '#8b8b8b;';
     }
   }};
-
-  background-color: ${props => {
-    switch (props.priority) {
-      case 'low':
-        return 'var(--bgc-task-low-priority);';
-
-      case 'medium':
-        return 'var(--bgc-task-medium-priority);';
-
-      case 'high':
-        return 'var(--bgc-task-high-priority);';
-
-      default:
-        return '#ededed;';
-    }
-  }};
+  @media (min-width: 768px) {
+    min-width: 14px;
+    height: 14px;
+    line-height: 14px;
+    padding: 0 5px 1px;
+    border-radius: 5px;
+  }
 `;
