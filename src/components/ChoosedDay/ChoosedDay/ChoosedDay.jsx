@@ -1,16 +1,23 @@
-import React,{ useEffect, useSelector, useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchTasks } from '../../../redux-store/tasks/tasksOperations'
-//import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
+import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
 import ColumnHeadBar from 'components/ChoosedDay/ColumnHeadBar/ColumnHeadBar';
 import { DayCalendarHead } from 'components/ChoosedDay/DayCalendarHead/DayCalendarHead';
 import { SectionDay } from './ChoosedDay.styled';
+import { useSelector } from 'react-redux';
+
+  const categoryTask = {
+  done: [],
+  inProgress: [],
+  toDo: [],
+};
 
 export default function ChoosedDay() {
   const dispatch = useDispatch();
   const { currentDay } = useParams();
-  //const tasks = useSelector(selectArrTasks);
+  const tasks = useSelector(selectArrTasks);
      
   useEffect(() => {
     dispatch(fetchTasks(currentDay));
@@ -32,10 +39,53 @@ export default function ChoosedDay() {
     setChoosedDay(`${year}-${month}-${day}`);
   };
 
+   const [sortTasks, setSortTasks] = useState(categoryTask);
+  
+  function sortByStartTime(array) {
+    return array.sort((a, b) => b.start.localeCompare(a.start));
+  }
+
+  
+  function filterByDate(array, currentDay) {
+    return array.filter(item => item.date === currentDay);
+  }
+  useEffect(() => {
+    //sort by category
+    function getCategory(data, targetDate) {
+      const filterData = filterByDate(data, targetDate);
+
+      const done = [];
+      const inProgress = [];
+      const toDo = [];
+
+      for (const item of filterData) {
+        if (item.category === 'done') {
+          done.push(item);
+        } else if (item.category === 'in-progress') {
+          inProgress.push(item);
+        } else if (item.category === 'to-do') {
+          toDo.push(item);
+        }
+      }
+
+      return {
+        done: sortByStartTime(done),
+        inProgress: sortByStartTime(inProgress),
+        toDo: sortByStartTime(toDo),
+      };
+    }
+
+    if (tasks) {
+      const category = getCategory(tasks, currentDay);
+      setSortTasks(category);
+    }
+  }, [currentDay, tasks]);
+
   return (
     <SectionDay>
       <DayCalendarHead clickChooseDay={chooseDay} />
       <ColumnHeadBar />
+      {/* {sortTasks && <TasksList sortTasksData={sortTasks} />} */}
     </SectionDay>
   );
 }
