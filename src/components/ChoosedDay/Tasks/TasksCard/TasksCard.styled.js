@@ -1,40 +1,38 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const MainList = styled.ul`
+  margin-right: 8px;
+`;
+
+export const Item = styled.li`
   display: block;
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.8);
   background: #f7f6f9;
   width: 300px;
   height: 112px;
+
+  padding: 14px;
+  margin-bottom: 18px;
 `;
+
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
-  margin-bottom: 18px;
-  margin-left: 14px;
-  margin-right: 14px;
-  margin-top: 32px;
 `;
 export const Box = styled.div`
   display: flex;
   align-items: center;
 `;
 export const Text = styled.p`
-  display: flex;
-  width: 296px;
-  height: 16px;
-  flex-direction: column;
-  flex-shrink: 0;
   overflow: hidden;
   color: #111;
   text-overflow: ellipsis;
   font-size: 14px;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-weight: 500;
   line-height: 18px;
-  margin-left: 14px;
-  margin-bottom: 0;
+  margin-bottom: 32px;
 `;
 export const Avatar = styled.img`
   display: flex;
@@ -42,24 +40,28 @@ export const Avatar = styled.img`
   border: 1.8px solid #3e85f3;
   width: 32px;
   height: 32px;
-  margin-right: 8px;
 `;
 export const Grade = styled.p`
   display: flex;
-  padding: 4px 12px;
   justify-content: center;
   align-items: center;
+
   border-radius: 4px;
-  margin-bottom: 4px;
-  background: #72c2f8;
+  background: ${props =>
+    props.color === 'low'
+      ? '#72c2f8'
+      : props.color === 'medium'
+      ? '#F3B249'
+      : '#EA3D65'};
   color: #f7f6f9;
   text-align: center;
   font-size: 10px;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-weight: 600;
   line-height: 12px;
-  width: 20px;
-  height: 12px;
+
+  padding: 4px 12px;
+  margin-left: 8px;
 `;
 export const List = styled.ul`
   display: flex;
