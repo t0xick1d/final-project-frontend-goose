@@ -120,6 +120,30 @@ export const FieldInput = styled(Field)`
   background: #f6f6f6;
 `;
 
+export const SaveButton = styled.button`
+  width: 143px;
+  height: 42px;
+
+  border: none;
+  border-radius: 8px;
+  background: #e5edfa;
+
+  color: #343434;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 18px;
+  :hover,
+  :focus {
+    background: ${({ btnSaveDisabled }) =>
+      btnSaveDisabled ? 'rgba(229, 237, 250, 1)' : 'rgba(62, 133, 243, 1)'};
+  }
+
+  @media ${device.tablet} {
+    width: 198px;
+  }
+`;
+
 export const ActionButton = styled.button`
   width: 143px;
   height: 42px;
