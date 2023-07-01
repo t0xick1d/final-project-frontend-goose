@@ -19,6 +19,8 @@ import ReviewEditSvg from '../../images/icons/review-edit.svg';
 import ReviewDelteSvg from '../../images/icons/review-delete.svg';
 import { useEffect, useState } from 'react';
 import ReviewsApi from 'services/ReviewsApi';
+import { useSelector } from 'react-redux';
+import { getUser } from 'redux-store/Slices/AuthSlice';
 
 const ReviewSchema = Yup.object().shape({
   reviewText: Yup.string()
@@ -37,6 +39,8 @@ export default function FeedbackForm({ handleClose, review }) {
   const [btnSaveDisabled, setBtnSaveDisabled] = useState(false);
   const [isThereRating, setIsThereRating] = useState(true);
 
+  const selector = useSelector(getUser);
+
   useEffect(() => {
     if (review.length !== 0) {
       const { comment, rating } = review;
@@ -51,13 +55,15 @@ export default function FeedbackForm({ handleClose, review }) {
   }, []);
 
   const handleSubmit = async (values, { resetForm }) => {
+    const name = selector.user.name;
+
     if (rating === 0) {
       setIsThereRating(false);
-      console.log('rating is required');
       return;
     }
 
     await ReviewsApi.addUserReview({
+      name: name,
       comment: values.reviewText,
       rating: rating,
     });
