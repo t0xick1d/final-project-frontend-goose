@@ -1,14 +1,14 @@
 import React,{ useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { fetchTasks } from '../../../redux-store/tasks/tasksOperations'
+import { fetchTasksDay } from '../../../redux-store/tasks/tasksOperations';
 import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
 import ColumnHeadBar from 'components/ChoosedDay/ColumnHeadBar/ColumnHeadBar';
 import { DayCalendarHead } from 'components/ChoosedDay/DayCalendarHead/DayCalendarHead';
 import { SectionDay } from './ChoosedDay.styled';
 import { useSelector } from 'react-redux';
 
-  const categoryTask = {
+const categoryTask = {
   done: [],
   inProgress: [],
   toDo: [],
@@ -18,11 +18,10 @@ export default function ChoosedDay() {
   const dispatch = useDispatch();
   const { currentDay } = useParams();
   const tasks = useSelector(selectArrTasks);
-     
-  useEffect(() => {
-    dispatch(fetchTasks(currentDay));
-   }, [currentDay, dispatch]);
 
+  useEffect(() => {
+    dispatch(fetchTasksDay(currentDay));
+  }, [currentDay, dispatch]);
 
   const dayFromParams =
     currentDay === ':currentDay'
@@ -39,13 +38,12 @@ export default function ChoosedDay() {
     setChoosedDay(`${year}-${month}-${day}`);
   };
 
-   const [sortTasks, setSortTasks] = useState(categoryTask);
-  
+  const [, setSortTasks] = useState(categoryTask);
+
   function sortByStartTime(array) {
     return array.sort((a, b) => b.start.localeCompare(a.start));
   }
 
-  
   function filterByDate(array, currentDay) {
     return array.filter(item => item.date === currentDay);
   }
