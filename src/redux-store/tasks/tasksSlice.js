@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchTasks,
   addTask,
   deleteTask,
   editTask,
+  fetchTasksMonth,
+  fetchTasksDay,
 } from '../tasks/tasksOperations';
 
 const initialState = {
@@ -26,16 +27,34 @@ export const tasksSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      .addCase(fetchTasks.pending, state => {
+      .addCase(fetchTasksMonth.pending, state => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchTasks.fulfilled, (state, action) => {
+      .addCase(fetchTasksMonth.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(fetchTasks.rejected, (state, action) => {
+      .addCase(fetchTasksMonth.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchTasksDay.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchTasksDay.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items = state.items.filter(
+          task => task.date !== action.payload.date
+        );
+        console.log('state.items', state.items);
+        console.log('action.payload', action.payload);
+        state.items.push(...action.payload);
+      })
+      .addCase(fetchTasksDay.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
@@ -73,11 +92,9 @@ export const tasksSlice = createSlice({
         const taskIndex = state.items.findIndex(
           task => task._id === action.payload._id
         );
-
         if (taskIndex !== -1) {
           state.items[taskIndex] = action.payload;
         }
-
         state.isLoading = false;
         state.error = null;
       })

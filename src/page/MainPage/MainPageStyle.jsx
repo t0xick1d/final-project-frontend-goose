@@ -350,3 +350,21 @@ export const NavLink = styled.a`
 `;
 
 export const Arrow = styled.img``;
+
+export const Footer = styled.footer`
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 64px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 94px;
+    padding-right: 94px;
+    padding-bottom: 100px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-left: 128px;
+    padding-right: 128px;
+    padding-bottom: 118px;
+  }
+`;

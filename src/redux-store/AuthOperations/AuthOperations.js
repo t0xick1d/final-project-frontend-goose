@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 
 axios.defaults.baseURL = 'https://goose-track-ity9.onrender.com/api/';
 
-const token = {
+export const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },

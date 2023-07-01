@@ -28,7 +28,7 @@ export const BtnPrevContainer = styled.button`
 `;
 
 export const BtnNextContainer = styled.button`
-  border-radius: 0 8px 8px 0
+  border-radius: 0 8px 8px 0;
   border: 1px solid rgba(220, 227, 229, 0.8);
   overflow: hidden;
   cursor: pointer;
