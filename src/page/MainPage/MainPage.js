@@ -34,6 +34,7 @@ import {
   Info,
   AdditionalInfo,
   InfoBlock,
+  Footer,
   // Reviews,
   // ReviewsTitle,
   // SliderInfo,
@@ -205,9 +206,9 @@ export default function MainPage() {
         </Nav>
       </Reviews> */}
 
-      <footer>
+      <Footer>
         <ReviewsSlider />
-      </footer>
+      </Footer>
     </>
   );
 }
