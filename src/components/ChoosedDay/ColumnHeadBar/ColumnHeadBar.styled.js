@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
 export const ToDoSection = styled.section`
-  /* padding: 20px 24px 22px 24px; */
   display: flex;
   align-items: flex-start;
   gap: 18px;
-  min-width: 360px;
-  /* overflow-x: scroll; */
+  /* min-width: 360px; */
+
+  overflow-x: scroll;
 
   @media screen and (min-width: 768px) {
     gap: 16px;
-    min-width: 768px;
+    /* min-width: 768px; */
   }
   @media screen and (min-width: 1440px) {
     gap: 27px;
-    min-width: 1440px;
+    overflow-x: hidden;
   }
 `;
 export const Container = styled.div`
@@ -23,6 +23,9 @@ export const Container = styled.div`
   border: 1px solid rgba(220, 227, 229, 0.5);
   background: #fff;
   min-width: 334px;
+  width: 100%;
+  height: 100%;
+  max-width: 432px;
   @media screen and (min-width: 768px) {
     padding: 20px;
   }
