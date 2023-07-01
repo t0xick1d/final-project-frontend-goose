@@ -70,3 +70,28 @@ export const AddIcon = styled.svg`
     height: 24px;
   }
 `;
+
+export const ScrollableContainer = styled.div`
+  max-height: 380px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  /* Стили для скроллбара */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #e7e5e5;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+`;
