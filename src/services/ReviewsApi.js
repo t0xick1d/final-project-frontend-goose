@@ -18,16 +18,18 @@ const addUserReview = async (userReview) => {
   return response;
 };
 
-const editUserReview = async () => {};
+// const editUserReview = async () => {};
 
 const deleteUserReview = async () => {
     const response = (await axios.delete(`${URL}/own`));
     return response;
 };
 
-export default {
+const ReviewsApi = {
   getAllReviews,
   getUserReview,
   addUserReview,
   deleteUserReview,
 };
+
+export default ReviewsApi;
