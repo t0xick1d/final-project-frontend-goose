@@ -5,34 +5,39 @@ import {
   BtnNextContainer,
 } from './BtnPrevNext.styled';
 
-import {
-  add,
-  format,
-  parse,
-  startOfToday,
-} from 'date-fns';
+import { add, format, parse, startOfToday } from 'date-fns';
 
+import { useState } from 'react';
 
-import {
-  useState,
-} from 'react';
-
-const BtnPrevNext = ({ onDateChange }) => {
+const BtnPrevNext = ({ onDateChange, viewType }) => {
   const today = startOfToday();
 
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
   const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
 
+  const [currentDate, setCurrentDate] = useState(format(today, 'dd MMMM yyyy'));
+  const currentDay = parse(currentDate, 'dd MMMM yyyy', new Date());
+
   function previousMonth() {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
-    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
-    onDateChange(format(firstDayNextMonth, 'dd MMMM yyyy'));
+    if (viewType === 'day') {
+      let previousDay = add(currentDay, { days: -1 });
+      setCurrentDate(format(previousDay, 'dd MMMM yyyy'));
+      onDateChange(format(previousDay, 'dd MMMM yyyy'));
+    } else if (viewType === 'month') {
+      let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
+      setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
+    }
   }
 
   function nextMonth() {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
-    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
-    onDateChange(format(firstDayNextMonth, 'dd MMMM yyyy'));
+    if (viewType === 'day') {
+      let nextDay = add(currentDay, { days: 1 });
+      setCurrentDate(format(nextDay, 'dd MMMM yyyy'));
+      onDateChange(format(nextDay, 'dd MMMM yyyy'));
+    } else if (viewType === 'month') {
+      let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
+      setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
+    }
   }
 
   return (

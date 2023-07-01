@@ -6,6 +6,7 @@ import {
   IconSvg,
   List,
   Item,
+  ChartWrapper,
 } from './Statistics.styled';
 import { format, parseISO, startOfToday, parse } from 'date-fns';
 import BtnPrevNext from 'components/CalendarBtnPrevNext/BtnPrevNext';
@@ -16,8 +17,8 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Label,
-  LabelList,
+  Tooltip,
+  Legend,
 } from 'recharts';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -73,6 +74,30 @@ const Statistics = () => {
     setShowCalendar(prevState => !prevState);
   };
 
+  // const dataExaple = [
+  //   {
+  //     name: 'Page A',
+  //     uv: 4000,
+  //     pv: 2400,
+  //   },
+  //   {
+  //     name: 'Page B',
+  //     uv: 3000,
+  //     pv: 1398,
+  //   },
+  //   {
+  //     name: 'Page C',
+  //     uv: 2000,
+  //     pv: 9800,
+  //   },
+  //   {
+  //     name: 'Page D',
+  //     uv: 2780,
+  //     pv: 3908,
+  //   },
+    
+  // ];
+
   return (
     <StatisticsContainer>
       <OptionsContainer>
@@ -82,7 +107,7 @@ const Statistics = () => {
             {/* Доданий обробник події onClick */}
             {format(firstDayCurrentMonth, 'dd MMMM yyyy')}
           </ButtonWrapper>
-          <BtnPrevNext onDateChange={handleDateChange} />
+          <BtnPrevNext onDateChange={handleDateChange} viewType="day" />
         </BtnContainer>
         <List>
           <Item>
@@ -99,43 +124,36 @@ const Statistics = () => {
           </Item>
         </List>
       </OptionsContainer>
-      {showCalendar && <Calendar />}{' '}
-      {/* Показується компонент Calendar, якщо showCalendar === true */}
-      <BarChart
-        width={730}
-        height={250}
-        data={[
-          { name: 'todo', pv: todoByDay, uv: todoByMonth },
-          { name: 'inprogress', pv: inProgressByDay, uv: inProgressByMonth },
-          { name: 'done', pv: doneByDay, uv: doneByMonth },
-        ]}
-        margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name">
-          <Label
-            value="Pages of my website"
-            offset={0}
-            position="insideBottom"
-          />
-        </XAxis>
-        <YAxis
-          label={{
-            value: 'pv of page',
-            angle: -90,
-            position: 'insideLeft',
-            textAnchor: 'middle',
-          }}
-        />
-        <Bar dataKey="pv" fill="#8884d8">
-          <LabelList dataKey="name" position="insideTop" angle="45" />
-        </Bar>
-        <Bar dataKey="uv" fill="#82ca9d">
-          <LabelList dataKey="uv" position="top" />
-        </Bar>
-      </BarChart>
+      {showCalendar && <Calendar />}
+      <ChartWrapper>
+        <BarChart
+          width={307}
+          height={413}
+          margin={{ top: 40 }}
+          padding={{ right: 14, left: 14 }}
+          data={[
+            { name: 'todo', pv: todoByDay, uv: todoByMonth },
+            {
+              name: 'inprogress',
+              pv: inProgressByDay,
+              uv: inProgressByMonth,
+            },
+            { name: 'done', pv: doneByDay, uv: doneByMonth },
+          ]}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="pv" fill="#8884d8" />
+          <Bar dataKey="uv" fill="#82ca9d" />
+        </BarChart>
+      </ChartWrapper>
+      {showCalendar && <Calendar />}
     </StatisticsContainer>
   );
 };
 
 export default Statistics;
+

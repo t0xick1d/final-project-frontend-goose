@@ -12,24 +12,17 @@ import styled from 'styled-components';
 
 
 export const StatisticsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 
   max-width: 100%;
   height: 100%;
-
+  position: relative;
   background: #ffffff;
   border-radius: 16px;
-
-
 `;
 
 export const ButtonWrapper = styled('button')`
-  width: 121px;
+  min-width: 121px;
   height: 30px;
   color: #fff;
   background: #3e85f3;
@@ -37,7 +30,6 @@ export const ButtonWrapper = styled('button')`
   border-radius: 8px;
   padding: 6px 12px;
   cursor: pointer;
-
   color: #fff;
   font-family: Inter;
   font-size: 14px;
@@ -47,7 +39,7 @@ export const ButtonWrapper = styled('button')`
   text-align: center;
 
   @media ${device.tablet} {
-    width: 134px;
+    min-width: 134px;
     height: 34px;
     margin-right: 8px;
   }
@@ -63,8 +55,7 @@ export const BtnContainer = styled.div`
 `;
 
 export const OptionsContainer = styled.div`
-  width: 100%;
-  height: 100%;
+
   padding-top: 28px;
   padding-right: 14px;
   padding-left: 14px;
@@ -117,3 +108,17 @@ export const Item = styled.li`
 `;
 
 
+export const ChartWrapper = styled.div`
+  padding-right: 14px;
+  padding-left: 14px;
+  width: 100%;
+  @media (min-width: 768px) {
+    /* Стилі для екранів шириною до 768px */
+    width: 307px;
+  }
+
+  // @media (min-width: 769px) {
+  //   /* Стилі для екранів шириною більше 768px */
+  //   width: 500px;
+  // }
+`;
