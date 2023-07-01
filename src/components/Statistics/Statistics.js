@@ -23,6 +23,7 @@ import {
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Calendar from 'components/Calendar/Calendar';
+import { useSelector } from 'react-redux';
 
 const Statistics = () => {
   const today = startOfToday();
@@ -35,20 +36,28 @@ const Statistics = () => {
   );
   const [showCalendar, setShowCalendar] = useState(false); // Доданий стан для показу/приховування календаря
 
+  const token = useSelector(state => state.auth.token);
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `statistics?date=${format(firstDayCurrentMonth, 'yyyy-MM-dd')}`
-        );
-        setData(response.data);
-      } catch (error) {
-        console.log(error);
+const fetchData = async () => {
+  try {
+    const response = await axios.get(
+      `statistics?date=${format(firstDayCurrentMonth, 'yyyy-MM-dd')}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
-    };
+    );
+    setData(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
     fetchData();
-  }, [firstDayCurrentMonth]);
+  }, [firstDayCurrentMonth, token]);
 
   if (!data) {
     return <div>Loading...</div>;
@@ -104,8 +113,6 @@ const Statistics = () => {
       <OptionsContainer>
         <BtnContainer>
           <ButtonWrapper type="button" onClick={toggleCalendar}>
-            {' '}
-            {/* Доданий обробник події onClick */}
             {format(firstDayCurrentMonth, 'dd MMMM yyyy')}
           </ButtonWrapper>
           <BtnPrevNext onDateChange={handleDateChange} viewType="day" />
