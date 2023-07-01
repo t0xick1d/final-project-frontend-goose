@@ -4,9 +4,24 @@ export const ToDoSection = styled.section`
   display: flex;
   align-items: flex-start;
   gap: 18px;
-  /* min-width: 360px; */
-
   overflow-x: scroll;
+  scrollbar-width: auto;
+  ::-webkit-scrollbar {
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #e7e5e5;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
 
   @media screen and (min-width: 768px) {
     gap: 16px;
