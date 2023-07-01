@@ -68,6 +68,7 @@ const Statistics = () => {
     const parsedDate = parse(newDate, 'dd MMMM yyyy', new Date());
     setFirstDayCurrentMonth(parsedDate);
     setCurrentMonth(format(parsedDate, 'dd MMMM yyyy'));
+    setShowCalendar(false);
   };
 
   const toggleCalendar = () => {
@@ -124,7 +125,6 @@ const Statistics = () => {
           </Item>
         </List>
       </OptionsContainer>
-      {showCalendar && <Calendar />}
       <ChartWrapper>
         <BarChart
           width={307}
@@ -150,7 +150,9 @@ const Statistics = () => {
           <Bar dataKey="uv" fill="#82ca9d" />
         </BarChart>
       </ChartWrapper>
-      {showCalendar && <Calendar />}
+           {showCalendar && (
+        <Calendar onDateChange={handleDateChange} /> 
+      )}
     </StatisticsContainer>
   );
 };
