@@ -23,7 +23,7 @@ export const StatisticsContainer = styled.div`
 `;
 
 export const ButtonWrapper = styled('button')`
-  min-width: 121px;
+  width: 121px;
   height: 30px;
   color: #fff;
   background: #3e85f3;
@@ -40,7 +40,7 @@ export const ButtonWrapper = styled('button')`
   text-align: center;
 
   @media ${device.tablet} {
-    min-width: 134px;
+    width: 134px;
     height: 34px;
     margin-right: 8px;
   }
@@ -112,11 +112,11 @@ export const Item = styled.li`
 export const ChartWrapper = styled.div`
   padding-right: 14px;
   padding-left: 14px;
+  margin-top: 40px;
+  margin-bottom: 135px;
 
+  max-width: 100%;
+  @media ${device.tablet} {
+  }
 `;
 
-export const StyledBarChart = styled(BarChart)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;

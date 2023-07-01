@@ -18,7 +18,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
+  ResponsiveContainer,
 } from 'recharts';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -84,41 +84,40 @@ const fetchData = async () => {
     setShowCalendar(prevState => !prevState);
   };
 
-    const width = window.innerWidth;
+  //   const width = window.innerWidth;
 
-    let chartWidth = 307;
-    let chartHeight = 413;
+  //   let chartWidth = 307;
+  //   let chartHeight = 413;
 
-  if (width >= 1440) {
-    chartWidth = 860;
-    chartHeight = 440;
-  } else if (width >= 768) {
-    chartWidth = 640;
-    chartHeight = 424;
-  }
+  // if (width >= 1440) {
+  //   chartWidth = 860;
+  //   chartHeight = 440;
+  // } else if (width >= 768) {
+  //   chartWidth = 640;
+  //   chartHeight = 424;
+  // }
 
   // const dataExaple = [
   //   {
   //     name: 'Page A',
-  //     uv: 4000,
-  //     pv: 2400,
+  //     day: 10,
+  //     month: 94,
   //   },
   //   {
   //     name: 'Page B',
-  //     uv: 3000,
-  //     pv: 1398,
+  //     day: 10,
+  //     month: 24,
   //   },
   //   {
   //     name: 'Page C',
-  //     uv: 2000,
-  //     pv: 9800,
+  //     day: 20,
+  //     month: 24,
   //   },
   //   {
   //     name: 'Page D',
-  //     uv: 2780,
-  //     pv: 3908,
+  //     day: 30,
+  //     month: 54,
   //   },
-  //
   // ];
 
   
@@ -147,46 +146,47 @@ const fetchData = async () => {
         </List>
       </OptionsContainer>
       <ChartWrapper>
-        <BarChart
-          width={chartWidth}
-          height={chartHeight}
-          margin={{ top: 40 }}
-          padding={{ right: 14, left: 14 }}
-          data={[
-            { name: 'todo', day: todoByDay, month: todoByMonth },
-            {
-              name: 'inprogress',
-              day: inProgressByDay,
-              month: inProgressByMonth,
-            },
-            { name: 'done', day: doneByDay, month: doneByMonth },
-          ]}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis domain={[0, 100]} />
-          <Tooltip />
-          <Bar dataKey="day" fill="url(#gradient1)" />
-          <Bar dataKey="month" fill="url(#gradient2)" />
-          <defs>
-            <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#FFD2DD" stopOpacity={1} />
-              <stop
-                offset="100%"
-                stopColor="rgba(255, 210, 221, 0)"
-                stopOpacity={1}
-              />
-            </linearGradient>
-            <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#3E85F3" stopOpacity={1} />
-              <stop
-                offset="100%"
-                stopColor="rgba(62, 133, 243, 0)"
-                stopOpacity={1}
-              />
-            </linearGradient>
-          </defs>
-        </BarChart>
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            width={300}
+            height={300}
+            padding={{ right: 14, left: 14 }}
+            data={[
+              { name: 'todo', day: todoByDay, month: todoByMonth },
+              {
+                name: 'inprogress',
+                day: inProgressByDay,
+                month: inProgressByMonth,
+              },
+              { name: 'done', day: doneByDay, month: doneByMonth },
+            ]}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis domain={[0, 100]} />
+            <Tooltip />
+            <Bar dataKey="day" fill="url(#gradient1)" />
+            <Bar dataKey="month" fill="url(#gradient2)" />
+            <defs>
+              <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#FFD2DD" stopOpacity={1} />
+                <stop
+                  offset="100%"
+                  stopColor="rgba(255, 210, 221, 0)"
+                  stopOpacity={1}
+                />
+              </linearGradient>
+              <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#3E85F3" stopOpacity={1} />
+                <stop
+                  offset="100%"
+                  stopColor="rgba(62, 133, 243, 0)"
+                  stopOpacity={1}
+                />
+              </linearGradient>
+            </defs>
+          </BarChart>
+        </ResponsiveContainer>
       </ChartWrapper>
       {showCalendar && <Calendar onDateChange={handleDateChange} />}
     </StatisticsContainer>
