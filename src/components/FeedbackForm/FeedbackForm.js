@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {
   FeedbackFormWrapper,
@@ -6,16 +6,21 @@ import {
   ReviewOptionsBox,
   ButtonWindowClose,
   ButtonReviewEdit,
-  ButtonReviewDelte,
+  ButtonReviewDelete,
   FieldInput,
   ButtonBox,
   SaveButton,
   ActionButton,
+  ErrorMessageStyled,
+  RatingError,
 } from './FeedbackFormStyled';
 import ModalCloseSvg from '../../images/icons/modal-x-close.svg';
 import ReviewEditSvg from '../../images/icons/review-edit.svg';
 import ReviewDelteSvg from '../../images/icons/review-delete.svg';
 import { useEffect, useState } from 'react';
+import ReviewsApi from 'services/ReviewsApi';
+import { useSelector } from 'react-redux';
+import { getUser } from 'redux-store/Slices/AuthSlice';
 
 const ReviewSchema = Yup.object().shape({
   reviewText: Yup.string()
@@ -32,6 +37,9 @@ export default function FeedbackForm({ handleClose, review }) {
   const [fieldInputDisabled, setFieldInputDisabled] = useState(false);
   const [ratingStarsReadonly, setRatingStarsReadonly] = useState(false);
   const [btnSaveDisabled, setBtnSaveDisabled] = useState(false);
+  const [isThereRating, setIsThereRating] = useState(true);
+
+  const selector = useSelector(getUser);
 
   useEffect(() => {
     if (review.length !== 0) {
@@ -46,6 +54,27 @@ export default function FeedbackForm({ handleClose, review }) {
     }
   }, []);
 
+  const handleSubmit = async (values, { resetForm }) => {
+    const name = selector.user.name;
+
+    if (rating === 0) {
+      setIsThereRating(false);
+      return;
+    }
+
+    await ReviewsApi.addUserReview({
+      name: name,
+      comment: values.reviewText,
+      rating: rating,
+    });
+    setIsThereRating(true);
+    resetForm();
+  };
+
+  const handleRatingChange = rating => {
+    setRating(rating);
+  };
+
   return (
     <FeedbackFormWrapper>
       <p>Rating</p>
@@ -56,17 +85,20 @@ export default function FeedbackForm({ handleClose, review }) {
         fillColor={'#FFAC33'}
         emptyColor={'#CEC9C1'}
         SVGstorkeWidth={2}
+        onClick={handleRatingChange}
       />
+      {!isThereRating && <RatingError>Rating is required</RatingError>}
+
       <ButtonWindowClose type="button" onClick={handleClose}>
         <img src={ModalCloseSvg} alt="Close review Window" />
       </ButtonWindowClose>
+
       <Formik
+        initialValues={{ reviewText: comment }}
         validationSchema={ReviewSchema}
-        onSubmit={values => {
-          console.log(values);
-        }}
+        onSubmit={handleSubmit}
       >
-        <form>
+        <Form>
           <ReviewOptionsBox>
             <label>Review</label>
             <ButtonBox>
@@ -76,19 +108,22 @@ export default function FeedbackForm({ handleClose, review }) {
                 </ButtonReviewEdit>
               )}
               {btnDeleteVisible && (
-                <ButtonReviewDelte type="button">
+                <ButtonReviewDelete type="button">
                   <img src={ReviewDelteSvg} alt="Delete review" />
-                </ButtonReviewDelte>
+                </ButtonReviewDelete>
               )}
             </ButtonBox>
           </ReviewOptionsBox>
+
           <FieldInput
             name="reviewText"
             component="textarea"
             placeholder="Enter text"
-            value={comment}
             disabled={fieldInputDisabled}
           ></FieldInput>
+          <ErrorMessage name="reviewText">
+            {msg => <ErrorMessageStyled>{msg}</ErrorMessageStyled>}
+          </ErrorMessage>
           <ButtonBox>
             <SaveButton type="submit" disabled={btnSaveDisabled}>
               Save
@@ -97,7 +132,7 @@ export default function FeedbackForm({ handleClose, review }) {
               Cancel
             </ActionButton>
           </ButtonBox>
-        </form>
+        </Form>
       </Formik>
     </FeedbackFormWrapper>
   );
