@@ -20,6 +20,14 @@ const addUserReview = async (userReview) => {
 
 const editUserReview = async () => {};
 
-const deleteUserReview = async () => {};
+const deleteUserReview = async () => {
+    const response = (await axios.delete(`${URL}/own`));
+    return response;
+};
 
-export default { getAllReviews, getUserReview, addUserReview };
+export default {
+  getAllReviews,
+  getUserReview,
+  addUserReview,
+  deleteUserReview,
+};

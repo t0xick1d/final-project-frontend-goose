@@ -75,6 +75,10 @@ export default function FeedbackForm({ handleClose, review }) {
     setRating(rating);
   };
 
+  const handleReviewDelete = async () => {
+    await ReviewsApi.deleteUserReview();
+  };
+
   return (
     <FeedbackFormWrapper>
       <p>Rating</p>
@@ -97,6 +101,7 @@ export default function FeedbackForm({ handleClose, review }) {
         initialValues={{ reviewText: comment }}
         validationSchema={ReviewSchema}
         onSubmit={handleSubmit}
+        enableReinitialize={true}
       >
         <Form>
           <ReviewOptionsBox>
@@ -108,7 +113,7 @@ export default function FeedbackForm({ handleClose, review }) {
                 </ButtonReviewEdit>
               )}
               {btnDeleteVisible && (
-                <ButtonReviewDelete type="button">
+                <ButtonReviewDelete type="button" onClick={handleReviewDelete}>
                   <img src={ReviewDelteSvg} alt="Delete review" />
                 </ButtonReviewDelete>
               )}
