@@ -12,10 +12,14 @@ const getUserReview = async () => {
   return response;
 };
 
-const addUserReview = async () => {};
+const addUserReview = async (userReview) => {
+  console.log(userReview);
+  // const response = (await axios.post(`${URL}/own`)).data;
+  // return response;
+};
 
 const editUserReview = async () => {};
 
 const deleteUserReview = async () => {};
 
-export default { getAllReviews, getUserReview };
+export default { getAllReviews, getUserReview, addUserReview };

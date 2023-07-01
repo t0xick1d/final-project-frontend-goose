@@ -44,6 +44,10 @@ export const ButtonWindowClose = styled.button`
   cursor: pointer;
 `;
 
+export const RatingError = styled.p`
+  color: red;
+`;
+
 export const RatingStar = styled(Rating)`
   margin-top: 8px;
   margin-bottom: 20px;

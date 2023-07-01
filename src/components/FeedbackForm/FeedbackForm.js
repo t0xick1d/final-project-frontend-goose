@@ -12,11 +12,13 @@ import {
   SaveButton,
   ActionButton,
   ErrorMessageStyled,
+  RatingError,
 } from './FeedbackFormStyled';
 import ModalCloseSvg from '../../images/icons/modal-x-close.svg';
 import ReviewEditSvg from '../../images/icons/review-edit.svg';
 import ReviewDelteSvg from '../../images/icons/review-delete.svg';
 import { useEffect, useState } from 'react';
+import ReviewsApi from 'services/ReviewsApi';
 
 const ReviewSchema = Yup.object().shape({
   reviewText: Yup.string()
@@ -33,6 +35,7 @@ export default function FeedbackForm({ handleClose, review }) {
   const [fieldInputDisabled, setFieldInputDisabled] = useState(false);
   const [ratingStarsReadonly, setRatingStarsReadonly] = useState(false);
   const [btnSaveDisabled, setBtnSaveDisabled] = useState(false);
+  const [isThereRating, setIsThereRating] = useState(true);
 
   useEffect(() => {
     if (review.length !== 0) {
@@ -47,9 +50,23 @@ export default function FeedbackForm({ handleClose, review }) {
     }
   }, []);
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+  const handleSubmit = async (values, { resetForm }) => {
+    if (rating === 0) {
+      setIsThereRating(false);
+      console.log('rating is required');
+      return;
+    }
+
+    await ReviewsApi.addUserReview({
+      comment: values.reviewText,
+      rating: rating,
+    });
+    setIsThereRating(true);
     resetForm();
+  };
+
+  const handleRatingChange = rating => {
+    setRating(rating);
   };
 
   return (
@@ -62,10 +79,14 @@ export default function FeedbackForm({ handleClose, review }) {
         fillColor={'#FFAC33'}
         emptyColor={'#CEC9C1'}
         SVGstorkeWidth={2}
+        onClick={handleRatingChange}
       />
+      {!isThereRating && <RatingError>Rating is required</RatingError>}
+
       <ButtonWindowClose type="button" onClick={handleClose}>
         <img src={ModalCloseSvg} alt="Close review Window" />
       </ButtonWindowClose>
+
       <Formik
         initialValues={{ reviewText: comment }}
         validationSchema={ReviewSchema}
@@ -87,6 +108,7 @@ export default function FeedbackForm({ handleClose, review }) {
               )}
             </ButtonBox>
           </ReviewOptionsBox>
+
           <FieldInput
             name="reviewText"
             component="textarea"
