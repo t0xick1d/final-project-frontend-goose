@@ -84,6 +84,19 @@ const fetchData = async () => {
     setShowCalendar(prevState => !prevState);
   };
 
+    const width = window.innerWidth;
+
+    let chartWidth = 307;
+    let chartHeight = 413;
+
+  if (width >= 1440) {
+    chartWidth = 860;
+    chartHeight = 440;
+  } else if (width >= 768) {
+    chartWidth = 640;
+    chartHeight = 424;
+  }
+
   // const dataExaple = [
   //   {
   //     name: 'Page A',
@@ -105,9 +118,10 @@ const fetchData = async () => {
   //     uv: 2780,
   //     pv: 3908,
   //   },
-    
+  //
   // ];
 
+  
   return (
     <StatisticsContainer>
       <OptionsContainer>
@@ -134,32 +148,47 @@ const fetchData = async () => {
       </OptionsContainer>
       <ChartWrapper>
         <BarChart
-          width={307}
-          height={413}
+          width={chartWidth}
+          height={chartHeight}
           margin={{ top: 40 }}
           padding={{ right: 14, left: 14 }}
           data={[
-            { name: 'todo', pv: todoByDay, uv: todoByMonth },
+            { name: 'todo', day: todoByDay, month: todoByMonth },
             {
               name: 'inprogress',
-              pv: inProgressByDay,
-              uv: inProgressByMonth,
+              day: inProgressByDay,
+              month: inProgressByMonth,
             },
-            { name: 'done', pv: doneByDay, uv: doneByMonth },
+            { name: 'done', day: doneByDay, month: doneByMonth },
           ]}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis domain={[0, 100]} />
           <Tooltip />
-          <Legend />
-          <Bar dataKey="pv" fill="#8884d8" />
-          <Bar dataKey="uv" fill="#82ca9d" />
+          <Bar dataKey="day" fill="url(#gradient1)" />
+          <Bar dataKey="month" fill="url(#gradient2)" />
+          <defs>
+            <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#FFD2DD" stopOpacity={1} />
+              <stop
+                offset="100%"
+                stopColor="rgba(255, 210, 221, 0)"
+                stopOpacity={1}
+              />
+            </linearGradient>
+            <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#3E85F3" stopOpacity={1} />
+              <stop
+                offset="100%"
+                stopColor="rgba(62, 133, 243, 0)"
+                stopOpacity={1}
+              />
+            </linearGradient>
+          </defs>
         </BarChart>
       </ChartWrapper>
-           {showCalendar && (
-        <Calendar onDateChange={handleDateChange} /> 
-      )}
+      {showCalendar && <Calendar onDateChange={handleDateChange} />}
     </StatisticsContainer>
   );
 };

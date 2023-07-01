@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BarChart } from 'recharts';
 
     const size = {
       tablet: '768px',
@@ -111,14 +112,11 @@ export const Item = styled.li`
 export const ChartWrapper = styled.div`
   padding-right: 14px;
   padding-left: 14px;
-  width: 100%;
-  @media (min-width: 768px) {
-    /* Стилі для екранів шириною до 768px */
-    width: 307px;
-  }
 
-  // @media (min-width: 769px) {
-  //   /* Стилі для екранів шириною більше 768px */
-  //   width: 500px;
-  // }
+`;
+
+export const StyledBarChart = styled(BarChart)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
