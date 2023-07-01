@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {
   FeedbackFormWrapper,
@@ -6,11 +6,12 @@ import {
   ReviewOptionsBox,
   ButtonWindowClose,
   ButtonReviewEdit,
-  ButtonReviewDelte,
+  ButtonReviewDelete,
   FieldInput,
   ButtonBox,
   SaveButton,
   ActionButton,
+  ErrorMessageStyled,
 } from './FeedbackFormStyled';
 import ModalCloseSvg from '../../images/icons/modal-x-close.svg';
 import ReviewEditSvg from '../../images/icons/review-edit.svg';
@@ -46,6 +47,11 @@ export default function FeedbackForm({ handleClose, review }) {
     }
   }, []);
 
+  const handleSubmit = (values, { resetForm }) => {
+    console.log(values);
+    resetForm();
+  };
+
   return (
     <FeedbackFormWrapper>
       <p>Rating</p>
@@ -61,12 +67,11 @@ export default function FeedbackForm({ handleClose, review }) {
         <img src={ModalCloseSvg} alt="Close review Window" />
       </ButtonWindowClose>
       <Formik
+        initialValues={{ reviewText: comment }}
         validationSchema={ReviewSchema}
-        onSubmit={values => {
-          console.log(values);
-        }}
+        onSubmit={handleSubmit}
       >
-        <form>
+        <Form>
           <ReviewOptionsBox>
             <label>Review</label>
             <ButtonBox>
@@ -76,9 +81,9 @@ export default function FeedbackForm({ handleClose, review }) {
                 </ButtonReviewEdit>
               )}
               {btnDeleteVisible && (
-                <ButtonReviewDelte type="button">
+                <ButtonReviewDelete type="button">
                   <img src={ReviewDelteSvg} alt="Delete review" />
-                </ButtonReviewDelte>
+                </ButtonReviewDelete>
               )}
             </ButtonBox>
           </ReviewOptionsBox>
@@ -86,9 +91,11 @@ export default function FeedbackForm({ handleClose, review }) {
             name="reviewText"
             component="textarea"
             placeholder="Enter text"
-            value={comment}
             disabled={fieldInputDisabled}
           ></FieldInput>
+          <ErrorMessage name="reviewText">
+            {msg => <ErrorMessageStyled>{msg}</ErrorMessageStyled>}
+          </ErrorMessage>
           <ButtonBox>
             <SaveButton type="submit" disabled={btnSaveDisabled}>
               Save
@@ -97,7 +104,7 @@ export default function FeedbackForm({ handleClose, review }) {
               Cancel
             </ActionButton>
           </ButtonBox>
-        </form>
+        </Form>
       </Formik>
     </FeedbackFormWrapper>
   );

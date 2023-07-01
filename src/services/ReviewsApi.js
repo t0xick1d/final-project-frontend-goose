@@ -12,9 +12,10 @@ const getUserReview = async () => {
   return response;
 };
 
-export default { getAllReviews, getUserReview };
+const addUserReview = async () => {};
 
-//перевірка на помилки
-  // addUserReview,
-  // editUserReview,
-  // deleteUserReview,
+const editUserReview = async () => {};
+
+const deleteUserReview = async () => {};
+
+export default { getAllReviews, getUserReview };

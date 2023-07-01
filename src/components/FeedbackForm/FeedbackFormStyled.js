@@ -84,7 +84,7 @@ export const ButtonReviewEdit = styled.button`
   cursor: pointer;
 `;
 
-export const ButtonReviewDelte = styled.button`
+export const ButtonReviewDelete = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -167,4 +167,8 @@ export const ActionButton = styled.button`
   @media ${device.tablet} {
     width: 198px;
   }
+`;
+
+export const ErrorMessageStyled = styled.div`
+  color: red;
 `;
