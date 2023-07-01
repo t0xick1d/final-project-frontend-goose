@@ -66,5 +66,12 @@
 </defs>
 </symbol>
 
+<symbol id="icon-Ellipse-4-1" viewBox="0 0 32 32">
+<path fill="#3e85f3" style="fill: var(--color1, #3e85f3)" d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
+</symbol>
+<symbol id="icon-Ellipse-3-1" viewBox="0 0 32 32">
+<path fill="#ffd2dd" style="fill: var(--color2, #ffd2dd)" d="M32 16c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"></path>
+</symbol>
+
 </defs>
 </svg>
