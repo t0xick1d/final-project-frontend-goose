@@ -44,6 +44,10 @@ export const ButtonWindowClose = styled.button`
   cursor: pointer;
 `;
 
+export const RatingError = styled.p`
+  color: red;
+`;
+
 export const RatingStar = styled(Rating)`
   margin-top: 8px;
   margin-bottom: 20px;
@@ -84,7 +88,7 @@ export const ButtonReviewEdit = styled.button`
   cursor: pointer;
 `;
 
-export const ButtonReviewDelte = styled.button`
+export const ButtonReviewDelete = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -167,4 +171,8 @@ export const ActionButton = styled.button`
   @media ${device.tablet} {
     width: 198px;
   }
+`;
+
+export const ErrorMessageStyled = styled.div`
+  color: red;
 `;
