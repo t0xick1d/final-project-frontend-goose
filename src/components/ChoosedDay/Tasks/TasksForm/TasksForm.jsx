@@ -1,4 +1,5 @@
 import React from 'react';
+import { format } from 'date-fns';
 import { Formik, Form } from 'formik';
 
 
@@ -31,6 +32,7 @@ export default function TasksForm({ onClose }) {
   // const tasks = useSelector(selectTasks);
   
   const dispatch = useDispatch();
+ const currentDate = format(new Date(), 'yyyy-MM-dd');
 
   const handleSubmit = values => {
     console.log(values);
@@ -52,7 +54,7 @@ export default function TasksForm({ onClose }) {
           start: '09:00',
           end: '14:00',
           priority: 'low',
-          date: '',
+          date: currentDate ,
           category: "todo",
         }}
         onSubmit={handleSubmit}

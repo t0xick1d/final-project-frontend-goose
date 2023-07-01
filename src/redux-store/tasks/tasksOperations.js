@@ -3,15 +3,27 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://goose-track-ity9.onrender.com/api/';
 
-export const fetchTasks = createAsyncThunk(
-  'tasks/fetchAll',
-  async ({ month, year }, thunkAPI) => {
+export const fetchTasksMonth = createAsyncThunk(
+  'tasks/fetchAllMonth',
+  async ({ date }, thunkAPI) => {
     try {
-      const response = await axios.get('/tasks', {
-        params: {
-          m: month,
-          y: year,
-        },
+      const response = await axios.get('/tasks/month', {
+        params: { date },
+      });
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchTasksDay = createAsyncThunk(
+  'tasks/fetchAllDay',
+  async ({ date }, thunkAPI) => {
+    try {
+      const response = await axios.get('/tasks/day', {
+        params: { date },
       });
 
       return response.data;

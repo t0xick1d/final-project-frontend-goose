@@ -6,12 +6,12 @@ export const Week = styled.div`
   margin-bottom: 14px;
   border: 1px solid var(--calendar-border-color);
   border-radius: 8px;
-  padding: 16px;
+  padding: 16px 0;
   background-color: var(--calendar-bg-color);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 18px;
-    padding: 14px;
+    padding: 14px 0;
   }
 
   @media screen and (min-width: 1440px) {
@@ -20,7 +20,10 @@ export const Week = styled.div`
 `;
 
 export const Day = styled.p`
-  font-family: 'Inter';
+  width: calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

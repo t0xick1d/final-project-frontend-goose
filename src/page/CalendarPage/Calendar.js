@@ -35,6 +35,7 @@ export default function CalendarPage() {
     <>
     
       {/* Suspense і outlet я додав ці компоненти мають відмальоувати chosemonth і choseday */}
+
       <Suspense fallback={<div>Loading page...</div>}>
         <HeaderCalendar/>
         <Outlet />
