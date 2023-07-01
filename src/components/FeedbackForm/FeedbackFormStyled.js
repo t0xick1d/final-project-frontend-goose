@@ -133,10 +133,11 @@ export const SaveButton = styled.button`
   font-family: Inter;
   font-weight: 600;
   line-height: 18px;
+  cursor: pointer;
   :hover,
   :focus {
-    background: ${({ btnSaveDisabled }) =>
-      btnSaveDisabled ? 'rgba(229, 237, 250, 1)' : 'rgba(62, 133, 243, 1)'};
+    background: ${props => !props.disabled && '#3e85f3'};
+    cursor: ${props => props.disabled && 'not-allowed'};
   }
 
   @media ${device.tablet} {
