@@ -45,6 +45,7 @@ export const Grade = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: flex-end;
 
   border-radius: 4px;
   background: ${props =>
@@ -77,6 +78,7 @@ export const List = styled.ul`
 export const SvgBtn = styled.svg`
   width: 16px;
   height: 16px;
+  cursor: pointer;
 `;
 export const Dropdown = styled.div`
   position: absolute;
@@ -113,4 +115,5 @@ export const DropdownBtn = styled.button`
   color: transparent;
   background-color: transparent;
   padding: 0;
+  cursor: pointer;
 `;
