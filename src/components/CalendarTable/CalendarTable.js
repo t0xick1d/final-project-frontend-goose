@@ -85,14 +85,17 @@ export const CalendarTable = ({ totalDays }) => {
                   <>
                     <Task key="low" priority="low" group="true">
                       ...
-                      <Point>{statTasks.countTasksLow}</Point>
+                      <Point priority="low">{statTasks.countTasksLow}</Point>
                     </Task>
                     <Task key="medium" priority="medium" group="true">
-                      ...<Point>{statTasks.countTasksMedium}</Point>
+                      ...
+                      <Point priority="medium">
+                        {statTasks.countTasksMedium}
+                      </Point>
                     </Task>
                     <Task key="high" priority="high" group="true">
                       ...
-                      <Point>{statTasks.countTasksHigh}</Point>
+                      <Point priority="high">{statTasks.countTasksHigh}</Point>
                     </Task>
                   </>
                 )}

@@ -57,7 +57,7 @@ export const TypesTabs = styled(NavLink)`
   &:hover,
   &:focus,
   &:active {
-    background-color: rgba(202, 232, 255, 1)
+    background-color: rgba(202, 232, 255, 1);
     color: rgba(62, 133, 243, 1)
   }
 

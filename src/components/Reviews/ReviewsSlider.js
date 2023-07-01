@@ -10,7 +10,7 @@ import ReviewsBox from './ReviewsBox';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
-import getReviewsApi from 'services/getReviewsApi';
+import ReviewsApi from 'services/ReviewsApi';
 import Slider from 'react-slick';
 
 export default function ReviewsSlider() {
@@ -19,7 +19,7 @@ export default function ReviewsSlider() {
 
   useEffect(() => {
     async function getReviews () {
-      setReviews(await getReviewsApi());
+      setReviews(await ReviewsApi.getAllReviews());
     };
     getReviews();
   }, []);
