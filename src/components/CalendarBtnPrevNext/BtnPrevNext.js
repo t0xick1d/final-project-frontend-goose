@@ -62,16 +62,28 @@ const BtnPrevNext = () => {
 
   return (
     <BtnPrevNextContainer>
-      <BtnPrevContainer 
-      type="button"
-      onClick={previousMonth}>
-          <FaChevronLeft />
-      </BtnPrevContainer>
-      <BtnNextContainer 
-      type="button"
-      onClick={nextMonth}>
-          <FaChevronRight />
-      </BtnNextContainer>
+      {activeTab === 'day' && (
+        <>
+          <TextWrapper type="button">{format(date, 'd MMMM yyyy')}</TextWrapper>
+          <BtnPrevContainer type="button" onClick={previousDay}>
+            <FaChevronLeft />
+          </BtnPrevContainer>
+          <BtnNextContainer type="button" onClick={nextDay}>
+            <FaChevronRight />
+          </BtnNextContainer>
+        </>
+      )}
+      {activeTab === 'month' && (
+        <>
+          <TextWrapper type="button">{format(date, 'MMMM yyyy')}</TextWrapper>
+          <BtnPrevContainer type="button" onClick={previousMonth}>
+            <FaChevronLeft />
+          </BtnPrevContainer>
+          <BtnNextContainer type="button" onClick={nextMonth}>
+            <FaChevronRight />
+          </BtnNextContainer>
+        </>
+      )}
     </BtnPrevNextContainer>
   );
 };
