@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { BarChart } from 'recharts';
 
     const size = {
       tablet: '768px',
