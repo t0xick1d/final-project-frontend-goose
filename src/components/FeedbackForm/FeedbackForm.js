@@ -118,6 +118,17 @@ export default function FeedbackForm({ handleClose }) {
     setFieldInputDisabled(false);
     setRatingStarsReadonly(false);
     setBtnSaveDisabled(false);
+    setTimeout(() => {
+      const reviewTextInput = document.querySelector('#reviewText');
+      if (reviewTextInput) {
+        reviewTextInput.focus();
+
+        if (reviewTextInput.value) {
+          const textLength = reviewTextInput.value.length;
+          reviewTextInput.setSelectionRange(textLength, textLength);
+        }
+      }
+    }, 0);
   };
 
   return (
@@ -162,6 +173,7 @@ export default function FeedbackForm({ handleClose }) {
           </ReviewOptionsBox>
 
           <FieldInput
+            id="reviewText"
             name="reviewText"
             component="textarea"
             placeholder="Enter text"
