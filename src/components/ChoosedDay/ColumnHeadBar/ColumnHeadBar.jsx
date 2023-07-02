@@ -1,23 +1,23 @@
-import ButtonAddTask from 'components/ChoosedDay/Tasks/ButtonAddTask/ButtonAddTask';
+// import ButtonAddTask from 'components/ChoosedDay/Tasks/ButtonAddTask/ButtonAddTask';
 import React, { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import TasksForm from 'components/ChoosedDay/Tasks/TasksForm/TasksForm';
 import {
-  ToDoSection,
-  Container,
+  //   ToDoSection,
+  //   Container,
   ContainerStatus,
   TextToDo,
   AddIcon,
-  ScrollableContainer,
+  //   ScrollableContainer,
 } from './ColumnHeadBar.styled';
 
 import { AddTaskButton } from './ColumnHeadBar.styled';
 import Icons from 'images/sprite.svg';
-import TasksCard from '../Tasks/TasksCard/TasksCard';
-import { useSelector } from 'react-redux';
-import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
+// import TasksCard from '../Tasks/TasksCard/TasksCard';
+// import { useSelector } from 'react-redux';
+// import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
 
-export default function ColumnHeadBar({ date, columnTitle }) {
+export default function ColumnHeadBar({ columnTitle }) {
   const { title, category } = columnTitle;
   const [showModal, setShowModal] = useState(false);
   //   const [category, setCategory] = useState('');

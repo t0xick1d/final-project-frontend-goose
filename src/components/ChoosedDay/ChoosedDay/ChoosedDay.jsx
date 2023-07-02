@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchTasksDay } from '../../../redux-store/tasks/tasksOperations';
-import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
-import ColumnHeadBar from 'components/ChoosedDay/ColumnHeadBar/ColumnHeadBar';
+// import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
+// import ColumnHeadBar from 'components/ChoosedDay/ColumnHeadBar/ColumnHeadBar';
 import { DayCalendarHead } from 'components/ChoosedDay/DayCalendarHead/DayCalendarHead';
 import { SectionDay } from './ChoosedDay.styled';
-import { useSelector } from 'react-redux';
-import TasksCard from '../Tasks/TasksCard/TasksCard';
+// import { useSelector } from 'react-redux';
+// import TasksCard from '../Tasks/TasksCard/TasksCard';
 import { format } from 'date-fns';
 import { TasksColumnsList } from '../TasksColumnsList/TasksColumnsList';
 
@@ -110,7 +111,6 @@ export default function ChoosedDay() {
 
   /*//////////////////////////// */
   // const tasks = useSelector(selectArrTasks);
-
 
   // const [filteredTasks, setFilteredTasks] = useState([]);
   const formattedCurrentDate = format(ValidCurrentDate, 'yyyy-MM-dd');
