@@ -18,9 +18,10 @@ import ModalCloseSvg from '../../images/icons/modal-x-close.svg';
 import ReviewEditSvg from '../../images/icons/review-edit.svg';
 import ReviewDelteSvg from '../../images/icons/review-delete.svg';
 import { useEffect, useState } from 'react';
-import ReviewsApi from 'services/ReviewsApi';
-import { useSelector } from 'react-redux';
 import { getUser } from 'redux-store/Slices/AuthSlice';
+import { selectUserReview } from 'redux-store/Reviews/reviewsSelector';
+import { useDispatch, useSelector } from 'react-redux';
+import ReviewsOperations from 'redux-store/Reviews/reviewsOperations';
 
 const ReviewSchema = Yup.object().shape({
   reviewText: Yup.string()
@@ -29,23 +30,22 @@ const ReviewSchema = Yup.object().shape({
     .required('Required field'),
 });
 
-export default function FeedbackForm({ handleClose, review }) {
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
+export default function FeedbackForm({ handleClose }) {
+  const [starsNumber, setStarsNumber] = useState(0);
   const [btnEditVisible, setBtnEditVisible] = useState(false);
   const [btnDeleteVisible, setBtnDeleteVisible] = useState(false);
   const [fieldInputDisabled, setFieldInputDisabled] = useState(false);
   const [ratingStarsReadonly, setRatingStarsReadonly] = useState(false);
   const [btnSaveDisabled, setBtnSaveDisabled] = useState(false);
   const [isThereRating, setIsThereRating] = useState(true);
+  const [editButtonActivate, setEditButtonActivate] = useState(false);
 
-  const selector = useSelector(getUser);
+  const dispatch = useDispatch();
+  const userSelector = useSelector(getUser);
+  const userReview = useSelector(selectUserReview);
 
   useEffect(() => {
-    if (review.length !== 0) {
-      const { comment, rating } = review;
-      setComment(comment);
-      setRating(rating);
+    if (userReview.length !== 0) {
       setFieldInputDisabled(true);
       setBtnEditVisible(true);
       setBtnDeleteVisible(true);
@@ -55,35 +55,72 @@ export default function FeedbackForm({ handleClose, review }) {
   }, []);
 
   const handleSubmit = async (values, { resetForm }) => {
-    const name = selector.user.name;
+    //Якщо кнопка редагування активована, то виконати запит на редагування
+    if (editButtonActivate === true) {
+      editReviews(values);
+      handleClose();
+      return;
+    }
 
-    if (rating === 0) {
+    //Це звичайний запит на створення відгуку
+    createReviews(values);
+    handleClose();
+    resetForm();
+  };
+
+  function createReviews(values) {
+    const userName = userSelector.user.name;
+    if (starsNumber === 0) {
       setIsThereRating(false);
       return;
     }
 
-    await ReviewsApi.addUserReview({
-      name: name,
-      comment: values.reviewText,
-      rating: rating,
-    });
+    dispatch(
+      ReviewsOperations.addUserReview({
+        name: userName,
+        comment: values.reviewText,
+        rating: starsNumber,
+      })
+    );
     setIsThereRating(true);
-    resetForm();
-  };
+  }
+
+  function editReviews(values) {
+    const userName = userSelector.user.name;
+    dispatch(
+      ReviewsOperations.editUserReview({
+        name: userName,
+        comment: values.reviewText,
+        rating: starsNumber,
+      })
+    );
+    setEditButtonActivate(false);
+    setFieldInputDisabled(true);
+    setRatingStarsReadonly(true);
+    setBtnSaveDisabled(true);
+  }
 
   const handleRatingChange = rating => {
-    setRating(rating);
+    setStarsNumber(rating);
   };
 
   const handleReviewDelete = async () => {
-    await ReviewsApi.deleteUserReview();
+    dispatch(ReviewsOperations.deleteUserReview());
+    handleClose();
+  };
+
+  const handleReviewEdit = async () => {
+    setEditButtonActivate(true);
+    setFieldInputDisabled(false);
+    setRatingStarsReadonly(false);
+    setBtnSaveDisabled(false);
   };
 
   return (
     <FeedbackFormWrapper>
       <p>Rating</p>
       <RatingStar
-        initialValue={rating}
+        initialValue={userReview.rating}
         readonly={ratingStarsReadonly}
         size={24}
         fillColor={'#FFAC33'}
@@ -98,7 +135,7 @@ export default function FeedbackForm({ handleClose, review }) {
       </ButtonWindowClose>
 
       <Formik
-        initialValues={{ reviewText: comment }}
+        initialValues={{ reviewText: userReview.comment }}
         validationSchema={ReviewSchema}
         onSubmit={handleSubmit}
         enableReinitialize={true}
@@ -108,7 +145,7 @@ export default function FeedbackForm({ handleClose, review }) {
             <label>Review</label>
             <ButtonBox>
               {btnEditVisible && (
-                <ButtonReviewEdit type="button">
+                <ButtonReviewEdit type="button" onClick={handleReviewEdit}>
                   <img src={ReviewEditSvg} alt="Edit review" />
                 </ButtonReviewEdit>
               )}
