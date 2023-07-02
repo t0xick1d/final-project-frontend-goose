@@ -85,7 +85,8 @@ export const Dropdown = styled.div`
   margin-top: 16px;
   width: 99px;
   height: 50px;
-  display: ${props => (props.active ? 'inline-flex' : 'none')};
+  display: ${props => (props.visible ? 'inline-flex' : 'none')};
+  /* display: block; */
   padding: 20px 24px;
   justify-content: flex-start;
   align-items: center;
