@@ -121,12 +121,3 @@ export default function TasksCard({ list }) {
     </MainList>
   );
 }
-/*
-
-edge="end"
-              aria-label="delete"
-              type="button"
-              onClick={() => {
-                dispatch(deleteContact(id));
-            
-*/
