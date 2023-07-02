@@ -25,24 +25,14 @@ export const DivWrapper = styled('div')`
   justify-content: space-between;
   position: relative;
 
-  @media screen and (min-width: 768px) {
-    /* display: block; */
-    /* margin-bottom: 32px;
-    align-items: center; */
-  }
-
- @media screen and (min-width: 1440px) {
-    /* margin-bottom: 32px; */
-  } 
-
-
 `;
 
 
 export const TextWrapper = styled('button')`
-  width: 109px;
+  min-width: 109px;
   height: 30px;
   color: #fff;
+ 
   background: var(--button-bgd-color);
   border: none;
   border-radius: 8px;
@@ -59,7 +49,7 @@ text-transform: uppercase;
 
 @media screen and (min-width: 768px) {
   margin-right:8px;
-  width: 131px;
+  min-width: 131px;
   height: 34px;
   margin-bottom:0;
   }

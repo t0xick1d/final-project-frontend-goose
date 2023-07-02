@@ -40,7 +40,6 @@ export const ChosedMonth = () => {
   const endDate = lastDayOfWeek(lastDay, { weekStartsOn: 1 });
 
   const totalDays = eachDayOfInterval({ start: startDate, end: endDate });
-  console.log('totalDays', totalDays);
 
   const formattedDate = format(date, 'yyyy-MM');
   useEffect(() => {

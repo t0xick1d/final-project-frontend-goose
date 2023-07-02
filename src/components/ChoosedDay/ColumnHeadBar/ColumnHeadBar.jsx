@@ -30,7 +30,6 @@ export default function ColumnHeadBar() {
         setCategory(e.currentTarget.id)
     }
 
-    console.log(tasksArr)
 
     tasksArr && tasksArr.reduce((_, task) => {
         if (task.category === 'todo') {
