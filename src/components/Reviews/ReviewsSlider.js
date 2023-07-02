@@ -9,19 +9,19 @@ import {
 import ReviewsBox from './ReviewsBox';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useEffect, useState } from 'react';
-import ReviewsApi from 'services/ReviewsApi';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllReviews } from 'redux-store/Reviews/reviewsSelector';
+import ReviewsOperations from 'redux-store/Reviews/reviewsOperations';
 import Slider from 'react-slick';
 
 export default function ReviewsSlider() {
-  const [reviews, setReviews] = useState([]);
   let slider;
+  const reviews = useSelector(selectAllReviews);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    async function getReviews () {
-      setReviews(await ReviewsApi.getAllReviews());
-    };
-    getReviews();
+    dispatch(ReviewsOperations.getAllReviews());
   }, []);
 
   const handlePrevious = () => {

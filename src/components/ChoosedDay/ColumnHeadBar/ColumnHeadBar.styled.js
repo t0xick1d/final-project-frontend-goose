@@ -1,28 +1,47 @@
 import styled from 'styled-components';
 
 export const ToDoSection = styled.section`
-  /* padding: 20px 24px 22px 24px; */
   display: flex;
   align-items: flex-start;
   gap: 18px;
   min-width: 360px;
-  /* overflow-x: scroll; */
+  overflow-x: scroll;
+  scrollbar-width: auto;
+  ::-webkit-scrollbar {
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #e7e5e5;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
 
   @media screen and (min-width: 768px) {
     gap: 16px;
-    min-width: 768px;
+    /* min-width: 768px; */
   }
   @media screen and (min-width: 1440px) {
     gap: 27px;
-    min-width: 1440px;
+    overflow-x: hidden;
   }
 `;
 export const Container = styled.div`
   padding: 18px;
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.5);
-  background: #fff;
+  border: 1px solid var(--task-border-color);
+  background: var(--sidebar-background-color);
   min-width: 334px;
+  width: 100%;
+  height: 100%;
+  max-width: 432px;
   @media screen and (min-width: 768px) {
     padding: 20px;
   }
@@ -39,7 +58,7 @@ export const ContainerStatus = styled.div`
   }
 `;
 export const TextToDo = styled.p`
-  color: #111;
+  color: var(--title-text-main-color);
   text-align: center;
   font-size: 18px;
   font-weight: 700;
@@ -65,6 +84,9 @@ export const AddTaskButton = styled.button`
 export const AddIcon = styled.svg`
   width: 22px;
   height: 22px;
+  /* & use {
+    fill: var(--title-text-main-color);
+  } */
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
@@ -82,12 +104,12 @@ export const ScrollableContainer = styled.div`
   }
 
   ::-webkit-scrollbar-track {
-    background-color: #f2f2f2;
+    background-color: var(--scroll-background-color);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #e7e5e5;
+    background-color: var(--scroll-color);
     border-radius: 4px;
   }
 

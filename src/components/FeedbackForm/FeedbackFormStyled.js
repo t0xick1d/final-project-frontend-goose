@@ -44,6 +44,10 @@ export const ButtonWindowClose = styled.button`
   cursor: pointer;
 `;
 
+export const RatingError = styled.p`
+  color: red;
+`;
+
 export const RatingStar = styled(Rating)`
   margin-top: 8px;
   margin-bottom: 20px;
@@ -84,7 +88,7 @@ export const ButtonReviewEdit = styled.button`
   cursor: pointer;
 `;
 
-export const ButtonReviewDelte = styled.button`
+export const ButtonReviewDelete = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,6 +122,8 @@ export const FieldInput = styled(Field)`
   border-radius: 8px;
   border: none;
   background: #f6f6f6;
+
+  resize: none;
 `;
 
 export const SaveButton = styled.button`
@@ -167,4 +173,8 @@ export const ActionButton = styled.button`
   @media ${device.tablet} {
     width: 198px;
   }
+`;
+
+export const ErrorMessageStyled = styled.div`
+  color: red;
 `;

@@ -1,5 +1,5 @@
 import ButtonAddTask from 'components/ChoosedDay/Tasks/ButtonAddTask/ButtonAddTask';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import TasksForm from 'components/ChoosedDay/Tasks/TasksForm/TasksForm';
 import { ToDoSection, Container, ContainerStatus, TextToDo, AddIcon, ScrollableContainer } from './ColumnHeadBar.styled';
@@ -9,11 +9,16 @@ import Icons from 'images/sprite.svg';
 import TasksCard from '../Tasks/TasksCard/TasksCard';
 import { useSelector } from 'react-redux';
 import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
+import { useParams } from 'react-router-dom';
+import { fetchTasksDay } from 'redux-store/tasks/tasksOperations';
+import { useDispatch } from 'react-redux';
 
 export default function ColumnHeadBar() {
     const [showModal, setShowModal] = useState(false);
     const [category, setCategory] = useState('');
     const tasksArr = useSelector(selectArrTasks)
+    const { currentDate } = useParams()
+    const dispatch = useDispatch()
     const todoTasks = [];
     const inProgressTasks = [];
     const doneTasks = [];
@@ -30,8 +35,9 @@ export default function ColumnHeadBar() {
         setCategory(e.currentTarget.id)
     }
 
+    const filteredByDate = tasksArr.filter(task => task.date === currentDate)
 
-    tasksArr && tasksArr.reduce((_, task) => {
+    filteredByDate && filteredByDate.reduce((_, task) => {
         if (task.category === 'todo') {
             todoTasks.push(task);
         } else if (task.category === 'in-progress') {
@@ -39,10 +45,12 @@ export default function ColumnHeadBar() {
         } else if (task.category === 'done') {
             doneTasks.push(task);
         }
+      return null;
     }, null);
 
-
-
+    useEffect(() => {
+        dispatch(fetchTasksDay(currentDate && currentDate))
+    }, [currentDate, dispatch])
 
     return (
         <ToDoSection>
@@ -51,7 +59,9 @@ export default function ColumnHeadBar() {
                     <TextToDo>To do</TextToDo>
                     <AddTaskButton type="button"
                         onClick={handleShowModal}
-                        aria-label="Add task">
+                        aria-label="Add task"
+                    category={category}>
+                        
                         <AddIcon> <use href={`${Icons}#icon-plus-circle`}></use> </AddIcon></AddTaskButton>
                 </ContainerStatus>
 
@@ -67,7 +77,8 @@ export default function ColumnHeadBar() {
                     <TextToDo>In progress</TextToDo>
                     <AddTaskButton type="button"
                         onClick={handleShowModal}
-                        aria-label="Add task">
+                        aria-label="Add task"
+                    category={category}>
                         <AddIcon> <use href={`${Icons}#icon-plus-circle`}></use> </AddIcon>
 
 
@@ -86,7 +97,9 @@ export default function ColumnHeadBar() {
                     <TextToDo>Done</TextToDo>
                     <AddTaskButton type="button"
                         onClick={handleShowModal}
-                        aria-label="Add task"> <AddIcon> <use href={`${Icons}#icon-plus-circle`}></use> </AddIcon></AddTaskButton>
+                        aria-label="Add task"
+                        category={category}>
+                        <AddIcon> <use href={`${Icons}#icon-plus-circle`}></use> </AddIcon></AddTaskButton>
                 </ContainerStatus>
 
                 <ScrollableContainer >
@@ -102,11 +115,10 @@ export default function ColumnHeadBar() {
                     aria-label="Modal window is open"
                 >
                     {' '}
-                    <TasksForm onClose={handleCloseModal} />{' '}
+                    <TasksForm onClose={handleCloseModal} category={category}/>{' '}
                 </Modal>
             )}
 
         </ToDoSection>
-
     );
 }

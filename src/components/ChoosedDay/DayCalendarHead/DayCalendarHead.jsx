@@ -7,7 +7,6 @@ import {
   startOfWeek,
   isToday,
 } from 'date-fns';
-
 import Media from 'react-media';
 import { Day, DayWeek, Container, WeekContainer } from './DayCalendarHead.styled';
 

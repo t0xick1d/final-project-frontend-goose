@@ -1,13 +1,21 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import swal from 'sweetalert';
 import { token } from 'redux-store/AuthOperations/AuthOperations';
 
 axios.defaults.baseURL = 'https://goose-track-ity9.onrender.com/api/';
 
 export const fetchTasksMonth = createAsyncThunk(
   'tasks/fetchAllMonth',
-  async ({ date }, thunkAPI) => {
+  async (date, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('No valid token');
+    }
     try {
+      token.set(persistedToken);
       const response = await axios.get('/tasks/month', {
         params: { date },
       });
@@ -21,8 +29,15 @@ export const fetchTasksMonth = createAsyncThunk(
 
 export const fetchTasksDay = createAsyncThunk(
   'tasks/fetchAllDay',
-  async ({ date }, thunkAPI) => {
+  async (date, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('No valid token');
+    }
     try {
+      token.set(persistedToken);
       const response = await axios.get('/tasks/day', {
         params: { date },
       });
@@ -48,9 +63,11 @@ export const addTask = createAsyncThunk(
       const response = await axios.post('/tasks', body);
       console.log(response);
       return response.data;
-    } catch (error) {
-      console.log(error);
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (e) {
+      if (e.response.status === 400 || e.response.status === 409) {
+        throw new Error(swal('Error!', e.response.data.message, 'error'));
+      }
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
