@@ -55,11 +55,10 @@ const Statistics = () => {
           </ButtonWrapper>
           <BtnPrevNextContainer>
             <BtnPrevContainer type="button" onClick={handlePreviousDay}>
-              <FaChevronLeft />
+              <FaChevronLeft fill="var(--calendar-date-color)" />
             </BtnPrevContainer>
             <BtnNextContainer type="button" onClick={handleNextDay}>
-              {' '}
-              <FaChevronRight />{' '}
+              <FaChevronRight fill="var(--calendar-date-color)" />
             </BtnNextContainer>
           </BtnPrevNextContainer>
         </BtnContainer>
