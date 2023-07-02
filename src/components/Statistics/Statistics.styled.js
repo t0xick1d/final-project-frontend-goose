@@ -114,8 +114,11 @@ export const ChartWrapper = styled.div`
   margin-top: 40px;
   margin-bottom: 135px;
 
-  max-width: 100%;
+  width: 100%;
+  height: auto
   @media ${device.tablet} {
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -133,6 +136,27 @@ export const BtnPrevContainer = styled.button`
   @media ${device.tablet} {
     width: 38px;
     height: 34px;
+  }
+`;
+
+export const Text = styled.p`
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #343434;
+  padding-left: 14px;
+  padding-top: 40px;
+  margin-bottom: 20px;
+  @media ${device.tablet} {
+    padding-top: 32px;
+    padding-left: 32px;
+  }
+
+  @media ${device.desktop} {
+    padding-top: 40px;
+    padding-left: 40px;
   }
 `;
 
