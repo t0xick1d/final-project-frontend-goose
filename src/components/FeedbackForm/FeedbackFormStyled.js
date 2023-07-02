@@ -122,6 +122,8 @@ export const FieldInput = styled(Field)`
   border-radius: 8px;
   border: none;
   background: #f6f6f6;
+
+  resize: none;
 `;
 
 export const SaveButton = styled.button`
