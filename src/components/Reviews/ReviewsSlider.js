@@ -22,7 +22,7 @@ export default function ReviewsSlider() {
 
   useEffect(() => {
     dispatch(ReviewsOperations.getAllReviews());
-  }, []);
+  }, [dispatch]);
 
   const handlePrevious = () => {
     slider.slickPrev();
