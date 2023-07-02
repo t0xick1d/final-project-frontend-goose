@@ -40,6 +40,7 @@ export default function ColumnHeadBar() {
         } else if (task.category === 'done') {
             doneTasks.push(task);
         }
+      return null;
     }, null);
 
 
@@ -52,7 +53,9 @@ export default function ColumnHeadBar() {
                     <TextToDo>To do</TextToDo>
                     <AddTaskButton type="button"
                         onClick={handleShowModal}
-                        aria-label="Add task">
+                        aria-label="Add task"
+                    category={category}>
+                        
                         <AddIcon> <use href={`${Icons}#icon-plus-circle`}></use> </AddIcon></AddTaskButton>
                 </ContainerStatus>
 
@@ -68,7 +71,8 @@ export default function ColumnHeadBar() {
                     <TextToDo>In progress</TextToDo>
                     <AddTaskButton type="button"
                         onClick={handleShowModal}
-                        aria-label="Add task">
+                        aria-label="Add task"
+                    category={category}>
                         <AddIcon> <use href={`${Icons}#icon-plus-circle`}></use> </AddIcon>
 
 
@@ -87,7 +91,9 @@ export default function ColumnHeadBar() {
                     <TextToDo>Done</TextToDo>
                     <AddTaskButton type="button"
                         onClick={handleShowModal}
-                        aria-label="Add task"> <AddIcon> <use href={`${Icons}#icon-plus-circle`}></use> </AddIcon></AddTaskButton>
+                        aria-label="Add task"
+                        category={category}>
+                        <AddIcon> <use href={`${Icons}#icon-plus-circle`}></use> </AddIcon></AddTaskButton>
                 </ContainerStatus>
 
                 <ScrollableContainer >
@@ -103,7 +109,7 @@ export default function ColumnHeadBar() {
                     aria-label="Modal window is open"
                 >
                     {' '}
-                    <TasksForm onClose={handleCloseModal} />{' '}
+                    <TasksForm onClose={handleCloseModal} category={category}/>{' '}
                 </Modal>
             )}
 
