@@ -50,8 +50,8 @@ export const tasksSlice = createSlice({
         state.items = state.items.filter(
           task => task.date !== action.payload.date
         );
-        console.log('state.items', state.items);
-        console.log('action.payload', action.payload);
+        // console.log('state.items', state.items);
+        // console.log('action.payload', action.payload);
         state.items.push(...action.payload);
       })
       .addCase(fetchTasksDay.rejected, (state, action) => {

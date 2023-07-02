@@ -5,14 +5,32 @@ export const ToDoSection = styled.section`
   align-items: flex-start;
   gap: 18px;
   min-width: 360px;
+  overflow-x: scroll;
+  scrollbar-width: auto;
+  ::-webkit-scrollbar {
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #e7e5e5;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
 
   @media screen and (min-width: 768px) {
     gap: 16px;
-    min-width: 768px;
+    /* min-width: 768px; */
   }
   @media screen and (min-width: 1440px) {
     gap: 27px;
-    min-width: 1440px;
+    overflow-x: hidden;
   }
 `;
 export const Container = styled.div`
@@ -21,6 +39,9 @@ export const Container = styled.div`
   border: 1px solid var(--task-border-color);
   background: var(--sidebar-background-color);
   min-width: 334px;
+  width: 100%;
+  height: 100%;
+  max-width: 432px;
   @media screen and (min-width: 768px) {
     padding: 20px;
   }

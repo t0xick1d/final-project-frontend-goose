@@ -40,6 +40,7 @@ export default function ColumnHeadBar() {
         } else if (task.category === 'done') {
             doneTasks.push(task);
         }
+      return null;
     }, null);
 
 

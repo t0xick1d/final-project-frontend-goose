@@ -52,7 +52,7 @@ export default function FeedbackForm({ handleClose, review }) {
       setRatingStarsReadonly(true);
       setBtnSaveDisabled(true);
     }
-  }, []);
+  }, [review]);
 
   const handleSubmit = async (values, { resetForm }) => {
     const name = selector.user.name;
