@@ -72,23 +72,27 @@ export default function TasksCard({ list }) {
                         <Grade color={`${task.priority}`}>{`${task.priority}`}</Grade>
                     </Box>
                     <List>
-                        <Dropdown id="dropdown">
-                            <DropdownElement>
-                                <DropdownText>In progress</DropdownText>
-                                <SvgBtn>
-                                    <use href={`${Icons}#icon-arrow-circle-broken-right`}></use>
-                                </SvgBtn>
-                            </DropdownElement>
-                            <DropdownElement>
-                                <DropdownText>Done</DropdownText>
-                                <SvgBtn>
-                                    <use href={`${Icons}#icon-arrow-circle-broken-right`}></use>
-                                </SvgBtn>
-                            </DropdownElement>
+                        <Dropdown onClick={handleClick} id="dropdown">
+
+                            {isVisible && <>
+                                <DropdownElement >
+                                    <DropdownText>In progress</DropdownText>
+                                    <SvgBtn>
+                                        <use href={`${Icons}#icon-arrow-circle-broken-right`}></use>
+                                    </SvgBtn>
+                                </DropdownElement>
+                                <DropdownElement>
+                                    <DropdownText>Done</DropdownText>
+                                    <SvgBtn>
+                                        <use href={`${Icons}#icon-arrow-circle-broken-right`}></use>
+                                    </SvgBtn>
+                                </DropdownElement>
+                            </>}
+
+
                         </Dropdown>
                         <DropdownBtn
                             id="dropdown-btn"
-                            visible={isVisible}
                             onClick={handleClick}
                         >
                             <SvgBtn>

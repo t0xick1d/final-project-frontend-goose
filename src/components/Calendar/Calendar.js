@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 
 export default function Calendar({ onDateChange }) {
   const handleDateChange = date => {
-    const formattedDate = format(date, 'dd MMMM yyyy'); 
+    const formattedDate = format(date, 'dd MMMM yyyy');
     onDateChange(formattedDate);
   };
 
