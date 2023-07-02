@@ -13,25 +13,24 @@ import styled from 'styled-components';
 
 export const StatisticsContainer = styled.div`
   margin: 0 auto;
-
   max-width: 100%;
   height: 100%;
   position: relative;
-  background: #ffffff;
+  background: var(--btn-text-color);
   border-radius: 16px;
+  background: var(--main-background-color);
 `;
 
 export const ButtonWrapper = styled('button')`
   width: 121px;
   height: 30px;
-  color: #fff;
-  background: #3e85f3;
+  color: var(--btn-text-color);
+  background: var(--accent);
   border: none;
   border-radius: 8px;
   padding: 6px 12px;
   cursor: pointer;
-  color: #fff;
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
@@ -90,11 +89,12 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 0em;
+  color: var(--calendar-date-color);
   text-align: left;
   &:not(:last-child) {
     margin-right: 15px;
@@ -107,26 +107,52 @@ export const Item = styled.li`
   }
 `;
 
-
 export const ChartWrapper = styled.div`
   padding-right: 14px;
   padding-left: 14px;
   margin-top: 40px;
-  margin-bottom: 135px;
-
-  max-width: 100%;
+  padding-bottom: 135px;
+  width: 100%;
+  height: auto;
   @media ${device.tablet} {
+    padding-bottom: 224px;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+  @media ${device.desktop} {
+    padding-bottom: 104px;
+    padding-right: 114px;
+    padding-left: 113px;
   }
 `;
 
+export const Container = styled.div`
+  border: 0.8px solid var(--active-selection);
+  border-radius: 16px;
+  padding-right: 14px;
+  padding-left: 14px;
+  padding-bottom: 40px;
+  @media ${device.tablet} {
+    padding-bottom: 32px;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+  @media ${device.desktop} {
+    padding-bottom: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+`;
 
 export const BtnPrevContainer = styled.button`
   border-radius: 8px 0 0 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border: 1px solid var(--task-border-color);
+  feel: white;
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
-  background-color: #ffffff;
+  background-color: var(--main-background-color);
+
   width: 36px;
   height: 30px;
   margin: 0;
@@ -136,18 +162,37 @@ export const BtnPrevContainer = styled.button`
   }
 `;
 
+export const Text = styled.p`
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: --calendar-date-color ;
+  padding-left: 14px;
+  padding-top: 40px;
+  margin-bottom: 20px;
+  @media ${device.tablet} {
+    padding-top: 32px;
+    padding-left: 32px;
+  }
+
+  @media ${device.desktop} {
+    padding-top: 40px;
+    padding-left: 40px;
+  }
+`;
+
 export const BtnNextContainer = styled.button`
   border-radius: 0 8px 8px 0;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border: 1px solid var(--task-border-color);
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
-
-  background-color: #ffffff;
+  background-color: var(--main-background-color);
   width: 36px;
   height: 30px;
   margin: 0;
-
   @media ${device.tablet} {
     width: 38px;
     height: 34px;
@@ -158,10 +203,12 @@ export const BtnPrevNextContainer = styled.div`
   display: flex;
 `;
 
+
+
 export const TextWrapper = styled('button')`
   width: 109px;
   height: 30px;
-  color: #fff;
+  color: var(--btn-text-color);
   background: var(--button-bgd-color);
   border: none;
   border-radius: 8px;
@@ -170,7 +217,7 @@ export const TextWrapper = styled('button')`
   margin-bottom: 18px;
 
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter';
   font-size: 14px;
   font-weight: 700;
   line-height: 1.28;
