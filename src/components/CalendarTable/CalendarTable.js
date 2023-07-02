@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import {
   format,
   isSameMonth,
-  isWeekend,
+  // isWeekend,
   isToday,
   getMonth,
   getDate,
@@ -62,7 +62,7 @@ export const CalendarTable = ({ totalDays }) => {
           <Cell key={index} onClick={() => handleClick(date)}>
             <Day
               params={{
-                isWeekend: isWeekend(date, ValidCurrentDate),
+                // isWeekend: isWeekend(date, ValidCurrentDate),
                 isToday: isToday(date, ValidCurrentDate),
                 isSameMonth: !isSameMonth(date, ValidCurrentDate),
               }}

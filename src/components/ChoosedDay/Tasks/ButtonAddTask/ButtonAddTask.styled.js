@@ -7,7 +7,8 @@ export const AddTaskButton = styled.button`
   gap: 10px;
   cursor: pointer;
 
-  width: 299px;
+  /* width: 299px; */
+  width: 100%;
   height: 48px;
   padding: 16px 20px 16px 20px;
 
@@ -26,7 +27,7 @@ export const AddTaskButton = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    width: 304px;
+    /* width: 304px; */
     height: 52px;
   }
 `;

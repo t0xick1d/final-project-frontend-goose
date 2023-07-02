@@ -9,7 +9,7 @@ export const Item = styled.li`
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.8);
   background: #f7f6f9;
-  width: 300px;
+  max-width: 300px;
   height: 112px;
 
   padding: 14px;

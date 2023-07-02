@@ -52,6 +52,8 @@ export const DateContainer = styled.div`
   gap: 19px;
   align-items: center;
   min-height: 26px;
+  justify-content: space-between;
+
   @media screen and (min-width: 768px) {
     gap: 69px;
   }
@@ -72,6 +74,20 @@ export const DateButton = styled.button`
   padding: 0px;
   border: none;
   cursor: pointer;
+  ${props => {
+    if (props.isCurrentDay) {
+      return `    
+      background-color: #3e85f3;
+      color: #ffffff;
+    `;
+    }
+    return `    
+      background-color: inherit;
+      color: inherit;
+    `;
+  }};
+  //   backgroundColor: isCurrentDay(dayWeek) ? '#3e85f3' : 'inherit',
+  //   color: isCurrentDay(dayWeek) ? '#ffffff' : 'inherit',
   &:hover {
     background-color: #3e85f3;
     color: #e3f3ff;

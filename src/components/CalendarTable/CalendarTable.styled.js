@@ -69,11 +69,11 @@ export const Day = styled.p`
   ${({ params }) => {
     const { isWeekend, isToday, isSameMonth } = params;
     let style = '';
-    if (isWeekend) {
-      style += `
-        color: var(--button-bgd-color);
-      `;
-    }
+    // if (isWeekend) {
+    //   style += `
+    //     color: var(--button-bgd-color);
+    //   `;
+    // }
     if (isToday) {
       style += `
         background-color: var(--button-bgd-color);

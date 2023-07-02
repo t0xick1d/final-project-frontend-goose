@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 import {
-    List,
-    SvgBtn,
-    MainList,
-    Item,
-    Wrapper,
-    Box,
-    Text,
-    Avatar,
-    Grade,
-    Dropdown,
-    DropdownElement,
-    DropdownText,
-    DropdownBtn,
+  List,
+  SvgBtn,
+  MainList,
+  Item,
+  Wrapper,
+  Box,
+  Text,
+  Avatar,
+  Grade,
+  Dropdown,
+  DropdownElement,
+  DropdownText,
+  DropdownBtn,
 } from './TasksCard.styled';
 import Icons from '../../../../images/sprite.svg';
-import { editTask, deleteTask } from '../../../../redux-store/tasks/tasksOperations';
-import { useSelector } from 'react-redux';
+import {
+  editTask,
+  deleteTask,
+} from '../../../../redux-store/tasks/tasksOperations';
+import { useDispatch, useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 import { getUser } from 'redux-store/Slices/AuthSlice';
 
@@ -54,56 +57,76 @@ import { getUser } from 'redux-store/Slices/AuthSlice';
 // }
 
 export default function TasksCard({ list }) {
-    const [isVisible, setIsVisible] = useState(false);
-    const user = useSelector(getUser)
+  const [isVisible, setIsVisible] = useState(false);
+  const user = useSelector(getUser);
+  const dispatch = useDispatch();
 
+  const handleClick = () => {
+    setIsVisible(!isVisible); // Изменяем состояние по нажатию кнопки
+  };
 
-    const handleClick = () => {
-        setIsVisible(!isVisible); // Изменяем состояние по нажатию кнопки
-    };
-
-    return (
-        <MainList>
-            {list && list.map(task => <Item key={task._id}>
-                <Text>{`${task.title}`}</Text>
-                <Wrapper>
-                    <Box>
-                        <Avatar src={`${user.user.avatarURL}`}></Avatar>
-                        <Grade color={`${task.priority}`}>{`${task.priority}`}</Grade>
-                    </Box>
-                    <List>
-                        <Dropdown id="dropdown">
-                            <DropdownElement>
-                                <DropdownText>In progress</DropdownText>
-                                <SvgBtn>
-                                    <use href={`${Icons}#icon-arrow-circle-broken-right`}></use>
-                                </SvgBtn>
-                            </DropdownElement>
-                            <DropdownElement>
-                                <DropdownText>Done</DropdownText>
-                                <SvgBtn>
-                                    <use href={`${Icons}#icon-arrow-circle-broken-right`}></use>
-                                </SvgBtn>
-                            </DropdownElement>
-                        </Dropdown>
-                        <DropdownBtn
-                            id="dropdown-btn"
-                            visible={isVisible}
-                            onClick={handleClick}
-                        >
-                            <SvgBtn>
-                                <use href={`${Icons}#icon-arrow`}></use>
-                            </SvgBtn>
-                        </DropdownBtn>
-                        <SvgBtn onClick={editTask}>
-                            <use href={`${Icons}#icon-pencil-grey`}></use>
-                        </SvgBtn>
-                        <SvgBtn onClick={deleteTask}>
-                            <use href={`${Icons}#icon-trash`}></use>
-                        </SvgBtn>
-                    </List>
-                </Wrapper>
-            </Item>)}
-        </MainList>
-    );
+  return (
+    <MainList>
+      {list &&
+        list.map(task => (
+          <Item key={task._id}>
+            <Text>{`${task.title}`}</Text>
+            <Wrapper>
+              <Box>
+                <Avatar src={`${user.user.avatarURL}`}></Avatar>
+                <Grade color={`${task.priority}`}>{`${task.priority}`}</Grade>
+              </Box>
+              <List>
+                <Dropdown id="dropdown">
+                  <DropdownElement>
+                    <DropdownText>In progress</DropdownText>
+                    <SvgBtn>
+                      <use
+                        href={`${Icons}#icon-arrow-circle-broken-right`}
+                      ></use>
+                    </SvgBtn>
+                  </DropdownElement>
+                  <DropdownElement>
+                    <DropdownText>Done</DropdownText>
+                    <SvgBtn>
+                      <use
+                        href={`${Icons}#icon-arrow-circle-broken-right`}
+                      ></use>
+                    </SvgBtn>
+                  </DropdownElement>
+                </Dropdown>
+                <DropdownBtn
+                  id="dropdown-btn"
+                  visible={isVisible}
+                  onClick={handleClick}
+                >
+                  <SvgBtn>
+                    <use href={`${Icons}#icon-arrow`}></use>
+                  </SvgBtn>
+                </DropdownBtn>
+                <SvgBtn onClick={editTask}>
+                  <use href={`${Icons}#icon-pencil-grey`}></use>
+                </SvgBtn>
+                <SvgBtn
+                  onClick={() => {
+                    dispatch(deleteTask(task._id));
+                  }}
+                >
+                  <use href={`${Icons}#icon-trash`}></use>
+                </SvgBtn>
+              </List>
+            </Wrapper>
+          </Item>
+        ))}
+    </MainList>
+  );
 }
+/*
+
+edge="end"
+              aria-label="delete"
+              type="button"
+              onClick={() => {
+                dispatch(deleteContact(id));
+            
+*/

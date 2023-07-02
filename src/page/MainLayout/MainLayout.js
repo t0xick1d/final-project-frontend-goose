@@ -5,20 +5,16 @@ import { Suspense } from 'react';
 import { Container, Wrapper } from './MainLayout.styled';
 import { useEffect, useState } from 'react';
 
-
-
-
-
 const MainLayout = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 1440);
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 1440);
 
-    const handleSidebarOpen = () => {
-      if (window.innerWidth >= 1440) {
-        return;
-      }
-      setSidebarOpen(!sidebarOpen);
-    };
-  
+  const handleSidebarOpen = () => {
+    if (window.innerWidth >= 1440) {
+      return;
+    }
+    setSidebarOpen(!sidebarOpen);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setSidebarOpen(window.innerWidth >= 1440);
@@ -30,18 +26,17 @@ const MainLayout = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
+
   return (
     <Container>
       <SideBar isOpen={sidebarOpen} onCloseClick={handleSidebarOpen} />
       <Wrapper>
         <Header isOpen={sidebarOpen} onOpenClick={handleSidebarOpen} />
-
-        <main>
-          <Suspense fallback={<div>Loading page...</div>}>
-            <Outlet />
-          </Suspense>
-        </main>
+        {/* <main> */}
+        <Suspense fallback={<div>Loading page...</div>}>
+          <Outlet />
+        </Suspense>
+        {/* </main> */}
       </Wrapper>
     </Container>
   );

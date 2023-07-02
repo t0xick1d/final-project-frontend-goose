@@ -4,8 +4,7 @@ export const Container = styled.div`
   display: block;
   align-items: center;
   margin-bottom: 24px;
-  background-color:  #F7F6F9;
-
+  background-color: #f7f6f9;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -14,11 +13,10 @@ export const Container = styled.div`
     justify-content: space-between;
   }
 
- @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
     margin-bottom: 32px;
-  } 
+  }
 `;
-
 
 export const DivWrapper = styled('div')`
   display: flex;
@@ -31,37 +29,33 @@ export const DivWrapper = styled('div')`
     align-items: center; */
   }
 
- @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
     /* margin-bottom: 32px; */
-  } 
-
-
+  }
 `;
 
+// export const TextWrapper = styled('button')`
+//   width: 109px;
+//   height: 30px;
+//   color: #fff;
+//   background: var(--button-bgd-color);
+//   border: none;
+//   border-radius: 8px;
+//   padding: 6px 12px;
+//   cursor: pointer;
+//   margin-bottom: 18px;
 
-export const TextWrapper = styled('button')`
-  width: 109px;
-  height: 30px;
-  color: #fff;
-  background: var(--button-bgd-color);
-  border: none;
-  border-radius: 8px;
-padding: 6px 12px;
-cursor: pointer;
-margin-bottom: 18px;
+//   text-align: center;
+//   font-family: Inter;
+//   font-size: 14px;
+//   font-weight: 700;
+//   line-height: 1.28;
+//   text-transform: uppercase;
 
-text-align: center;
-font-family: Inter;
-font-size: 14px;
-font-weight: 700;
-line-height: 1.28;
-text-transform: uppercase;
-
-@media screen and (min-width: 768px) {
-  margin-right:8px;
-  width: 131px;
-  height: 34px;
-  margin-bottom:0;
-  }
-    `;
-
+//   @media screen and (min-width: 768px) {
+//     margin-right: 8px;
+//     width: 131px;
+//     height: 34px;
+//     margin-bottom: 0;
+//   }
+// `;

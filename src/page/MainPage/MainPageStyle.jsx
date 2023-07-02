@@ -13,6 +13,7 @@ export const Auth = styled.section`
   padding-top: 232px;
 
   background-color: #3e85f3;
+  flex: 1 1 auto;
 
   @media screen and (min-width: 768px) {
     padding-left: 86px;

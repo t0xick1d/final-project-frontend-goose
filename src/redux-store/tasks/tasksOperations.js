@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { token } from 'redux-store/AuthOperations/AuthOperations';
+// import { token } from 'redux-store/AuthOperations/AuthOperations';
 
-axios.defaults.baseURL = 'https://goose-track-ity9.onrender.com/api/';
+// axios.defaults.baseURL = 'https://goose-track-ity9.onrender.com/api/';
 
 export const fetchTasksMonth = createAsyncThunk(
   'tasks/fetchAllMonth',

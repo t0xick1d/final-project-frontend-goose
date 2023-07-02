@@ -47,11 +47,12 @@ export const tasksSlice = createSlice({
       .addCase(fetchTasksDay.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = state.items.filter(
-          task => task.date !== action.payload.date
-        );
-        console.log('state.items', state.items);
-        console.log('action.payload', action.payload);
+        if (action.payload.length > 0) {
+          state.items = state.items.filter(task => {
+            return task.date !== action.payload[0].date;
+          });
+        }
+
         state.items.push(...action.payload);
       })
       .addCase(fetchTasksDay.rejected, (state, action) => {

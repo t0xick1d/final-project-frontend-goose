@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchTasksDay } from '../../../redux-store/tasks/tasksOperations';
@@ -8,6 +8,8 @@ import { DayCalendarHead } from 'components/ChoosedDay/DayCalendarHead/DayCalend
 import { SectionDay } from './ChoosedDay.styled';
 import { useSelector } from 'react-redux';
 import TasksCard from '../Tasks/TasksCard/TasksCard';
+import { format } from 'date-fns';
+import { TasksColumnsList } from '../TasksColumnsList/TasksColumnsList';
 
 // const categoryTask = {
 //   done: [],
@@ -89,42 +91,70 @@ import TasksCard from '../Tasks/TasksCard/TasksCard';
 //   );
 // }
 
-
 export default function ChoosedDay() {
   const dispatch = useDispatch();
-  const { currentDay } = useParams();
-  const tasks = useSelector(selectArrTasks);
+  // const { currentDay } = useParams();
+  /*         ///////////////  */
 
-  const [filteredTasks, setFilteredTasks] = useState([]);
+  const params = useParams();
+  const currentDay = new Date(params.currentDate);
 
-  
-  useEffect(() => {
-    dispatch(fetchTasksDay(currentDay));
-  }, [currentDay, dispatch]);
-
-
-  const [choosedDay, setChoosedDay] = useState(currentDay);
-
-  useEffect(() => {
-    setChoosedDay(currentDay);
-  }, [currentDay, choosedDay]);
-
-  const chooseDay = ({ day, month, year }) => {
-    setChoosedDay(`${year}-${month}-${day}`);
-  };
-
-  useEffect(() => {
-    if (tasks) {
-      const filtered = tasks.filter(task => task.date === currentDay);
-      setFilteredTasks(filtered);
+  const ValidCurrentDate = (() => {
+    if (Object.prototype.toString.call(currentDay) === '[object Date]') {
+      if (isNaN(currentDay)) {
+        return new Date();
+      }
     }
-  }, [currentDay, tasks]);
+    return currentDay;
+  })();
+
+  /*//////////////////////////// */
+  // const tasks = useSelector(selectArrTasks);
+
+
+  // const [filteredTasks, setFilteredTasks] = useState([]);
+  const formattedCurrentDate = format(ValidCurrentDate, 'yyyy-MM-dd');
+  // useEffect(() => {
+  //   const formattedCurrentDate = format(ValidCurrentDate, 'yyyy-MM-dd');
+  //   // dispatch(fetchTasksDay(formattedCurrentDate));
+  // }, [ValidCurrentDate, dispatch]);
+
+  // const [choosedDay, setChoosedDay] = useState(currentDay);
+
+  // useEffect(() => {
+  //   setChoosedDay(currentDay);
+  // }, [currentDay]);
+
+  useEffect(() => {
+    const data = { date: formattedCurrentDate };
+    dispatch(fetchTasksDay(data));
+  }, [dispatch, formattedCurrentDate]);
+
+  // const chooseDay = ({ day, month, year }) => {
+  //   setChoosedDay(`${year}-${month}-${day}`);
+  // };
+
+  // useEffect(() => {
+  //   // if (tasks) {
+  //   const filtered = tasks.filter(task => {
+  //     return task.date === formattedCurrentDate;
+  //   });
+  //   // setFilteredTasks(filtered);
+  //   // }
+  // }, [formattedCurrentDate, tasks]);
 
   return (
     <SectionDay>
-      <DayCalendarHead clickChooseDay={chooseDay} />
-      <ColumnHeadBar />
-       <TasksCard list={filteredTasks} />
+      <DayCalendarHead
+        // clickChooseDay={chooseDay}
+        currentDate={ValidCurrentDate}
+      />
+      {/* <ColumnHeadBar /> */}
+      {/* <TasksCard list={filteredTasks} /> */}
+
+      {/* <ColumnHeadBar columnTitles={columnTitles} /> */}
+      <TasksColumnsList />
+      {/* <TasksCard list={tasks} /> */}
     </SectionDay>
   );
 }

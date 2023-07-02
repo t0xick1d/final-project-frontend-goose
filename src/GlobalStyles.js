@@ -13,10 +13,10 @@ export const GlobalStyles = createGlobalStyle`
   --bgc-task-high-priority: #ffd2dd; 
 //}
 /* theme='light'*/
-  --input-text-color: #616161;
+  /* --input-text-color: #616161;
   --user-name-color: #343434;
   --calendar-bg-color: #ffffff;
-  --calendar-border-color: rgba(220, 227, 229, 0.5);
+  --calendar-border-color: rgba(220, 227, 229, 0.5); */
 
 /* theme='dark'*/
   //--input-text-color: #ffffff;
