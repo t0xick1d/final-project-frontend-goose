@@ -217,7 +217,7 @@ export const TextWrapper = styled('button')`
   margin-bottom: 18px;
 
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter';
   font-size: 14px;
   font-weight: 700;
   line-height: 1.28;
