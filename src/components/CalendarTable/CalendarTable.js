@@ -20,8 +20,6 @@ export const CalendarTable = ({ totalDays }) => {
 
   const date = new Date(params.currentDate);
 
-  console.log(date)
-
   const ValidCurrentDate = (() => {
     if (Object.prototype.toString.call(date) === '[object Date]') {
       if (isNaN(date)) {
@@ -30,8 +28,6 @@ export const CalendarTable = ({ totalDays }) => {
     }
     return date;
   })();
-  
-  console.log(ValidCurrentDate)
 
   const handleClick = date => {
     date = new Date(date);
