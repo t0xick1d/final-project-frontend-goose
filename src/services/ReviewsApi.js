@@ -13,7 +13,7 @@ const getUserReview = async () => {
 };
 
 const addUserReview = async (userReview) => {
-  console.log(userReview);
+  // console.log(userReview);
   const response = (await axios.post(`${URL}/own`, userReview)).data;
   return response;
 };
