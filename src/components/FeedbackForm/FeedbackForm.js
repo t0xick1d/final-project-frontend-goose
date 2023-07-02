@@ -45,6 +45,10 @@ export default function FeedbackForm({ handleClose }) {
   const userReview = useSelector(selectUserReview);
 
   useEffect(() => {
+    setStarsNumber(userReview.rating);
+  }, [userReview.rating]);
+
+  useEffect(() => {
     if (userReview.length !== 0) {
       setFieldInputDisabled(true);
       setBtnEditVisible(true);
