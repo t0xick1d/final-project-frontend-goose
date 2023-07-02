@@ -17,12 +17,15 @@ import RestrictedRoute from 'RestrictedRoute';
 import { fetchCurrentUser } from 'redux-store/AuthOperations/AuthOperations';
 import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
 import ChoosedDay from 'components/ChoosedDay/ChoosedDay/ChoosedDay';
+import { format } from 'date-fns';
 // Залишив в такому вигляді бо не знав звідки брати
 // import { ChosenDay } from 'components/ChoosedDay/ButtonAddTask/ButtonAddTask';
 
 export const App = () => {
   const dispatch = useDispatch();
   // const isRefresh = useSelector(getUserRefresh);
+
+  const today = format(new Date(), 'yyyy-MM');
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -32,13 +35,29 @@ export const App = () => {
     <>
       <Suspense fallback={'Loading...'}>
         <Routes>
-          <Route index element={<MainPage />} />
-          <Route path="/" element={<LoginPage />} />
+          <Route
+            index
+            element={
+              <RestrictedRoute
+                redirectTo={`/calendar/month/${today}`}
+                component={<MainPage />}
+              />
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <RestrictedRoute
+                redirectTo={`/calendar/month/${today}`}
+                component={<MainPage />}
+              />
+            }
+          />
           <Route
             path="/login"
             element={
               <RestrictedRoute
-                redirectTo="/account"
+                redirectTo={`/calendar/month/${today}`}
                 component={<LoginPage />}
               />
             }
@@ -47,7 +66,7 @@ export const App = () => {
             path="/register"
             element={
               <RestrictedRoute
-                redirectTo="/account"
+                redirectTo={`/calendar/month/${today}`}
                 component={<RegisterPage />}
               />
             }
@@ -60,7 +79,7 @@ export const App = () => {
             }
           >
             <Route path="/account" element={<AccountPage />} />
-            <Route path="/calendar" element={<CalendarPage />} />
+            {/* <Route path="/calendar" element={<CalendarPage />} /> */}
             <Route path="/calendar" element={<CalendarPage />}>
               <Route path="month/:currentDate" element={<ChosedMonth />} />
               <Route path="day/:currentDate" element={<ChoosedDay />} />
