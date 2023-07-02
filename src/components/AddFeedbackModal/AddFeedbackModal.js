@@ -9,7 +9,7 @@ const AddFeedbackModal = ({ open, handleClose }) => {
 
   useEffect(() => {
     dispatch(ReviewsOperations.getUserReview());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Modal open={open} handleClose={handleClose}>

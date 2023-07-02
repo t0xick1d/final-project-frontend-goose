@@ -56,7 +56,7 @@ export default function FeedbackForm({ handleClose }) {
       setRatingStarsReadonly(true);
       setBtnSaveDisabled(true);
     }
-  }, [review]);
+  }, [userReview.length]);
 
   const handleSubmit = async (values, { resetForm }) => {
     //Якщо кнопка редагування активована, то виконати запит на редагування
