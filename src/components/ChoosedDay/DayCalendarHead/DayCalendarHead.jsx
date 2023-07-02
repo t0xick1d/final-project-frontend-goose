@@ -27,7 +27,7 @@ export default function  DayCalendarHead() {
    
     const handleClick = date => {
       date = new Date(date);
-      navigate(/calendar/day/${format(date, 'yyyy-MM-dd')});
+      navigate(`/calendar/day/${format(date, 'yyyy-MM-dd')}`);
     }; 
 
     const week = (() => {
