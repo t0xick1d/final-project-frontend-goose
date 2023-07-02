@@ -78,6 +78,8 @@
   --main-background-color: #21222c;
   --sidebar-background-color: #13151a;
 
+  --task-field-color: #171820;
+
   /* form */
   --input-bcg-color: #171820;
   --border-input: #ffffff2f;
@@ -87,7 +89,7 @@
   --modal-border-color: rgba(255, 255, 255, 0.15);
 
   /* tasks */
-  --task-border-color: rgba(255, 255, 255, 0.15);
+  --task-border-color: none;
 
   /* other */
   --scroll-color: #2d3037;
@@ -96,5 +98,5 @@
 
   /* backgroung button */
   --background-button-month: #3e85f3;
-  --background-button-day: #21222c;
+  --background-button-day: #3e85f3;
 }
