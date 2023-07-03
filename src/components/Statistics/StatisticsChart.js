@@ -103,14 +103,14 @@ return (
       <ResponsiveContainer width="100%" height={266}>
         <BarChart data={chartData} barGap={8} barSize={22}>
           <CartesianGrid
-            stroke="var(--active-selection)"
+            stroke="var(--border-statistics)"
             strokeWidth={1}
             strokeDasharray="none"
             vertical={false}
           />
           <XAxis
             dataKey="name"
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 12, fill: "var(--calendar-date-color)" }}
             tickLine={false}
             tickMargin={10}
             axisLine={false}
@@ -124,6 +124,7 @@ return (
             tickCount={totalTasks + 1}
             tickLine={false}
             tickMargin={30}
+            tick={{fill:"var(--calendar-date-color)"}}
           />
           <Tooltip />
           <Bar dataKey="day" fill="url(#gradient1)" radius={[0, 0, 10, 10]}>
