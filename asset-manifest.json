@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/final-project-frontend-goose/static/css/main.3700b1da.css",
-    "main.js": "/final-project-frontend-goose/static/js/main.2c0bdbb6.js",
+    "main.js": "/final-project-frontend-goose/static/js/main.50939314.js",
     "static/media/image1-tb.jpg": "/final-project-frontend-goose/static/media/image1-tb.6e17e525410a7809e681.jpg",
     "static/media/image1-dt.jpg": "/final-project-frontend-goose/static/media/image1-dt.c4d999902f2aedc17632.jpg",
     "static/media/image3-tb.jpg": "/final-project-frontend-goose/static/media/image3-tb.8d264fe598b9f7f1d8a5.jpg",
@@ -27,10 +27,10 @@
     "static/media/modal-x-close.svg": "/final-project-frontend-goose/static/media/modal-x-close.aa57bc9a554ba9070c51b15392826e97.svg",
     "static/media/reviews-arrow-left.svg": "/final-project-frontend-goose/static/media/reviews-arrow-left.419843934514a4ec72e12d89da762d2a.svg",
     "main.3700b1da.css.map": "/final-project-frontend-goose/static/css/main.3700b1da.css.map",
-    "main.2c0bdbb6.js.map": "/final-project-frontend-goose/static/js/main.2c0bdbb6.js.map"
+    "main.50939314.js.map": "/final-project-frontend-goose/static/js/main.50939314.js.map"
   },
   "entrypoints": [
     "static/css/main.3700b1da.css",
-    "static/js/main.2c0bdbb6.js"
+    "static/js/main.50939314.js"
   ]
 }
