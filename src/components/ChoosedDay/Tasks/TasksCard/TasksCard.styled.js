@@ -74,8 +74,10 @@ export const List = styled.ul`
   margin-bottom: 0;
   flex-wrap: wrap;
   align-content: flex-end;
+  color: var(--title-text-main-color);
 `;
 export const SvgBtn = styled.svg`
+  fill: currentColor;
   width: 16px;
   height: 16px;
   cursor: pointer;
