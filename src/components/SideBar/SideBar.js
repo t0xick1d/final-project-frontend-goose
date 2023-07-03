@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Icons from '../../images/sprite.svg';
 import GooseImg from '../../images/icons/goose-min.png';
 import { CgClose } from 'react-icons/cg';
@@ -25,8 +25,6 @@ import { useDispatch } from 'react-redux';
 import { logOut } from 'redux-store/AuthOperations/AuthOperations';
 
 export default function SideBar({ onCloseClick, isOpen }) {
-  const [isIconUserHovered, setIconUserHovered] = useState(false);
-  const [isCalendarIconHovered, setCalendarIconHovered] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -49,42 +47,22 @@ export default function SideBar({ onCloseClick, isOpen }) {
             <li>
               <StyledNavLink
                 to="account"
-                onMouseEnter={() => setIconUserHovered(true)}
-                onMouseLeave={() => setIconUserHovered(false)}
-                onFocus={() => setIconUserHovered(true)}
-                onBlur={() => setIconUserHovered(false)}
                 onClick={onCloseClick}
               >
-                {isIconUserHovered ? (
-                  <IconUser>
-                    <use href={`${Icons}#user`}></use>
-                  </IconUser>
-                ) : (
                   <IconUser>
                     <use href={`${Icons}#icon-user-check`}></use>
                   </IconUser>
-                )}
                 My account
               </StyledNavLink>
             </li>
             <li>
               <StyledNavLink
                 to="calendar"
-                onMouseEnter={() => setCalendarIconHovered(true)}
-                onMouseLeave={() => setCalendarIconHovered(false)}
-                onFocus={() => setCalendarIconHovered(true)}
-                onBlur={() => setCalendarIconHovered(false)}
                 onClick={onCloseClick}
               >
-                {isCalendarIconHovered ? (
-                  <CalendarIcon>
-                    <use href={`${Icons}#calendar`}></use>
-                  </CalendarIcon>
-                ) : (
                   <CalendarIcon>
                     <use href={`${Icons}#icon-calendar-check`}></use>
                   </CalendarIcon>
-                )}
                 Calendar
               </StyledNavLink>
             </li>

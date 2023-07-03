@@ -133,8 +133,7 @@
     `;
 
     export const IconUser = styled.svg`
-      fill: var(--fill-icon);
-      stroke: var(--sidebar-background-color);
+      stroke: var(--fill-icon);
       margin-right: 8px;
       width: 18px;
       height: 18px;
@@ -147,15 +146,9 @@
       margin-right: 8px;
       width: 20px;
       height: 20px;
-      fill: var(--fill-icon);
+      stroke: var(--fill-icon);
       @media ${device.tablet} {
         margin-right: 10px;
-      }
-      &.active,
-      :hover,
-      :focus {
-        stroke: var(--accent-color);
-        fill: var(--active-selection);
       }
     `;
 
@@ -169,7 +162,7 @@
       }
     `;
 
-        export const LogoutIcon = styled.svg`
+    export const LogoutIcon = styled.svg`
           margin-right: 6px;
           width: 18px;
           height: 18px;
@@ -179,11 +172,11 @@
             width: 20px;
             height: 20px;
           }
-        `;
+    `;
 
 export const StyledNavLink = styled(NavLink)`
     display: flex;
-    color: #34343480;
+    color: var(--calendar-date-color);
     align-items: center;
     margin-right: 0;
     text-decoration: none
@@ -211,14 +204,17 @@ export const StyledNavLink = styled(NavLink)`
     &.active,
     :hover,
     :focus {
-    fill: var(--accent-color);
     color: var(--accent-color);
     background: var(--active-selection);
-    stroke: var(--active-selection);
 
         ${StatisticsIcon} {
-        stroke: var(--active-selection);
         fill: var(--accent-color);
+    },
+            ${IconUser} {
+        stroke: var(--accent-color);
+    },
+                ${CalendarIcon} {
+        stroke: var(--accent-color);
     },
     
     }
