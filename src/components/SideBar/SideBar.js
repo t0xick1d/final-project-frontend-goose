@@ -8,7 +8,7 @@ import {
   LogoConrainer,
   Logo,
   LogoIcon,
-  LogoSvg,
+  Text,
   CloseBtn,
   SideBarNav,
   TitleSideBar,
@@ -19,6 +19,7 @@ import {
   StatisticsIcon,
   LogOutBtn,
   LogoutIcon,
+  Span,
 } from './SideBar.styled';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux-store/AuthOperations/AuthOperations';
@@ -34,9 +35,9 @@ export default function SideBar({ onCloseClick, isOpen }) {
         <LogoConrainer>
           <Logo>
             <LogoIcon src={GooseImg} alt="logo" />
-            <LogoSvg>
-              <use href={`${Icons}#icon-GooseTrack`}></use>
-            </LogoSvg>
+            <Text>
+              G<Span>oo</Span>seTrack
+            </Text>
           </Logo>
           <CloseBtn onClick={onCloseClick}>
             <CgClose />

@@ -280,3 +280,18 @@ export const LogOutBtn = styled.button`
         left: 24px;
     }
     `;
+
+
+    export const Text = styled.p`
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      color: #3e85f3;
+      box-shadow: 0px 9.399999618530273px 57.6875px 0px rgba(0, 0, 0, 0.04);
+    `;
+
+
+    export const Span = styled.span`
+      font-style: italic;
+    `;
