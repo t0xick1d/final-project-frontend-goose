@@ -10,6 +10,7 @@ import AccountPage from 'page/AccountPage/Account';
 import CalendarPage from 'page/CalendarPage/Calendar';
 import StatisticsPage from 'page/StatisticsPage/Statistics';
 import VerificationPage from 'page/VerificationPage/VerificationPage';
+import Page404 from 'page/Page404/Page404';
 
 import PrivateRoute from 'PrivateRoute';
 import RestrictedRoute from 'RestrictedRoute';
@@ -67,6 +68,7 @@ export const App = () => {
             </Route>
             <Route path="/statistics" element={<StatisticsPage />} />
           </Route>
+          <Route path="/*" element={<Page404 />} />
         </Routes>
       </Suspense>
     </>
