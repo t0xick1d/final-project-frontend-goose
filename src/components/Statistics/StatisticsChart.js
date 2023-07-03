@@ -15,6 +15,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 
+import Spiner from '../Spiner/Spiner';
+
 const Chart = ({ firstDayCurrentMonth, setFirstDayCurrentMonth }) => {
 const [data, setData] = useState(null);
 
@@ -40,7 +42,7 @@ useEffect(() => {
 }, [firstDayCurrentMonth, token]);
 
 if (!data) {
-    return <div>Loading...</div>;
+    return <Spiner />;
 }
 const { todo, inProgres, done } = data;
 

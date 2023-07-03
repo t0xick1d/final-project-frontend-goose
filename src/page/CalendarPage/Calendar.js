@@ -6,6 +6,8 @@ import {
   format,
 } from 'date-fns';
 
+import Spinner from '../../components/Spiner/Spiner';
+
 export default function CalendarPage() {
   const params = useParams();
   const navigate = useNavigate();
@@ -33,19 +35,10 @@ export default function CalendarPage() {
 
   return (
     <>
-    
-      {/* Suspense і outlet я додав ці компоненти мають відмальоувати chosemonth і choseday */}
-
-      <Suspense fallback={<div>Loading page...</div>}>
-        <HeaderCalendar/>
+      <Suspense fallback={<Spinner />}>
+        <HeaderCalendar />
         <Outlet />
       </Suspense>
-     
-
     </>
   );
 }
-
-
-
-

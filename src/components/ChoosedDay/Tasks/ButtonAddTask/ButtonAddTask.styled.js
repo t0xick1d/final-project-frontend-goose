@@ -31,6 +31,7 @@ export const AddTaskButton = styled.button`
   }
 `;
 export const AddTaskIcon = styled.svg`
+  fill: currentColor;
   width: 24px;
   height: 24px;
 `;

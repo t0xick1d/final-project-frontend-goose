@@ -14,8 +14,6 @@ export default function  DayCalendarHead() {
   const navigate = useNavigate(); 
     const params = useParams();
     const date = new Date(params.currentDate);
-
-  
     const ValidCurrentDate = (() => {
       if (Object.prototype.toString.call(date) === '[object Date]') {
         if (isNaN(date)) {
@@ -55,9 +53,8 @@ export default function  DayCalendarHead() {
 </WeekContainer>
 <WeekContainer>
 {week.map((dayWeek) => (
-      <Day key={dayWeek} onClick={() => handleClick(date)}
-      isToday={isToday(dayWeek,ValidCurrentDate )}
-      >
+      <Day key={dayWeek} onClick={() => handleClick(dayWeek)}
+      isToday={isToday(dayWeek, ValidCurrentDate )}>
           {format(dayWeek, 'd')}   
       </Day>
     ))}
