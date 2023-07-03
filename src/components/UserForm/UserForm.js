@@ -54,41 +54,44 @@ const UserForm = () => {
     }
   }, [dispatch, isUpdateForm]);
 
+  const initialValues = {
+    name: user ? user.name : '',
+    email: user ? user.email : '',
+    phone: user ? user.phone : '',
+    skype: user ? user.skype : '',
+    birthday: newBirthday
+      ? newBirthday
+      : user.birthday
+      ? new Date(user.birthday)
+      : new Date(),
+  };
+
+  const handleSubmit = async (values, { resetForm }) => {
+    const formData = new FormData();
+    formData.append('name', values.name);
+    formData.append('email', values.email);
+    if (values.phone) {
+      formData.append('phone', values.phone);
+    }
+    if (values.skype) {
+      formData.append('skype', values.skype);
+    }
+    formData.append('birthday', values.birthday);
+    if (avatarURL) {
+      formData.append('avatar', avatarURL);
+    }
+
+    await dispatch(updateUser(formData));
+    setIsUpdateForm(true);
+    resetForm();
+  };
+
   return (
     <Wrapper>
       <Formik
         enableReinitialize={true}
-        initialValues={{
-          name: user ? user.name : '',
-          email: user ? user.email : '',
-          phone: user ? user.phone : '',
-          skype: user ? user.skype : '',
-          birthday: newBirthday
-            ? newBirthday
-            : user.birthday
-            ? new Date(user.birthday)
-            : new Date(),
-        }}
-        onSubmit={async (values, { resetForm }) => {
-          console.log('values', values);
-          const formData = new FormData();
-          formData.append('name', values.name);
-          formData.append('email', values.email);
-          if (values.phone) {
-            formData.append('phone', values.phone);
-          }
-          if (values.skype) {
-            formData.append('skype', values.skype);
-          }
-          formData.append('birthday', values.birthday);
-          if (avatarURL) {
-            formData.append('avatar', avatarURL);
-          }
-
-          await dispatch(updateUser(formData));
-          setIsUpdateForm(true);
-          resetForm();
-        }}
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
         validationSchema={validationFormikSchema}
       >
         {({ values, handleSubmit, handleChange, handleBlur }) => (
