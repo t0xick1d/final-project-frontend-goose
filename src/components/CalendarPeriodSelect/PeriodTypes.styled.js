@@ -73,5 +73,3 @@ export const BtnContainer = styled.div`
   display: flex;
   margin: 0;
 `;
-
-

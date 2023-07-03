@@ -13,11 +13,11 @@ import styled from 'styled-components';
 
 export const BtnPrevContainer = styled.button`
   border-radius: 8px 0 0 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border: 1px solid var(--calendar-border-color);
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
-  background-color: #ffffff;
+  background-color: var(--white-color);
   width: 36px;
   height: 30px;
   margin: 0;
@@ -29,12 +29,12 @@ export const BtnPrevContainer = styled.button`
 
 export const BtnNextContainer = styled.button`
   border-radius: 0 8px 8px 0;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border: 1px solid var(--calendar-border-color);
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
 
-  background-color: #ffffff;
+  background-color: var(--white-color);
   width: 36px;
   height: 30px;
   margin: 0;
@@ -52,7 +52,7 @@ export const BtnPrevNextContainer = styled.div`
 
 
 export const TextWrapper = styled('button')`
-  width: 109px;
+  min-width: 109px;
   height: 30px;
   color: #fff;
   background: var(--button-bgd-color);
@@ -71,7 +71,7 @@ export const TextWrapper = styled('button')`
 
   @media screen and (min-width: 768px) {
     margin-right: 8px;
-    width: 131px;
+    min-width: 131px;
     height: 34px;
     margin-bottom: 0;
   }
