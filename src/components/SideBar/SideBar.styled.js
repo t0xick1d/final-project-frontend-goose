@@ -12,18 +12,22 @@
     };
 
     export const SideBarContainer = styled.div`
-    z-index: 10;
-    min-height: 100%;
-    width: 225px;
-    left: -10px;
-    position: fixed;
-    justify-content: flex-start;
-    background-color: white;
-    @media ${device.tablet} {
+      z-index: 10;
+      min-height: 100%;
+      width: 225px;
+      left: -10px;
+      position: fixed;
+      justify-content: flex-start;
+      background-color: var(--sidebar-background-color);
+      @media ${device.tablet} {
         max-width: 289px;
-    }
-    transform: ${props => (props.isOpen ? 'translateX(0)' : 'translateX(-100%)')};
-    transition: 0.3s ease-in-out;
+      }
+      @media ${device.tablet} {
+        width: 289px;
+      }
+      transform: ${props =>
+        props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
+      transition: 0.3s ease-in-out;
     `;
 
     export const SideBarDiv = styled.div`
@@ -51,7 +55,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #343434;
     `;
 
     export const LogoIcon = styled.img`
@@ -71,32 +74,22 @@
     }
     `;
 
-    export const LogoSvg = styled.svg`
-    width: 80px;
-    height: 22px;
-    fill: #3e85f3;
-
-    @media ${device.tablet} {
-        width: 90px;
-        height: 24px;
-    }
-
-    @media ${device.desktop} {
-        width: 120px;
-    }
-    `;
-
     export const CloseBtn = styled.button`
     display: flex;
-    font-size: 20px;
+    width: 24px
+    height: 24px
     align-items: center;
+    justify-content: center;
     text-align: center;
     border: none;
     background: none;
     cursor: pointer;
+    color: var(--calendar-date-color);
     padding: 0px;
     @media ${device.tablet} {
-        font-size: 33px;
+        width: 33px;
+        height: 33px;
+
     }
 
     @media ${device.desktop} {
@@ -113,23 +106,23 @@
     `;
 
     export const TitleSideBar = styled.h3`
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
-    color: grey;
-    margin-bottom: 24px;
-    margin-top: 64px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      color: var(--title-sidebar);
+      margin-bottom: 24px;
+      margin-top: 64px;
 
-    @media ${device.tablet} {
+      @media ${device.tablet} {
         margin-top: 50px;
-    }
+      }
 
-    @media ${device.desktop} {
+      @media ${device.desktop} {
         margin-bottom: 32px;
         margin-top: 32px;
-    }
+      }
     `;
 
     export const SideBarLink = styled.ul`
@@ -140,47 +133,47 @@
     `;
 
     export const IconUser = styled.svg`
-    fill: #34343480;
-    stroke: #ffffff;
-    margin-right: 8px;
-    width: 18px;
-    height: 18px;
-    @media ${device.tablet} {
+      fill: var(--fill-icon);
+      stroke: var(--sidebar-background-color);
+      margin-right: 8px;
+      width: 18px;
+      height: 18px;
+      @media ${device.tablet} {
         margin-right: 10px;
-    }
+      }
     `;
 
     export const CalendarIcon = styled.svg`
-    margin-right: 8px;
-    width: 20px;
-    height: 20px;
-    fill: #34343480;
-    @media ${device.tablet} {
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+      fill: var(--fill-icon);
+      @media ${device.tablet} {
         margin-right: 10px;
-    }
-    &.active,
-    :hover,
-    :focus {
-        stroke: #e3f3ff;
-        fill: #3e85f3;
-    }
-`;
+      }
+      &.active,
+      :hover,
+      :focus {
+        stroke: var(--accent-color);
+        fill: var(--active-selection);
+      }
+    `;
 
     export const StatisticsIcon = styled.svg`
-    margin-right: 8px;
-    width: 20px;
-    height: 20px;
-    fill: #34343480;
-    @media ${device.tablet} {
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+      fill: var(--fill-icon);
+      @media ${device.tablet} {
         margin-right: 10px;
-    }
+      }
     `;
 
         export const LogoutIcon = styled.svg`
           margin-right: 6px;
           width: 18px;
           height: 18px;
-          fill: #34343480;
+          fill: var(--fill-icon);
           @media ${device.tablet} {
             margin-right: 11px;
             width: 20px;
@@ -204,7 +197,7 @@ export const StyledNavLink = styled(NavLink)`
     padding-left: 12px;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: var(--sidebar-background-color);
     margin-bottom: 16px;
     border-radius: 8px;
 
@@ -218,14 +211,14 @@ export const StyledNavLink = styled(NavLink)`
     &.active,
     :hover,
     :focus {
-    fill: #3e85f3;
-    color: #3e85f3;
-    background: #e3f3ff;
-    stroke: #e3f3ff;
+    fill: var(--accent-color);
+    color: var(--accent-color);
+    background: var(--active-selection);
+    stroke: var(--active-selection);
 
         ${StatisticsIcon} {
-        stroke: #e3f3ff;
-        fill: #3e85f3;
+        stroke: var(--active-selection);
+        fill: var(--accent-color);
     },
     
     }
@@ -237,49 +230,49 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const LogOutBtn = styled.button`
-    width: 131px;
-    height: 46px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    position: absolute;
+  width: 131px;
+  height: 46px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  position: absolute;
 
-    left: 20px;
-    bottom: 24px;
+  left: 20px;
+  bottom: 24px;
 
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
-    color: #FFFFFF
-    letter-spacing: -0.02em;
-    background-color: #3E85F3
-    box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
-    border-radius: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--btn-text-color);
+  letter-spacing: -0.02em;
+  background-color: var(--accent-background-color);
+  box-shadow: 4px 2px 16px 0px #88a5bf4d;
+  border-radius: 16px;
 
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:hover,
-    :focus {
-        cursor: pointer;
-        background-color: #2b78ef;
-    }
+  &:hover,
+  :focus {
+    cursor: pointer;
+    background-color: var(--active-btn-color);
+  }
 
-    @media ${device.tablet} {
-        width: 141px;
-        height: 56px;
-        gap: 11px;
-        left: 32px;
-    }
+  @media ${device.tablet} {
+    width: 141px;
+    height: 56px;
+    gap: 11px;
+    left: 32px;
+  }
 
-    @media ${device.desktop} {
-        width: 141px;
-        height: 56px;
-        left: 24px;
-    }
-    `;
+  @media ${device.desktop} {
+    width: 141px;
+    height: 56px;
+    left: 24px;
+  }
+`;
 
 
     export const Text = styled.p`
@@ -287,7 +280,7 @@ export const LogOutBtn = styled.button`
       font-weight: 400;
       line-height: 24px;
       letter-spacing: 0em;
-      color: #3e85f3;
+      color: var(--logo-text);
       box-shadow: 0px 9.399999618530273px 57.6875px 0px rgba(0, 0, 0, 0.04);
     `;
 
