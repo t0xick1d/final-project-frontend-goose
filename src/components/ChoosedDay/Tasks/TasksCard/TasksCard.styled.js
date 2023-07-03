@@ -7,8 +7,8 @@ export const MainList = styled.ul`
 export const Item = styled.li`
   display: block;
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #f7f6f9;
+  border: 1px solid var(--task-border-color);
+  background: var(--outlet-background-color);
   width: 300px;
   height: 112px;
 
@@ -26,7 +26,7 @@ export const Box = styled.div`
 `;
 export const Text = styled.p`
   overflow: hidden;
-  color: #111;
+  color: var(--title-text-main-color);
   text-overflow: ellipsis;
   font-size: 14px;
   font-family: Inter, sans-serif;
@@ -50,11 +50,11 @@ export const Grade = styled.p`
   border-radius: 4px;
   background: ${props =>
     props.color === 'low'
-      ? '#72c2f8'
+      ? 'var(--task-low-color)'
       : props.color === 'medium'
-      ? '#F3B249'
-      : '#EA3D65'};
-  color: #f7f6f9;
+      ? 'var(--task-med-color)'
+      : 'var(--task-high-color)'};
+  color: var(--text-priority-high-color);
   text-align: center;
   font-size: 10px;
   font-family: Inter, sans-serif;
@@ -81,6 +81,7 @@ export const SvgBtn = styled.svg`
   width: 16px;
   height: 16px;
   cursor: pointer;
+  fill: currentColor;
 `;
 export const Dropdown = styled.div`
   position: absolute;
@@ -105,7 +106,7 @@ export const DropdownElement = styled.div`
   align-items: center;
 `;
 export const DropdownText = styled.p`
-  color: #343434;
+  color: var(--calendar-date-color);
   font-size: 14px;
   font-family: Inter;
   font-weight: 500;
