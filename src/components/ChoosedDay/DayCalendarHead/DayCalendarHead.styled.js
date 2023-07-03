@@ -4,10 +4,10 @@ export const Container = styled.div`
   display: block;
   align-items: center;
   margin-bottom: 16px;
-  border: 1px solid var(--calendar-border-color);
+  border: 1px solid var(--task-card-color);
   border-radius: 8px;
   padding: 14px 18px;
-  background-color: var(--calendar-bg-color);
+  background-color: var(--sidebar-background-color);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 18px;
@@ -42,7 +42,7 @@ export const Week = styled.div`
   border: 1px solid var(--calendar-border-color);
   border-radius: 8px;
   padding: 16px 0;
-  background-color: var(--calendar-bg-color);
+  background-color: var(--outlet-background-color);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 18px;
@@ -74,8 +74,8 @@ export const DayWeek = styled.button`
   border: none;
   cursor: pointer;
   &:hover {
-    background-color: var(--button-bgd-color);
-    color: var( --white-color);
+    background-color: var(-accent-background-color);
+    color: var(--btn-text-color);
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -108,8 +108,8 @@ export const Day = styled.button`
   border: none;
   cursor: pointer;
   &:hover {
-    background-color: var(--button-bgd-color);
-    color: var( --white-color);
+    background-color: var(--accent-background-color);
+    color: var(--btn-text-color);
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -128,8 +128,8 @@ export const Day = styled.button`
   ${({ isToday }) => {
     if (isToday) {
       return `
-      background-color: var(--button-bgd-color);
-        color: var(--white-color);
+      background-color: var(--accent-background-color);
+        color: var(--btn-text-color);
       `;
     }
   }};
