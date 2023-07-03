@@ -71,6 +71,7 @@ export const TextToDo = styled.p`
 `;
 export const AddTaskButton = styled.button`
   background-color: transparent;
+  color: var(--title-text-main-color);
   border: none;
   width: 22px;
   height: 22px;
@@ -83,6 +84,7 @@ export const AddTaskButton = styled.button`
 `;
 
 export const AddIcon = styled.svg`
+  fill: currentColor;
   width: 22px;
   height: 22px;
   fill: currentColor;
