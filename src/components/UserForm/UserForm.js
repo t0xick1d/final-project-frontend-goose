@@ -23,15 +23,19 @@ import {
   User,
   SvgAvatar,
   VectorPng,
+  Message,
 } from './UserForm.styled';
 import plus from '../../images/icons/plus.png';
 import Icon from '../../images/sprite.svg';
 
 const validationFormikSchema = object({
-  name: string().max(16).required(),
+  name: string().max(40, 'too long!').required(),
   birthday: date(),
-  email: string().email().required(),
+  email: string()
+    .matches(/^([a-z0-9_.-]+)@([a-z09_.-]+).([a-z]{2,6})$/, 'enter valid email')
+    .required(),
   skype: string().max(16),
+  phone: string().matches(/^\+[\d-]+$/, 'number should start from +'),
 });
 
 const UserForm = () => {
@@ -126,7 +130,9 @@ const UserForm = () => {
                   onBlur={handleBlur}
                   placeholder="Name"
                 ></Input>
-                <ErrorMessage name="name" />
+                <ErrorMessage name="name">
+                  {msg => <Message>{msg}</Message>}
+                </ErrorMessage>
               </LabelBtn>
 
               <LabelBtn htmlFor="phone">
@@ -140,7 +146,9 @@ const UserForm = () => {
                   onBlur={handleBlur}
                   placeholder="+380"
                 ></Input>
-                <ErrorMessage name="phone" />
+                <ErrorMessage name="phone">
+                  {msg => <Message>{msg}</Message>}
+                </ErrorMessage>
               </LabelBtn>
 
               <LabelBtn htmlFor="birthday">
@@ -163,7 +171,9 @@ const UserForm = () => {
                   <use href={Icon + '#icon-chevron-right'}></use>
                 </VectorPng>
 
-                <ErrorMessage name="birthday" />
+                <ErrorMessage name="birthday">
+                  {msg => <Message>{msg}</Message>}
+                </ErrorMessage>
               </LabelBtn>
 
               <LabelBtn htmlFor="skype">
@@ -176,8 +186,10 @@ const UserForm = () => {
                   value={values.skype ? values.skype : ''}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                ></Input>
-                <ErrorMessage name="skype" />
+                />
+                <ErrorMessage name="skype">
+                  {msg => <Message>{msg}</Message>}
+                </ErrorMessage>
               </LabelBtn>
 
               <LabelBtn htmlFor="email">
@@ -191,7 +203,9 @@ const UserForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 ></Input>
-                <ErrorMessage name="email" />
+                <ErrorMessage name="email">
+                  {msg => <Message>{msg}</Message>}
+                </ErrorMessage>
               </LabelBtn>
             </BlockInput>
             <Btn type="submit">Save changes</Btn>
