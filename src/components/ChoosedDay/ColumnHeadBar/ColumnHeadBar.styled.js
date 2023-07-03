@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ToDoSection = styled.section`
+  color: var(--title-text-main-color);
   display: flex;
   align-items: flex-start;
   gap: 18px;
@@ -84,9 +85,7 @@ export const AddTaskButton = styled.button`
 export const AddIcon = styled.svg`
   width: 22px;
   height: 22px;
-  /* & use {
-    fill: var(--title-text-main-color);
-  } */
+  fill: currentColor;
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
