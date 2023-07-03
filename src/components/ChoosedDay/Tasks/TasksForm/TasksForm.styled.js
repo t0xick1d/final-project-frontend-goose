@@ -9,9 +9,11 @@ export const ButtonCloseModal = styled.button`
   padding: 0;
   margin-left: auto;
   cursor: pointer;
+  color: var(--title-text-main-color);
 `;
 
 export const CloseModal = styled.svg`
+  fill: currentColor;
   width: 20px;
   height: 20px;
   @media screen and (min-width: 768px) {

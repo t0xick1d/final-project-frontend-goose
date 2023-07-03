@@ -79,7 +79,7 @@
   --main-background-color: #21222c;
   --sidebar-background-color: #13151a;
 
-  --task-field-color: #171820;
+  
 
   /* form */
   --input-bcg-color: #171820;
@@ -91,6 +91,7 @@
 
   /* tasks */
   --task-border-color: none;
+  --task-field-color: #171820;
 
   /* other */
   --scroll-color: #2d3037;
