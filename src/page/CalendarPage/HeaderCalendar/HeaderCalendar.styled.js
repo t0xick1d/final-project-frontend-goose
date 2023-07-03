@@ -4,13 +4,12 @@ export const Container = styled.div`
   display: block;
   align-items: center;
   margin-bottom: 24px;
-  background-color:  #F7F6F9;
+  background-color:  var(--outlet-background-color);
 
 
   @media screen and (min-width: 768px) {
     display: flex;
     margin-bottom: 32px;
-    /* align-items: center; */
     justify-content: space-between;
   }
 
@@ -31,7 +30,7 @@ export const DivWrapper = styled('div')`
 export const TextWrapper = styled('button')`
   min-width: 109px;
   height: 30px;
-  color: #fff;
+  color: var(--calendar-bg-color);
  
   background: var(--button-bgd-color);
   border: none;

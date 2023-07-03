@@ -34,16 +34,23 @@ export const WeekContainer = styled.div`
   }
 `;
 
-export const DayOfWeek = styled.div`
-  text-align: center;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 18px;
-  color: #343434;
-  margin: 0px 0px 4px 0px;
+
+export const Week = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 14px;
+  border: 1px solid var(--calendar-border-color);
+  border-radius: 8px;
+  padding: 16px 0;
+  background-color: var(--calendar-bg-color);
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    margin-bottom: 18px;
+    padding: 14px 0;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 15px;
   }
 `;
 
@@ -63,12 +70,12 @@ export const DayWeek = styled.button`
 
   border-radius: 8px;
   background-color: transparent;
-  color: #343434;
+  color: var(--user-name-color);
   border: none;
   cursor: pointer;
   &:hover {
-    background-color: #3e85f3;
-    color: #e3f3ff;
+    background-color: var(--button-bgd-color);
+    color: var( --white-color);
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -97,12 +104,12 @@ export const Day = styled.button`
   border-radius: 8px;
   justify-content: center;
   background-color: transparent;
-  color: #343434;
+  color: var(--user-name-color);
   border: none;
   cursor: pointer;
   &:hover {
-    background-color: #3e85f3;
-    color: #e3f3ff;
+    background-color: var(--button-bgd-color);
+    color: var( --white-color);
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -113,8 +120,8 @@ export const Day = styled.button`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 8px;
-    height: 14px;
+    width: 27px;
+    height: 26px;
     border-radius: 8px;
   }
 
