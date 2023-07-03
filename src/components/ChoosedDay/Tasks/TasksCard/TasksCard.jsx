@@ -22,6 +22,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 import { getUser } from 'redux-store/Slices/AuthSlice';
+import TasksForm from '../TasksForm/TasksForm';
+import Modal from 'components/Modal/Modal';
 
 // const TaskMessage = "Task Message"; // тут треба текст
 // const Avatar =  // а тут аватарка
@@ -57,6 +59,7 @@ import { getUser } from 'redux-store/Slices/AuthSlice';
 // }
 
 export default function TasksCard({ list }) {
+  console.log('list', list);
   const [isVisible, setIsVisible] = useState(false);
   const user = useSelector(getUser);
   const dispatch = useDispatch();
@@ -65,59 +68,101 @@ export default function TasksCard({ list }) {
     setIsVisible(!isVisible); // Изменяем состояние по нажатию кнопки
   };
 
+  const [showModal, setShowModal] = useState(false);
+  const [traskForUpdate, setTraskForUpdate] = useState();
+
+  const handleShowModal = task => {
+    setShowModal(true);
+    console.log('task', task);
+    setTraskForUpdate(task);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
-    <MainList>
-      {list &&
-        list.map(task => (
-          <Item key={task._id}>
-            <Text>{`${task.title}`}</Text>
-            <Wrapper>
-              <Box>
-                <Avatar src={`${user.user.avatarURL}`}></Avatar>
-                <Grade color={`${task.priority}`}>{`${task.priority}`}</Grade>
-              </Box>
-              <List>
-                <Dropdown id="dropdown">
-                  <DropdownElement>
-                    <DropdownText>In progress</DropdownText>
+    <>
+      <MainList>
+        {list &&
+          list.map(task => (
+            <Item key={task._id}>
+              <Text>{`${task.title}`}</Text>
+              <Wrapper>
+                <Box>
+                  <Avatar src={`${user.user.avatarURL}`}></Avatar>
+                  <Grade color={`${task.priority}`}>{`${task.priority}`}</Grade>
+                </Box>
+                <List>
+                  <Dropdown id="dropdown">
+                    <DropdownElement>
+                      <DropdownText>In progress</DropdownText>
+                      <SvgBtn>
+                        <use
+                          href={`${Icons}#icon-arrow-circle-broken-right`}
+                        ></use>
+                      </SvgBtn>
+                    </DropdownElement>
+                    <DropdownElement>
+                      <DropdownText>Done</DropdownText>
+                      <SvgBtn>
+                        <use
+                          href={`${Icons}#icon-arrow-circle-broken-right`}
+                        ></use>
+                      </SvgBtn>
+                    </DropdownElement>
+                  </Dropdown>
+                  <DropdownBtn
+                    id="dropdown-btn"
+                    visible={isVisible}
+                    onClick={handleClick}
+                  >
                     <SvgBtn>
-                      <use
-                        href={`${Icons}#icon-arrow-circle-broken-right`}
-                      ></use>
+                      <use href={`${Icons}#icon-arrow`}></use>
                     </SvgBtn>
-                  </DropdownElement>
-                  <DropdownElement>
-                    <DropdownText>Done</DropdownText>
-                    <SvgBtn>
-                      <use
-                        href={`${Icons}#icon-arrow-circle-broken-right`}
-                      ></use>
-                    </SvgBtn>
-                  </DropdownElement>
-                </Dropdown>
-                <DropdownBtn
-                  id="dropdown-btn"
-                  visible={isVisible}
-                  onClick={handleClick}
-                >
-                  <SvgBtn>
-                    <use href={`${Icons}#icon-arrow`}></use>
+                  </DropdownBtn>
+                  <SvgBtn
+                    onClick={() => {
+                      handleShowModal(task);
+                    }}
+                  >
+                    <use href={`${Icons}#icon-pencil-grey`}></use>
                   </SvgBtn>
-                </DropdownBtn>
-                <SvgBtn onClick={editTask}>
-                  <use href={`${Icons}#icon-pencil-grey`}></use>
-                </SvgBtn>
-                <SvgBtn
-                  onClick={() => {
-                    dispatch(deleteTask(task._id));
-                  }}
+                  <SvgBtn
+                    onClick={() => {
+                      dispatch(deleteTask(task._id));
+                    }}
+                  >
+                    <use href={`${Icons}#icon-trash`}></use>
+                  </SvgBtn>
+                </List>
+              </Wrapper>
+              {/* {showModal && (
+                <Modal
+                  open={showModal}
+                  handleClose={handleCloseModal}
+                  aria-label="Modal window is open"
                 >
-                  <use href={`${Icons}#icon-trash`}></use>
-                </SvgBtn>
-              </List>
-            </Wrapper>
-          </Item>
-        ))}
-    </MainList>
+                  {console.log('task1', task)}
+                  <TasksForm onClose={handleCloseModal} category={'low'} />
+                </Modal>
+              )} */}
+            </Item>
+          ))}
+      </MainList>
+      {showModal && (
+        <Modal
+          open={showModal}
+          handleClose={handleCloseModal}
+          aria-label="Modal window is open"
+        >
+          <TasksForm
+            onClose={handleCloseModal}
+            category={traskForUpdate.category}
+            task={traskForUpdate}
+          />
+        </Modal>
+      )}
+    </>
   );
 }

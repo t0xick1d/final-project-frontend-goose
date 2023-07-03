@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const ScrollableContainer = styled.div`
-  height: 380px;
+  max-height: 380px;
   overflow-y: auto;
   overflow-x: hidden;
 

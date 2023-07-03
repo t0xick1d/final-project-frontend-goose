@@ -91,10 +91,11 @@ export const tasksSlice = createSlice({
       })
       .addCase(editTask.fulfilled, (state, action) => {
         const taskIndex = state.items.findIndex(
-          task => task._id === action.payload._id
+          task => task._id === action.payload.task._id
         );
+        console.log('taskIndex', taskIndex);
         if (taskIndex !== -1) {
-          state.items[taskIndex] = action.payload;
+          state.items[taskIndex] = action.payload.task;
         }
         state.isLoading = false;
         state.error = null;
