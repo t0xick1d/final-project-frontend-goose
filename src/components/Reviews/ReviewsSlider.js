@@ -5,6 +5,7 @@ import {
   ButtonArrow,
   ButtonList,
   UserReviewsBlock,
+  ReviewsWrapper,
 } from './ReviewsStyled';
 import ReviewsBox from './ReviewsBox';
 import 'slick-carousel/slick/slick.css';
@@ -40,6 +41,7 @@ export default function ReviewsSlider() {
     autoplay: true,
     autoplaySpeed: 4000,
     dots: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1440,
@@ -52,7 +54,7 @@ export default function ReviewsSlider() {
   };
 
   return (
-    <>
+    <ReviewsWrapper>
       <ReviewsHeader>Reviews</ReviewsHeader>
       <UserReviewsBlock>
         <Slider {...sliderSettings} ref={c => (slider = c)}>
@@ -77,6 +79,6 @@ export default function ReviewsSlider() {
           <img src={ArrowRight} alt="Scroll right to review" />
         </ButtonArrow>
       </ButtonList>
-    </>
+    </ReviewsWrapper>
   );
 }
