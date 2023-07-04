@@ -7,18 +7,19 @@ export const ToDoSection = styled.section`
   gap: 18px;
   min-width: 360px;
   overflow-x: scroll;
-  scrollbar-width: auto;
+
   ::-webkit-scrollbar {
-    height: 8px;
+    height: 12px;
+    border-radius: 12px;
   }
   ::-webkit-scrollbar-track {
-    background-color: #f2f2f2;
-    border-radius: 4px;
+    background-color: var(--scroll-background-color);
+    border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #e7e5e5;
-    border-radius: 4px;
+    background-color: var(--scroll-color);
+    border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb:hover {

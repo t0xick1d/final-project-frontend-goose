@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
-    const size = {
-      tablet: '768px',
-      desktop: '1440px',
-    };
+const size = {
+  tablet: '768px',
+  desktop: '1440px',
+};
 
-    export const device = {
-      tablet: `(min-width: ${size.tablet})`,
-      desktop: `(min-width: ${size.desktop})`,
-    };
-
+export const device = {
+  tablet: `(min-width: ${size.tablet})`,
+  desktop: `(min-width: ${size.desktop})`,
+};
 
 export const BtnPrevContainer = styled.button`
   border-radius: 8px 0 0 8px;
@@ -45,11 +44,9 @@ export const BtnNextContainer = styled.button`
   }
 `;
 
-
 export const BtnPrevNextContainer = styled.div`
   display: flex;
 `;
-
 
 export const TextWrapper = styled('button')`
   min-width: 109px;
