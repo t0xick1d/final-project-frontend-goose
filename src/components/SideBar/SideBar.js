@@ -23,10 +23,12 @@ import {
 } from './SideBar.styled';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux-store/AuthOperations/AuthOperations';
+import { format } from 'date-fns';
 
 export default function SideBar({ onCloseClick, isOpen }) {
   const dispatch = useDispatch();
 
+  const today = format(new Date(), 'yyyy-MM');
   return (
     <SideBarContainer isOpen={isOpen}>
       <SideBarDiv>
@@ -45,24 +47,21 @@ export default function SideBar({ onCloseClick, isOpen }) {
           <TitleSideBar>User Panel</TitleSideBar>
           <SideBarLink>
             <li>
-              <StyledNavLink
-                to="account"
-                onClick={onCloseClick}
-              >
-                  <IconUser>
-                    <use href={`${Icons}#icon-user-check`}></use>
-                  </IconUser>
+              <StyledNavLink to="account" onClick={onCloseClick}>
+                <IconUser>
+                  <use href={`${Icons}#icon-user-check`}></use>
+                </IconUser>
                 My account
               </StyledNavLink>
             </li>
             <li>
               <StyledNavLink
-                to="calendar"
+                to={`/calendar/month/${today}`}
                 onClick={onCloseClick}
               >
-                  <CalendarIcon>
-                    <use href={`${Icons}#icon-calendar-check`}></use>
-                  </CalendarIcon>
+                <CalendarIcon>
+                  <use href={`${Icons}#icon-calendar-check`}></use>
+                </CalendarIcon>
                 Calendar
               </StyledNavLink>
             </li>
