@@ -106,7 +106,7 @@
     `;
 
     export const TitleSideBar = styled.h3`
-      font-family: 'Inter';
+      font-family: Inter, sans-serif;
       font-style: normal;
       font-weight: 600;
       font-size: 14px;
@@ -126,10 +126,10 @@
     `;
 
     export const SideBarLink = styled.ul`
-    padding-left: 0;
-    @media ${device.tablet} {
+      padding-left: 0;
+      @media ${device.tablet} {
         gap: 16px;
-    }
+      }
     `;
 
     export const IconUser = styled.svg`
@@ -163,24 +163,24 @@
     `;
 
     export const LogoutIcon = styled.svg`
-          margin-right: 6px;
-          width: 18px;
-          height: 18px;
-          fill: var(--fill-icon);
-          @media ${device.tablet} {
-            margin-right: 11px;
-            width: 20px;
-            height: 20px;
-          }
+      margin-right: 6px;
+      width: 18px;
+      height: 18px;
+      fill: var(--fill-icon);
+      @media ${device.tablet} {
+        margin-right: 11px;
+        width: 20px;
+        height: 20px;
+      }
     `;
 
-export const StyledNavLink = styled(NavLink)`
+    export const StyledNavLink = styled(NavLink)`
     display: flex;
     color: var(--calendar-date-color);
     align-items: center;
     margin-right: 0;
     text-decoration: none
-    font-family: 'Inter';
+    font-family: Inter, sans-serif;;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
