@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Number, Image, Container404, Container, Text } from './Page404.styled';
+import {
+  Number,
+  Image,
+  Container404,
+  Container,
+  Text,
+  Link,
+} from './Page404.styled';
 import gooseImg from '../../images/icons/goose-404.svg';
 
 export default function Page404() {
@@ -20,8 +27,8 @@ export default function Page404() {
         <Number>4</Number>
       </Container404>
       <Text>
-        We’re sorry, the page you requested could not be found. Please go back
-        to the homepage.
+        We’re sorry, the page you requested could not be found. Please
+        <Link to="/"> go back to the homepage</Link>.
       </Text>
     </Container>
   );
