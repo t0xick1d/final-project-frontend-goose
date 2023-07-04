@@ -34,12 +34,11 @@ export const WeekContainer = styled.div`
   }
 `;
 
-
 export const Week = styled.div`
   display: flex;
   justify-content: space-around;
   margin-bottom: 14px;
-  border: 1px solid var(--calendar-border-color);
+  border: 1px solid var(--btn-border-color);
   border-radius: 8px;
   padding: 16px 0;
   background-color: var(--outlet-background-color);
@@ -70,7 +69,7 @@ export const DayWeek = styled.button`
 
   border-radius: 8px;
   background-color: transparent;
-  color: var(--user-name-color);
+  color: var(--calendar-day-color);
   border: none;
   cursor: pointer;
   &:hover {
@@ -104,7 +103,7 @@ export const Day = styled.button`
   border-radius: 8px;
   justify-content: center;
   background-color: transparent;
-  color: var(--user-name-color);
+  color: var(--calendar-date-color);
   border: none;
   cursor: pointer;
   &:hover {

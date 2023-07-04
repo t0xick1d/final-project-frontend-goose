@@ -4,10 +4,10 @@ export const Week = styled.div`
   display: flex;
   justify-content: space-around;
   margin-bottom: 14px;
-  border: 1px solid var(--calendar-border-color);
+  border: 1px solid var(--task-border-color);
   border-radius: 8px;
   padding: 16px 0;
-  background-color: var(--calendar-bg-color);
+  background-color: var(--main-background-color);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 18px;
@@ -29,12 +29,12 @@ export const Day = styled.p`
   font-size: 16px;
   line-height: 1.12;
   text-transform: uppercase;
-  color: var(--input-text-color);
+  color: var(--secondary-text-color);
 
   ${({ isWeekend }) => {
     if (isWeekend) {
       return `
-        color: var(--button-bgd-color)
+        color: var( --accent)
       `;
     }
   }};

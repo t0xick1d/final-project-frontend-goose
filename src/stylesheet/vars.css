@@ -11,6 +11,7 @@
   --btn-text-color: #ffffff;
   --inactive-btn-text-color: #84828a;
   --calendar-date-color: #343434;
+  --calendar-day-color: #343434;
   --accent: #3e85f3;
   --input-border-color: #11111126;
   --label-text-color: #111111;
@@ -80,6 +81,7 @@
 [dark] {
   /* text */
   --title-text-main-color: #ffffff;
+  --secondary-text-color: #ffffff;
   --accent-color: #ffffff;
   --inactive-btn-text-color: #ffffff;
   --active-selection: #3e85f3;
