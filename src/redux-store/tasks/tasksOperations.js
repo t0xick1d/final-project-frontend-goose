@@ -7,9 +7,11 @@ axios.defaults.baseURL = 'https://goose-track-ity9.onrender.com/api/';
 
 export const fetchTasksMonth = createAsyncThunk(
   'tasks/fetchAllMonth',
-  async ({ date }, thunkAPI) => {
+
+  async (date, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
+
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('No valid token');
     }
@@ -28,6 +30,7 @@ export const fetchTasksMonth = createAsyncThunk(
 export const fetchTasksDay = createAsyncThunk(
   'tasks/fetchAllDay',
   async ({ date }, thunkAPI) => {
+    console.log('date', date);
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 

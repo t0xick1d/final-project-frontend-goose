@@ -4,12 +4,11 @@ export const Container = styled.div`
   display: block;
   align-items: center;
   margin-bottom: 24px;
-  background-color: #f7f6f9;
+  background-color: var(--outlet-background-color);
 
   @media screen and (min-width: 768px) {
     display: flex;
     margin-bottom: 32px;
-    /* align-items: center; */
     justify-content: space-between;
   }
 
@@ -35,10 +34,11 @@ export const DivWrapper = styled('div')`
 `;
 
 // export const TextWrapper = styled('button')`
-//   width: 109px;
+//   min-width: 109px;
 //   height: 30px;
-//   color: #fff;
-//   background: var(--button-bgd-color);
+//   color: var(--btn-text-color);
+
+//   background: var(--accent-background-color);
 //   border: none;
 //   border-radius: 8px;
 //   padding: 6px 12px;
@@ -54,7 +54,7 @@ export const DivWrapper = styled('div')`
 
 //   @media screen and (min-width: 768px) {
 //     margin-right: 8px;
-//     width: 131px;
+//     min-width: 131px;
 //     height: 34px;
 //     margin-bottom: 0;
 //   }

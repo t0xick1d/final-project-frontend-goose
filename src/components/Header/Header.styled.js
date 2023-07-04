@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 64px;
 
   @media screen and (min-width: 1439px) {
@@ -82,6 +79,8 @@ export const Button = styled.button`
   margin-right: 24px;
 
   cursor: pointer;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (max-width: 375px) {
     margin-right: 18px;

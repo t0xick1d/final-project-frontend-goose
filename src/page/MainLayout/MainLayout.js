@@ -5,6 +5,8 @@ import { Suspense } from 'react';
 import { Container, Wrapper } from './MainLayout.styled';
 import { useEffect, useState } from 'react';
 
+import Spiner from '../../components/Spiner/Spiner';
+
 const MainLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 1440);
 
@@ -32,8 +34,9 @@ const MainLayout = () => {
       <SideBar isOpen={sidebarOpen} onCloseClick={handleSidebarOpen} />
       <Wrapper>
         <Header isOpen={sidebarOpen} onOpenClick={handleSidebarOpen} />
+
         {/* <main> */}
-        <Suspense fallback={<div>Loading page...</div>}>
+        <Suspense fallback={<Spiner />}>
           <Outlet />
         </Suspense>
         {/* </main> */}

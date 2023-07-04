@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const Calendar = styled.div`
   display: grid;
-
   grid-template-columns: repeat(7, calc(100% / 7));
   box-sizing: border-box;
-  border: 1px solid var(--calendar-border-color);
+  border: 1px solid var(--btn-border-color);
   border-radius: 8px;
-  background-color: var(--calendar-bg-color);
+  background-color: var(--main-background-color);
   grid-auto-rows: minmax(102px, auto);
   @media screen and (min-width: 768px) {
     grid-auto-rows: minmax(144px, auto);
@@ -15,7 +14,7 @@ export const Calendar = styled.div`
 `;
 
 export const Cell = styled.div`
-  border: 1px solid var(--calendar-border-color);
+  border: 1px solid var(--btn-border-color);
   cursor: pointer;
   padding: 2px;
   transition: transform 0.2s linear;
@@ -31,13 +30,13 @@ export const Cell = styled.div`
   :hover {
     transform: scale(1.15);
     background-color: inherit;
-    border: 1px solid var(--button-bgd-color);
+    border: 1px solid var(--accent-background-color);
     z-index: 999;
   }
 `;
 
 export const Day = styled.p`
-  color: var(--user-name-color);
+  color: var(--calendar-date-color);
   font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -71,8 +70,8 @@ export const Day = styled.p`
     let style = '';
     if (isToday) {
       style += `
-        background-color: var(--button-bgd-color);
-        color: var(--white-color);
+        background-color: var(--accent);
+        color: var(--btn-text-color);
       `;
     }
     if (isSameMonth) {
@@ -106,13 +105,13 @@ export const Task = styled.li`
   color: ${props => {
     switch (props.priority) {
       case 'low':
-        return 'var(--color-task-low-priority);';
+        return 'var(--accent);';
 
       case 'medium':
-        return 'var(--color-task-medium-priority);';
+        return 'var(--task-med-color);';
 
       case 'high':
-        return 'var(--color-task-high-priority);';
+        return 'var(--task-high-color);';
 
       default:
         return 'Black;';
@@ -121,13 +120,13 @@ export const Task = styled.li`
   background-color: ${props => {
     switch (props.priority) {
       case 'low':
-        return 'var(--bgc-task-low-priority);';
+        return 'var(--priority-low-color);';
 
       case 'medium':
-        return 'var(--bgc-task-medium-priority);';
+        return 'var(--priority-med-color);';
 
       case 'high':
-        return 'var(--bgc-task-high-priority);';
+        return 'var(--priority-high-color);';
 
       default:
         return '#ededed;';
@@ -156,13 +155,13 @@ export const Point = styled.p`
   background-color: ${props => {
     switch (props.priority) {
       case 'low':
-        return 'var(--color-task-low-priority);';
+        return 'var(--accent);';
 
       case 'medium':
-        return 'var(--color-task-medium-priority);';
+        return 'var(--task-med-color);';
 
       case 'high':
-        return 'var(--color-task-high-priority);';
+        return 'var(--task-high-color);';
 
       default:
         return '#8b8b8b;';

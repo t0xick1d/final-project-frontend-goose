@@ -12,11 +12,11 @@ export const device = {
 
 export const BtnPrevContainer = styled.button`
   border-radius: 8px 0 0 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border: 1px solid var(--task-border-color);
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
-  background-color: #ffffff;
+  background-color: var(--main-background-color);
   width: 36px;
   height: 30px;
   margin: 0;
@@ -40,15 +40,16 @@ export const BtnPrevContainer = styled.button`
 
 export const BtnNextContainer = styled.button`
   border-radius: 0 8px 8px 0;
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  border: 1px solid var(--task-border-color);
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
 
-  background-color: #ffffff;
+  background-color: var(--calendar-bg-color);
   width: 36px;
   height: 30px;
   margin: 0;
+
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   svg {
@@ -72,24 +73,36 @@ export const BtnPrevNextContainer = styled.div`
   display: flex;
 `;
 export const TextWrapper = styled('button')`
-  width: 109px;
+  /* width: 109px;
   height: 30px;
   color: #fff;
-  background: var(--button-bgd-color);
+  background: var(--button-bgd-color); */
+
+  min-width: 109px;
+  height: 30px;
+  color: var(--white-color);
+  background: var(--accent-background-color);
+
   border: none;
   border-radius: 8px;
   padding: 6px 12px;
   cursor: pointer;
   margin-bottom: 18px;
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.28;
   text-transform: uppercase;
+
   @media screen and (min-width: 768px) {
     margin-right: 8px;
     width: 131px;
+
+    /* @media screen and (min-width: 768px) {
+    margin-right: 8px;
+    min-width: 131px; */
+
     height: 34px;
     margin-bottom: 0;
   }

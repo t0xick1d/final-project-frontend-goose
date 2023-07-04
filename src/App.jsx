@@ -10,9 +10,12 @@ import AccountPage from 'page/AccountPage/Account';
 import CalendarPage from 'page/CalendarPage/Calendar';
 import StatisticsPage from 'page/StatisticsPage/Statistics';
 import VerificationPage from 'page/VerificationPage/VerificationPage';
+import Page404 from 'page/Page404/Page404';
 
 import PrivateRoute from 'PrivateRoute';
 import RestrictedRoute from 'RestrictedRoute';
+
+import Spiner from './components/Spiner/Spiner';
 
 import { fetchCurrentUser } from 'redux-store/AuthOperations/AuthOperations';
 import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
@@ -23,7 +26,6 @@ import { format } from 'date-fns';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const isRefresh = useSelector(getUserRefresh);
 
   const today = format(new Date(), 'yyyy-MM');
 
@@ -33,7 +35,7 @@ export const App = () => {
 
   return (
     <>
-      <Suspense fallback={'Loading...'}>
+      <Suspense fallback={<Spiner />}>
         <Routes>
           <Route
             index
@@ -79,13 +81,13 @@ export const App = () => {
             }
           >
             <Route path="/account" element={<AccountPage />} />
-            {/* <Route path="/calendar" element={<CalendarPage />} /> */}
             <Route path="/calendar" element={<CalendarPage />}>
               <Route path="month/:currentDate" element={<ChosedMonth />} />
               <Route path="day/:currentDate" element={<ChoosedDay />} />
             </Route>
             <Route path="/statistics" element={<StatisticsPage />} />
           </Route>
+          <Route path="/*" element={<Page404 />} />
         </Routes>
       </Suspense>
     </>

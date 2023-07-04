@@ -72,6 +72,40 @@ export default function TasksForm({ onClose, category, task = {} }) {
           <Form>
             <FormField htmlFor="title">Title</FormField>
             <FieldText id="title" name="title" placeholder="Enter text" />
+
+            {/* export default function TasksForm({ onClose, category }) {
+  const dispatch = useDispatch();
+  const { currentDate } = useParams();
+
+  const handleSubmit = values => {
+    console.log(values);
+
+    dispatch(addTask(values));
+    onClose();
+  };
+  return (
+    <ContainerForm>
+      <ButtonCloseModal onClick={() => onClose()}>
+        <CloseModal>
+          <use href={`${Icons}#icon-x-close`}></use>
+        </CloseModal>
+      </ButtonCloseModal>
+      <Formik
+        initialValues={{
+          title: '',
+          start: '09:00',
+          end: '14:00',
+          priority: 'low',
+          date: `${currentDate}`,
+          category: `${category}`,
+        }}
+        onSubmit={handleSubmit}
+      >
+        {({ values, setFieldValue }) => (
+          <Form>
+            <FormField htmlFor="title">Title</FormField>
+            <FieldText id="title" name="title" placeholder="Enter text" /> */}
+
             <TimeBox>
               <li>
                 <FormField htmlFor="start">Start</FormField>
@@ -135,6 +169,17 @@ export default function TasksForm({ onClose, category, task = {} }) {
                 </ButtonCancel>
               </ButtonBox>
             )}
+            {/* <ButtonBox>
+              <ButtonAdd type="submit">
+                <PlusIcon>
+                  <use href={`${Icons}#icon-plus-white`}></use>
+                </PlusIcon>
+                Add
+              </ButtonAdd>
+              <ButtonCancel type="button" onClick={() => onClose()}>
+                Cancel
+              </ButtonCancel>
+            </ButtonBox> */}
           </Form>
         )}
       </Formik>

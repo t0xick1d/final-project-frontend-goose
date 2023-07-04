@@ -15,6 +15,7 @@ const BtnPrevNext = () => {
   const [activeTab, setActiveTab] = useState('');
 
   const params = useParams();
+
   const navigate = useNavigate();
   const path = useLocation().pathname;
 
@@ -79,6 +80,8 @@ const BtnPrevNext = () => {
           </BtnPrevContainer>
           <BtnNextContainer type="button" onClick={nextMonth}>
             <FaChevronRight />
+
+            {/* <FaChevronRight fill="#FFFFFF" /> */}
           </BtnNextContainer>
         </>
       )}

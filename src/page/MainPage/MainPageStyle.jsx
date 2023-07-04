@@ -20,7 +20,7 @@ export const Auth = styled.section`
     padding-right: 86px;
     padding-top: 321px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     padding-left: 422px;
     padding-right: 422px;
     padding-top: 187px;
@@ -116,11 +116,13 @@ export const Description = styled.section`
   padding-left: 20px;
   padding-right: 20px;
 
+  background-color: #fff;
+
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     padding-left: 0;
     padding-right: 0;
   }
@@ -132,7 +134,7 @@ export const AdvantagesList = styled.ul`
   align-items: center;
   justify-content: center;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     .second-item {
       flex-direction: row-reverse;
     }
@@ -144,7 +146,7 @@ export const AdvantagesItem = styled.li`
     width: fit-content;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -356,6 +358,8 @@ export const Footer = styled.footer`
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 64px;
+
+  background-color: #fff;
 
   @media screen and (min-width: 768px) {
     padding-left: 94px;

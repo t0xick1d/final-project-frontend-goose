@@ -9,9 +9,11 @@ export const ButtonCloseModal = styled.button`
   padding: 0;
   margin-left: auto;
   cursor: pointer;
+  color: var(--title-text-main-color);
 `;
 
 export const CloseModal = styled.svg`
+  fill: currentColor;
   width: 20px;
   height: 20px;
   @media screen and (min-width: 768px) {
@@ -24,8 +26,8 @@ export const ContainerForm = styled.div`
   max-width: 303px;
   min-height: 336px;
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #fff;
+  border: 1px solid var(--task-border-color);
+  background: var(--modal-background-color);
   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   display: flex;
   flex-direction: column;
@@ -42,7 +44,7 @@ export const FormField = styled.label`
   display: flex;
   gap: 2px;
   flex-direction: column;
-  color: rgba(52, 52, 52, 0.8);
+  color: var(--modal-input-lable-color);
   font-size: 12px;
   font-weight: 500;
   line-height: calc(14 / 12);
@@ -52,17 +54,20 @@ export const FieldText = styled(Field)`
   min-width: 267px;
   max-height: 42px;
   border: none;
+  :not(.border-exempt) {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
   hyphens: none;
   border-radius: 8px;
-  background: #f6f6f6;
+  background: var(--task-field-color);
   padding: 12px 14px;
-  color: #343434;
+  color: var(--calendar-date-color);
   font-size: 14px;
   font-weight: 600;
   line-height: calc(18 / 14);
   margin-bottom: 16px;
   ::placeholder {
-    color: #343434;
+    color: var(--calendar-date-color);
   }
   :focus::placeholder {
     color: transparent;
@@ -71,7 +76,7 @@ export const FieldText = styled(Field)`
     outline-color: transparent;
   }
   @media screen and (min-width: 768px) {
-    max-width: 340px;
+    min-width: 340px;
     min-height: 46px;
     margin-bottom: 18px;
   }
@@ -86,12 +91,15 @@ export const TimeBox = styled.ul`
 export const FieldTime = styled(Field)`
   border-radius: 8px;
   padding: 12px 14px;
-  background: #f6f6f6;
+  background: var(--task-field-color);
   border: none;
+  :not(.border-exempt) {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
   min-width: 126px;
   height: 42px;
 
-  color: #343434;
+  color: var(--calendar-date-color);
   font-size: 14px;
   font-weight: 600;
   line-height: calc(18 / 14);
@@ -220,7 +228,7 @@ export const RadioHigh = styled.span`
 `;
 
 export const RadioLabel = styled.span`
-  color: #343434;
+  color: var(--calendar-date-color);
   text-align: center;
   font-size: 12px;
   font-weight: 600;

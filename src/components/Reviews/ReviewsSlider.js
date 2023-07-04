@@ -5,24 +5,25 @@ import {
   ButtonArrow,
   ButtonList,
   UserReviewsBlock,
+  ReviewsWrapper,
 } from './ReviewsStyled';
 import ReviewsBox from './ReviewsBox';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useEffect, useState } from 'react';
-import ReviewsApi from 'services/ReviewsApi';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllReviews } from 'redux-store/Reviews/reviewsSelector';
+import ReviewsOperations from 'redux-store/Reviews/reviewsOperations';
 import Slider from 'react-slick';
 
 export default function ReviewsSlider() {
-  const [reviews, setReviews] = useState([]);
   let slider;
+  const reviews = useSelector(selectAllReviews);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    async function getReviews () {
-      setReviews(await ReviewsApi.getAllReviews());
-    };
-    getReviews();
-  }, []);
+    dispatch(ReviewsOperations.getAllReviews());
+  }, [dispatch]);
 
   const handlePrevious = () => {
     slider.slickPrev();
@@ -40,6 +41,7 @@ export default function ReviewsSlider() {
     autoplay: true,
     autoplaySpeed: 4000,
     dots: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1440,
@@ -52,7 +54,7 @@ export default function ReviewsSlider() {
   };
 
   return (
-    <>
+    <ReviewsWrapper>
       <ReviewsHeader>Reviews</ReviewsHeader>
       <UserReviewsBlock>
         <Slider {...sliderSettings} ref={c => (slider = c)}>
@@ -77,6 +79,6 @@ export default function ReviewsSlider() {
           <img src={ArrowRight} alt="Scroll right to review" />
         </ButtonArrow>
       </ButtonList>
-    </>
+    </ReviewsWrapper>
   );
 }

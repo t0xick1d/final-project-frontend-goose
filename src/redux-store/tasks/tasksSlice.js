@@ -52,7 +52,6 @@ export const tasksSlice = createSlice({
             return task.date !== action.payload[0].date;
           });
         }
-
         state.items.push(...action.payload);
       })
       .addCase(fetchTasksDay.rejected, (state, action) => {

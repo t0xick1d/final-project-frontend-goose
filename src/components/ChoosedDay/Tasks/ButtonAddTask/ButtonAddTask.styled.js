@@ -12,8 +12,8 @@ export const AddTaskButton = styled.button`
 
   border-radius: 8px;
   border: 1px dashed #3e85f3;
-  background: #e3f3ff;
-  color: #111;
+  background: var(--background-button-day);
+  color: var(--title-text-main-color);
   text-align: center;
   font-size: 14px;
   font-weight: 600;
@@ -29,6 +29,7 @@ export const AddTaskButton = styled.button`
   }
 `;
 export const AddTaskIcon = styled.svg`
+  fill: currentColor;
   width: 24px;
   height: 24px;
   fill: none;

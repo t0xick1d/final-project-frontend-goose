@@ -18,7 +18,7 @@ export const FeedbackFormWrapper = styled.div`
   padding: 28px 20px;
   width: 335px;
 
-  color: rgba(52, 52, 52, 0.8);
+  color: var(--feedback-form-text);
   font-size: 12px;
   font-family: Inter;
   font-weight: 500;
@@ -28,10 +28,6 @@ export const FeedbackFormWrapper = styled.div`
     width: 468px;
     padding: 32px;
   }
-
-  /* @media ${device.desktop} {
-    max-width: 1184px;
-  } */
 `;
 
 export const ButtonWindowClose = styled.button`
@@ -39,9 +35,13 @@ export const ButtonWindowClose = styled.button`
   top: 14px;
   right: 14px;
   border: none;
-  background-color: #ffffff;
+  background-color: var(--modal-background-color);
   padding: 0;
   cursor: pointer;
+`;
+
+export const RatingError = styled.p`
+  color: red;
 `;
 
 export const RatingStar = styled(Rating)`
@@ -80,11 +80,14 @@ export const ButtonReviewEdit = styled.button`
 
   border: none;
   border-radius: 50px;
-  background: #e3f3ff;
+  background: ${props =>
+    props.editButtonActivate
+      ? 'var(--accent-background-color)'
+      : 'var(--background-feedback-form-btn-edit)'};
   cursor: pointer;
 `;
 
-export const ButtonReviewDelte = styled.button`
+export const ButtonReviewDelete = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,7 +99,7 @@ export const ButtonReviewDelte = styled.button`
 
   border: none;
   border-radius: 50px;
-  background: rgba(234, 61, 101, 0.2);
+  background: var(--background-feedback-form-btn-delete);
   cursor: pointer;
 `;
 
@@ -109,15 +112,17 @@ export const FieldInput = styled(Field)`
 
   text-align: start;
 
-  color: #343434;
+  color: var(--feedback-form-text-input);
   font-size: 14px;
   font-family: Inter;
   font-weight: 600;
   line-height: 18px;
 
   border-radius: 8px;
-  border: none;
-  background: #f6f6f6;
+  border: 1px solid var(--modal-border-color);
+  background: var(--feedack-form-input);
+
+  resize: none;
 `;
 
 export const SaveButton = styled.button`
@@ -126,9 +131,9 @@ export const SaveButton = styled.button`
 
   border: none;
   border-radius: 8px;
-  background: #e5edfa;
+  background: var(--background-feedack-form-btn-action);
 
-  color: #343434;
+  color: var(--feedback-form-text-input);
   font-size: 14px;
   font-family: Inter;
   font-weight: 600;
@@ -136,7 +141,7 @@ export const SaveButton = styled.button`
   cursor: pointer;
   :hover,
   :focus {
-    background: ${props => !props.disabled && '#3e85f3'};
+    background: ${props => !props.disabled && 'var(--accent-background-color)'};
     cursor: ${props => props.disabled && 'not-allowed'};
   }
 
@@ -151,20 +156,41 @@ export const ActionButton = styled.button`
 
   border: none;
   border-radius: 8px;
-  background: #e5edfa;
+  background: var(--background-feedack-form-btn-action);
 
-  color: #343434;
+  color: var(--feedback-form-text-input);
   font-size: 14px;
   font-family: Inter;
   font-weight: 600;
   line-height: 18px;
   :hover,
   :focus {
-    background: #3e85f3;
+    background: var(--accent-background-color);
     cursor: pointer;
   }
 
   @media ${device.tablet} {
     width: 198px;
   }
+`;
+
+export const ErrorMessageStyled = styled.div`
+  color: red;
+`;
+
+export const IconClose = styled.svg`
+  stroke: var(--modal-close-icon);
+  width: 24px;
+  height: 24px;
+`;
+
+export const IconEdit = styled.svg`
+  stroke: #3e85f3;
+  fill: none;
+  width: 16px;
+  height: 16px;
+
+  stroke: ${props =>
+    props.editButtonActivate && 'var(--modal-edit-icon-stroke)'};
+  fill: ${props => props.editButtonActivate && 'var(--modal-edit-icon-fill)'};
 `;

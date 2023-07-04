@@ -6,7 +6,6 @@ import {
   lastDayOfWeek,
   format,
 } from 'date-fns';
-
 import { useParams } from 'react-router-dom';
 import MonthCalendarHead from 'components/MonthCalendarHead/MonthCalendarHead';
 import { CalendarTable } from 'components/CalendarTable/CalendarTable';
@@ -39,8 +38,8 @@ export const ChosedMonth = () => {
 
   const formattedDate = format(date, 'yyyy-MM');
   useEffect(() => {
-    const data = { date: formattedDate };
-    dispatch(fetchTasksMonth(data));
+    // const data = { date: formattedDate };
+    dispatch(fetchTasksMonth(formattedDate));
   }, [dispatch, formattedDate]);
 
   return (

@@ -16,7 +16,6 @@ export const TypesContainerDay = styled(NavLink)`
     isactive === 'yes' ? 'rgba(202, 232, 255, 1);' : 'rgba(227, 243, 255, 1);'};
   border-radius: ${({ tab }) =>
     tab === 'Day' ? '0 8px 8px 0;' : '8px 0 0 8px;'};
-
   border: 0;
   overflow: hidden;
   cursor: pointer;
@@ -32,14 +31,13 @@ export const TypesContainerDay = styled(NavLink)`
   }
 
   color: #3e85f3;
+
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   text-decoration: none;
   line-height: 1.29;
   text-align: center;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus,
