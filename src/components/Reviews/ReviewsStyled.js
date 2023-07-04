@@ -14,7 +14,7 @@ export const device = {
 };
 
 export const ReviewsWrapper = styled.div`
-margin: 0 auto;
+  margin: 0 auto;
   width: 335px;
 
   @media ${device.tablet} {
@@ -128,4 +128,8 @@ export const ButtonArrow = styled.button`
   border: none;
   background-color: #ffffff;
   padding: 0;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
