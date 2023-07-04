@@ -4,7 +4,7 @@ export const Week = styled.div`
   display: flex;
   justify-content: space-around;
   margin-bottom: 14px;
-  border: 1px solid var(--task-border-color);
+  border: 1px solid var(--calendartable-border-color);
   border-radius: 8px;
   padding: 16px 0;
   background-color: var(--main-background-color);

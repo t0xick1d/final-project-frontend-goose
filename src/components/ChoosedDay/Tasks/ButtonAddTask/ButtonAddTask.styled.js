@@ -12,7 +12,7 @@ export const AddTaskButton = styled.button`
 
   border-radius: 8px;
   border: 1px dashed #3e85f3;
-  background: var(--background-button-day);
+  background: var(--background-button-day-add);
   color: var(--title-text-main-color);
   text-align: center;
   font-size: 14px;
