@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 export const ToDoSection = styled.section`
   color: var(--title-text-main-color);
+
   display: flex;
   align-items: flex-start;
   gap: 18px;
   min-width: 360px;
+
+  /* 
   overflow-x: scroll;
 
   ::-webkit-scrollbar {
@@ -24,7 +27,7 @@ export const ToDoSection = styled.section`
 
   ::-webkit-scrollbar-thumb:hover {
     background-color: #555;
-  }
+  } */
 
   @media screen and (min-width: 768px) {
     gap: 16px;
@@ -88,7 +91,19 @@ export const AddIcon = styled.svg`
   fill: currentColor;
   width: 22px;
   height: 22px;
-  fill: currentColor;
+
+  cursor: pointer;
+  fill: none;
+  stroke: #111111;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  :hover {
+    stroke: var(--accent-color);
+    transform: scale(1.2);
+  }
+
+  /* fill: currentColor; */
+
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;

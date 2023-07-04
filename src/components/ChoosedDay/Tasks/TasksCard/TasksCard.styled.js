@@ -1,19 +1,25 @@
 import styled from 'styled-components';
 
-export const MainList = styled.ul`
-  margin-right: 8px;
-`;
-
 export const Item = styled.li`
   display: block;
   border-radius: 8px;
+
+  /* border: 1px solid rgba(220, 227, 229, 0.8);
+  background: #f7f6f9;
+  max-width: 299px; */
+
   border: 1px solid var(--task-border-color);
   background: var(--outlet-background-color);
-  width: 300px;
+  width: 299px;
+
   height: 112px;
 
   padding: 14px;
   margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 300px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -81,39 +87,50 @@ export const SvgBtn = styled.svg`
   width: 16px;
   height: 16px;
   cursor: pointer;
-  fill: currentColor;
+  fill: none;
+  stroke: #111111;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  :hover {
+    stroke: var(--accent-color);
+    transform: scale(1.2);
+  }
 `;
-export const Dropdown = styled.div`
-  position: absolute;
-  margin-top: 16px;
-  width: 99px;
-  height: 50px;
-  display: ${props => (props.visible ? 'inline-flex' : 'none')};
-  /* display: block; */
-  padding: 20px 24px;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
-  gap: 14px;
-  flex-wrap: wrap;
-  flex-direction: row;
-`;
-export const DropdownElement = styled.div`
-  min-width: 99px;
-  display: flex;
-  align-items: center;
-`;
-export const DropdownText = styled.p`
-  color: var(--calendar-date-color);
-  font-size: 14px;
-  font-family: Inter;
-  font-weight: 500;
-  line-height: 18px;
-  margin: 0px;
-  margin-right: auto;
-`;
+
+// fill: currentColor;
+// `;
+// export const Dropdown = styled.div`
+//   position: absolute;
+//   margin-top: 16px;
+//   width: 99px;
+//   height: 50px;
+//   display: ${props => (props.visible ? 'inline-flex' : 'none')};
+//   /* display: block; */
+//   padding: 20px 24px;
+//   justify-content: flex-start;
+//   align-items: center;
+//   border-radius: 8px;
+//   background: #fff;
+//   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+//   gap: 14px;
+//   flex-wrap: wrap;
+//   flex-direction: row;
+// `;
+// export const DropdownElement = styled.div`
+//   min-width: 99px;
+//   display: flex;
+//   align-items: center;
+// `;
+// export const DropdownText = styled.p`
+//   color: var(--calendar-date-color);
+//   font-size: 14px;
+//   font-family: Inter;
+//   font-weight: 500;
+//   line-height: 18px;
+//   margin: 0px;
+//   margin-right: auto;
+// `;
+
 export const DropdownBtn = styled.button`
   border: none;
   color: transparent;

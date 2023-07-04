@@ -76,9 +76,17 @@
   --background-button-month: #cae8ff;
   --background-button-day: #e3f3ff;
   --background-button-day-add: #e3f3ff;
+
+
+  /* calendar */
+  --input-text-color: #616161;
+  --user-name-color: #343434;
+  --calendar-bg-color: #ffffff;
+  --calendar-border-color: rgba(220, 227, 229, 0.5);
   --background-feedback-form-btn-edit: #e3f3ff;
   --background-feedback-form-btn-delete: rgba(234, 61, 101, 0.2);
   --background-feedack-form-btn-action: #e5edfa;
+
 }
 
 [dark] {
@@ -136,12 +144,20 @@
   --fill-icon: #ffffff;
   --border-statistics: rgba(227, 243, 255, 0.15);
   --calendartable-border-color: rgba(255, 255, 255, 0.15);
-  
   /* backgroung button */
   --background-button-month: #3e85f3;
+  --background-button-day: #21222c;
+
+  /* calendar */
+  --input-text-color: #ffffff;
+  --user-name-color: #ffffff;
+  --calendar-bg-color: #21222C;
+  --calendar-border-color: rgba(255, 255, 255, 0.15);
+
   --background-button-day: rgba(33, 34, 44, 1);
   --background-button-day-add: #3e85f3;
   --background-feedback-form-btn-edit: #353647;
   --background-feedback-form-btn-delete: rgba(234, 61, 101, 0.2);
   --background-feedack-form-btn-action: #21222c;
 }
+

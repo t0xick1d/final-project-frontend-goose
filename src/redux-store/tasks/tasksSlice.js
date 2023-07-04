@@ -47,7 +47,12 @@ export const tasksSlice = createSlice({
       .addCase(fetchTasksDay.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload;
+        if (action.payload.length > 0) {
+          state.items = state.items.filter(task => {
+            return task.date !== action.payload[0].date;
+          });
+        }
+        state.items.push(...action.payload);
       })
       .addCase(fetchTasksDay.rejected, (state, action) => {
         state.isLoading = false;
@@ -85,10 +90,10 @@ export const tasksSlice = createSlice({
       })
       .addCase(editTask.fulfilled, (state, action) => {
         const taskIndex = state.items.findIndex(
-          task => task._id === action.payload._id
+          task => task._id === action.payload.task._id
         );
         if (taskIndex !== -1) {
-          state.items[taskIndex] = action.payload;
+          state.items[taskIndex] = action.payload.task;
         }
         state.isLoading = false;
         state.error = null;

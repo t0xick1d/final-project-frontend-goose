@@ -323,7 +323,6 @@ export const ButtonCancel = styled.button`
 `;
 export const ButtonEdit = styled.button`
   display: flex;
-
   border: none;
   cursor: pointer;
   justify-content: center;

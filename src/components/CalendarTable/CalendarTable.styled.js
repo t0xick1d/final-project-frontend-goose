@@ -66,13 +66,8 @@ export const Day = styled.p`
   }
 
   ${({ params }) => {
-    const { isWeekend, isToday, isSameMonth } = params;
+    const { isToday, isSameMonth } = params;
     let style = '';
-    if (isWeekend) {
-      style += `
-        // color: var(--accent);
-      `;
-    }
     if (isToday) {
       style += `
         background-color: var(--accent);

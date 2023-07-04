@@ -8,15 +8,15 @@ import { useEffect, useState } from 'react';
 import Spiner from '../../components/Spiner/Spiner';
 
 const MainLayout = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 1440);
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth >= 1440);
 
-    const handleSidebarOpen = () => {
-      if (window.innerWidth >= 1440) {
-        return;
-      }
-      setSidebarOpen(!sidebarOpen);
-    };
-  
+  const handleSidebarOpen = () => {
+    if (window.innerWidth >= 1440) {
+      return;
+    }
+    setSidebarOpen(!sidebarOpen);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setSidebarOpen(window.innerWidth >= 1440);
@@ -28,18 +28,18 @@ const MainLayout = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
+
   return (
     <Container>
       <SideBar isOpen={sidebarOpen} onCloseClick={handleSidebarOpen} />
       <Wrapper>
         <Header isOpen={sidebarOpen} onOpenClick={handleSidebarOpen} />
 
-        <main>
-          <Suspense fallback={<Spiner />}>
-            <Outlet />
-          </Suspense>
-        </main>
+        {/* <main> */}
+        <Suspense fallback={<Spiner />}>
+          <Outlet />
+        </Suspense>
+        {/* </main> */}
       </Wrapper>
     </Container>
   );
