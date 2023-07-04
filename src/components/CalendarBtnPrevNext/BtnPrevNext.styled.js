@@ -20,9 +20,21 @@ export const BtnPrevContainer = styled.button`
   width: 36px;
   height: 30px;
   margin: 0;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  svg {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: #111111;
+  }
   @media ${device.tablet} {
     width: 38px;
     height: 34px;
+  }
+  :hover {
+    transform: scale(1.2);
+    svg {
+      fill: var(--accent-color);
+    }
   }
 `;
 
@@ -37,28 +49,50 @@ export const BtnNextContainer = styled.button`
   width: 36px;
   height: 30px;
   margin: 0;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  svg {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: #111111;
+  }
+
   @media ${device.tablet} {
     width: 38px;
     height: 34px;
+  }
+  :hover {
+    transform: scale(1.2);
+    svg {
+      fill: var(--accent-color);
+    }
   }
 `;
 
 export const BtnPrevNextContainer = styled.div`
   display: flex;
 `;
+export const TextWrapper = styled.div`
+  /* width: 109px;
+  height: 30px;
+  color: #fff;
+  background: var(--button-bgd-color); */
 
-export const TextWrapper = styled('button')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   min-width: 109px;
   height: 30px;
   color: var(--white-color);
   background: var(--accent-background-color);
+
   border: none;
   border-radius: 8px;
-  padding: 6px 12px;
-  cursor: pointer;
+  /* padding: 6px 12px; */
+  /* cursor: pointer; */
   margin-bottom: 18px;
-
-  text-align: center;
+  /* text-align: center; */
   font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -67,7 +101,12 @@ export const TextWrapper = styled('button')`
 
   @media screen and (min-width: 768px) {
     margin-right: 8px;
-    min-width: 131px;
+    width: 131px;
+
+    /* @media screen and (min-width: 768px) {
+    margin-right: 8px;
+    min-width: 131px; */
+
     height: 34px;
     margin-bottom: 0;
   }

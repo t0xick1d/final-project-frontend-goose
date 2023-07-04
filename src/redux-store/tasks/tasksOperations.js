@@ -7,6 +7,7 @@ axios.defaults.baseURL = 'https://goose-track-ity9.onrender.com/api/';
 
 export const fetchTasksMonth = createAsyncThunk(
   'tasks/fetchAllMonth',
+
   async (date, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
@@ -19,7 +20,6 @@ export const fetchTasksMonth = createAsyncThunk(
       const response = await axios.get('/tasks/month', {
         params: { date },
       });
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -29,7 +29,7 @@ export const fetchTasksMonth = createAsyncThunk(
 
 export const fetchTasksDay = createAsyncThunk(
   'tasks/fetchAllDay',
-  async (date, thunkAPI) => {
+  async ({ date }, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
@@ -61,7 +61,6 @@ export const addTask = createAsyncThunk(
 
     try {
       const response = await axios.post('/tasks', body);
-      console.log(response);
       return response.data;
     } catch (e) {
       if (e.response.status === 400 || e.response.status === 409) {
@@ -75,8 +74,13 @@ export const addTask = createAsyncThunk(
 export const editTask = createAsyncThunk(
   'tasks/editTask',
   async (task, thunkAPI) => {
-    const { _id, ...edit } = task;
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
 
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('No valid token');
+    }
+    const { _id, ...edit } = task;
     try {
       const response = await axios.patch(`/tasks/${_id}`, edit);
       return response.data;
@@ -89,6 +93,12 @@ export const editTask = createAsyncThunk(
 export const deleteTask = createAsyncThunk(
   'tasks/deleteTask',
   async (taskId, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('No valid token');
+    }
     try {
       await axios.delete(`/tasks/${taskId}`);
       return taskId;

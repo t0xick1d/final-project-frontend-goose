@@ -48,7 +48,6 @@ const BtnPrevNext = () => {
     const date = addMonths(ValidCurrentDate, 1);
     navigate(`/calendar/month/${format(date, 'yyyy-MM')}`);
   }
-
   function previousDay() {
     const date = subDays(ValidCurrentDate, 1);
 
@@ -64,7 +63,7 @@ const BtnPrevNext = () => {
     <BtnPrevNextContainer>
       {activeTab === 'day' && (
         <>
-          <TextWrapper type="button">{format(date, 'd MMMM yyyy')}</TextWrapper>
+          <TextWrapper>{format(date, 'd MMMM yyyy')}</TextWrapper>
           <BtnPrevContainer type="button" onClick={previousDay}>
             <FaChevronLeft />
           </BtnPrevContainer>
@@ -75,12 +74,14 @@ const BtnPrevNext = () => {
       )}
       {activeTab === 'month' && (
         <>
-          <TextWrapper type="button">{format(date, 'MMMM yyyy')}</TextWrapper>
+          <TextWrapper>{format(date, 'MMMM yyyy')}</TextWrapper>
           <BtnPrevContainer type="button" onClick={previousMonth}>
             <FaChevronLeft />
           </BtnPrevContainer>
           <BtnNextContainer type="button" onClick={nextMonth}>
-            <FaChevronRight fill="#FFFFFF" />
+            <FaChevronRight />
+
+            {/* <FaChevronRight fill="#FFFFFF" /> */}
           </BtnNextContainer>
         </>
       )}

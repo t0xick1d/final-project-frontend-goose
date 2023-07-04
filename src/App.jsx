@@ -20,11 +20,15 @@ import Spiner from './components/Spiner/Spiner';
 import { fetchCurrentUser } from 'redux-store/AuthOperations/AuthOperations';
 import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
 import ChoosedDay from 'components/ChoosedDay/ChoosedDay/ChoosedDay';
+import { format } from 'date-fns';
 // Залишив в такому вигляді бо не знав звідки брати
 // import { ChosenDay } from 'components/ChoosedDay/ButtonAddTask/ButtonAddTask';
 
 export const App = () => {
   const dispatch = useDispatch();
+
+  const today = format(new Date(), 'yyyy-MM');
+
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
@@ -33,13 +37,29 @@ export const App = () => {
     <>
       <Suspense fallback={<Spiner />}>
         <Routes>
-          <Route index element={<MainPage />} />
-          <Route path="/" element={<LoginPage />} />
+          <Route
+            index
+            element={
+              <RestrictedRoute
+                redirectTo={`/calendar/month/${today}`}
+                component={<MainPage />}
+              />
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <RestrictedRoute
+                redirectTo={`/calendar/month/${today}`}
+                component={<MainPage />}
+              />
+            }
+          />
           <Route
             path="/login"
             element={
               <RestrictedRoute
-                redirectTo="/calendar"
+                redirectTo={`/calendar/month/${today}`}
                 component={<LoginPage />}
               />
             }
@@ -48,7 +68,7 @@ export const App = () => {
             path="/register"
             element={
               <RestrictedRoute
-                redirectTo="/calendar"
+                redirectTo={`/calendar/month/${today}`}
                 component={<RegisterPage />}
               />
             }
