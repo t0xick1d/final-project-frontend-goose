@@ -34,7 +34,7 @@ const validationFormikSchema = object({
   email: string()
     .matches(/^([a-z0-9_.-]+)@([a-z09_.-]+).([a-z]{2,6})$/, 'enter valid email')
     .required(),
-  skype: string().max(16),
+  skype: string().max(30),
   phone: string().matches(/^\+[\d-]+$/, 'number should start from +'),
 });
 
@@ -77,11 +77,16 @@ const UserForm = () => {
       formData.append('skype', values.skype);
     }
     formData.append('birthday', values.birthday);
+
     if (avatarURL) {
       formData.append('avatar', avatarURL);
     }
+    try {
+      await dispatch(updateUser(formData));
+    } catch (err) {
+      console.log(err);
+    }
 
-    await dispatch(updateUser(formData));
     setIsUpdateForm(true);
     resetForm();
   };
@@ -114,9 +119,15 @@ const UserForm = () => {
                   id="avatar"
                   type="file"
                   onChange={event => setAvatarURL(event.target.files[0])}
-                  accept="image/*,.png,.jpg,.gif,.web"
+                  accept="image/png, image/gif, image/jpeg"
                   name="avatar"
                 ></InputFile>
+
+                <ErrorMessage name="avatar">
+                  {msg => {
+                    <Message>{msg}</Message>;
+                  }}
+                </ErrorMessage>
               </LabelImg>
             </ContainerImg>
             <h2>{user?.name} </h2>
