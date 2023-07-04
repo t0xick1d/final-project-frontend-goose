@@ -25,8 +25,6 @@ import ChoosedDay from 'components/ChoosedDay/ChoosedDay/ChoosedDay';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const isRefresh = useSelector(getUserRefresh);
-
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
