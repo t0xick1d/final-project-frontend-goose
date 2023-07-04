@@ -17,10 +17,11 @@
   --text-priority-high-color: #f7f6f9;
   --text-priority-other-color: #f7f6f9;
   --text-404: rgba(17, 17, 17, 0.7);
+  --feedback-form-text: rgba(52, 52, 52, 0.8);
+  --feedback-form-text-input: #343434;
   --title-sidebar: rgba(52, 52, 52, 0.5);
   --logo-text: #3e85f3;
   --btn-border-color: rgba(220, 227, 229, 0.8);
-
 
   /* backgroung */
   --main-background-color: #ffffff;
@@ -50,9 +51,11 @@
   --scroll-color: #e7e5e5;
   --scroll-background-color: #f2f2f2;
   --frame-border-color: #e1e7e9;
+  --modal-close-icon: #111111;
+  --modal-edit-icon-fill: #3e85f3;
+  --modal-edit-icon-stroke: #ffffff;
   --fill-icon:rgba(52, 52, 52, 0.5);
   --border-statistics: #e3f3ff;
-
 
   /* form */
   --input-bcg-color: #f7f7f7;
@@ -61,6 +64,7 @@
   --modal-input-text-color: #616161;
   --modal-input-lable-color: #343434c5;
   --modal-border-color: 'none';
+  --feedack-form-input: #f6f6f6;
 
   /* animation */
   --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -68,6 +72,9 @@
   /* backgroung button */
   --background-button-month: #cae8ff;
   --background-button-day: #e3f3ff;
+  --background-feedback-form-btn-edit: #e3f3ff;
+  --background-feedback-form-btn-delete: rgba(234, 61, 101, 0.2);
+  --background-feedack-form-btn-action: #e5edfa;
 }
 
 [dark] {
@@ -83,6 +90,9 @@
   --label-text-color: rgba(250, 250, 250, 0.3);
   --text-priority-high-color: #ffffff;
   --text-priority-other-color: #171820;
+  --text-404: rgba(255, 255, 255, 1);
+  --feedback-form-text-input: #ffffff;
+  --feedback-form-text: rgba(250, 250, 250, 0.30);
   --title-sidebar: rgba(250, 250, 250, 0.3);
   --logo-text: #E3F3FF;
   --btn-border-color: rgba(255, 255, 255, 0.15);
@@ -105,6 +115,7 @@
   --modal-input-text-color: #ffffff;
   --modal-input-lable-color: #fafafa52;
   --modal-border-color: rgba(255, 255, 255, 0.15);
+  --feedack-form-input: #171820;
 
   /* tasks */
   --task-border-color: none;
@@ -114,12 +125,17 @@
   --scroll-color: #2d3037;
   --scroll-background-color: #21222c;
   --frame-border-color: #42434c;
+  --modal-close-icon: #ffffff;
+  --modal-edit-icon-fill: #3e85f3;
+  --modal-edit-icon-stroke: #ffffff;
   --fill-icon: #FFFFFF;
   --border-statistics:rgba(227, 243, 255, 0.15);
 ;
 
-
   /* backgroung button */
   --background-button-month: #3e85f3;
   --background-button-day: #3e85f3;
+  --background-feedback-form-btn-edit: #353647;
+  --background-feedback-form-btn-delete: rgba(234, 61, 101, 0.2);
+  --background-feedack-form-btn-action: #21222c;
 }
