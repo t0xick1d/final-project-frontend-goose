@@ -59,7 +59,6 @@ export default function Header({ onOpenClick }) {
               <div>
                 <H2>Calendar</H2>
                 <Motivation>
-                  {' '}
                   <Accent>Let go </Accent>of the past and focus on the present!
                 </Motivation>
               </div>

@@ -315,6 +315,8 @@ export const Btn = styled.button`
 
   cursor: pointer;
 
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 600;

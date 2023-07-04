@@ -115,6 +115,8 @@ export const Description = styled.section`
   padding-left: 20px;
   padding-right: 20px;
 
+  background-color: #fff;
+
   @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
@@ -355,6 +357,8 @@ export const Footer = styled.footer`
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 64px;
+
+  background-color: #fff;
 
   @media screen and (min-width: 768px) {
     padding-left: 94px;
