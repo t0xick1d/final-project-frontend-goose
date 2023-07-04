@@ -177,3 +177,20 @@ export const ActionButton = styled.button`
 export const ErrorMessageStyled = styled.div`
   color: red;
 `;
+
+export const IconClose = styled.svg`
+  stroke: var(--modal-close-icon);
+  width: 24px;
+  height: 24px;
+`;
+
+export const IconEdit = styled.svg`
+  stroke: #3e85f3;
+  fill: none;
+  width: 16px;
+  height: 16px;
+
+  stroke: ${props =>
+    props.editButtonActivate && 'var(--modal-edit-icon-stroke)'};
+  fill: ${props => props.editButtonActivate && 'var(--modal-edit-icon-fill)'};
+`;

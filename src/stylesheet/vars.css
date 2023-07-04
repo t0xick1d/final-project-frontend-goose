@@ -46,6 +46,9 @@
   --scroll-color: #e7e5e5;
   --scroll-background-color: #f2f2f2;
   --frame-border-color: #e1e7e9;
+  --modal-close-icon: #111111;
+  --modal-edit-icon-fill: #3e85f3;
+  --modal-edit-icon-stroke: #ffffff;
 
   /* form */
   --input-bcg-color: #f7f7f7;
@@ -63,7 +66,7 @@
   --background-button-month: #cae8ff;
   --background-button-day: #e3f3ff;
   --background-feedback-form-btn-edit: #e3f3ff;
-  --background-feedack-form-btn-delete: rgba(234, 61, 101, 0.2);
+  --background-feedback-form-btn-delete: rgba(234, 61, 101, 0.2);
   --background-feedack-form-btn-action: #e5edfa;
 }
 
@@ -106,6 +109,9 @@
   --scroll-color: #2d3037;
   --scroll-background-color: #21222c;
   --frame-border-color: #42434c;
+  --modal-close-icon: #ffffff;
+  --modal-edit-icon-fill: #3e85f3;
+  --modal-edit-icon-stroke: #ffffff;
 
   /* backgroung button */
   --background-button-month: #3e85f3;
