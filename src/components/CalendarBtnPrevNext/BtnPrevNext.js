@@ -63,7 +63,7 @@ const BtnPrevNext = () => {
     <BtnPrevNextContainer>
       {activeTab === 'day' && (
         <>
-          <TextWrapper type="button">{format(date, 'd MMMM yyyy')}</TextWrapper>
+          <TextWrapper>{format(date, 'd MMMM yyyy')}</TextWrapper>
           <BtnPrevContainer type="button" onClick={previousDay}>
             <FaChevronLeft />
           </BtnPrevContainer>
@@ -74,7 +74,7 @@ const BtnPrevNext = () => {
       )}
       {activeTab === 'month' && (
         <>
-          <TextWrapper type="button">{format(date, 'MMMM yyyy')}</TextWrapper>
+          <TextWrapper>{format(date, 'MMMM yyyy')}</TextWrapper>
           <BtnPrevContainer type="button" onClick={previousMonth}>
             <FaChevronLeft />
           </BtnPrevContainer>

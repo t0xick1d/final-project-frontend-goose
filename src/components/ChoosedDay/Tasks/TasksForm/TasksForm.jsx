@@ -60,7 +60,6 @@ export default function TasksForm({ onClose, category, task = {} }) {
           category: `${category}`,
         }}
         onSubmit={(values, actions) => {
-          console.log('values', values, 'actions', actions);
           if (id) {
             handleEdit(values);
           } else {

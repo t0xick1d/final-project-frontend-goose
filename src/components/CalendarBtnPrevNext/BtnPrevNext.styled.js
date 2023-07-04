@@ -72,11 +72,15 @@ export const BtnNextContainer = styled.button`
 export const BtnPrevNextContainer = styled.div`
   display: flex;
 `;
-export const TextWrapper = styled('button')`
+export const TextWrapper = styled.div`
   /* width: 109px;
   height: 30px;
   color: #fff;
   background: var(--button-bgd-color); */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   min-width: 109px;
   height: 30px;
@@ -85,10 +89,10 @@ export const TextWrapper = styled('button')`
 
   border: none;
   border-radius: 8px;
-  padding: 6px 12px;
-  cursor: pointer;
+  /* padding: 6px 12px; */
+  /* cursor: pointer; */
   margin-bottom: 18px;
-  text-align: center;
+  /* text-align: center; */
   font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 700;

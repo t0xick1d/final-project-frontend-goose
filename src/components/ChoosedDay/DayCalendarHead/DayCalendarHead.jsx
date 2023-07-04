@@ -66,7 +66,7 @@ export function DayCalendarHead({ currentDate }) {
                 handleClickDay(dayWeek);
               }}
             >
-              <p>{format(dayWeek, 'd')}</p>
+              {format(dayWeek, 'd')}
             </DateButton>
           </WeekContainer>
         ))}

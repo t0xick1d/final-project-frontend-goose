@@ -30,7 +30,6 @@ export const fetchTasksMonth = createAsyncThunk(
 export const fetchTasksDay = createAsyncThunk(
   'tasks/fetchAllDay',
   async ({ date }, thunkAPI) => {
-    console.log('date', date);
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 

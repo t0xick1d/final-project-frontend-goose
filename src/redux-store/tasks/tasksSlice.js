@@ -92,7 +92,6 @@ export const tasksSlice = createSlice({
         const taskIndex = state.items.findIndex(
           task => task._id === action.payload.task._id
         );
-        console.log('taskIndex', taskIndex);
         if (taskIndex !== -1) {
           state.items[taskIndex] = action.payload.task;
         }
