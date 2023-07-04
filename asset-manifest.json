@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/final-project-frontend-goose/static/css/main.4b252ebe.css",
-    "main.js": "/final-project-frontend-goose/static/js/main.6d6daa01.js",
+    "main.css": "/final-project-frontend-goose/static/css/main.83618d49.css",
+    "main.js": "/final-project-frontend-goose/static/js/main.29f01a96.js",
     "static/media/image1-tb.jpg": "/final-project-frontend-goose/static/media/image1-tb.6e17e525410a7809e681.jpg",
     "static/media/image1-dt.jpg": "/final-project-frontend-goose/static/media/image1-dt.c4d999902f2aedc17632.jpg",
     "static/media/image3-tb.jpg": "/final-project-frontend-goose/static/media/image3-tb.8d264fe598b9f7f1d8a5.jpg",
@@ -15,7 +15,7 @@
     "static/media/sugnUpImg.png": "/final-project-frontend-goose/static/media/sugnUpImg.5d5569b579467bf92252.png",
     "static/media/logInImg.png": "/final-project-frontend-goose/static/media/logInImg.f177ca1f2ab9bb8fa9c4.png",
     "static/media/goose-404.svg": "/final-project-frontend-goose/static/media/goose-404.7f5c707d2723b3671d6d7b2118812fd9.svg",
-    "static/media/sprite.svg": "/final-project-frontend-goose/static/media/sprite.70b3f48f5bc5d9958b871f2af4d5789a.svg",
+    "static/media/sprite.svg": "/final-project-frontend-goose/static/media/sprite.d33eeec534644fcb6f4e1b686364aef4.svg",
     "static/media/slick.svg": "/final-project-frontend-goose/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/final-project-frontend-goose/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/final-project-frontend-goose/static/media/slick.c94f7671dcc99dce43e2.ttf",
@@ -27,11 +27,11 @@
     "static/media/reviews-arrow-right.svg": "/final-project-frontend-goose/static/media/reviews-arrow-right.a22cdf87a7132e781406da0f90b2321e.svg",
     "static/media/modal-x-close.svg": "/final-project-frontend-goose/static/media/modal-x-close.aa57bc9a554ba9070c51b15392826e97.svg",
     "static/media/reviews-arrow-left.svg": "/final-project-frontend-goose/static/media/reviews-arrow-left.419843934514a4ec72e12d89da762d2a.svg",
-    "main.4b252ebe.css.map": "/final-project-frontend-goose/static/css/main.4b252ebe.css.map",
-    "main.6d6daa01.js.map": "/final-project-frontend-goose/static/js/main.6d6daa01.js.map"
+    "main.83618d49.css.map": "/final-project-frontend-goose/static/css/main.83618d49.css.map",
+    "main.29f01a96.js.map": "/final-project-frontend-goose/static/js/main.29f01a96.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b252ebe.css",
-    "static/js/main.6d6daa01.js"
+    "static/css/main.83618d49.css",
+    "static/js/main.29f01a96.js"
   ]
 }
