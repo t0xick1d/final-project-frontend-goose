@@ -79,9 +79,10 @@
 
 
   /* calendar */
+  --active-selection: #CAE8FF;
   --input-text-color: #616161;
   --user-name-color: #343434;
-  --calendar-bg-color: #ffffff;
+  --calendar-bg-color: #E3F3FF;
   --calendar-border-color: rgba(220, 227, 229, 0.5);
   --background-feedback-form-btn-edit: #e3f3ff;
   --background-feedback-form-btn-delete: rgba(234, 61, 101, 0.2);
