@@ -13,6 +13,19 @@ export const device = {
   desktop: `(min-width: ${size.desktop})`,
 };
 
+export const ReviewsWrapper = styled.div`
+margin: 0 auto;
+  width: 335px;
+
+  @media ${device.tablet} {
+    width: 580px;
+  }
+
+  @media ${device.desktop} {
+    width: 1184px;
+  }
+`;
+
 export const RatingStar = styled(Rating)`
   .filled-icons :not(:first-child) {
     margin-left: 10px;

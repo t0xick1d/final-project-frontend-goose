@@ -13,15 +13,16 @@ import {
   ActionButton,
   ErrorMessageStyled,
   RatingError,
+  IconClose,
+  IconEdit,
 } from './FeedbackFormStyled';
-import ModalCloseSvg from '../../images/icons/modal-x-close.svg';
-import ReviewEditSvg from '../../images/icons/review-edit.svg';
 import ReviewDelteSvg from '../../images/icons/review-delete.svg';
 import { useEffect, useState } from 'react';
 import { getUser } from 'redux-store/Slices/AuthSlice';
 import { selectUserReview } from 'redux-store/Reviews/reviewsSelector';
 import { useDispatch, useSelector } from 'react-redux';
 import ReviewsOperations from 'redux-store/Reviews/reviewsOperations';
+import Icons from 'images/sprite.svg';
 
 const ReviewSchema = Yup.object().shape({
   reviewText: Yup.string()
@@ -146,7 +147,9 @@ export default function FeedbackForm({ handleClose }) {
       {!isThereRating && <RatingError>Rating is required</RatingError>}
 
       <ButtonWindowClose type="button" onClick={handleClose}>
-        <img src={ModalCloseSvg} alt="Close review Window" />
+        <IconClose>
+          <use href={`${Icons}#icon-x-close`}></use>
+        </IconClose>
       </ButtonWindowClose>
 
       <Formik
@@ -160,8 +163,14 @@ export default function FeedbackForm({ handleClose }) {
             <label>Review</label>
             <ButtonBox>
               {btnEditVisible && (
-                <ButtonReviewEdit type="button" onClick={handleReviewEdit}>
-                  <img src={ReviewEditSvg} alt="Edit review" />
+                <ButtonReviewEdit
+                  type="button"
+                  onClick={handleReviewEdit}
+                  editButtonActivate={editButtonActivate}
+                >
+                  <IconEdit editButtonActivate={editButtonActivate}>
+                    <use href={`${Icons}#icon-pencil-01`}></use>
+                  </IconEdit>
                 </ButtonReviewEdit>
               )}
               {btnDeleteVisible && (
@@ -184,7 +193,7 @@ export default function FeedbackForm({ handleClose }) {
           </ErrorMessage>
           <ButtonBox>
             <SaveButton type="submit" disabled={btnSaveDisabled}>
-              Save
+              {editButtonActivate ? 'Edit' : 'Save'}
             </SaveButton>
             <ActionButton type="button" onClick={handleClose}>
               Cancel
