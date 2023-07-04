@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  /* padding: 20px 24px 22px 24px; */
   display: flex;
   align-items: flex-start;
   gap: 18px;
   max-width: 360px;
-  /* overflow-x: scroll; */
   flex: 1 1 auto;
 
   overflow-x: auto;
@@ -14,18 +12,18 @@ export const Section = styled.section`
 
   /* Стили для скроллбара */
   ::-webkit-scrollbar {
-    height: 14px;
-    /* width: thin; */
+    height: 12px;
+    border-radius: 12px;
   }
 
   ::-webkit-scrollbar-track {
-    background-color: #f2f2f2;
-    border-radius: 4px;
+    background-color: var(--scroll-background-color);
+    border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #e7e5e5;
-    border-radius: 4px;
+    background-color: var(--scroll-color);
+    border-radius: 12px;
   }
 
   ::-webkit-scrollbar-thumb:hover {

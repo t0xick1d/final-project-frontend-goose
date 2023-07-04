@@ -4,10 +4,6 @@ export const Item = styled.li`
   display: block;
   border-radius: 8px;
 
-  /* border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #f7f6f9;
-  max-width: 299px; */
-
   border: 1px solid var(--task-border-color);
   background: var(--outlet-background-color);
   width: 299px;
@@ -88,11 +84,11 @@ export const SvgBtn = styled.svg`
   height: 16px;
   cursor: pointer;
   fill: none;
-  stroke: #111111;
+  stroke: var(--title-text-main-color);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
   :hover {
-    stroke: var(--accent-color);
+    stroke: var(--accent);
     transform: scale(1.2);
   }
 `;

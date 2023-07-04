@@ -8,30 +8,8 @@ export const ToDoSection = styled.section`
   gap: 18px;
   min-width: 360px;
 
-  /* 
-  overflow-x: scroll;
-
-  ::-webkit-scrollbar {
-    height: 12px;
-    border-radius: 12px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: var(--scroll-background-color);
-    border-radius: 12px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--scroll-color);
-    border-radius: 12px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-  } */
-
   @media screen and (min-width: 768px) {
     gap: 16px;
-    /* min-width: 768px; */
   }
   @media screen and (min-width: 1440px) {
     gap: 27px;
@@ -42,7 +20,7 @@ export const Container = styled.div`
   padding: 18px;
   border-radius: 8px;
   border: 1px solid var(--task-border-color);
-  background: var(--sidebar-background-color);
+  background-color: var(--sidebar-background-color);
   min-width: 334px;
   width: 100%;
   height: 100%;
@@ -94,15 +72,13 @@ export const AddIcon = styled.svg`
 
   cursor: pointer;
   fill: none;
-  stroke: #111111;
+  stroke: var(--title-text-main-color);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
   :hover {
-    stroke: var(--accent-color);
+    stroke: var(--accent);
     transform: scale(1.2);
   }
-
-  /* fill: currentColor; */
 
   @media screen and (min-width: 768px) {
     width: 24px;
@@ -111,6 +87,7 @@ export const AddIcon = styled.svg`
 `;
 
 export const ScrollableContainer = styled.div`
+  background-color: var(--sidebar-background-color);
   max-height: 380px;
   overflow-y: scroll;
   overflow-x: hidden;
