@@ -16,8 +16,6 @@ import {
   IconClose,
   IconEdit,
 } from './FeedbackFormStyled';
-import ModalCloseSvg from '../../images/icons/modal-x-close.svg';
-import ReviewEditSvg from '../../images/icons/review-edit.svg';
 import ReviewDelteSvg from '../../images/icons/review-delete.svg';
 import { useEffect, useState } from 'react';
 import { getUser } from 'redux-store/Slices/AuthSlice';
