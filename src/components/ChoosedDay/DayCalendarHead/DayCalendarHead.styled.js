@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: block;
   align-items: center;
   margin-bottom: 16px;
-  border: 1px solid var(--task-card-color);
+  border: 1px solid var(--calendartable-border-color);
   border-radius: 8px;
   padding: 14px 18px;
   background-color: var(--sidebar-background-color);
