@@ -110,6 +110,7 @@ export const BlockInput = styled.div`
 `;
 
 export const Input = styled(Field)`
+  position: relative;
   width: 299px;
   height: 42px;
 
@@ -138,6 +139,14 @@ export const Input = styled(Field)`
     font-size: 16px;
     line-height: calc(18 / 16);
   }
+`;
+
+export const Message = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  color: red;
+  font-size: 10;
+  margin-top: -18px;
 `;
 
 export const DatePick = styled(DatePicker)`
@@ -274,6 +283,8 @@ export const VectorPng = styled.svg`
 `;
 
 export const LabelBtn = styled.label`
+  display: flex;
+  flex-direction: column;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;

@@ -15,6 +15,8 @@ import Page404 from 'page/Page404/Page404';
 import PrivateRoute from 'PrivateRoute';
 import RestrictedRoute from 'RestrictedRoute';
 
+import Spiner from './components/Spiner/Spiner';
+
 import { fetchCurrentUser } from 'redux-store/AuthOperations/AuthOperations';
 import { ChosedMonth } from 'components/ChosedMonth/ChosedMonth';
 import ChoosedDay from 'components/ChoosedDay/ChoosedDay/ChoosedDay';
@@ -31,7 +33,7 @@ export const App = () => {
 
   return (
     <>
-      <Suspense fallback={'Loading...'}>
+      <Suspense fallback={<Spiner />}>
         <Routes>
           <Route index element={<MainPage />} />
           <Route path="/" element={<LoginPage />} />
@@ -39,7 +41,7 @@ export const App = () => {
             path="/login"
             element={
               <RestrictedRoute
-                redirectTo="/account"
+                redirectTo="/calendar"
                 component={<LoginPage />}
               />
             }
@@ -48,7 +50,7 @@ export const App = () => {
             path="/register"
             element={
               <RestrictedRoute
-                redirectTo="/account"
+                redirectTo="/calendar"
                 component={<RegisterPage />}
               />
             }
@@ -61,7 +63,6 @@ export const App = () => {
             }
           >
             <Route path="/account" element={<AccountPage />} />
-            <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/calendar" element={<CalendarPage />}>
               <Route path="month/:currentDate" element={<ChosedMonth />} />
               <Route path="day/:currentDate" element={<ChoosedDay />} />

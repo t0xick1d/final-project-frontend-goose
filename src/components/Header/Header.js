@@ -23,6 +23,7 @@ export default function Header({ onOpenClick }) {
   const location = useLocation();
   const isActivePageCalendar = location.pathname.includes('calendar');
   const isActivePageDay = location.pathname.includes('day');
+  const isActivePageStatistics = location.pathname.includes('statistics');
 
   const isTabletOrMobile = useMedia('(max-width: 1439px)');
   const todoList = useSelector(selectArrTasks);
@@ -65,6 +66,8 @@ export default function Header({ onOpenClick }) {
             </>
           ) : isActivePageCalendar ? (
             <H2>Calendar</H2>
+          ) : isActivePageStatistics ? (
+            <H2>Statistics</H2>
           ) : (
             <H2>User Profile</H2>
           )}

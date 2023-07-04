@@ -15,6 +15,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 
+import Spiner from '../Spiner/Spiner';
+
 const Chart = ({ firstDayCurrentMonth, setFirstDayCurrentMonth }) => {
 const [data, setData] = useState(null);
 
@@ -40,7 +42,7 @@ useEffect(() => {
 }, [firstDayCurrentMonth, token]);
 
 if (!data) {
-    return <div>Loading...</div>;
+    return <Spiner />;
 }
 const { todo, inProgres, done } = data;
 
@@ -79,36 +81,36 @@ const chartData = [
 
 
     const CustomLabel = ({ x, y, width, value }) => (
-     <g transform={`translate(${x + width / 2},${y + 4})`}>
-    <text
-      x={1}
-      y={2}
-      dy={4}
-      textAnchor="middle"
-      fill="#343434"
-      fontSize={12}
-      fontWeight={500}
-    >
-      {!isNaN(value) && value !== 0 ? `${value.toFixed(0)}%` : ''}
-    </text>
-  </g>
-);
+      <g transform={`translate(${x + width / 2},${y + 4})`}>
+        <text
+          x={1}
+          y={2}
+          dy={4}
+          textAnchor="middle"
+          fill="var(--calendar-date-color)"
+          fontSize={12}
+          fontWeight={500}
+        >
+          {!isNaN(value) && value !== 0 ? `${value.toFixed(0)}%` : ''}
+        </text>
+      </g>
+    );
 
 return (
   <ChartWrapper>
     <Container>
       <Text>Tasks </Text>
       <ResponsiveContainer width="100%" height={266}>
-        <BarChart data={chartData} barGap={8} barSize={22}>
+        <BarChart data={chartData} barGap={8}  barSize={22} >
           <CartesianGrid
-            stroke="var(--active-selection)"
+            stroke="var(--border-statistics)"
             strokeWidth={1}
             strokeDasharray="none"
             vertical={false}
           />
           <XAxis
             dataKey="name"
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 12, fill: 'var(--calendar-date-color)' }}
             tickLine={false}
             tickMargin={10}
             axisLine={false}
@@ -122,6 +124,7 @@ return (
             tickCount={totalTasks + 1}
             tickLine={false}
             tickMargin={30}
+            tick={{ fill: 'var(--calendar-date-color)' }}
           />
           <Tooltip />
           <Bar dataKey="day" fill="url(#gradient1)" radius={[0, 0, 10, 10]}>
@@ -129,6 +132,7 @@ return (
               dataKey="dayPercentage"
               position="top"
               content={<CustomLabel />}
+              fill="var(--calendar-date-color)"
             />
           </Bar>
           <Bar dataKey="month" fill="url(#gradient2)" radius={[0, 0, 10, 10]}>
@@ -136,6 +140,7 @@ return (
               dataKey="monthPercentage"
               position="top"
               content={<CustomLabel />}
+              fill="var(--calendar-date-color)"
             />
           </Bar>
           <defs>
