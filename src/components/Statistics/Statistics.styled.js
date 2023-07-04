@@ -16,9 +16,8 @@ export const StatisticsContainer = styled.div`
   max-width: 100%;
   height: 100%;
   position: relative;
-  background: var(--btn-text-color);
   border-radius: 16px;
-  background: var(--main-background-color);
+  background-color: var(--main-background-color);
 `;
 
 export const ButtonWrapper = styled('button')`
@@ -30,7 +29,7 @@ export const ButtonWrapper = styled('button')`
   border-radius: 8px;
   padding: 6px 12px;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter';
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
@@ -41,6 +40,7 @@ export const ButtonWrapper = styled('button')`
     width: 134px;
     height: 34px;
     margin-right: 8px;
+    font-size: 16px;
   }
 `;
 
@@ -89,7 +89,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter';
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -127,7 +127,7 @@ export const ChartWrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  border: 0.8px solid var(--active-selection);
+  border: 0.8px solid var(--border-statistics);
   border-radius: 16px;
   padding-right: 14px;
   padding-left: 14px;
@@ -146,7 +146,7 @@ export const Container = styled.div`
 
 export const BtnPrevContainer = styled.button`
   border-radius: 8px 0 0 8px;
-  border: 1px solid var(--task-border-color);
+  border: 1px solid var(--btn-border-color);
   feel: white;
   overflow: hidden;
   cursor: pointer;
@@ -163,12 +163,12 @@ export const BtnPrevContainer = styled.button`
 `;
 
 export const Text = styled.p`
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter';
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
   letter-spacing: 0em;
-  color: --calendar-date-color ;
+  color: var(--calendar-date-color) ;
   padding-left: 14px;
   padding-top: 40px;
   margin-bottom: 20px;
@@ -185,7 +185,7 @@ export const Text = styled.p`
 
 export const BtnNextContainer = styled.button`
   border-radius: 0 8px 8px 0;
-  border: 1px solid var(--task-border-color);
+  border: 1px solid var(--btn-border-color);
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
@@ -203,30 +203,3 @@ export const BtnPrevNextContainer = styled.div`
   display: flex;
 `;
 
-
-
-export const TextWrapper = styled('button')`
-  width: 109px;
-  height: 30px;
-  color: var(--btn-text-color);
-  background: var(--button-bgd-color);
-  border: none;
-  border-radius: 8px;
-  padding: 6px 12px;
-  cursor: pointer;
-  margin-bottom: 18px;
-
-  text-align: center;
-  font-family: 'Inter';
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.28;
-  text-transform: uppercase;
-
-  @media screen and (min-width: 768px) {
-    margin-right: 8px;
-    width: 131px;
-    height: 34px;
-    margin-bottom: 0;
-  }
-`;

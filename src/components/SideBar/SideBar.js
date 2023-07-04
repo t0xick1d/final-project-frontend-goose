@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Icons from '../../images/sprite.svg';
 import GooseImg from '../../images/icons/goose-min.png';
 import { CgClose } from 'react-icons/cg';
@@ -8,7 +8,7 @@ import {
   LogoConrainer,
   Logo,
   LogoIcon,
-  LogoSvg,
+  Text,
   CloseBtn,
   SideBarNav,
   TitleSideBar,
@@ -19,13 +19,12 @@ import {
   StatisticsIcon,
   LogOutBtn,
   LogoutIcon,
+  Span,
 } from './SideBar.styled';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux-store/AuthOperations/AuthOperations';
 
 export default function SideBar({ onCloseClick, isOpen }) {
-  const [isIconUserHovered, setIconUserHovered] = useState(false);
-  const [isCalendarIconHovered, setCalendarIconHovered] = useState(false);
   const dispatch = useDispatch();
 
   return (
@@ -34,9 +33,9 @@ export default function SideBar({ onCloseClick, isOpen }) {
         <LogoConrainer>
           <Logo>
             <LogoIcon src={GooseImg} alt="logo" />
-            <LogoSvg>
-              <use href={`${Icons}#icon-GooseTrack`}></use>
-            </LogoSvg>
+            <Text>
+              G<Span>oo</Span>seTrack
+            </Text>
           </Logo>
           <CloseBtn onClick={onCloseClick}>
             <CgClose />
@@ -48,42 +47,22 @@ export default function SideBar({ onCloseClick, isOpen }) {
             <li>
               <StyledNavLink
                 to="account"
-                onMouseEnter={() => setIconUserHovered(true)}
-                onMouseLeave={() => setIconUserHovered(false)}
-                onFocus={() => setIconUserHovered(true)}
-                onBlur={() => setIconUserHovered(false)}
                 onClick={onCloseClick}
               >
-                {isIconUserHovered ? (
-                  <IconUser>
-                    <use href={`${Icons}#user`}></use>
-                  </IconUser>
-                ) : (
                   <IconUser>
                     <use href={`${Icons}#icon-user-check`}></use>
                   </IconUser>
-                )}
                 My account
               </StyledNavLink>
             </li>
             <li>
               <StyledNavLink
                 to="calendar"
-                onMouseEnter={() => setCalendarIconHovered(true)}
-                onMouseLeave={() => setCalendarIconHovered(false)}
-                onFocus={() => setCalendarIconHovered(true)}
-                onBlur={() => setCalendarIconHovered(false)}
                 onClick={onCloseClick}
               >
-                {isCalendarIconHovered ? (
-                  <CalendarIcon>
-                    <use href={`${Icons}#calendar`}></use>
-                  </CalendarIcon>
-                ) : (
                   <CalendarIcon>
                     <use href={`${Icons}#icon-calendar-check`}></use>
                   </CalendarIcon>
-                )}
                 Calendar
               </StyledNavLink>
             </li>
