@@ -160,7 +160,11 @@ export default function FeedbackForm({ handleClose }) {
             <label>Review</label>
             <ButtonBox>
               {btnEditVisible && (
-                <ButtonReviewEdit type="button" onClick={handleReviewEdit}>
+                <ButtonReviewEdit
+                  type="button"
+                  onClick={handleReviewEdit}
+                  editButtonActivate={editButtonActivate}
+                >
                   <img src={ReviewEditSvg} alt="Edit review" />
                 </ButtonReviewEdit>
               )}
@@ -184,7 +188,7 @@ export default function FeedbackForm({ handleClose }) {
           </ErrorMessage>
           <ButtonBox>
             <SaveButton type="submit" disabled={btnSaveDisabled}>
-              Save
+              {editButtonActivate ? 'Edit' : 'Save'}
             </SaveButton>
             <ActionButton type="button" onClick={handleClose}>
               Cancel

@@ -6,7 +6,7 @@ export const BoxStyled = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffffff;
+  background-color: var(--modal-background-color);
   box-shadow: 0px 4px 57px 0px rgba(17, 17, 17, 0.05);
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.8);
