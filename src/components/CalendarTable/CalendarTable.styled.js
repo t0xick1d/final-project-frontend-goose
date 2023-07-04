@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Calendar = styled.div`
   display: grid;
-
   grid-template-columns: repeat(7, calc(100% / 7));
   box-sizing: border-box;
   border: 1px solid var(--btn-border-color);

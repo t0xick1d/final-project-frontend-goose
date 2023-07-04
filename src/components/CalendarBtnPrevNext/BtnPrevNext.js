@@ -80,7 +80,7 @@ const BtnPrevNext = () => {
             <FaChevronLeft />
           </BtnPrevContainer>
           <BtnNextContainer type="button" onClick={nextMonth}>
-            <FaChevronRight />
+            <FaChevronRight fill="#FFFFFF" />
           </BtnNextContainer>
         </>
       )}

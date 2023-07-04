@@ -33,11 +33,10 @@ export const BtnNextContainer = styled.button`
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
 
-  background-color: var(-main-background-color);
+  background-color: var(--calendar-bg-color);
   width: 36px;
   height: 30px;
   margin: 0;
-
   @media ${device.tablet} {
     width: 38px;
     height: 34px;
