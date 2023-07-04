@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Calendar = styled.div`
   display: grid;
-
   grid-template-columns: repeat(7, calc(100% / 7));
   box-sizing: border-box;
   border: 1px solid var(--calendar-border-color);
@@ -37,7 +36,7 @@ export const Cell = styled.div`
 `;
 
 export const Day = styled.p`
-  color: var(--user-name-color);
+  color: var(--calendar-date-color);
   font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 700;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
-  TypesContainerMonth,
-  TypesContainerDay,
+  TypesContainer,
+  // TypesContainerDay,
   TypesTabs,
   BtnContainer,
 } from './PeriodTypes.styled';
@@ -39,22 +39,31 @@ const PeriodType = () => {
 
   return (
     <BtnContainer>
-      <TypesContainerMonth type="button" isActive={activeTab === 'Month'}>
+      <TypesContainer
+        type="button"
+        isActive={activeTab === 'Month'}
+        onClick={() => handleTabClick('Month')}
+      >
         <TypesTabs
+          isActive={activeTab === 'Month'}
           to={`/calendar/month/${formattedDate('Month')}`}
-          onClick={() => handleTabClick('Month')}
         >
           Month
         </TypesTabs>
-      </TypesContainerMonth>
-      <TypesContainerDay type="button" isActive={activeTab === 'Day'}>
+      </TypesContainer>
+      <TypesContainer
+        type="button"
+        isActive={activeTab === 'Day'}
+        lastChild={true}
+        onClick={() => handleTabClick('Day')}
+      >
         <TypesTabs
+          isActive={activeTab === 'Day'}
           to={`/calendar/day/${formattedDate('Day')}`}
-          onClick={() => handleTabClick('Day')}          
         >
           Day
         </TypesTabs>
-      </TypesContainerDay>
+      </TypesContainer>
     </BtnContainer>
   );
 };

@@ -4,6 +4,8 @@
   --secondary-font: 'Coolvetica', sans-serif;
 
   /* text */
+  --active-btn-calendar-switch: rgba(62, 133, 243, 1);
+  --noactive-btn-calendar-switch: rgba(62, 133, 243, 1);
   --title-text-main-color: #111111;
   --secondary-text-color: #616161;
   --accent-color: #3e85f3;
@@ -79,6 +81,8 @@
 
 [dark] {
   /* text */
+  --active-btn-calendar-switch: rgba(255, 255, 255, 1);
+  --noactive-btn-calendar-switch: rgba(62, 133, 243, 1);
   --title-text-main-color: #ffffff;
   --accent-color: #ffffff;
   --inactive-btn-text-color: #ffffff;
@@ -99,6 +103,8 @@
 
 
   /* backgroung */
+  --calendar-bg-color: rgba(33, 34, 44, 1);
+  --next-btn-calendar: rgba(255, 255, 255, 0.15);
   --outlet-background-color: #171820;
   --main-background-color: #21222c;
   --sidebar-background-color: #13151a;
@@ -107,7 +113,7 @@
   --task-field-color: #171820;
 ;
 
-
+  
   /* form */
   --input-bcg-color: #171820;
   --border-input: #ffffff2f;
@@ -134,7 +140,7 @@
 
   /* backgroung button */
   --background-button-month: #3e85f3;
-  --background-button-day: #3e85f3;
+  --background-button-day: rgba(33, 34, 44, 1);
   --background-feedback-form-btn-edit: #353647;
   --background-feedback-form-btn-delete: rgba(234, 61, 101, 0.2);
   --background-feedack-form-btn-action: #21222c;
