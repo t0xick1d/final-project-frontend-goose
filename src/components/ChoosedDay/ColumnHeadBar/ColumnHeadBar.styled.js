@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const ToDoSection = styled.section`
-  /* padding: 20px 24px 22px 24px; */
   display: flex;
   align-items: flex-start;
   gap: 18px;
   min-width: 360px;
-  /* overflow-x: scroll; */
 
   @media screen and (min-width: 768px) {
     gap: 16px;
@@ -65,6 +63,15 @@ export const AddTaskButton = styled.button`
 export const AddIcon = styled.svg`
   width: 22px;
   height: 22px;
+  cursor: pointer;
+  fill: none;
+  stroke: #111111;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  :hover {
+    stroke: var(--accent-color);
+    transform: scale(1.2);
+  }
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;

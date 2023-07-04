@@ -20,9 +20,21 @@ export const BtnPrevContainer = styled.button`
   width: 36px;
   height: 30px;
   margin: 0;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  svg {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: #111111;
+  }
   @media ${device.tablet} {
     width: 38px;
     height: 34px;
+  }
+  :hover {
+    transform: scale(1.2);
+    svg {
+      fill: var(--accent-color);
+    }
   }
 `;
 
@@ -37,10 +49,22 @@ export const BtnNextContainer = styled.button`
   width: 36px;
   height: 30px;
   margin: 0;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  svg {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: #111111;
+  }
 
   @media ${device.tablet} {
     width: 38px;
     height: 34px;
+  }
+  :hover {
+    transform: scale(1.2);
+    svg {
+      fill: var(--accent-color);
+    }
   }
 `;
 

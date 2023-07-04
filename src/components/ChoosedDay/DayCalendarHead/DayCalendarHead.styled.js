@@ -86,8 +86,7 @@ export const DateButton = styled.button`
       color: inherit;
     `;
   }};
-  //   backgroundColor: isCurrentDay(dayWeek) ? '#3e85f3' : 'inherit',
-  //   color: isCurrentDay(dayWeek) ? '#ffffff' : 'inherit',
+
   &:hover {
     background-color: #3e85f3;
     color: #e3f3ff;

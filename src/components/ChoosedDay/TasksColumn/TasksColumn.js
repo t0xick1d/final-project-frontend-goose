@@ -30,19 +30,16 @@ export const TasksColumn = ({ columnTitle, tasks }) => {
           date={formattedCurrentDate}
           columnTitle={{ title, category }}
         />
-        {/* {tasks && <ColumnsTasksList tasks={tasks} />} */}
+
         {tasks.length > 0 && (
           <ScrollableContainer>
-            <TasksCard list={tasks} />
+            <ul>
+              {tasks.map(task => (
+                <TasksCard key={task._id} task={task} />
+              ))}
+            </ul>
           </ScrollableContainer>
         )}
-        {/* {tasks &&
-          tasks.map(task => (
-            // TasksColumn
-            <div>
-              {task.date} - {task.title}
-            </div>
-          ))} */}
 
         <ButtonAddTask date={formattedCurrentDate} category={category} />
       </Container>

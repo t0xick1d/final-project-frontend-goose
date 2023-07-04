@@ -1,5 +1,4 @@
 import React from 'react';
-import { format } from 'date-fns';
 import { Formik, Form } from 'formik';
 
 import Icons from '../../../../images/sprite.svg';
@@ -36,19 +35,11 @@ export default function TasksForm({ onClose, category, task = {} }) {
   const { currentDate } = useParams();
 
   const handleSubmit = values => {
-    //    dispatch(handleEdit({ _id: id, ...values }));
-    // const v = { ...values };
-    // console.log('handleSubmit', v);
-    console.log('handleSubmit', values);
     dispatch(addTask(values));
     onClose();
   };
 
   const handleEdit = values => {
-    // e.currentTarget.value;
-    const v = { _id: id, ...values };
-    console.log('handleEdit', v);
-
     dispatch(editTask({ _id: id, ...values }));
     onClose();
   };
@@ -68,11 +59,9 @@ export default function TasksForm({ onClose, category, task = {} }) {
           date: `${date ?? currentDate}`,
           category: `${category}`,
         }}
-        //  onSubmit={handleSubmit}
         onSubmit={(values, actions) => {
           console.log('values', values, 'actions', actions);
           if (id) {
-            console.log('------');
             handleEdit(values);
           } else {
             handleSubmit(values);

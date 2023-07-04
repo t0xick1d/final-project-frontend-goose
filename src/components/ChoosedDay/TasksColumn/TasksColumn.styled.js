@@ -5,8 +5,9 @@ export const Container = styled.div`
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background: #fff;
-  max-width: 344px;
+  max-width: 335px;
   @media screen and (min-width: 768px) {
+    max-width: 344px;
     padding: 20px;
   }
 `;
@@ -15,8 +16,11 @@ export const ScrollableContainer = styled.div`
   max-height: 380px;
   overflow-y: auto;
   overflow-x: hidden;
+  width: 311px;
+  @media screen and (min-width: 768px) {
+    width: 315px;
+  }
 
-  /* Стили для скроллбара */
   ::-webkit-scrollbar {
     width: 8px;
   }

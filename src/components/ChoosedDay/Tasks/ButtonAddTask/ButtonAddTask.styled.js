@@ -6,8 +6,6 @@ export const AddTaskButton = styled.button`
   align-items: center;
   gap: 10px;
   cursor: pointer;
-
-  /* width: 299px; */
   width: 100%;
   height: 48px;
   padding: 16px 20px 16px 20px;
@@ -27,11 +25,12 @@ export const AddTaskButton = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    /* width: 304px; */
     height: 52px;
   }
 `;
 export const AddTaskIcon = styled.svg`
   width: 24px;
   height: 24px;
+  fill: none;
+  stroke: #111111;
 `;
