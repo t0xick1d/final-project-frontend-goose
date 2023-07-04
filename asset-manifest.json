@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/final-project-frontend-goose/static/css/main.85157ca1.css",
-    "main.js": "/final-project-frontend-goose/static/js/main.556354fb.js",
+    "main.css": "/final-project-frontend-goose/static/css/main.53cda220.css",
+    "main.js": "/final-project-frontend-goose/static/js/main.73c902ee.js",
     "static/media/image1-tb.jpg": "/final-project-frontend-goose/static/media/image1-tb.6e17e525410a7809e681.jpg",
     "static/media/image1-dt.jpg": "/final-project-frontend-goose/static/media/image1-dt.c4d999902f2aedc17632.jpg",
     "static/media/image3-tb.jpg": "/final-project-frontend-goose/static/media/image3-tb.8d264fe598b9f7f1d8a5.jpg",
@@ -25,11 +25,11 @@
     "static/media/login-icon.svg": "/final-project-frontend-goose/static/media/login-icon.89b72c4c3399de373085c8003fa56216.svg",
     "static/media/reviews-arrow-right.svg": "/final-project-frontend-goose/static/media/reviews-arrow-right.a22cdf87a7132e781406da0f90b2321e.svg",
     "static/media/reviews-arrow-left.svg": "/final-project-frontend-goose/static/media/reviews-arrow-left.419843934514a4ec72e12d89da762d2a.svg",
-    "main.85157ca1.css.map": "/final-project-frontend-goose/static/css/main.85157ca1.css.map",
-    "main.556354fb.js.map": "/final-project-frontend-goose/static/js/main.556354fb.js.map"
+    "main.53cda220.css.map": "/final-project-frontend-goose/static/css/main.53cda220.css.map",
+    "main.73c902ee.js.map": "/final-project-frontend-goose/static/js/main.73c902ee.js.map"
   },
   "entrypoints": [
-    "static/css/main.85157ca1.css",
-    "static/js/main.556354fb.js"
+    "static/css/main.53cda220.css",
+    "static/js/main.73c902ee.js"
   ]
 }
