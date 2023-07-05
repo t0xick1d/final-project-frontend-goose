@@ -1,15 +1,15 @@
 import styled from 'styled-components';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-    const size = {
-      tablet: '768px',
-      desktop: '1440px',
-    };
+const size = {
+  tablet: '768px',
+  desktop: '1440px',
+};
 
-    export const device = {
-      tablet: `(min-width: ${size.tablet})`,
-      desktop: `(min-width: ${size.desktop})`,
-    };
-
+export const device = {
+  tablet: `(min-width: ${size.tablet})`,
+  desktop: `(min-width: ${size.desktop})`,
+};
 
 export const StatisticsContainer = styled.div`
   margin: 0 auto;
@@ -29,7 +29,7 @@ export const ButtonWrapper = styled('button')`
   border-radius: 8px;
   padding: 6px 12px;
   cursor: pointer;
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
@@ -54,7 +54,6 @@ export const BtnContainer = styled.div`
 `;
 
 export const OptionsContainer = styled.div`
-
   padding-top: 28px;
   padding-right: 14px;
   padding-left: 14px;
@@ -73,7 +72,6 @@ export const OptionsContainer = styled.div`
   }
 `;
 
-
 export const IconSvg = styled.svg`
   width: 8px;
   height: 8px;
@@ -89,7 +87,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -147,7 +145,7 @@ export const Container = styled.div`
 export const BtnPrevContainer = styled.button`
   border-radius: 8px 0 0 8px;
   border: 1px solid var(--btn-border-color);
-  feel: white;
+  fill: white;
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
@@ -156,6 +154,9 @@ export const BtnPrevContainer = styled.button`
   width: 36px;
   height: 30px;
   margin: 0;
+  :hover {
+    transform: scale(1.2);
+  }
   @media ${device.tablet} {
     width: 38px;
     height: 34px;
@@ -163,12 +164,12 @@ export const BtnPrevContainer = styled.button`
 `;
 
 export const Text = styled.p`
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
   letter-spacing: 0em;
-  color: var(--calendar-date-color) ;
+  color: var(--calendar-date-color);
   padding-left: 14px;
   padding-top: 40px;
   margin-bottom: 20px;
@@ -193,6 +194,9 @@ export const BtnNextContainer = styled.button`
   width: 36px;
   height: 30px;
   margin: 0;
+  :hover {
+    transform: scale(1.2);
+  }
   @media ${device.tablet} {
     width: 38px;
     height: 34px;
@@ -202,4 +206,21 @@ export const BtnNextContainer = styled.button`
 export const BtnPrevNextContainer = styled.div`
   display: flex;
 `;
+export const StyledIconRight = styled(FaChevronRight)`
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: var(--title-text-main-color);
 
+  :hover {
+    transform: scale(1.2);
+    fill: var(--accent);
+  }
+`;
+export const StyledIconLeft = styled(FaChevronLeft)`
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: var(--title-text-main-color);
+
+  :hover {
+    transform: scale(1.2);
+    fill: var(--accent);
+  }
+`;
