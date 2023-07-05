@@ -59,23 +59,23 @@ const chartData = [
   {
     name: 'Todo',
     day: todo.forDay.quantity,
-    dayPercentage: (todo.forDay.quantity / totalTasks) * 100,
+    dayPercentage: todo.forDay.percents,
     month: todo.forMonth.quantity,
-    monthPercentage: (todo.forMonth.quantity / totalTasks) * 100,
+    monthPercentage: todo.forMonth.percents,
   },
   {
     name: 'In Progress',
     day: inProgres.forDay.quantity,
-    dayPercentage: (inProgres.forDay.quantity / totalTasks) * 100,
+    dayPercentage: inProgres.forDay.percents,
     month: inProgres.forMonth.quantity,
-    monthPercentage: (inProgres.forMonth.quantity / totalTasks) * 100,
+    monthPercentage: inProgres.forMonth.percents,
   },
   {
     name: 'Done',
     day: done.forDay.quantity,
-    dayPercentage: (done.forDay.quantity / totalTasks) * 100,
+    dayPercentage: done.forDay.percents,
     month: done.forMonth.quantity,
-    monthPercentage: (done.forMonth.quantity / totalTasks) * 100,
+    monthPercentage: done.forMonth.percents,
   },
 ];
 
