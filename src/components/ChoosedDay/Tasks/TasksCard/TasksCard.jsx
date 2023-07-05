@@ -188,12 +188,12 @@ export default function TasksCard({ task }) {
             >
               <BsTrash3 style={{ marginBottom: '20px' }} />
             </IconContext.Provider>
-            <ModalDeleteFont class="confirmation-delete">
+            <ModalDeleteFont>
               <ModalDeleteTitle>Confirm Deletion</ModalDeleteTitle>
               <ModalDeleteText>
                 Are you sure you want to delete this task?
               </ModalDeleteText>
-              <div class="confirmation-buttons">
+              <div>
                 <ModalCalcelButton onClick={closeDeleteModal}>
                   Cancel
                 </ModalCalcelButton>
