@@ -9,12 +9,13 @@ import {
   BtnPrevContainer,
   BtnPrevNextContainer,
   BtnNextContainer,
+  StyledIconLeft,
+  StyledIconRight,
 } from './Statistics.styled';
 import { format, parseISO, startOfToday, parse } from 'date-fns';
 import Icons from '../../images/sprite.svg';
 import { useState } from 'react';
 import Calendar from 'components/Calendar/Calendar';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Chart from './StatisticsChart';
 
 const Statistics = () => {
@@ -55,10 +56,10 @@ const Statistics = () => {
           </ButtonWrapper>
           <BtnPrevNextContainer>
             <BtnPrevContainer type="button" onClick={handlePreviousDay}>
-              <FaChevronLeft fill="var(--calendar-date-color)" />
+              <StyledIconLeft fill="var(--calendar-date-color)" />
             </BtnPrevContainer>
             <BtnNextContainer type="button" onClick={handleNextDay}>
-              <FaChevronRight fill="var(--calendar-date-color)" />
+              <StyledIconRight fill="var(--calendar-date-color)" />
             </BtnNextContainer>
           </BtnPrevNextContainer>
         </BtnContainer>
