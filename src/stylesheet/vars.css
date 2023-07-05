@@ -100,6 +100,7 @@
   --inactive-btn-text-color: #ffffff;
   --active-selection: #3e85f3;
   --calendar-date-color: #ffffff;
+  --calendar-day-color: rgba(250, 250, 250, 0.3);
   --task-field-text-color: #ffffff;
   --text-404: rgba(255, 255, 255, 1);
   --input-border-color: #ffffff26;

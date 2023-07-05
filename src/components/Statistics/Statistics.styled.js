@@ -171,23 +171,21 @@ export const Text = styled.p`
   line-height: 21px;
   letter-spacing: 0em;
   color: var(--calendar-date-color);
-  padding-left: 14px;
+
   padding-top: 40px;
   margin-bottom: 20px;
   @media ${device.tablet} {
     padding-top: 32px;
-    padding-left: 32px;
   }
 
   @media ${device.desktop} {
     padding-top: 40px;
-    padding-left: 40px;
   }
 `;
 
 export const BtnNextContainer = styled.button`
   border-radius: 0 8px 8px 0;
-  border: 1px solid var(--task-border-color);
+  border: 1px solid var(--btn-border-color);
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
@@ -226,7 +224,6 @@ export const StyledIconLeft = styled(FaChevronLeft)`
   }
 `;
 
-
 export const TextWrapper = styled('button')`
   width: 121px;
   height: 30px;
@@ -245,7 +242,7 @@ export const TextWrapper = styled('button')`
   text-transform: uppercase;
   display: flex;
   justify-content: center;
-   @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     margin-right: 8px;
     width: 131px;
     height: 34px;
