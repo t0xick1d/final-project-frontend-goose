@@ -38,8 +38,6 @@ const validationFormikSchema = object({
 const UserForm = () => {
   const { user } = useSelector(getUser);
   const [avatarURL, setAvatarURL] = useState(null);
-  const [newBirthday, setNewBirthday] = useState('');
-
   const [initialValues, setInitialValues] = useState({
     name: '',
 
@@ -57,15 +55,11 @@ const UserForm = () => {
       email: user ? user.email : '',
       phone: user ? user.phone : '',
       skype: user ? user.skype : '',
-      birthday: newBirthday
-        ? newBirthday
-        : user.birthday
-        ? new Date(user.birthday)
-        : new Date(),
+      birthday: user.birthday ? new Date(user.birthday) : new Date(),
     };
     setAvatarURL(user.avatarURL);
     setInitialValues({ ...data });
-  }, [newBirthday, user]);
+  }, [user]);
 
   const handleSubmit = async (values, { resetForm }) => {
     const formData = new FormData();
@@ -96,7 +90,15 @@ const UserForm = () => {
         onSubmit={handleSubmit}
         validationSchema={validationFormikSchema}
       >
-        {({ values, handleSubmit, handleChange, handleBlur }) => (
+        {({
+          values,
+          handleSubmit,
+          handleChange,
+          handleBlur,
+          setFieldValue,
+          setTouched,
+          touched,
+        }) => (
           <Forms autoComplete="off" onSubmit={handleSubmit}>
             <ContainerImg>
               {avatarURL && avatarURL === avatarURL.toString() ? (
@@ -173,8 +175,9 @@ const UserForm = () => {
                   input={true}
                   maxDate={new Date()}
                   selected={values.birthday}
-                  onChange={data => {
-                    setNewBirthday(data);
+                  onChange={e => {
+                    setFieldValue('birthday', e);
+                    setTouched({ ...touched, birthday: true });
                   }}
                   placeholder="Birthday"
                   dateFormat="dd/MM/yyyy"
