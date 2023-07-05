@@ -58,7 +58,7 @@ export const Button = styled.div`
     cursor: pointer;
     color: var(--button-bgd-color);
     svg {
-      stroke: var(--accent-color);
+      stroke: var(--button-bgd-color);
     }
   }
 `;
