@@ -3,10 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import { object, string, date } from 'yup';
 import { getUser } from '../../redux-store/Slices/AuthSlice';
-import {
-  fetchCurrentUser,
-  updateUser,
-} from 'redux-store/AuthOperations/AuthOperations';
+import { updateUser } from 'redux-store/AuthOperations/AuthOperations';
 import {
   ContainerImg,
   Wrapper,
@@ -39,32 +36,36 @@ const validationFormikSchema = object({
 });
 
 const UserForm = () => {
+  const { user } = useSelector(getUser);
   const [avatarURL, setAvatarURL] = useState(null);
   const [newBirthday, setNewBirthday] = useState('');
-  const [isUpdateForm, setIsUpdateForm] = useState(null);
 
-  const { user } = useSelector(getUser);
+  const [initialValues, setInitialValues] = useState({
+    name: '',
+
+    phone: '',
+    birthday: new Date(),
+    skype: '',
+    email: '',
+  });
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isUpdateForm) {
-      dispatch(fetchCurrentUser());
-      setIsUpdateForm(null);
-    }
-  }, [dispatch, isUpdateForm]);
-
-  const initialValues = {
-    name: user ? user.name : '',
-    email: user ? user.email : '',
-    phone: user ? user.phone : '',
-    skype: user ? user.skype : '',
-    birthday: newBirthday
-      ? newBirthday
-      : user.birthday
-      ? new Date(user.birthday)
-      : new Date(),
-  };
+    const data = {
+      name: user ? user.name : '',
+      email: user ? user.email : '',
+      phone: user ? user.phone : '',
+      skype: user ? user.skype : '',
+      birthday: newBirthday
+        ? newBirthday
+        : user.birthday
+        ? new Date(user.birthday)
+        : new Date(),
+    };
+    setAvatarURL(user.avatarURL);
+    setInitialValues({ ...data });
+  }, [newBirthday, user]);
 
   const handleSubmit = async (values, { resetForm }) => {
     const formData = new FormData();
@@ -78,16 +79,12 @@ const UserForm = () => {
     }
     formData.append('birthday', values.birthday);
 
-    if (avatarURL) {
+    if (avatarURL !== avatarURL.toString()) {
       formData.append('avatar', avatarURL);
     }
-    try {
-      await dispatch(updateUser(formData));
-    } catch (err) {
-      console.log(err);
-    }
 
-    setIsUpdateForm(true);
+    await dispatch(updateUser(formData));
+
     resetForm();
   };
 
@@ -102,10 +99,12 @@ const UserForm = () => {
         {({ values, handleSubmit, handleChange, handleBlur }) => (
           <Forms autoComplete="off" onSubmit={handleSubmit}>
             <ContainerImg>
-              {avatarURL ? (
+              {avatarURL && avatarURL === avatarURL.toString() ? (
+                <ImgAvatar src={avatarURL} alt="avatar" />
+              ) : avatarURL ? (
                 <ImgAvatar src={URL.createObjectURL(avatarURL)} alt="avatar" />
               ) : user?.avatarURL ? (
-                <ImgAvatar src={user.avatarURL} alt="avatar" />
+                <ImgAvatar src={avatarURL} alt="avatar" />
               ) : (
                 <SvgAvatar>
                   <use href={Icon + '#icon-ph-user'}></use>

@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 export const Burger = styled.svg`
   width: 24px;
   height: 24px;
-  stroke: #343434;
+  stroke: var(--calendar-date-color);
   fill: none;
   cursor: pointer;
 
