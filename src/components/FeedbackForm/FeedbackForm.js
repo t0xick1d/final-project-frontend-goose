@@ -109,6 +109,14 @@ export default function FeedbackForm({ handleClose }) {
   };
 
   const handleReviewEdit = async () => {
+    if (editButtonActivate) {
+      setEditButtonActivate(false);
+      setFieldInputDisabled(true);
+      setRatingStarsReadonly(true);
+      setBtnSaveDisabled(true);
+      return;
+    }
+    
     setEditButtonActivate(true);
     setFieldInputDisabled(false);
     setRatingStarsReadonly(false);
@@ -142,7 +150,7 @@ export default function FeedbackForm({ handleClose }) {
 
       <ButtonWindowClose type="button" onClick={handleClose}>
         <IconClose>
-          <use href={`${Icons}#icon-x-close`}></use>
+          <use href={`${Icons}#icon-x-close-feedback`}></use>
         </IconClose>
       </ButtonWindowClose>
 
