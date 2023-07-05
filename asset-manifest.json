@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/final-project-frontend-goose/static/css/main.c6e87a89.css",
-    "main.js": "/final-project-frontend-goose/static/js/main.0507bf5f.js",
+    "main.js": "/final-project-frontend-goose/static/js/main.7015b800.js",
     "static/media/image1_tb_retina.jpg": "/final-project-frontend-goose/static/media/image1_tb_retina.0a420ae0d2c7a5bab327.jpg",
     "static/media/image1_dt_retina.jpg": "/final-project-frontend-goose/static/media/image1_dt_retina.a3e1eca30171e26d56ca.jpg",
     "static/media/image3_tb_retina.jpg": "/final-project-frontend-goose/static/media/image3_tb_retina.f8eb33df40cb7ffb6030.jpg",
@@ -25,7 +25,7 @@
     "static/media/logo_dt@2.png": "/final-project-frontend-goose/static/media/logo_dt@2.d3b18deda85de8fbe594.png",
     "static/media/logo_tb@2.png": "/final-project-frontend-goose/static/media/logo_tb@2.d3b18deda85de8fbe594.png",
     "static/media/logo_mb@2.png": "/final-project-frontend-goose/static/media/logo_mb@2.b551aa571de84357edac.png",
-    "static/media/sprite.svg": "/final-project-frontend-goose/static/media/sprite.ea31a6b11673b3c088fc8ca53e0e78f0.svg",
+    "static/media/sprite.svg": "/final-project-frontend-goose/static/media/sprite.2e3c7541998caec6cfa507acac443abb.svg",
     "static/media/goose-404.svg": "/final-project-frontend-goose/static/media/goose-404.7f5c707d2723b3671d6d7b2118812fd9.svg",
     "static/media/logo_dt@1.png": "/final-project-frontend-goose/static/media/logo_dt@1.15a5fc151ed0468e7c09.png",
     "static/media/logo_tb@1.png": "/final-project-frontend-goose/static/media/logo_tb@1.15a5fc151ed0468e7c09.png",
@@ -38,10 +38,10 @@
     "static/media/reviews-arrow-right.svg": "/final-project-frontend-goose/static/media/reviews-arrow-right.a22cdf87a7132e781406da0f90b2321e.svg",
     "static/media/reviews-arrow-left.svg": "/final-project-frontend-goose/static/media/reviews-arrow-left.419843934514a4ec72e12d89da762d2a.svg",
     "main.c6e87a89.css.map": "/final-project-frontend-goose/static/css/main.c6e87a89.css.map",
-    "main.0507bf5f.js.map": "/final-project-frontend-goose/static/js/main.0507bf5f.js.map"
+    "main.7015b800.js.map": "/final-project-frontend-goose/static/js/main.7015b800.js.map"
   },
   "entrypoints": [
     "static/css/main.c6e87a89.css",
-    "static/js/main.0507bf5f.js"
+    "static/js/main.7015b800.js"
   ]
 }
