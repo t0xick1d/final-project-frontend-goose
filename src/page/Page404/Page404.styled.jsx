@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled('div')`
@@ -65,9 +66,13 @@ export const Text = styled('p')`
   font-weight: 500;
   line-height: 18px;
   color: var(--text-404);
+  z-index: 2;
 
   @media screen and (min-width: 768px) {
     margin: 80px auto 0;
     width: 387px;
   }
+`;
+export const Link = styled(NavLink)`
+  color: var(--text-404);
 `;

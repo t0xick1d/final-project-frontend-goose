@@ -10,15 +10,17 @@ export const TasksColumn = ({ columnTitle, tasks }) => {
   const { title, category } = columnTitle;
 
   const params = useParams();
-  const currentDay = new Date(params.currentDate);
 
+ const currentDay = new Date(params.currentDate);
+ 
   const ValidCurrentDate = (() => {
     if (Object.prototype.toString.call(currentDay) === '[object Date]') {
       if (isNaN(currentDay)) {
         return new Date();
       }
+      return currentDay;
     }
-    return currentDay;
+    return new Date();
   })();
 
   const formattedCurrentDate = format(ValidCurrentDate, 'yyyy-MM-dd');
@@ -33,11 +35,9 @@ export const TasksColumn = ({ columnTitle, tasks }) => {
 
         {tasks.length > 0 && (
           <ScrollableContainer>
-            <ul>
-              {tasks.map(task => (
-                <TasksCard key={task._id} task={task} />
-              ))}
-            </ul>
+            {tasks.map(task => (
+              <TasksCard key={task._id} task={task} />
+            ))}
           </ScrollableContainer>
         )}
 

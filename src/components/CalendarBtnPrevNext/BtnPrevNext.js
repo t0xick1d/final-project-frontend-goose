@@ -28,15 +28,18 @@ const BtnPrevNext = () => {
     }
   }, [path]);
 
-  const date = new Date(params.currentDate);
+const date = new Date(params.currentDate);
 
   const ValidCurrentDate = (() => {
     if (Object.prototype.toString.call(date) === '[object Date]') {
       if (isNaN(date)) {
+        navigate(`/404`);
         return new Date();
       }
+      return date;
     }
-    return date;
+    navigate(`/404`);
+    return new Date();
   })();
 
   function previousMonth() {
@@ -63,7 +66,7 @@ const BtnPrevNext = () => {
     <BtnPrevNextContainer>
       {activeTab === 'day' && (
         <>
-          <TextWrapper>{format(date, 'd MMMM yyyy')}</TextWrapper>
+          <TextWrapper>{format(ValidCurrentDate, 'd MMMM yyyy')}</TextWrapper>
           <BtnPrevContainer type="button" onClick={previousDay}>
             <FaChevronLeft />
           </BtnPrevContainer>
@@ -74,7 +77,7 @@ const BtnPrevNext = () => {
       )}
       {activeTab === 'month' && (
         <>
-          <TextWrapper>{format(date, 'MMMM yyyy')}</TextWrapper>
+          <TextWrapper>{format(ValidCurrentDate, 'MMMM yyyy')}</TextWrapper>
           <BtnPrevContainer type="button" onClick={previousMonth}>
             <FaChevronLeft />
           </BtnPrevContainer>

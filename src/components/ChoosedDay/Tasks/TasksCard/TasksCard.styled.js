@@ -3,15 +3,11 @@ import styled from 'styled-components';
 export const Item = styled.li`
   display: block;
   border-radius: 8px;
-
   border: 1px solid var(--task-border-color);
   background: var(--outlet-background-color);
   width: 299px;
-
   height: 112px;
-
   padding: 14px;
-  margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
     max-width: 300px;

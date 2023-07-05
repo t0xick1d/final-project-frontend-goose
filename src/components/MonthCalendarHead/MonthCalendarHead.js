@@ -11,6 +11,7 @@ import { Day, Week } from './MonthCalendarHead.styled';
 
 const MonthCalendarHead = () => {
   const params = useParams();
+
   const date = new Date(params.currentDate);
 
   const ValidCurrentDate = (() => {
@@ -18,8 +19,9 @@ const MonthCalendarHead = () => {
       if (isNaN(date)) {
         return new Date();
       }
+      return date;
     }
-    return date;
+    return new Date();
   })();
 
   const week = (() => {

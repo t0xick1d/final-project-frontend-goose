@@ -6,17 +6,28 @@ export const Container = styled.div`
   border: 1px solid var(--calendartable-border-color);
   background-color: var(--main-background-color);
   max-width: 335px;
+
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 380px);
+
   @media screen and (min-width: 768px) {
     max-width: 344px;
+    max-height: calc(100vh - 345px);
     padding: 20px;
   }
 `;
 
-export const ScrollableContainer = styled.div`
-  max-height: 380px;
+export const ScrollableContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 14px;
+  height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   width: 311px;
+
   @media screen and (min-width: 768px) {
     width: 315px;
   }
