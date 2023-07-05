@@ -207,7 +207,7 @@ export const BtnPrevNextContainer = styled.div`
 
 
 export const TextWrapper = styled('button')`
-  width: 109px;
+  width: 121px;
   height: 30px;
   color: var(--btn-text-color);
   background: var(--button-bgd-color);
@@ -216,15 +216,15 @@ export const TextWrapper = styled('button')`
   padding: 6px 12px;
   cursor: pointer;
   margin-bottom: 18px;
-
   text-align: center;
   font-family: 'Inter';
   font-size: 14px;
   font-weight: 700;
   line-height: 1.28;
   text-transform: uppercase;
-
-  @media screen and (min-width: 768px) {
+  display: flex;
+  justify-content: center;
+   @media screen and (min-width: 768px) {
     margin-right: 8px;
     width: 131px;
     height: 34px;
