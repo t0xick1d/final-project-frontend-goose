@@ -10,15 +10,17 @@ export const TasksColumn = ({ columnTitle, tasks }) => {
   const { title, category } = columnTitle;
 
   const params = useParams();
-  const currentDay = new Date(params.currentDate);
 
+ const currentDay = new Date(params.currentDate);
+ 
   const ValidCurrentDate = (() => {
     if (Object.prototype.toString.call(currentDay) === '[object Date]') {
       if (isNaN(currentDay)) {
         return new Date();
       }
+      return currentDay;
     }
-    return currentDay;
+    return new Date();
   })();
 
   const formattedCurrentDate = format(ValidCurrentDate, 'yyyy-MM-dd');

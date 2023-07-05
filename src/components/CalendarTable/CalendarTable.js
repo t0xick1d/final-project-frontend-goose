@@ -1,13 +1,7 @@
 import { selectArrTasks } from 'redux-store/tasks/tasksSelectors';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {
-  format,
-  isSameMonth,
-  isToday,
-  getMonth,
-  getDate,
-} from 'date-fns';
+import { format, isSameMonth, isToday, getMonth, getDate } from 'date-fns';
 import { Calendar, Cell, Day, Point, Task } from './CalendarTable.styled';
 import { useParams } from 'react-router-dom';
 
@@ -24,8 +18,9 @@ export const CalendarTable = ({ totalDays }) => {
       if (isNaN(date)) {
         return new Date();
       }
+      return date;
     }
-    return date;
+    return new Date();
   })();
 
   const handleClick = date => {
@@ -61,7 +56,6 @@ export const CalendarTable = ({ totalDays }) => {
           <Cell key={index} onClick={() => handleClick(date)}>
             <Day
               params={{
-
                 isToday: isToday(date, ValidCurrentDate),
                 isSameMonth: !isSameMonth(date, ValidCurrentDate),
               }}

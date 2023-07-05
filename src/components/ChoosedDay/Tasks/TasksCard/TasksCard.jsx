@@ -59,59 +59,6 @@ export default function TasksCard({ task }) {
     const { title, start, end, priority, date } = task;
     dispatch(
       editTask({ _id: task._id, title, start, end, priority, date, category })
-      /*
-    const handleClick = () => {
-        setIsVisible(!isVisible); // Изменяем состояние по нажатию кнопки
-    };
-
-    return (
-        <MainList>
-            {list && list.map(task => <Item key={task._id}>
-                <Text>{`${task.title}`}</Text>
-                <Wrapper>
-                    <Box>
-                        <Avatar src={`${user.user.avatarURL}`}></Avatar>
-                        <Grade color={`${task.priority}`}>{`${task.priority}`}</Grade>
-                    </Box>
-                    <List>
-                        <Dropdown onClick={handleClick} id="dropdown">
-
-                            {isVisible && <>
-                                <DropdownElement >
-                                    <DropdownText>In progress</DropdownText>
-                                    <SvgBtn>
-                                        <use href={`${Icons}#icon-arrow-circle-broken-right`}></use>
-                                    </SvgBtn>
-                                </DropdownElement>
-                                <DropdownElement>
-                                    <DropdownText>Done</DropdownText>
-                                    <SvgBtn>
-                                        <use href={`${Icons}#icon-arrow-circle-broken-right`}></use>
-                                    </SvgBtn>
-                                </DropdownElement>
-                            </>}
-
-
-                        </Dropdown>
-                        <DropdownBtn
-                            id="dropdown-btn"
-                            onClick={handleClick}
-                        >
-                            <SvgBtn>
-                                <use href={`${Icons}#icon-arrow`}></use>
-                            </SvgBtn>
-                        </DropdownBtn>
-                        <SvgBtn onClick={editTask}>
-                            <use href={`${Icons}#icon-pencil-grey`}></use>
-                        </SvgBtn>
-                        <SvgBtn onClick={deleteTask}>
-                            <use href={`${Icons}#icon-trash`}></use>
-                        </SvgBtn>
-                    </List>
-                </Wrapper>
-            </Item>)}
-        </MainList>
-        */
     );
     setIsVisible(false);
   };

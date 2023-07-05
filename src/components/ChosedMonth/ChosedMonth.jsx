@@ -25,8 +25,9 @@ export const ChosedMonth = () => {
       if (isNaN(date)) {
         return new Date();
       }
+      return date;
     }
-    return date;
+    return new Date();
   })();
 
   const firstDay = startOfMonth(ValidCurrentDate);
@@ -36,9 +37,8 @@ export const ChosedMonth = () => {
 
   const totalDays = eachDayOfInterval({ start: startDate, end: endDate });
 
-  const formattedDate = format(date, 'yyyy-MM');
+  const formattedDate = format(ValidCurrentDate, 'yyyy-MM');
   useEffect(() => {
-    // const data = { date: formattedDate };
     dispatch(fetchTasksMonth(formattedDate));
   }, [dispatch, formattedDate]);
 
