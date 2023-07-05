@@ -84,11 +84,11 @@ const Chart = ({ firstDayCurrentMonth, setFirstDayCurrentMonth }) => {
     <g transform={`translate(${x + width / 2},${y + 4})`}>
       <text
         x={2}
-        y={0}
+        y={3}
         dy={0}
         textAnchor="middle"
         fill="var(--calendar-date-color)"
-        fontSize={12}
+        fontSize={isMobile ? 12 : 16}
         fontWeight={500}
       >
         {!isNaN(value) && value !== 0 ? `${value.toFixed(0)}%` : ''}
