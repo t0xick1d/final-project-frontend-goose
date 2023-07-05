@@ -1,35 +1,47 @@
 {
   "files": {
     "main.css": "/final-project-frontend-goose/static/css/main.23e1fe99.css",
-    "main.js": "/final-project-frontend-goose/static/js/main.9019fee9.js",
+    "main.js": "/final-project-frontend-goose/static/js/main.75397633.js",
+    "static/media/image1_tb_retina.jpg": "/final-project-frontend-goose/static/media/image1_tb_retina.0a420ae0d2c7a5bab327.jpg",
+    "static/media/image1_dt_retina.jpg": "/final-project-frontend-goose/static/media/image1_dt_retina.a3e1eca30171e26d56ca.jpg",
+    "static/media/image3_tb_retina.jpg": "/final-project-frontend-goose/static/media/image3_tb_retina.f8eb33df40cb7ffb6030.jpg",
+    "static/media/image2_tb_retina.jpg": "/final-project-frontend-goose/static/media/image2_tb_retina.a069a4d2db421dc25514.jpg",
+    "static/media/image3_dt_retina.jpg": "/final-project-frontend-goose/static/media/image3_dt_retina.77c6362d9b7e340ed6c5.jpg",
+    "static/media/image2_dt_retina.jpg": "/final-project-frontend-goose/static/media/image2_dt_retina.92e3e3036d9cad89afc1.jpg",
+    "static/media/image1_mb_retina.jpg": "/final-project-frontend-goose/static/media/image1_mb_retina.e1caa5af009612fc0376.jpg",
     "static/media/image1-tb.jpg": "/final-project-frontend-goose/static/media/image1-tb.6e17e525410a7809e681.jpg",
     "static/media/image1-dt.jpg": "/final-project-frontend-goose/static/media/image1-dt.c4d999902f2aedc17632.jpg",
+    "static/media/image2_mb_retina.jpg": "/final-project-frontend-goose/static/media/image2_mb_retina.c4b639f5659bc17474c3.jpg",
+    "static/media/image3_mb_retina.jpg": "/final-project-frontend-goose/static/media/image3_mb_retina.898655179a0469868ee9.jpg",
     "static/media/image3-tb.jpg": "/final-project-frontend-goose/static/media/image3-tb.8d264fe598b9f7f1d8a5.jpg",
     "static/media/image3-dt.jpg": "/final-project-frontend-goose/static/media/image3-dt.6ce85bd933afad454849.jpg",
     "static/media/image2-tb.jpg": "/final-project-frontend-goose/static/media/image2-tb.6d8084c4edd50e483ad3.jpg",
     "static/media/image2-dt.jpg": "/final-project-frontend-goose/static/media/image2-dt.0bd0d4e5cc9b2a32d402.jpg",
-    "static/media/goose.svg": "/final-project-frontend-goose/static/media/goose.c6a7b737f606941aca78d31d3dfc5946.svg",
     "static/media/image1-mb.jpg": "/final-project-frontend-goose/static/media/image1-mb.9e778d44e16555e64ef2.jpg",
     "static/media/image2-mb.jpg": "/final-project-frontend-goose/static/media/image2-mb.83dac6c87380496e973d.jpg",
     "static/media/image3-mb.jpg": "/final-project-frontend-goose/static/media/image3-mb.bf7cc0cf6d7963ae323b.jpg",
     "static/media/sugnUpImg.png": "/final-project-frontend-goose/static/media/sugnUpImg.5d5569b579467bf92252.png",
     "static/media/logInImg.png": "/final-project-frontend-goose/static/media/logInImg.f177ca1f2ab9bb8fa9c4.png",
+    "static/media/logo_dt@2.png": "/final-project-frontend-goose/static/media/logo_dt@2.d3b18deda85de8fbe594.png",
+    "static/media/logo_tb@2.png": "/final-project-frontend-goose/static/media/logo_tb@2.d3b18deda85de8fbe594.png",
+    "static/media/logo_mb@2.png": "/final-project-frontend-goose/static/media/logo_mb@2.b551aa571de84357edac.png",
     "static/media/sprite.svg": "/final-project-frontend-goose/static/media/sprite.ea31a6b11673b3c088fc8ca53e0e78f0.svg",
     "static/media/goose-404.svg": "/final-project-frontend-goose/static/media/goose-404.7f5c707d2723b3671d6d7b2118812fd9.svg",
+    "static/media/logo_dt@1.png": "/final-project-frontend-goose/static/media/logo_dt@1.15a5fc151ed0468e7c09.png",
+    "static/media/logo_tb@1.png": "/final-project-frontend-goose/static/media/logo_tb@1.15a5fc151ed0468e7c09.png",
     "static/media/slick.svg": "/final-project-frontend-goose/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/final-project-frontend-goose/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/final-project-frontend-goose/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/final-project-frontend-goose/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/final-project-frontend-goose/index.html",
     "static/media/review-delete.svg": "/final-project-frontend-goose/static/media/review-delete.5ab627dbad326a5361f58db228dd32a0.svg",
-    "static/media/login-icon.svg": "/final-project-frontend-goose/static/media/login-icon.89b72c4c3399de373085c8003fa56216.svg",
     "static/media/reviews-arrow-right.svg": "/final-project-frontend-goose/static/media/reviews-arrow-right.a22cdf87a7132e781406da0f90b2321e.svg",
     "static/media/reviews-arrow-left.svg": "/final-project-frontend-goose/static/media/reviews-arrow-left.419843934514a4ec72e12d89da762d2a.svg",
     "main.23e1fe99.css.map": "/final-project-frontend-goose/static/css/main.23e1fe99.css.map",
-    "main.9019fee9.js.map": "/final-project-frontend-goose/static/js/main.9019fee9.js.map"
+    "main.75397633.js.map": "/final-project-frontend-goose/static/js/main.75397633.js.map"
   },
   "entrypoints": [
     "static/css/main.23e1fe99.css",
-    "static/js/main.9019fee9.js"
+    "static/js/main.75397633.js"
   ]
 }
