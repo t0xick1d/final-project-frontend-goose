@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { token } from 'redux-store/AuthOperations/AuthOperations';
 
 axios.defaults.baseURL = 'https://goose-track-ity9.onrender.com/api/';
 
@@ -13,7 +14,15 @@ const getAllReviews = createAsyncThunk('reviews', async (_, thunkAPI) => {
 });
 
 const getUserReview = createAsyncThunk('userReview', async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+  const persistedToken = state.auth.token;
+
+  if (persistedToken === null) {
+    return thunkAPI.rejectWithValue('No valid token');
+  }
+
   try {
+    token.set(persistedToken);
     const response = await axios.get('/reviews/own');
     const userReview = {
       comment: response.data.comment,

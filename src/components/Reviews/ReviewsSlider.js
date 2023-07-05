@@ -62,10 +62,14 @@ export default function ReviewsSlider() {
           <UserReviewsBlock>
             <Slider {...sliderSettings} ref={c => (slider = c)}>
               {reviews.map(item => {
+                const avatarUrl = item.owner
+                  ? item.owner.avatarURL
+                  : 'https://photoshablon.com/_ph/44/2/193521795.jpg?1687495594';
+
                 return (
                   <ReviewsBox
                     key={item._id}
-                    avatarUrl={item.avatarURL}
+                    avatarUrl={avatarUrl}
                     name={item.name}
                     rating={item.rating}
                     comment={item.comment}
