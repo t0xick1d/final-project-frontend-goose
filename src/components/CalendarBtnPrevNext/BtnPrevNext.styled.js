@@ -12,7 +12,7 @@ export const device = {
 
 export const BtnPrevContainer = styled.button`
   border-radius: 8px 0 0 8px;
-  border: 1px solid var(--task-border-color);
+  border: 1px solid var(--calendartable-border-color);
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
@@ -24,7 +24,7 @@ export const BtnPrevContainer = styled.button`
 
   svg {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    fill: #111111;
+    fill: var(--title-text-main-color);
   }
   @media ${device.tablet} {
     width: 38px;
@@ -33,14 +33,14 @@ export const BtnPrevContainer = styled.button`
   :hover {
     transform: scale(1.2);
     svg {
-      fill: var(--accent-color);
+      fill: var(--accent);
     }
   }
 `;
 
 export const BtnNextContainer = styled.button`
   border-radius: 0 8px 8px 0;
-  border: 1px solid var(--task-border-color);
+  border: 1px solid var(--calendartable-border-color);
   overflow: hidden;
   cursor: pointer;
   padding: 8px, 12px, 8px, 12px;
@@ -54,7 +54,7 @@ export const BtnNextContainer = styled.button`
 
   svg {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    fill: #111111;
+    fill: var(--title-text-main-color);
   }
 
   @media ${device.tablet} {
@@ -64,7 +64,7 @@ export const BtnNextContainer = styled.button`
   :hover {
     transform: scale(1.2);
     svg {
-      fill: var(--accent-color);
+      fill: var(--accent);
     }
   }
 `;

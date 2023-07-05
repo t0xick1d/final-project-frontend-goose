@@ -5,7 +5,7 @@ export const SvgBtn = styled.svg`
   height: 16px;
   cursor: pointer;
   fill: none;
-  stroke: #111111;
+  stroke: var(--title-text-main-color);
 `;
 
 export const ModalContent = styled.div`
@@ -41,7 +41,7 @@ export const ModalContent = styled.div`
 `;
 
 export const Button = styled.div`
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -50,7 +50,7 @@ export const Button = styled.div`
   outline: none;
   border: none;
 
-  color: var(--basic-text-color);
+  color: var(--title-text-main-color);
   display: flex;
   justify-content: space-between;
 

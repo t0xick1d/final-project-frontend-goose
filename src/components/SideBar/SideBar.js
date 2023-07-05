@@ -24,10 +24,12 @@ import {
 } from './SideBar.styled';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux-store/AuthOperations/AuthOperations';
+import { format } from 'date-fns';
 
 export default function SideBar({ onCloseClick, isOpen }) {
   const dispatch = useDispatch();
 
+  const today = format(new Date(), 'yyyy-MM');
   return (
     <SideBarContainer isOpen={isOpen}>
       <SideBarDiv>
@@ -57,7 +59,11 @@ export default function SideBar({ onCloseClick, isOpen }) {
               </StyledNavLink>
             </li>
             <li>
-              <StyledNavLink to="calendar" onClick={onCloseClick}>
+              <StyledNavLink
+                to={`/calendar/month/${today}`}
+                onClick={onCloseClick}
+              >
+
                 <CalendarIcon>
                   <use href={`${Icons}#icon-calendar-check`}></use>
                 </CalendarIcon>

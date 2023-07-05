@@ -18,7 +18,6 @@ import {
 } from './FeedbackFormStyled';
 import ReviewDelteSvg from '../../images/icons/review-delete.svg';
 import { useEffect, useState } from 'react';
-import { getUser } from 'redux-store/Slices/AuthSlice';
 import { selectUserReview } from 'redux-store/Reviews/reviewsSelector';
 import { useDispatch, useSelector } from 'react-redux';
 import ReviewsOperations from 'redux-store/Reviews/reviewsOperations';
@@ -42,7 +41,6 @@ export default function FeedbackForm({ handleClose }) {
   const [editButtonActivate, setEditButtonActivate] = useState(false);
 
   const dispatch = useDispatch();
-  const userSelector = useSelector(getUser);
   const userReview = useSelector(selectUserReview);
 
   useEffect(() => {
@@ -74,7 +72,6 @@ export default function FeedbackForm({ handleClose }) {
   };
 
   function createReviews(values) {
-    const userName = userSelector.user.name;
     if (starsNumber === 0) {
       setIsThereRating(false);
       return;
@@ -82,7 +79,6 @@ export default function FeedbackForm({ handleClose }) {
 
     dispatch(
       ReviewsOperations.addUserReview({
-        name: userName,
         comment: values.reviewText,
         rating: starsNumber,
       })
@@ -91,10 +87,8 @@ export default function FeedbackForm({ handleClose }) {
   }
 
   function editReviews(values) {
-    const userName = userSelector.user.name;
     dispatch(
       ReviewsOperations.editUserReview({
-        name: userName,
         comment: values.reviewText,
         rating: starsNumber,
       })
@@ -115,6 +109,14 @@ export default function FeedbackForm({ handleClose }) {
   };
 
   const handleReviewEdit = async () => {
+    if (editButtonActivate) {
+      setEditButtonActivate(false);
+      setFieldInputDisabled(true);
+      setRatingStarsReadonly(true);
+      setBtnSaveDisabled(true);
+      return;
+    }
+    
     setEditButtonActivate(true);
     setFieldInputDisabled(false);
     setRatingStarsReadonly(false);
@@ -148,7 +150,7 @@ export default function FeedbackForm({ handleClose }) {
 
       <ButtonWindowClose type="button" onClick={handleClose}>
         <IconClose>
-          <use href={`${Icons}#icon-x-close`}></use>
+          <use href={`${Icons}#icon-x-close-feedback`}></use>
         </IconClose>
       </ButtonWindowClose>
 

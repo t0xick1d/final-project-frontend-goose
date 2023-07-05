@@ -13,7 +13,9 @@ export const device = {
 
 export const TypesContainerDay = styled(NavLink)`
   background-color: ${({ isactive }) =>
-    isactive === 'yes' ? 'rgba(202, 232, 255, 1);' : 'rgba(227, 243, 255, 1);'};
+    isactive === 'yes'
+      ? 'var(--active-selection)'
+      : 'var(--calendar-bg-color)'};
   border-radius: ${({ tab }) =>
     tab === 'Day' ? '0 8px 8px 0;' : '8px 0 0 8px;'};
   border: 0;
@@ -30,7 +32,10 @@ export const TypesContainerDay = styled(NavLink)`
     width: 82px;
   }
 
-  color: #3e85f3;
+  color: ${({ isactive }) =>
+    isactive === 'yes'
+      ? 'var(--active-btn-calendar-switch)'
+      : 'var(--noactive-btn-calendar-switch)'};
 
   font-style: normal;
   font-weight: 500;
@@ -42,8 +47,8 @@ export const TypesContainerDay = styled(NavLink)`
   &:hover,
   &:focus,
   &:active {
-    background-color: rgba(202, 232, 255, 1);
-    color: rgba(62, 133, 243, 1);
+    background-color: var(--active-selection);
+    color: var(--active-btn-calendar-switch);
   }
 
   @media ${device.tablet} {
