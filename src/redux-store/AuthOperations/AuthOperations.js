@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import swal from 'sweetalert';
+import './auth.css';
 
 axios.defaults.baseURL = 'https://goose-track-ity9.onrender.com/api/';
 
@@ -20,6 +21,7 @@ export const register = createAsyncThunk('auth/register', async userData => {
     console.log(response);
 
     swal('Success!', 'Letter with verification sent on your email', 'success');
+
     return response.data;
   } catch (e) {
     console.log(e.response.data);

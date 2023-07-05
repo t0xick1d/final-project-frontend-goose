@@ -4,6 +4,7 @@ import {
   logIn,
   logOut,
   fetchCurrentUser,
+  updateUser,
 } from '../AuthOperations/AuthOperations';
 
 const initialState = {
@@ -68,6 +69,9 @@ export const authSlice = createSlice({
         state.user = action.payload.user;
         state.isLoggedIn = true;
         state.isRefresh = false;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = { ...state.user, ...action.payload };
       }),
 });
 

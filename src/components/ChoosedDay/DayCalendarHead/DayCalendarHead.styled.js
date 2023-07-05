@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  /* display: block; */
-  /* align-items: center; */
   font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.12;
+  text-transform: uppercase;
+
   min-height: 74px;
   max-width: 335px;
   margin-bottom: 16px;
-  border: 1px solid var(--task-card-color);
+  border: 1px solid var(--calendartable-border-color);
   border-radius: 8px;
   padding: 14px 18px;
-  background-color: var(--sidebar-background-color);
-
+  background-color: var(--main-background-color);
   @media screen and (min-width: 768px) {
-    /* margin-bottom: 18px; */
     max-width: 704px;
     min-height: 74px;
     padding: 10px 32px;

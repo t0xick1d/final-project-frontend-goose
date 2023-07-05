@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: 18px;
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.5);
-  background: #fff;
+  border: 1px solid var(--calendartable-border-color);
+  background-color: var(--main-background-color);
   max-width: 335px;
 
   display: flex;

@@ -85,6 +85,11 @@ export const ButtonReviewEdit = styled.button`
       ? 'var(--accent-background-color)'
       : 'var(--background-feedback-form-btn-edit)'};
   cursor: pointer;
+
+  :hover,
+  :focus {
+    scale: 1.1;
+  }
 `;
 
 export const ButtonReviewDelete = styled.button`
@@ -101,6 +106,11 @@ export const ButtonReviewDelete = styled.button`
   border-radius: 50px;
   background: var(--background-feedback-form-btn-delete);
   cursor: pointer;
+
+  :hover,
+  :focus {
+    scale: 1.1;
+  }
 `;
 
 export const FieldInput = styled(Field)`

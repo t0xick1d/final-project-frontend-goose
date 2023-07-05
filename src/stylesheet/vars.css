@@ -34,7 +34,6 @@
   --sidebar-background-color: #ffffff;
   --active-btn-color: #2b78ef;
 
-
   /* tasks */
   --task-high-color: #ea3d65;
   --task-med-color: #f3b249;
@@ -59,7 +58,8 @@
   --modal-edit-icon-stroke: #ffffff;
   --fill-icon: rgba(52, 52, 52, 0.5);
   --border-statistics: #e3f3ff;
-
+  --calendartable-border-color: rgba(220, 227, 229, 0.8);
+  
   /* form */
   --input-bcg-color: #f7f7f7;
   --border-input: #ffffff2f;
@@ -75,13 +75,15 @@
   /* backgroung button */
   --background-button-month: #cae8ff;
   --background-button-day: #e3f3ff;
+  --background-button-day-add: #e3f3ff;
+
 
   /* calendar */
+  --active-selection: #CAE8FF;
   --input-text-color: #616161;
   --user-name-color: #343434;
-  --calendar-bg-color: #ffffff;
+  --calendar-bg-color: #E3F3FF;
   --calendar-border-color: rgba(220, 227, 229, 0.5);
-
   --background-feedback-form-btn-edit: #e3f3ff;
   --background-feedback-form-btn-delete: rgba(234, 61, 101, 0.2);
   --background-feedack-form-btn-action: #e5edfa;
@@ -98,6 +100,7 @@
   --inactive-btn-text-color: #ffffff;
   --active-selection: #3e85f3;
   --calendar-date-color: #ffffff;
+  --calendar-day-color: rgba(250, 250, 250, 0.3);
   --task-field-text-color: #ffffff;
   --text-404: rgba(255, 255, 255, 1);
   --input-border-color: #ffffff26;
@@ -106,11 +109,10 @@
   --text-priority-other-color: #171820;
   --text-404: rgba(255, 255, 255, 1);
   --feedback-form-text-input: #ffffff;
-  --feedback-form-text: rgba(250, 250, 250, 0.30);
+  --feedback-form-text: rgba(250, 250, 250, 0.3);
   --title-sidebar: rgba(250, 250, 250, 0.3);
-  --logo-text: #E3F3FF;
+  --logo-text: #e3f3ff;
   --btn-border-color: rgba(255, 255, 255, 0.15);
-
 
   /* backgroung */
   --calendar-bg-color: rgba(33, 34, 44, 1);
@@ -121,9 +123,6 @@
   --task-field-color: #171820;
   --active-btn-color: #2b78ef;
   --task-field-color: #171820;
-  ;
-
-
   /* form */
   --input-bcg-color: #171820;
   --border-input: #ffffff2f;
@@ -144,10 +143,9 @@
   --modal-close-icon: #ffffff;
   --modal-edit-icon-fill: #3e85f3;
   --modal-edit-icon-stroke: #ffffff;
-  --fill-icon: #FFFFFF;
+  --fill-icon: #ffffff;
   --border-statistics: rgba(227, 243, 255, 0.15);
-  ;
-
+  --calendartable-border-color: rgba(255, 255, 255, 0.15);
   /* backgroung button */
   --background-button-month: #3e85f3;
   --background-button-day: #21222c;
@@ -159,8 +157,9 @@
   --calendar-border-color: rgba(255, 255, 255, 0.15);
 
   --background-button-day: rgba(33, 34, 44, 1);
+  --background-button-day-add: #3e85f3;
   --background-feedback-form-btn-edit: #353647;
   --background-feedback-form-btn-delete: rgba(234, 61, 101, 0.2);
   --background-feedack-form-btn-action: #21222c;
-
 }
+

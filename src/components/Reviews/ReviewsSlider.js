@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectAllReviews } from 'redux-store/Reviews/reviewsSelector';
 import ReviewsOperations from 'redux-store/Reviews/reviewsOperations';
 import Slider from 'react-slick';
+import Spiner from '../Spiner/Spiner';
 
 export default function ReviewsSlider() {
   let slider;
@@ -56,29 +57,39 @@ export default function ReviewsSlider() {
   return (
     <ReviewsWrapper>
       <ReviewsHeader>Reviews</ReviewsHeader>
-      <UserReviewsBlock>
-        <Slider {...sliderSettings} ref={c => (slider = c)}>
-          {reviews.map(item => {
-            return (
-              <ReviewsBox
-                key={item._id}
-                avatarUrl={item.avatarURL}
-                name={item.name}
-                rating={item.rating}
-                comment={item.comment}
-              />
-            );
-          })}
-        </Slider>
-      </UserReviewsBlock>
-      <ButtonList>
-        <ButtonArrow onClick={handlePrevious}>
-          <img src={ArrowLeft} alt="Scroll left to review" />
-        </ButtonArrow>
-        <ButtonArrow onClick={handleNext}>
-          <img src={ArrowRight} alt="Scroll right to review" />
-        </ButtonArrow>
-      </ButtonList>
+      {reviews.length > 0 ? (
+        <>
+          <UserReviewsBlock>
+            <Slider {...sliderSettings} ref={c => (slider = c)}>
+              {reviews.map(item => {
+                const avatarUrl = item.owner
+                  ? item.owner.avatarURL
+                  : 'https://photoshablon.com/_ph/44/2/193521795.jpg?1687495594';
+
+                return (
+                  <ReviewsBox
+                    key={item._id}
+                    avatarUrl={avatarUrl}
+                    name={item.name}
+                    rating={item.rating}
+                    comment={item.comment}
+                  />
+                );
+              })}
+            </Slider>
+          </UserReviewsBlock>
+          <ButtonList>
+            <ButtonArrow onClick={handlePrevious}>
+              <img src={ArrowLeft} alt="Scroll left to review" />
+            </ButtonArrow>
+            <ButtonArrow onClick={handleNext}>
+              <img src={ArrowRight} alt="Scroll right to review" />
+            </ButtonArrow>
+          </ButtonList>
+        </>
+      ) : (
+        <Spiner />
+      )}
     </ReviewsWrapper>
   );
 }
