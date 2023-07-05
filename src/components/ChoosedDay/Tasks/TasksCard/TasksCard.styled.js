@@ -134,3 +134,73 @@ export const DropdownBtn = styled.button`
   padding: 0;
   cursor: pointer;
 `;
+
+export const ModalDeleteWrapper = styled.div`
+  text-align: center;
+  padding: 20px;
+`;
+
+export const ModalDeleteFont = styled.div`
+  font-size: 18px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+`;
+
+export const ModalDeleteTitle = styled.h3`
+  margin-bottom: 20px;
+`;
+
+export const ModalDeleteText = styled.h3`
+  margin-bottom: 20px;
+  font-weight: 400;
+`;
+
+export const ModalCalcelButton = styled.button`
+  appearance: button;
+  background-color: #0276ff;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: nunito, roboto, proxima-nova, 'proxima nova', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-transform: none;
+  transition: color 0.13s ease-in-out, background 0.13s ease-in-out,
+    opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
+  margin-right: 30px;
+  &:active {
+    background-color: #006ae8;
+  }
+
+  &:hover {
+    background-color: #1c84ff;
+  }
+`;
+
+export const ModalDeleteButton = styled.button`
+  background: #ff4742;
+  border: 1px solid #ff4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, 'proxima nova', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  &:hover,
+  &:active {
+    opacity: 0.9;
+  }
+`;

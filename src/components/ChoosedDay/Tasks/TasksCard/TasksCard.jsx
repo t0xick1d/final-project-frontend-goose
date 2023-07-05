@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { BsTrash3 } from 'react-icons/bs';
+import { IconContext } from 'react-icons';
 import {
   List,
   SvgBtn,
@@ -9,6 +11,12 @@ import {
   Avatar,
   Grade,
   DropdownBtn,
+  ModalDeleteWrapper,
+  ModalDeleteFont,
+  ModalDeleteTitle,
+  ModalDeleteText,
+  ModalCalcelButton,
+  ModalDeleteButton,
 } from './TasksCard.styled';
 import Icons from '../../../../images/sprite.svg';
 import {
@@ -27,6 +35,7 @@ export default function TasksCard({ task }) {
   const [isVisible, setIsVisible] = useState(false);
   const [positionModal, setPositionModal] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
 
   const Portal = ({ children }) => {
     return createPortal(children, document.body);
@@ -123,10 +132,18 @@ export default function TasksCard({ task }) {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+  const handleShowDeleteModal = taskId => {
+    setShowDeleteConfirmModal(true);
+  };
   const handleDDeleteTask = taskId => {
-    if (window.confirm('Are you sure you want to delete the task?')) {
+    if (showDeleteConfirmModal) {
       dispatch(deleteTask(taskId));
     }
+  };
+
+  const closeDeleteModal = () => {
+    setShowDeleteConfirmModal(false);
   };
 
   return (
@@ -157,17 +174,37 @@ export default function TasksCard({ task }) {
             >
               <use href={`${Icons}#icon-pencil-grey`}></use>
             </SvgBtn>
-            <SvgBtn
-              onClick={() => {
-                handleDDeleteTask(task._id);
-              }}
-            >
+            <SvgBtn onClick={handleShowDeleteModal}>
               <use href={`${Icons}#icon-trash`}></use>
             </SvgBtn>
           </List>
         </Wrapper>
       </Item>
-
+      {showDeleteConfirmModal && (
+        <Modal open={showDeleteConfirmModal} handleClose={closeDeleteModal}>
+          <ModalDeleteWrapper>
+            <IconContext.Provider
+              value={{ color: 'red', className: 'trashIcon', size: '5em' }}
+            >
+              <BsTrash3 style={{ marginBottom: '20px' }} />
+            </IconContext.Provider>
+            <ModalDeleteFont class="confirmation-delete">
+              <ModalDeleteTitle>Confirm Deletion</ModalDeleteTitle>
+              <ModalDeleteText>
+                Are you sure you want to delete this task?
+              </ModalDeleteText>
+              <div class="confirmation-buttons">
+                <ModalCalcelButton onClick={closeDeleteModal}>
+                  Cancel
+                </ModalCalcelButton>
+                <ModalDeleteButton onClick={() => handleDDeleteTask(task._id)}>
+                  Delete
+                </ModalDeleteButton>
+              </div>
+            </ModalDeleteFont>{' '}
+          </ModalDeleteWrapper>
+        </Modal>
+      )}
       {showModal && (
         <Modal
           open={showModal}
