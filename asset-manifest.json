@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/final-project-frontend-goose/static/css/main.23e1fe99.css",
-    "main.js": "/final-project-frontend-goose/static/js/main.75397633.js",
+    "main.css": "/final-project-frontend-goose/static/css/main.c6e87a89.css",
+    "main.js": "/final-project-frontend-goose/static/js/main.0507bf5f.js",
     "static/media/image1_tb_retina.jpg": "/final-project-frontend-goose/static/media/image1_tb_retina.0a420ae0d2c7a5bab327.jpg",
     "static/media/image1_dt_retina.jpg": "/final-project-frontend-goose/static/media/image1_dt_retina.a3e1eca30171e26d56ca.jpg",
     "static/media/image3_tb_retina.jpg": "/final-project-frontend-goose/static/media/image3_tb_retina.f8eb33df40cb7ffb6030.jpg",
@@ -37,11 +37,11 @@
     "static/media/review-delete.svg": "/final-project-frontend-goose/static/media/review-delete.5ab627dbad326a5361f58db228dd32a0.svg",
     "static/media/reviews-arrow-right.svg": "/final-project-frontend-goose/static/media/reviews-arrow-right.a22cdf87a7132e781406da0f90b2321e.svg",
     "static/media/reviews-arrow-left.svg": "/final-project-frontend-goose/static/media/reviews-arrow-left.419843934514a4ec72e12d89da762d2a.svg",
-    "main.23e1fe99.css.map": "/final-project-frontend-goose/static/css/main.23e1fe99.css.map",
-    "main.75397633.js.map": "/final-project-frontend-goose/static/js/main.75397633.js.map"
+    "main.c6e87a89.css.map": "/final-project-frontend-goose/static/css/main.c6e87a89.css.map",
+    "main.0507bf5f.js.map": "/final-project-frontend-goose/static/js/main.0507bf5f.js.map"
   },
   "entrypoints": [
-    "static/css/main.23e1fe99.css",
-    "static/js/main.75397633.js"
+    "static/css/main.c6e87a89.css",
+    "static/js/main.0507bf5f.js"
   ]
 }
