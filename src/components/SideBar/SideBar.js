@@ -1,6 +1,7 @@
 import React from 'react';
 import Icons from '../../images/sprite.svg';
 import GooseImg from '../../images/icons/goose-min.png';
+import GooseImgRetina from '../../images/icons/goose-min@2x.png';
 import { CgClose } from 'react-icons/cg';
 import {
   SideBarContainer,
@@ -32,7 +33,10 @@ export default function SideBar({ onCloseClick, isOpen }) {
       <SideBarDiv>
         <LogoConrainer>
           <Logo>
-            <LogoIcon src={GooseImg} alt="logo" />
+            <picture>
+              <source srcSet={GooseImgRetina} media="(min-resolution: 2dppx)" />
+              <LogoIcon src={GooseImg} alt="logo" />
+            </picture>
             <Text>
               G<Span>oo</Span>seTrack
             </Text>
@@ -45,24 +49,18 @@ export default function SideBar({ onCloseClick, isOpen }) {
           <TitleSideBar>User Panel</TitleSideBar>
           <SideBarLink>
             <li>
-              <StyledNavLink
-                to="account"
-                onClick={onCloseClick}
-              >
-                  <IconUser>
-                    <use href={`${Icons}#icon-user-check`}></use>
-                  </IconUser>
+              <StyledNavLink to="account" onClick={onCloseClick}>
+                <IconUser>
+                  <use href={`${Icons}#icon-user-check`}></use>
+                </IconUser>
                 My account
               </StyledNavLink>
             </li>
             <li>
-              <StyledNavLink
-                to="calendar"
-                onClick={onCloseClick}
-              >
-                  <CalendarIcon>
-                    <use href={`${Icons}#icon-calendar-check`}></use>
-                  </CalendarIcon>
+              <StyledNavLink to="calendar" onClick={onCloseClick}>
+                <CalendarIcon>
+                  <use href={`${Icons}#icon-calendar-check`}></use>
+                </CalendarIcon>
                 Calendar
               </StyledNavLink>
             </li>
