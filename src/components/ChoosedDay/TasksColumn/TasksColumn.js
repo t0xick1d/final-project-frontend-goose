@@ -33,11 +33,9 @@ export const TasksColumn = ({ columnTitle, tasks }) => {
 
         {tasks.length > 0 && (
           <ScrollableContainer>
-            <ul>
-              {tasks.map(task => (
-                <TasksCard key={task._id} task={task} />
-              ))}
-            </ul>
+            {tasks.map(task => (
+              <TasksCard key={task._id} task={task} />
+            ))}
           </ScrollableContainer>
         )}
 
