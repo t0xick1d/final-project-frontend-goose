@@ -33,7 +33,7 @@ import { TaskModal } from '../TaskModal/TaskModal';
 
 export default function TasksCard({ task }) {
   const [isVisible, setIsVisible] = useState(false);
-  const [positionModal, setPositionModal] = useState({});
+  // const [positionModal, setPositionModal] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
 
@@ -42,11 +42,11 @@ export default function TasksCard({ task }) {
   };
 
   const modalRef = useRef(null);
-  useEffect(() => {
-    const x = modalRef.current.getBoundingClientRect().x;
-    const y = modalRef.current.getBoundingClientRect().y;
-    setPositionModal({ x, y });
-  }, [isVisible]);
+  // useEffect(() => {
+  //   const x = modalRef.current.getBoundingClientRect().x;
+  //   const y = modalRef.current.getBoundingClientRect().y;
+  //   setPositionModal({ x, y });
+  // }, [isVisible]);
 
   const columnsTitles = [
     { title: 'To do', category: 'todo' },
@@ -169,10 +169,10 @@ export default function TasksCard({ task }) {
         <Portal>
           <TaskModal
             position={{
-              left: positionModal.x,
-              top: positionModal.y,
+              left: modalRef.current.getBoundingClientRect().x,
+              top: modalRef.current.getBoundingClientRect().y,
             }}
-            onClose={handleMoveCard}
+            onClose={handleClickMove}
             onEdit={handleMoveCard}
             columns={otherColumns}
           />

@@ -15,10 +15,10 @@ export const ModalContent = styled.div`
     const { left, top } = position;
     return `    
         left: ${left + 185}px;
-      top: ${top + 70}px;
+      top: ${top + 100}px;
       @media (min-width: 768px) {
       left: ${left + 205}px;
-      top: ${top + 70}px;
+      top: ${top + 100}px;
   }
 
     `;

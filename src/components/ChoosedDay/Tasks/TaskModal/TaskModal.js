@@ -31,23 +31,33 @@ export const TaskModal = ({ onClose, onEdit, columns, position }) => {
 
   return (
     <>
-      <ModalContent position={position} onMouseLeave={onClose} ref={modalRef}>
-        {columns.map(column => {
-          return (
-            <Button
-              key={column.category}
-              onClick={() => {
-                onEdit(column.category);
-              }}
-            >
-              {column.title}
-              <SvgBtn>
-                <use href={`${Icons}#icon-arrow`}></use>
-              </SvgBtn>
-            </Button>
-          );
-        })}
-      </ModalContent>
+      <div
+        style={{
+          position: 'fixed',
+          left: '0',
+          top: '0',
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
+        <ModalContent position={position} ref={modalRef}>
+          {columns.map(column => {
+            return (
+              <Button
+                key={column.category}
+                onClick={() => {
+                  onEdit(column.category);
+                }}
+              >
+                {column.title}
+                <SvgBtn>
+                  <use href={`${Icons}#icon-arrow`}></use>
+                </SvgBtn>
+              </Button>
+            );
+          })}
+        </ModalContent>
+      </div>
     </>
   );
 };
